@@ -9,7 +9,8 @@ calibrated intervals, damage/scope outputs and the required physical benchmark.
 
 The assignment-specific work now includes a [stock capture protocol](docs/CAPTURE_PROTOCOL.md),
 [device matrix](docs/DEVICE_MATRIX.md), a raw-media intake command and a provisional
-gate evaluator. These additions make failures inspectable; they do not make the
+gate evaluator. [Incremental E2E results](docs/ASSIGNMENT_E2E_STATUS.md) record
+the actual success and failure statuses. These additions make failures inspectable; they do not make the
 three-tier accuracy claim valid.
 
 ```powershell

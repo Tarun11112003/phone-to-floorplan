@@ -40,14 +40,15 @@ def test_photos_enforce_assignment_range(tmp_path):
         prepare_capture('photos', room.parent, tmp_path / 'intake')
 
 
-def _scanner_fixture(path, missing_depth=False):
+def _scanner_fixture(path, missing_depth=False, high_resolution_rgb=False):
     path.mkdir()
     (path / 'depth').mkdir()
     (path / 'confidence').mkdir()
     frames = path / 'video_frames'
     frames.mkdir()
     for number in range(2):
-        Image.fromarray(np.full((24, 32, 3), number * 100, dtype=np.uint8)).save(frames / f'{number:06d}.png')
+        rgb_shape=(48,64,3) if high_resolution_rgb else (24,32,3)
+        Image.fromarray(np.full(rgb_shape, number * 100, dtype=np.uint8)).save(frames / f'{number:06d}.png')
         if not missing_depth or number == 0:
             cv2.imwrite(str(path / 'depth' / f'{number:06d}.png'), np.full((24, 32), 2000, dtype=np.uint16))
         cv2.imwrite(str(path / 'confidence' / f'{number:06d}.png'), np.full((24, 32), 2, dtype=np.uint8))
@@ -58,8 +59,10 @@ def _scanner_fixture(path, missing_depth=False):
         writer = csv.DictWriter(file, fieldnames=fields)
         writer.writeheader()
         for number in range(2):
+            scale=2 if high_resolution_rgb else 1
             writer.writerow(dict(timestamp=number / 2, frame=number, x=number / 10, y=0, z=0,
-                                 qx=0, qy=0, qz=0, qw=1, fx=25, fy=25, cx=16, cy=12))
+                                 qx=0, qy=0, qz=0, qw=1, fx=25*scale, fy=25*scale,
+                                 cx=16*scale, cy=12*scale))
 
 
 def test_stray_scanner_import_preserves_depth_intrinsics_and_pose(tmp_path):
@@ -80,6 +83,18 @@ def test_stray_scanner_missing_depth_fails_loudly(tmp_path):
     _scanner_fixture(source, missing_depth=True)
     with pytest.raises(ValueError, match='pair missing'):
         prepare_capture('lidar', source, tmp_path / 'intake')
+
+
+def test_stray_scanner_scales_rgb_and_intrinsics_together(tmp_path):
+    source = tmp_path / 'scanner'
+    _scanner_fixture(source, high_resolution_rgb=True)
+    manifest_path = prepare_capture('lidar', source, tmp_path / 'intake')
+    sequence = json.loads((manifest_path.parent / 'sequence.json').read_text())
+    frame = sequence['frames'][0]
+    assert frame['intrinsics']['fx'] == 25
+    assert frame['intrinsics']['cx'] == 16
+    with Image.open(frame['rgb']) as image:
+        assert image.size == (32,24)
 
 
 def test_one_command_leaves_auditable_failure_for_two_photos(tmp_path):

@@ -6,11 +6,14 @@ pre-change baseline. Since then, `floorplan/assignment_gates.py` and
 `floorplan/ingest.py` and `run-capture` normalize room photo folders, MOV/MP4 and
 Stray Scanner-format RGB-D; [capture protocol](CAPTURE_PROTOCOL.md) and
 [device matrix](DEVICE_MATRIX.md) document Route 2. The current test suite passes
-27 tests. A two-photo capture produces an auditable failure because the existing
+28 tests. A two-photo capture produces an auditable failure because the existing
 SfM backend requires five overlapping images. Frozen V3 plans fail the new
 assignment gates for missing ceiling heights and intervals. Physical benchmark,
 sparse 2-view geometry, metric RGB scale, 3+room stitch, damage/scope, interval
 calibration and schema conformance remain incomplete.
+The repository was initialized at this current-state baseline on 2026-10-06;
+earlier local work has no recoverable commit history in this workspace. See
+[incremental E2E evidence](ASSIGNMENT_E2E_STATUS.md) for the new checks.
 
 Source of authority: [Applied AI.html](<Applied AI.html>), Cozmo AI Case Study, Aug 2026.
 This audit supersedes earlier descriptions of assignment readiness. V3 is a useful

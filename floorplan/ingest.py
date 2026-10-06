@@ -103,13 +103,12 @@ def prepare_stray_scanner(source, output):
     if not rows or not keys.issubset(rows[0]):
         raise ValueError('Stray Scanner odometry header is incomplete')
     frames_dir=output/'frames'; frames_dir.mkdir()
-    command=[imageio_ffmpeg.get_ffmpeg_exe(),'-loglevel','error','-i',str(source/'rgb.mp4'),
+    command=[imageio_ffmpeg.get_ffmpeg_exe(),'-loglevel','error','-noautorotate','-i',str(source/'rgb.mp4'),
              '-vsync','0','-start_number','0',str(frames_dir/'rgb_%06d.png')]
     subprocess.run(command,capture_output=True,text=True,check=True)
     import cv2
     records=[]
     origin_time=None
-    first_down_direction=None
     seen_frames=set()
     for row in rows:
         number=int(row['frame']); depth=source/'depth'/f'{number:06d}.png'
@@ -123,26 +122,38 @@ def prepare_stray_scanner(source, output):
         rgb_image=cv2.imread(str(rgb),cv2.IMREAD_UNCHANGED)
         if depth_image is None or depth_image.dtype!=np.uint16 or depth_image.ndim!=2:
             raise ValueError(f'Depth frame {number} must be 16-bit millimetres')
-        if rgb_image is None or rgb_image.shape[:2]!=depth_image.shape:
-            raise ValueError(f'RGB/depth dimensions differ at {number}; camera registration is required')
+        if rgb_image is None:
+            raise ValueError(f'RGB frame {number} cannot be decoded')
+        rgb_height,rgb_width=rgb_image.shape[:2]
+        depth_height,depth_width=depth_image.shape
+        if abs(rgb_width/rgb_height-depth_width/depth_height)>1e-3:
+            raise ValueError(f'RGB/depth aspect ratios differ at {number}; calibrated registration is required')
         distortion=source/'distortion'/f'{number:06d}.bin'
         if distortion.exists():
             raise ValueError('Capture has a distortion lookup table; calibrated rectification must be implemented before inference')
         confidence=source/'confidence'/f'{number:06d}.png'
         if confidence.parent.exists() and not confidence.exists():
             raise ValueError(f'Confidence frame missing at {number}')
-        camera=dict(width=depth_image.shape[1],height=depth_image.shape[0],
-                    fx=float(row['fx']),fy=float(row['fy']),cx=float(row['cx']),cy=float(row['cy']))
+        if confidence.exists():
+            confidence_image=cv2.imread(str(confidence),cv2.IMREAD_UNCHANGED)
+            if confidence_image is None or confidence_image.shape!=depth_image.shape or not np.isin(confidence_image,[0,1,2]).all():
+                raise ValueError(f'Confidence frame {number} must match depth with values 0, 1 or 2')
+        sx,sy=depth_width/rgb_width,depth_height/rgb_height
+        camera=dict(width=depth_width,height=depth_height,
+                    fx=float(row['fx'])*sx,fy=float(row['fy'])*sy,
+                    cx=float(row['cx'])*sx,cy=float(row['cy'])*sy)
         if min(camera['fx'],camera['fy'])<=0 or not 0<=camera['cx']<camera['width'] or not 0<=camera['cy']<camera['height']:
             raise ValueError(f'Invalid intrinsics for frame {number}')
+        if (rgb_height,rgb_width)!=(depth_height,depth_width):
+            registered=frames_dir/f'registered_{number:06d}.png'
+            cv2.imwrite(str(registered),cv2.resize(rgb_image,(depth_width,depth_height),interpolation=cv2.INTER_AREA))
+            rgb=registered
         quaternion=np.array([float(row[k]) for k in ('qx','qy','qz','qw')])
         if abs(np.linalg.norm(quaternion)-1)>.01:
             raise ValueError(f'Non-unit camera quaternion at frame {number}')
         pose=np.eye(4)
         pose[:3,:3]=Rotation.from_quat(quaternion/np.linalg.norm(quaternion)).as_matrix() @ np.diag([1,-1,-1])
         pose[:3,3]=[float(row[k]) for k in ('x','y','z')]
-        if first_down_direction is None:
-            first_down_direction=pose[:3,1].tolist()
         timestamp=float(row['timestamp'])
         if origin_time is None: origin_time=timestamp
         record=dict(id=number,timestamp_s=timestamp-origin_time,rgb=str(rgb),depth=str(depth),
@@ -157,10 +168,10 @@ def prepare_stray_scanner(source, output):
                   coordinate_conversion='ARKit camera right/up/back to OpenCV right/down/forward')
     (output/'sequence.json').write_text(json.dumps(sequence,indent=2),encoding='utf-8')
     return _write(output,dict(schema_version=2,tier='lidar',sequence='sequence.json',
-                              optimize_poses=True,down_direction=first_down_direction),
+                              optimize_poses=True,down_direction=[0,-1,0]),
                   dict(format='stray_scanner',version_tested='format.md as read 2026-10-06; device untested',
                        source=str(source),source_sha256={str(p):_hash(p) for p in required[:2]},frames=len(records),
-                       note='Sensor coordinate and RGB/depth registration require physical verification'))
+                       note='RGB resampled to depth resolution with scaled per-frame intrinsics; optical registration and sensor coordinates require physical verification'))
 
 
 def prepare_capture(tier, source, output):

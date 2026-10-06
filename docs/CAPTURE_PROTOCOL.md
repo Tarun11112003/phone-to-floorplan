@@ -26,9 +26,10 @@ floor-plan app's processed model as input.
 4. **LiDAR:** on a LiDAR iPhone, install [Stray Scanner](https://github.com/strayrobots/scanner)
    if available in your region. Record the same slow walkthrough; export the **raw**
    `odometry.csv`, `rgb.mp4`, `depth/`, and `confidence/` files together. Preserve
-   their names and frame numbers. The importer requires registered RGB/depth at the
-   same resolution and rejects unsupported distortion tables; inspect the diagnostic
-   if an app version exports a different format.
+   their names and frame numbers. The importer resizes RGB to depth resolution and
+   scales per-frame intrinsics when their aspect ratios match; it rejects unsupported
+   distortion tables or aspect-ratio mismatches. Inspect the diagnostic if an app
+   version exports a different format.
 5. **Transfer and run:** copy the folder or original clip to the Windows computer.
    Install once using the README instructions. Open PowerShell at the repository
    root. Choose the matching command, using a new output directory each time:
