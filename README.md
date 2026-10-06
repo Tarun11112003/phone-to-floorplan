@@ -28,6 +28,11 @@ unless a ready plan exists. The published JSON schema and earlier Round 1 rules
 referenced in the brief were not included in the supplied HTML, so the evaluator
 is versioned as provisional. The exact benchmark still requires a surveyed
 three-room property, repeated independent captures and consumer-app exports.
+On LiDAR runs where walls are observed but a room stays open,
+`result/layout_diagnostic.svg` shows the supported segments and camera path.
+The supplied `datasets/Given_dataset/` has been exercised as a real raw-input
+checkpoint; its three scans currently yield diagnostic failures rather than a
+certified plan. Results and causes are in the incremental E2E report.
 
 This repository is a **CPU, code-only research prototype** for restoration floor plans. It includes calibrated RGB-D mapping, actual phone LiDAR ingestion, concave multiroom layouts, verified capture stitching, measured-scale RGB multi-view stereo, and auditable SVG/DXF/JSON/CSV outputs.
 

@@ -15,7 +15,10 @@ commands below and the documented V3 fixture.
 | E2E 1c: Stray Scanner format | Two-frame generated fixture with odometry, RGB, 16-bit mm depth and confidence | Import tests pass, including high-resolution RGB resampling, per-frame intrinsics, missing depth and orientation conversion. | Format parsing only; no physical device or accuracy validation. |
 | E2E 4 preparatory repeatability check | Same frozen V3 photo plan supplied twice, plus synthetic paired regression cases | Same-file wall spread passes trivially; ceiling spread/accuracy fail due missing heights. A consistent 4 cm height bias passes spread but fails accuracy in regression. | Scorer works; same files are not independent physical captures. |
 | E2E 3 preparatory ceiling check | Controlled V3 simulated LiDAR sequence, 97 frames | New geometric ceiling detector leaves both heights null because no sufficiently supported ceiling surface is observed. Tracking and two-room reconstruction remain intact; runtime 4.16 s. | Correct missing-evidence behavior, not a passing height gate. Synthetic broad-ceiling and cabinet-top tests pass. |
-| Regression suite | 32 tests | All pass in 19.93 s on this workstation. | Software invariants, not field acceptance. |
+| Provided `single_room` LiDAR export | 1,715-frame raw Stray Scanner capture | 172 frames imported; direct-quaternion ablation tracks all frames and finds six supported wall segments, but no closed room because of a roughly 0.96 m wall gap and unverified boundary. | Real raw-media path works; no final plan or accuracy claim. |
+| Provided `single_scan_floor_only` LiDAR export | 5,251 odometry/depth frames; video ends one frame earlier | 175 aligned frames processed through `run-capture`; one missing video-tail frame is logged. No closed plan: insufficient vertical wall support. | This challenge capture lacks needed wall coverage. |
+| Provided `single_scan_with_ceiling` LiDAR export | 9,745 odometry frames, 6,899 paired depth/confidence frames | Import logs 2,846 unpaired frames and samples 300. Direct-quaternion reconstruction tracks all 300 but has only four parallel wall segments; no closed plan. | Ceiling coverage alone does not establish a floor-plan boundary. |
+| Regression suite | 36 tests | All pass in 25.69 s on this workstation. | Software invariants, not field acceptance. |
 
 Commands for the scored frozen plans (run each tier in `photos video lidar`):
 
@@ -34,3 +37,35 @@ room capture, damage regions, and a two-room consumer-app comparison. The code
 still lacks sparse-photo metric reconstruction, separate-room property stitching,
 ceiling estimates, complete openings, calibrated intervals and restoration scope.
 No centimeter-level field result can yet be claimed.
+
+## User-provided raw dataset checkpoint
+
+`datasets/Given_dataset/` was supplied after the first audit. It is intentionally
+ignored by Git because the raw captures are large. The three directories are
+Stray Scanner exports with original RGB/depth/confidence/odometry and IMU. There
+are **no tape/laser dimensions, opening labels, or certified room polygons** in
+those folders, so they are integration and structural-coverage tests, not an
+accuracy benchmark. The first adapter assumption flipped camera axes incorrectly;
+the frozen same-frame direct-quaternion ablation restored vertical planes, and
+the importer now uses that interpretation. The source format is documented in
+[Stray Scanner's data specification](https://github.com/strayrobots/scanner/blob/main/docs/format.md).
+
+```powershell
+& .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier lidar --source datasets\Given_dataset\single_scan_floor_only\1a8384c3f6 --out demo\given_floor_only_replay --max-frames 180
+```
+
+The other two raw exports can be passed to the same command. The initial
+`single_room` and `single_scan_with_ceiling` runs used an explicit same-input pose
+ablation while correcting the adapter; `single_room` was then replayed with the
+current one-command importer, 172/172 tracked frames and six wall segments. All
+three runs presently fail to produce a
+closed, dimensioned plan. The next geometry experiment should compare the
+wall-gap candidate against independently measured room dimensions before closing
+it automatically; treating an occlusion gap as a door without evidence risks a
+phantom opening under the assignment gate.
+
+When wall segments exist but cannot form a room, the pipeline now writes
+`layout_diagnostic.svg` alongside the failure ledger. The current
+[`single_room` diagnostic](../demo/given_single_room_run_v2/result/layout_diagnostic.svg)
+shows the six supported segments and camera path; it is a diagnostic rendering,
+not a dimensioned plan.

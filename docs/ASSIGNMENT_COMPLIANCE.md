@@ -6,7 +6,7 @@ pre-change baseline. Since then, `floorplan/assignment_gates.py` and
 `floorplan/ingest.py` and `run-capture` normalize room photo folders, MOV/MP4 and
 Stray Scanner-format RGB-D; [capture protocol](CAPTURE_PROTOCOL.md) and
 [device matrix](DEVICE_MATRIX.md) document Route 2. The current test suite passes
-32 tests. A two-photo capture produces an auditable failure because the existing
+36 tests. A two-photo capture produces an auditable failure because the existing
 SfM backend requires five overlapping images. Frozen V3 plans fail the new
 assignment gates for missing ceiling heights and intervals. Physical benchmark,
 sparse 2-view geometry, metric RGB scale, 3+room stitch, damage/scope, interval
@@ -17,6 +17,12 @@ exists yet, so that physical gate is still open.
 The LiDAR layout path now attempts observed ceiling-plane heights with broad
 support checks; the current V3 sequence lacks sufficient ceiling evidence and
 still reports null heights, as required by the failure policy.
+The subsequently supplied `datasets/Given_dataset/` has now been exercised on
+all three raw LiDAR exports. See [E2E status](ASSIGNMENT_E2E_STATUS.md): the importer
+exposed real missing depth/video frames and a camera-axis error, both corrected,
+but none of those captures yet produces a closed plan. The folders have no
+independent laser/tape ground truth, so they cannot score the assignment's
+centimeter-level accuracy gates.
 The repository was initialized at this current-state baseline on 2026-10-06;
 earlier local work has no recoverable commit history in this workspace. See
 [incremental E2E evidence](ASSIGNMENT_E2E_STATUS.md) for the new checks.

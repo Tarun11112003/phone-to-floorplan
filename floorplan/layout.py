@@ -243,6 +243,42 @@ def extract_layout(points, planes, camera_centers, down=None, path_breaks=()):
                                    'small endpoint gaps <=15 cm may be joined', 'only traversed doorway gaps are closed']}
 
 
+def render_layout_diagnostic(metadata, output: Path):
+    """Show observed wall segments even when they cannot close a floor plan."""
+    segments=metadata.get('wall_segments',[])
+    path=metadata.get('camera_path_2d',[])
+    endpoints=[]
+    for segment in segments:
+        if segment['axis']==0:
+            endpoints.append(((segment['location'],segment['lo']),(segment['location'],segment['hi'])))
+        else:
+            endpoints.append(((segment['lo'],segment['location']),(segment['hi'],segment['location'])))
+    all_points=[point for pair in endpoints for point in pair]+[tuple(p) for p in path]
+    if not all_points:
+        return None
+    xs,zs=zip(*all_points)
+    min_x,max_x=min(xs)-.5,max(xs)+.5
+    min_z,max_z=min(zs)-.5,max(zs)+.5
+    scale=min(740/(max_x-min_x),700/(max_z-min_z))
+    def xy(point):
+        return (40+(point[0]-min_x)*scale,740-(point[1]-min_z)*scale)
+    lines=['<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">',
+           '<rect width="800" height="800" fill="#fff"/>',
+           '<text x="40" y="28" font-family="Arial" font-size="18">Observed geometry (metres)</text>']
+    if len(path)>1:
+        coords=' '.join(f'{x:.1f},{y:.1f}' for x,y in map(xy,path))
+        lines.append(f'<polyline points="{coords}" fill="none" stroke="#bbb" stroke-width="2"/>')
+    for left,right in endpoints:
+        x1,y1=xy(left); x2,y2=xy(right)
+        lines.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#135d99" stroke-width="4"/>')
+        for x,y in ((x1,y1),(x2,y2)):
+            lines.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4" fill="#135d99"/>')
+    lines.append('<text x="40" y="780" font-family="Arial" font-size="15" fill="#a33">Blue: supported walls. Grey: camera path. Gaps remain unclosed.</text>')
+    lines.append('</svg>')
+    output.write_text('\n'.join(lines),encoding='utf-8')
+    return output
+
+
 def export_layout(rooms, metadata, output: Path, metric_status='sensor_scaled', complete_capture=True):
     if not rooms:
         raise ValueError('No closed room supported by observed walls and camera coverage')
