@@ -7,8 +7,10 @@ Personal engineering reference. Updated 2026-10-05. The target is a code-driven 
 ## Current implementation update
 
 The implementation has advanced beyond the baseline diagrams on this page.
-Use [V2 implementation](V2_IMPLEMENTATION.md) for the current executable flow,
-measurement isolation diagram, manifest contracts and explicit remaining gaps.
+Use [restoration flow](RESTORATION_FLOW.md) for the current executable flow,
+internal assessment contract, uncertainty and damage scope, and explicit remaining
+gaps. [Open-source decisions](OPEN_SOURCE_DECISIONS.md) records actual model experiments.
+The [V3 implementation](V3_IMPLEMENTATION.md) documents the geometry baseline.
 The diagrams below preserve the initial target and baseline for comparison.
 
 ## 1. Intended three-tier architecture

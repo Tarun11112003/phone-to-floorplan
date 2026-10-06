@@ -22,8 +22,8 @@ def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: in
     output = output.resolve()
     if not source.exists():
         raise FileNotFoundError(source)
-    if fps <= 0 or max_frames < 5:
-        raise ValueError("fps must be positive and max_frames must be at least 5")
+    if fps <= 0 or max_frames < 2:
+        raise ValueError("fps must be positive and max_frames must be at least 2")
     if matching_mode not in {"auto", "sequential", "exhaustive"}:
         raise ValueError("matching_mode must be auto, sequential or exhaustive")
     output.mkdir(parents=True, exist_ok=True)
@@ -48,6 +48,8 @@ def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: in
         import numpy as np
         from PIL import Image, ImageOps
         candidates = sorted(p for p in images.iterdir() if p.suffix.lower() in {'.jpg','.jpeg','.png'})
+        if not candidates:
+            raise ValueError('At least two usable overlapping images are required')
         selected = output/'selected_images'; selected.mkdir()
         quality = []
         # Temporal bins retain spatial coverage; choose sharpest view per bin.
@@ -74,8 +76,8 @@ def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: in
     image_count = sum(1 for item in images.iterdir() if item.suffix.lower() in {".jpg", ".jpeg", ".png"})
     if matching_mode != "auto":
         sequential = matching_mode == "sequential"
-    if image_count < 5:
-        raise ValueError("At least five overlapping images are required for this experiment")
+    if image_count < 2:
+        raise ValueError("At least two usable overlapping images are required after quality selection")
     extraction = pycolmap.FeatureExtractionOptions(num_threads=4)
     matching = pycolmap.FeatureMatchingOptions(num_threads=4)
     reader = pycolmap.ImageReaderOptions(camera_model=camera_model, camera_params=camera_params)
@@ -88,6 +90,9 @@ def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: in
     sparse = output / "sparse"
     sparse.mkdir(exist_ok=True)
     options = pycolmap.IncrementalPipelineOptions(num_threads=4, random_seed=7)
+    options.min_model_size = min(options.min_model_size,image_count)
+    if image_count == 2:
+        options.triangulation.ignore_two_view_tracks = False
     if camera_params:
         # Explicit calibration is a measurement, not a free optimization variable.
         options.ba_refine_focal_length = False
@@ -105,5 +110,7 @@ def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: in
     result["matching_method"] = "sequential" if sequential else "exhaustive"
     result['images_directory'] = str(images)
     result['calibration_fixed'] = bool(camera_params)
+    result['minimum_model_size'] = options.min_model_size
+    result['two_view_tracks_enabled'] = not options.triangulation.ignore_two_view_tracks
     (output / "sfm_summary.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
     return result

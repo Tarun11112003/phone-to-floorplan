@@ -52,6 +52,19 @@ def main() -> None:
     unified = commands.add_parser('reconstruct', help='Unified calibrated photos/video/LiDAR capture workflow')
     unified.add_argument('manifest',type=Path)
     unified.add_argument('--out',required=True,type=Path)
+    unified.add_argument('--pose-correction',choices=['on','off'],default=None)
+    metric = commands.add_parser('benchmark-metric-depth',help='Optional RGB-only learned depth versus sensor depth')
+    metric.add_argument('sequence',type=Path)
+    metric.add_argument('--out',required=True,type=Path)
+    metric.add_argument('--images',type=int,default=8)
+    ablation = commands.add_parser('compare-pose-correction',help='Compare identical-input correction off/on runs')
+    ablation.add_argument('off',type=Path)
+    ablation.add_argument('on',type=Path)
+    ablation.add_argument('--out',required=True,type=Path)
+    calibration = commands.add_parser('calibrate-intervals',help='Fit intervals from independent-property residuals')
+    calibration.add_argument('records',type=Path)
+    calibration.add_argument('--out',required=True,type=Path)
+    calibration.add_argument('--confidence',type=float,default=.95)
     intake = commands.add_parser('prepare-capture',help='Normalize stock phone photos, video or Stray Scanner export')
     intake.add_argument('--tier',choices=['photos','video','lidar'],required=True)
     intake.add_argument('--source',required=True,type=Path)
@@ -112,11 +125,30 @@ def main() -> None:
     rgbd.add_argument("output", type=Path)
     rgbd.add_argument("--max-frames", type=int)
     args = parser.parse_args()
-    if args.command == 'reconstruct':
+    if args.command == 'compare-pose-correction':
+        from .ablation import compare_pose_correction
+        result=compare_pose_correction(args.off,args.on)
+        args.out.parent.mkdir(parents=True,exist_ok=True)
+        args.out.write_text(json.dumps(result,indent=2),encoding='utf-8')
+        print(json.dumps(result,indent=2))
+    elif args.command == 'calibrate-intervals':
+        from .uncertainty import fit_calibration
+        result=fit_calibration(json.loads(args.records.read_text(encoding='utf-8')),args.confidence)
+        args.out.parent.mkdir(parents=True,exist_ok=True)
+        args.out.write_text(json.dumps(result,indent=2),encoding='utf-8')
+        print(json.dumps(result,indent=2))
+    elif args.command == 'benchmark-metric-depth':
+        from .metric_depth import benchmark_sensor_agreement
+        print(json.dumps(benchmark_sensor_agreement(args.sequence,args.out,args.images),indent=2))
+    elif args.command == 'reconstruct':
         from .workflow import reconstruct
-        ledger = reconstruct(args.manifest,args.out)
-        print(json.dumps({'run_id':ledger['run_id'],'result':ledger['result'],'runtime_s':ledger['runtime_s']},indent=2))
-        if ledger['result']['status'] == 'failed':
+        ledger = reconstruct(args.manifest,args.out,
+                             None if args.pose_correction is None else args.pose_correction=='on')
+        print(json.dumps({'run_id':ledger['run_id'],'status':ledger['result']['status'],
+                          'floor_plan_ready':ledger['result'].get('floor_plan_ready',False),
+                          'assessment_status':ledger.get('assessment_status'),
+                          'report':str(args.out/'report.html'),'runtime_s':ledger['runtime_s']},indent=2))
+        if not ledger['result'].get('floor_plan_ready',False) or ledger.get('assessment_status')=='failed':
             raise SystemExit(1)
     elif args.command in {'prepare-capture','run-capture'}:
         from .ingest import prepare_capture

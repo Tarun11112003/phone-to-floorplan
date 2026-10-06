@@ -154,5 +154,7 @@ def test_one_command_leaves_auditable_failure_for_two_photos(tmp_path):
     assert result.returncode == 1
     ledger = json.loads((output / 'result' / 'run.json').read_text())
     assert ledger['result']['status'] == 'failed'
-    assert 'five overlapping images' in ledger['result']['reason']
+    assert 'two usable overlapping images' in ledger['result']['reason']
+    assert (output / 'result' / 'assessment.json').exists()
+    assert (output / 'result' / 'report.html').exists()
     assert (output / 'intake' / 'capture.json').exists()

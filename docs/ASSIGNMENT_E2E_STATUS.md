@@ -7,6 +7,39 @@ machine-readable gate results are in ignored `demo/assignment_e2e0/` and
 `demo/assignment_e2e1/` on this workstation. They can be regenerated from the
 commands below and the documented V3 fixture.
 
+## Latest restoration and open-source increment
+
+Earlier rows below are historical checkpoints. The current suite passes **44 tests**
+(12.08 s). The supplied single-room scan now produces a partial room, while sparse
+RGB inference is attempted for 2–8 photos instead of being rejected by a five-image rule.
+
+| Increment | Actual result | Acceptance limit |
+| --- | --- | --- |
+| Supported-cell geometry, unchanged 172-frame supplied capture | One 2.54 x 3.00 m partial room, 7.608 m2, 36.6% camera coverage | Unknown ceiling and missing boundaries; no survey truth |
+| Surface assessment and offline report | `demo/given_restoration_on/report.html`, validated internal `assessment.json`, evidence overlays and inspection scope | Heuristic candidate masks; published schema and statistical calibration pending |
+| Pose correction off/on | One partial room in both; 7.535/7.608 m2; 12.80/16.46 s; zero verified loops | Identical hashed inputs/code; change is not measured accuracy improvement |
+| Fresh V3 LiDAR regression | Two room polygons with exactly unchanged corner coordinates | Ceiling evidence remains insufficient; synthetic fixture with supplied poses |
+| Fresh V3 photo/video dense reconstruction and assessment | Two rooms each, exactly unchanged corner coordinates; 247.43/246.10 s | Reused hashed SfM caches and measured scale controls; not a fresh sparse-photo or clean-machine test |
+| Depth Anything V2 Small, actual pinned CPU model | Eight images; per-frame mean absolute depth disagreement with LiDAR 0.128–0.774 m | Experimental adapter retained; rejected as cm-scale measurement source |
+| Supplied RGB-only 2/4/8 subsets at 256x192 | All reach feature matching; all return `no_model`, no fabricated plan | Widely spaced frames do not provide verified matches |
+| Supplied RGB-only 8-image subset at original 1920x1440 | Still `no_model`, 18.97 s | More resolution alone did not establish sufficient correspondences |
+
+Sparse trials live under `demo/given_sparse_photo_trials/run_*`; each includes a
+failure report and run ledger. Sensor depth, sensor poses and calibration were not
+passed to these photo trials. They are extracted video views for debugging, not
+the brief's independent still-photo capture benchmark. Full-resolution matching
+also failed, so the low-resolution result is not the sole basis for the conclusion.
+See [research decisions](OPEN_SOURCE_DECISIONS.md), [restoration architecture](RESTORATION_FLOW.md),
+and prospective [geometry](fixes/001_SUPPORTED_CELLS.md) / [sparse-entry](fixes/002_SPARSE_PHOTO_ENTRY.md) fixes.
+
+[Archived regression summary](results/restoration_v3_regression.json) records all
+three tiers. Photo/video walls, openings, property footprint and topology pass the
+provisional synthetic gates. All three still fail ceiling and interval requirements;
+LiDAR wall tolerance remains pending the missing earlier definition. The assessment
+contains uncalibrated envelopes, but the legacy plan evaluator does not consume
+that separate contract and height intervals are unavailable regardless. Do not
+interpret the new assessment file as a passed interval gate.
+
 | Checkpoint | Data | Outcome | Meaning |
 |---|---|---|---|
 | E2E 0: frozen plan scoring | V3 controlled two-room photo, video and simulated LiDAR plans | Photo/video walls, openings, footprint and topology pass the newly stated provisional gates. All three fail ceiling and interval presence. LiDAR wall gate remains pending the missing Round 1 definition. | Old geometry success is not assignment completion. |

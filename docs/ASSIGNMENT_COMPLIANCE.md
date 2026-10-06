@@ -6,8 +6,9 @@ pre-change baseline. Since then, `floorplan/assignment_gates.py` and
 `floorplan/ingest.py` and `run-capture` normalize room photo folders, MOV/MP4 and
 Stray Scanner-format RGB-D; [capture protocol](CAPTURE_PROTOCOL.md) and
 [device matrix](DEVICE_MATRIX.md) document Route 2. The current test suite passes
-36 tests. A two-photo capture produces an auditable failure because the existing
-SfM backend requires five overlapping images. Frozen V3 plans fail the new
+44 tests after the restoration/depth experiment increment. The former five-photo
+SfM restriction is removed; actual 2/4/8 supplied RGB subsets still fail to form a
+verified sparse model. Frozen V3 plans fail the new
 assignment gates for missing ceiling heights and intervals. Physical benchmark,
 sparse 2-view geometry, metric RGB scale, 3+room stitch, damage/scope, interval
 calibration and schema conformance remain incomplete.
@@ -20,12 +21,23 @@ still reports null heights, as required by the failure policy.
 The subsequently supplied `datasets/Given_dataset/` has now been exercised on
 all three raw LiDAR exports. See [E2E status](ASSIGNMENT_E2E_STATUS.md): the importer
 exposed real missing depth/video frames and a camera-axis error, both corrected,
-but none of those captures yet produces a closed plan. The folders have no
+and the supported-cell fallback now produces one partial single-room proposal.
+The other captures remain diagnostic failures. The folders have no
 independent laser/tape ground truth, so they cannot score the assignment's
 centimeter-level accuracy gates.
 The repository was initialized at this current-state baseline on 2026-10-06;
 earlier local work has no recoverable commit history in this workspace. See
 [incremental E2E evidence](ASSIGNMENT_E2E_STATUS.md) for the new checks.
+
+**Restoration increment:** internal JSON schema validation, surface-keyed measurements,
+explicit uncalibrated intervals, experimental damage candidates with RGB-D projection,
+cross-view union, named concealed-risk rules, inspection scope and offline HTML are
+implemented. These are partial implementations, not validated damage/calibration
+or published-schema compliance. The correction on/off experiment accepted no loops
+and cannot establish improvement without survey truth. A pinned open-source depth
+model was run on eight provided images and rejected as a measurement source based
+on 0.13–0.77 m per-image mean absolute disagreement with LiDAR.
+See [current flow](RESTORATION_FLOW.md) and [research decisions](OPEN_SOURCE_DECISIONS.md).
 
 Source of authority: [Applied AI.html](<Applied AI.html>), Cozmo AI Case Study, Aug 2026.
 This audit supersedes earlier descriptions of assignment readiness. V3 is a useful

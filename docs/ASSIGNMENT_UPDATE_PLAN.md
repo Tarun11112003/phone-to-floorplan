@@ -4,6 +4,28 @@ Authority: [exact brief](<Applied AI.html>) and [current compliance audit](ASSIG
 This is the implementation plan following the audit, not a claim that these changes
 have already shipped. Preserve V3 artifacts as regression evidence.
 
+## Implementation checkpoint, 2026-10-06
+
+The plan below remains the acceptance roadmap. Completed software increments now
+include raw intake, assignment and repeatability evaluators, observed-ceiling
+checks, partial supported-cell geometry, internal assessment contract, surface
+measurements, experimental RGB-D damage projection/deduplication, inspection scope,
+concealed-risk rules, uncertainty calibration primitives and offline reports.
+The supplied-data correction ablation is reproducible through
+`reconstruct --pose-correction off|on` and `compare-pose-correction`.
+
+Open-source research is being evaluated through actual bounded experiments; the
+first pinned Depth Anything Small run is recorded in [OPEN_SOURCE_DECISIONS.md](OPEN_SOURCE_DECISIONS.md).
+It did not justify replacing measured geometry. Current implementation and
+remaining acceptance evidence are in [RESTORATION_FLOW.md](RESTORATION_FLOW.md).
+
+Next acceptance work: improve sparse-photo pose/scale coverage; validate remaining
+real-scan geometry; replace experimental damage masks with a evaluated detector;
+apply intervals after collecting independent calibration properties; adapt to the
+published schema when supplied; perform the surveyed three-tier repeated-capture
+and consumer comparison; record fresh-environment runtime. Missing real evidence
+must remain visible rather than being replaced by synthetic passes.
+
 ## Approach
 
 Use Route 2, a stock capture protocol, to retain the code-only desktop deliverable.

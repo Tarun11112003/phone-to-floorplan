@@ -7,7 +7,7 @@ name = "cozmo-floorplan-demo"
 version = "0.1.0"
 description = "Auditable, code-only photo/video to floor-plan demonstration"
 requires-python = ">=3.10"
-dependencies = ["numpy>=1.24", "Pillow>=10", "Shapely>=2", "ezdxf>=1.3", "imageio-ffmpeg>=0.5"]
+dependencies = ["numpy>=1.24", "Pillow>=10", "Shapely>=2", "ezdxf>=1.3", "imageio-ffmpeg>=0.5", "jsonschema>=4,<5"]
 
 [project.optional-dependencies]
 test = ["pytest>=8"]
@@ -16,12 +16,16 @@ rgbd = ["opencv-python-headless>=4.10,<6"]
 mapping = ["open3d>=0.19,<0.20", "scipy>=1.11", "psutil>=5.9"]
 evaluation = ["matplotlib>=3.8"]
 capture = ["pillow-heif>=0.18,<2"]
+learned-depth = ["torch==2.6.0", "transformers==4.49.0"]
 
 [project.scripts]
 cozmo-floorplan = "floorplan.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["floorplan*"]
+
+[tool.setuptools.package-data]
+floorplan = ["schemas/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

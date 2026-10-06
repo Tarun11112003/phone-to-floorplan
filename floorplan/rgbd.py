@@ -174,6 +174,7 @@ def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None =
     previous = None
     poses, logs, clouds, colors, feature_history, weights = [], [], [], [], [], []
     previous_k = k
+    camera_calibrations=[]
     failure = None
     skipped = []
     recovery_limit = int(manifest.get('tracking_recovery_frames', 5))
@@ -208,7 +209,12 @@ def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None =
                 pose = np.asarray(frame['camera_to_world'], float)
                 if pose.shape != (4,4) or not np.isfinite(pose).all() or not np.allclose(pose[3], [0,0,0,1]) or not np.allclose(pose[:3,:3].T @ pose[:3,:3], np.eye(3), atol=1e-4) or np.linalg.det(pose[:3,:3]) < 0.99:
                     raise ValueError('Invalid rigid sensor camera-to-world pose')
-                current = None
+                # Sensor poses are a prior; retain visual evidence for verified
+                # historical loop constraints with each frame's own intrinsics.
+                try:
+                    current = _features(cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY), depth, sift, cv2)
+                except ValueError:
+                    current = None
             else:
                 current = _features(cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY), depth, sift, cv2)
             if previous is not None and not supplied:
@@ -237,6 +243,7 @@ def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None =
         colors.append(rgb[yy, xx].reshape(-1, 3)[valid, ::-1])
         weights.append((confidence[yy, xx].ravel()[valid].astype(float)+1) / np.maximum(z[valid], 0.5)**2)
         feature_history.append(current)
+        camera_calibrations.append(k.copy())
         previous = current
         previous_k = k
         if index % 25 == 0:
@@ -246,16 +253,18 @@ def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None =
         (output / "rgbd_summary.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
         return result
     pose_matrices = [np.asarray(p['camera_to_first']) for p in poses]
+    raw_pose_matrices=[p.copy() for p in pose_matrices]
+    (output/'raw_trajectory.json').write_text(json.dumps(poses,indent=2),encoding='utf-8')
     mapping = {'enabled': False, 'pose_source': manifest.get('pose_source', 'estimated')}
     if manifest.get('optimize_poses', False) and len(poses) > 2:
         from .mapping import optimize_poses
-        constant_calibration = all(f.get('intrinsics', camera) == camera for f in frames)
         pose_matrices, mapping = optimize_poses(clouds, pose_matrices,
-            feature_history if not supplied and constant_calibration else None, k,
-            keyframe_stride=manifest.get('keyframe_stride', 5))
+            feature_history, k, keyframe_stride=manifest.get('keyframe_stride', 5),
+            calibrations=camera_calibrations)
         mapping['enabled'] = True
         for entry, matrix in zip(poses, pose_matrices):
             entry['camera_to_first'] = matrix.tolist()
+    mapping['max_camera_translation_correction_m']=float(max(np.linalg.norm(a[:3,3]-b[:3,3]) for a,b in zip(raw_pose_matrices,pose_matrices)))
     cloud = np.concatenate([c @ p[:3,:3].T + p[:3,3] for c,p in zip(clouds, pose_matrices)])
     color = np.concatenate(colors)
     from .layout import weighted_voxels, extract_layout, export_layout, render_layout_diagnostic

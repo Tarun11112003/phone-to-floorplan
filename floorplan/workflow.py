@@ -50,11 +50,13 @@ def _input_files(data, root):
     return paths
 
 
-def reconstruct(manifest_path: Path, output: Path):
+def reconstruct(manifest_path: Path, output: Path, pose_correction=None):
     manifest_path = manifest_path.resolve(); output = output.resolve()
     if output.exists() and any(output.iterdir()):
         raise FileExistsError('Use a fresh output directory for a reproducible run')
     data = read_manifest(manifest_path)
+    if pose_correction is not None:
+        data['optimize_poses'] = bool(pose_correction)
     output.mkdir(parents=True,exist_ok=True)
     started = time.perf_counter()
     stop = threading.Event(); peak = [0]
@@ -144,13 +146,6 @@ def reconstruct(manifest_path: Path, output: Path):
         (output/'error.log').write_text(traceback.format_exc(),encoding='utf-8')
         result = {'status':'failed','floor_plan_ready':False,'error_type':type(exc).__name__,'reason':str(exc)}
         ledger['result'] = result
-    finally:
-        stop.set(); watcher.join(timeout=1)
-        ledger['runtime_s'] = time.perf_counter()-started
-        ledger['peak_process_tree_rss_bytes'] = peak[0]
-        ledger['code_sha256_at_completion'] = {p.name:file_hash(p) for p in Path(__file__).parent.glob('*.py')}
-        ledger['code_changed_during_run'] = ledger['code_sha256'] != ledger['code_sha256_at_completion']
-        (output/'run.json').write_text(json.dumps(ledger,indent=2),encoding='utf-8')
     artifact = output/'artifacts'/'plan.json'
     if artifact.exists():
         # Stable top-level filenames for consumers; detailed stage data stays nested.
@@ -160,4 +155,23 @@ def reconstruct(manifest_path: Path, output: Path):
     else:
         diagnostic=output/'artifacts'/'layout_diagnostic.svg'
         if diagnostic.exists(): shutil.copy2(diagnostic,output/'layout_diagnostic.svg')
+    from .assessment import write_assessment
+    assessment_started = time.perf_counter()
+    try:
+        write_assessment(output,ledger)
+        ledger['assessment_status'] = 'written'
+    except Exception as exc:
+        ledger['assessment_status'] = 'failed'
+        ledger['assessment_error'] = str(exc)
+        (output/'assessment_error.log').write_text(traceback.format_exc(),encoding='utf-8')
+    finally:
+        stop.set(); watcher.join(timeout=1)
+        ledger['assessment_runtime_s'] = time.perf_counter()-assessment_started
+        ledger['runtime_s'] = time.perf_counter()-started
+        ledger['peak_process_tree_rss_bytes'] = peak[0]
+        ledger['code_sha256_at_completion'] = {p.name:file_hash(p) for p in Path(__file__).parent.glob('*.py')}
+        ledger['code_changed_during_run'] = ledger['code_sha256'] != ledger['code_sha256_at_completion']
+        ledger['deliverable_sha256'] = {p.name:file_hash(p) for p in output.iterdir()
+                                      if p.is_file() and p.name != 'run.json'}
+        (output/'run.json').write_text(json.dumps(ledger,indent=2),encoding='utf-8')
     return ledger
