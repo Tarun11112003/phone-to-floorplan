@@ -33,6 +33,8 @@ def test_photos_keep_room_identity_and_exif_orientation(tmp_path):
             image = Image.new('RGB', (12, 8), (10 + index, 20, 30))
             exif = Image.Exif()
             exif[274] = 6
+            exif[271]='Fixture camera maker'
+            exif[272]='Fixture model'
             image.save(directory / f'IMG_{index:04d}.jpg', exif=exif)
     manifest_path = prepare_capture('photos', source, tmp_path / 'intake')
     manifest = json.loads(manifest_path.read_text())
@@ -41,6 +43,10 @@ def test_photos_keep_room_identity_and_exif_orientation(tmp_path):
     assert set(mapping['rooms']) == {'kitchen', 'hall'}
     assert len({row['normalized'] for row in mapping['images']}) == 4
     assert all((row['width'], row['height']) == (8, 12) for row in mapping['images'])
+    with Image.open(manifest_path.parent/mapping['images'][0]['normalized']) as normalized:
+        assert normalized.getexif().get(271)=='Fixture camera maker'
+        assert normalized.getexif().get(272)=='Fixture model'
+        assert normalized.getexif().get(274,1)==1
 
 
 def test_photos_enforce_assignment_range(tmp_path):
@@ -49,6 +55,24 @@ def test_photos_enforce_assignment_range(tmp_path):
     Image.new('RGB', (10, 10)).save(room / 'one.jpg')
     with pytest.raises(ValueError, match='2'):
         prepare_capture('photos', room.parent, tmp_path / 'intake')
+
+
+def test_heic_capture_decodes_to_audited_rgb_photos(tmp_path):
+    plugin=pytest.importorskip('pillow_heif')
+    plugin.register_heif_opener()
+    room=tmp_path/'source'/'room'; room.mkdir(parents=True)
+    for index in range(2):
+        image=Image.new('RGB',(64,48),(80+index*20,110,140))
+        exif=Image.Exif(); exif[271]='Fixture maker'; exif[272]='Fixture HEIC camera'
+        image.save(room/f'{index}.heic',format='HEIF',quality=90,exif=exif)
+    manifest=prepare_capture('photos',room.parent,tmp_path/'intake')
+    intake=json.loads((manifest.parent/'intake.json').read_text())
+    assert len(intake['images'])==2
+    for record in intake['images']:
+        assert len(record['source_sha256'])==64
+        with Image.open(manifest.parent/record['normalized']) as rgb:
+            assert rgb.mode=='RGB' and rgb.size==(64,48)
+            assert rgb.getexif()[272]=='Fixture HEIC camera'
 
 
 def _scanner_fixture(path, missing_depth=False, high_resolution_rgb=False, frame_count=2, video_count=None):
