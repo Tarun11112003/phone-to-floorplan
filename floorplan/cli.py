@@ -84,6 +84,11 @@ def main() -> None:
     assignment.add_argument('reference',type=Path)
     assignment.add_argument('--tier',choices=['photos','video','lidar'],required=True)
     assignment.add_argument('--out',required=True,type=Path)
+    repeat = commands.add_parser('evaluate-repeatability',help='Compare two independently captured plans and surveyed truth')
+    repeat.add_argument('first',type=Path)
+    repeat.add_argument('second',type=Path)
+    repeat.add_argument('reference',type=Path)
+    repeat.add_argument('--out',required=True,type=Path)
     frame = commands.add_parser("sample-video", help="Extract a frame to inspect or annotate")
     frame.add_argument("video", type=Path)
     frame.add_argument("image", type=Path)
@@ -134,6 +139,13 @@ def main() -> None:
         args.out.parent.mkdir(parents=True,exist_ok=True)
         args.out.write_text(json.dumps(metrics,indent=2),encoding='utf-8')
         print(json.dumps({key:metrics[key] for key in ('evaluator_version','tier','known_gates_pass','assignment_complete','pending_specifications')},indent=2))
+    elif args.command == 'evaluate-repeatability':
+        from .repeatability import evaluate_repeatability
+        metrics=evaluate_repeatability(*[json.loads(path.read_text(encoding='utf-8'))
+                                         for path in (args.first,args.second,args.reference)])
+        args.out.parent.mkdir(parents=True,exist_ok=True)
+        args.out.write_text(json.dumps(metrics,indent=2),encoding='utf-8')
+        print(json.dumps({key:metrics[key]['gate'] for key in ('wall_repeatability','ceiling_repeatability','ceiling_accuracy')},indent=2))
     elif args.command == 'evaluate-plan':
         from .benchmark import evaluate_polygons
         metrics=evaluate_polygons(json.loads(args.plan.read_text(encoding='utf-8')),json.loads(args.reference.read_text(encoding='utf-8')),args.alignment)

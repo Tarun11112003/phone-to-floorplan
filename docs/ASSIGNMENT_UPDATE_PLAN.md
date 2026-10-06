@@ -255,3 +255,11 @@ No expensive full reconstruction is needed merely for a documentation change.
 **Completed in this audit:** brief extraction, code/artifact comparison, 18-test
 baseline and this staged plan. All E2E checkpoints numbered 0–7 above are future
 assignment-specific work unless subsequently accompanied by their own run evidence.
+
+**Progress update, 2026-10-06:** [E2E status](ASSIGNMENT_E2E_STATUS.md) now records
+the Phase 0 frozen-plan gate audit, Phase 1 capture-intake experiments and a
+preparatory Phase 4 repeatability scorer. The stock capture protocol and device
+matrix are written but untested with an operator. The sparse-photo, physical
+three-room, damage, scope, drift ablation, calibrated-interval and walk-in gates
+remain open. A genuine Git repository starts from the present baseline; prior
+work has no recoverable local history.

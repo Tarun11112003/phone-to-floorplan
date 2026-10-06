@@ -19,6 +19,7 @@ three-tier accuracy claim valid.
 & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier video --source captures\walkthrough.mov --out runs\video_01
 & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier lidar --source captures\stray_export --out runs\lidar_01
 & .\.venv\Scripts\python.exe -m floorplan.cli evaluate-assignment runs\lidar_01\result\plan.json truth\property.json --tier lidar --out runs\lidar_01\gates.json
+& .\.venv\Scripts\python.exe -m floorplan.cli evaluate-repeatability runs\repeat_a\result\plan.json runs\repeat_b\result\plan.json truth\property.json --out runs\repeatability.json
 ```
 
 `run-capture` creates `intake/capture.json`, `intake/intake.json` and
