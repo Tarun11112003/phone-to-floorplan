@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 import numpy as np
-from shapely.geometry import LineString, Point, Polygon
+from shapely.geometry import LineString, MultiPoint, Point, Polygon
 from shapely.ops import polygonize, unary_union
 
 from .pipeline import _dxf, _quantities, _svg
@@ -122,6 +122,40 @@ def _line(s):
     return LineString([(s['lo'], s['location']), (s['hi'], s['location'])])
 
 
+def _observed_ceiling(poly, points, planes, basis, floor, camera_path):
+    """Use broad horizontal plane support above this room, never a height prior."""
+    if floor is None or not camera_path:
+        return None, None
+    inside_cameras=[c for c in camera_path if poly.buffer(.05).covers(Point(c[:2]))]
+    if not inside_cameras:
+        return None, None
+    camera_y=float(np.median([c[2] for c in inside_cameras]))
+    candidates=[]
+    for plane in planes:
+        normal=np.asarray(plane['normal'],dtype=float)@basis
+        if abs(normal[1])<.97 or plane.get('rms_m',1)>.03:
+            continue
+        level=-float(plane['offset'])/normal[1]
+        height=floor-level
+        if not 1.8<=height<=5.0 or level>camera_y-.5:
+            continue
+        support=points[np.abs(points@normal+plane['offset'])<.035]
+        support=support[(support[:,1]>level-.04)&(support[:,1]<level+.04)]
+        support=support[[poly.buffer(.05).covers(Point(p[0],p[2])) for p in support]]
+        if len(support)<100:
+            continue
+        spread=MultiPoint(support[:2000,[0,2]]).convex_hull.area
+        coverage=min(spread/poly.area,1.)
+        if coverage<.25:
+            continue
+        candidates.append((coverage,len(support),height,plane.get('rms_m')))
+    if not candidates:
+        return None,None
+    coverage,count,height,rms=max(candidates)
+    return float(height),dict(source='supported ceiling plane',support_points=count,
+                              coverage_fraction=float(coverage),plane_rms_m=rms)
+
+
 def extract_layout(points, planes, camera_centers, down=None, path_breaks=()):
     aligned, centers, basis, floor, orientation_evidence = floor_basis(points, planes, camera_centers, down)
     segments = _segments(aligned, planes, basis, floor)
@@ -173,9 +207,13 @@ def extract_layout(points, planes, camera_centers, down=None, path_breaks=()):
     rooms = []
     for i, poly in enumerate(polygons):
         corners = list(poly.exterior.coords)[:-1]
+        ceiling,ceiling_evidence=_observed_ceiling(poly,aligned,planes,basis,
+                                                   floor if orientation_evidence['floor_observed'] else None,
+                                                   centers[:,[0,2,1]].tolist())
         rooms.append({'id': f'room_{i}', 'label': f'Room {i+1}', 'corners': corners,
                       'local_corners': corners, 'placement': 'origin' if i == 0 else 'stitched',
-                      'metric_status': 'sensor_scaled', 'ceiling_height_m': None, 'openings': []})
+                      'metric_status': 'sensor_scaled', 'ceiling_height_m': ceiling,
+                      'ceiling_evidence':ceiling_evidence,'openings': []})
     connections = []
     for d in doors:
         line = _line(d)
