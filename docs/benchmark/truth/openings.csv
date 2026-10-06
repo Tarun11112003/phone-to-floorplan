@@ -1,0 +1,1 @@
+property_id,room_id,wall_id,opening_id,kind,start_xyz_m_json,end_xyz_m_json,width_m,height_m,through_room_id,measurement_method,truth_evidence_path,notes

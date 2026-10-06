@@ -2,6 +2,8 @@
 
 **Latest implementation:** [restoration flow and diagrams](docs/RESTORATION_FLOW.md)
 and [open-source experiments and decisions](docs/OPEN_SOURCE_DECISIONS.md).
+Phase 0's [benchmark inventory, manifest and truth templates](docs/benchmark/PHASE0_INVENTORY.md)
+show exactly which physical captures and external definitions remain outstanding.
 Fresh runs emit `assessment.json` and an offline `report.html` alongside geometry
 and provenance. The supplied single-room scan now yields one **partial** room;
 its missing boundaries, unknown ceiling and experimental inspection candidates

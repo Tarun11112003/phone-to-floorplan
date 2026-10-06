@@ -42,6 +42,7 @@ floor-plan app's processed model as input.
 
 Check `runs/<name>/result/run.json` for status and `plan.svg`/`plan.json` if
 produced. A nonzero exit or absent plan is a **failed/incomplete capture**; retain
-the raw data and error log. The current RGB path cannot resolve absolute scale from
-arbitrary unposed media, and the 2-photo case cannot pass its five-view SfM minimum.
-No result from this draft workflow is certified to centimeter accuracy.
+the raw data and error log. The code accepts 2–8 photos and attempts matching, but
+current supplied 2/4/8-photo trials form no verified sparse model. RGB scale and
+separate-room placement remain unresolved for arbitrary unposed media. No result
+from this draft workflow is certified to centimeter accuracy.

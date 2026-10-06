@@ -1,0 +1,1 @@
+property_id,room_id,entity_id,measurement_kind,raw_reading,unit,repeat_number,tool_name,tool_model,stated_resolution,operator_id,measured_at_utc,evidence_path,exclusion_reason,notes
