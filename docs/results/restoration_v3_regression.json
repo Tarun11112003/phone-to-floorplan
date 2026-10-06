@@ -1,0 +1,53 @@
+[
+  {
+    "tier": "photos",
+    "status": "proposal_requires_review",
+    "rooms": 2,
+    "runtime_s": 247.42759169999044,
+    "assessment": "written",
+    "code_changed": false,
+    "max_corner_change_m": 0.0,
+    "gates": {
+      "walls": "pass",
+      "openings": "pass",
+      "ceiling": "fail",
+      "intervals": "fail",
+      "property": "pass",
+      "topology": "pass"
+    }
+  },
+  {
+    "tier": "video",
+    "status": "proposal_requires_review",
+    "rooms": 2,
+    "runtime_s": 246.1044878999237,
+    "assessment": "written",
+    "code_changed": false,
+    "max_corner_change_m": 0.0,
+    "gates": {
+      "walls": "pass",
+      "openings": "pass",
+      "ceiling": "fail",
+      "intervals": "fail",
+      "property": "pass",
+      "topology": "pass"
+    }
+  },
+  {
+    "tier": "lidar",
+    "status": "proposal_requires_review",
+    "rooms": 2,
+    "runtime_s": 9.241248000063933,
+    "assessment": "written",
+    "code_changed": false,
+    "max_corner_change_m": 0.0,
+    "gates": {
+      "walls": "pending_round1_definition",
+      "openings": "pass",
+      "ceiling": "fail",
+      "intervals": "fail",
+      "property": "pass",
+      "topology": "pass"
+    }
+  }
+]

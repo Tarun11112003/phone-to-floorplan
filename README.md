@@ -1,5 +1,14 @@
 # Cozmo floor-plan take-home demo
 
+**Latest implementation:** [restoration flow and diagrams](docs/RESTORATION_FLOW.md)
+and [open-source experiments and decisions](docs/OPEN_SOURCE_DECISIONS.md).
+Fresh runs emit `assessment.json` and an offline `report.html` alongside geometry
+and provenance. The supplied single-room scan now yields one **partial** room;
+its missing boundaries, unknown ceiling and experimental inspection candidates
+remain explicit. Open `demo/given_restoration_on/report.html` for the local demo.
+These outputs do not establish assignment accuracy or damage-detection acceptance.
+Use the [demo walkthrough](docs/DEMO_GUIDE.md) for commands and presentation notes.
+
 **Exact-brief audit (2026-10-06):** the supplied assignment is broader than the V3
 prototype. Read the [requirement-by-requirement compliance audit](docs/ASSIGNMENT_COMPLIANCE.md)
 and [updated implementation / incremental E2E plan](docs/ASSIGNMENT_UPDATE_PLAN.md).
@@ -31,8 +40,8 @@ three-room property, repeated independent captures and consumer-app exports.
 On LiDAR runs where walls are observed but a room stays open,
 `result/layout_diagnostic.svg` shows the supported segments and camera path.
 The supplied `datasets/Given_dataset/` has been exercised as a real raw-input
-checkpoint; its three scans currently yield diagnostic failures rather than a
-certified plan. Results and causes are in the incremental E2E report.
+checkpoint; one scan now yields a reviewable partial room and the remaining scans
+remain diagnostic failures. Results and causes are in the incremental E2E report.
 
 This repository is a **CPU, code-only research prototype** for restoration floor plans. It includes calibrated RGB-D mapping, actual phone LiDAR ingestion, concave multiroom layouts, verified capture stitching, measured-scale RGB multi-view stereo, and auditable SVG/DXF/JSON/CSV outputs.
 

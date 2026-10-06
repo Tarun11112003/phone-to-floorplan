@@ -1,0 +1,82 @@
+"""Bounded room hypotheses from measured wall fragments, with explicit gaps."""
+from __future__ import annotations
+
+from itertools import combinations
+
+import numpy as np
+from shapely.geometry import Point, Polygon
+
+
+def _groups(segments, axis, tolerance=.18):
+    groups=[]
+    for segment in sorted((s for s in segments if s['axis']==axis),key=lambda s:s['location']):
+        group=next((g for g in groups if segment['location']-g[0]['location']<=tolerance),None)
+        if group is None:
+            groups.append([segment])
+        else:
+            group.append(segment)
+    result=[]
+    for group in groups:
+        weights=np.asarray([s['support'] for s in group],float)
+        location=float(np.average([s['location'] for s in group],weights=weights))
+        result.append(dict(location=location,segments=group,
+                           max_location_shift_m=max(abs(s['location']-location) for s in group)))
+    return result
+
+
+def _edge_evidence(group, lo, hi):
+    intervals=sorted((max(lo,s['lo']),min(hi,s['hi'])) for s in group['segments']
+                     if min(hi,s['hi'])>max(lo,s['lo']))
+    merged=[]
+    for left,right in intervals:
+        if merged and left<=merged[-1][1]:
+            merged[-1][1]=max(merged[-1][1],right)
+        else:
+            merged.append([left,right])
+    gaps=[]
+    cursor=lo
+    for left,right in merged:
+        if left-cursor>.01: gaps.append([cursor,left])
+        cursor=max(cursor,right)
+    if hi-cursor>.01: gaps.append([cursor,hi])
+    coverage=sum(right-left for left,right in merged)/(hi-lo)
+    return dict(supported_fraction=float(coverage),observed_intervals_m=merged,
+                inferred_gaps_m=gaps,max_gap_m=max((b-a for a,b in gaps),default=0.),
+                max_location_shift_m=group['max_location_shift_m'],
+                opening_classification='unresolved; gaps may be occlusion or openings')
+
+
+def propose_supported_cells(segments, camera_path, minimum_support=.60, max_gap_m=1.20):
+    """Infer only cells bounded on all four sides by observed wall groups.
+
+    This is a rectangular fallback, not a complete-property reconstruction.
+    Missing spans are explicitly inferred, and never emitted as detected doors.
+    """
+    xgroups,zgroups=_groups(segments,0),_groups(segments,1)
+    if len(xgroups)>20 or len(zgroups)>20:
+        return [],[]  # Bound runtime; complex scenes need a different room solver.
+    candidates=[]
+    for left,right in combinations(xgroups,2):
+        x0,x1=left['location'],right['location']
+        if not .8<=x1-x0<=15: continue
+        for bottom,top in combinations(zgroups,2):
+            z0,z1=bottom['location'],top['location']
+            if not .8<=z1-z0<=15: continue
+            polygon=Polygon([(x0,z0),(x1,z0),(x1,z1),(x0,z1)])
+            occupancy=sum(polygon.buffer(.05).covers(Point(p)) for p in camera_path)
+            if occupancy<2: continue
+            # Match polygon edge order: bottom, right, top, left.
+            evidence=[_edge_evidence(bottom,x0,x1),_edge_evidence(right,z0,z1),
+                      _edge_evidence(top,x0,x1),_edge_evidence(left,z0,z1)]
+            if any(e['supported_fraction']<minimum_support or e['max_gap_m']>max_gap_m for e in evidence):
+                continue
+            candidates.append((occupancy,float(np.mean([e['supported_fraction'] for e in evidence])),
+                               polygon,evidence))
+    selected=[]; evidence=[]
+    for occupancy,support,polygon,edges in sorted(candidates,key=lambda c:(c[0],c[1]),reverse=True):
+        if any(polygon.intersection(other).area>.01 for other in selected): continue
+        selected.append(polygon)
+        evidence.append(dict(method='supported rectangular cell; partial inference',
+                             camera_samples_inside=int(occupancy),mean_supported_fraction=support,
+                             edges=edges,accuracy_validated=False))
+    return selected,evidence

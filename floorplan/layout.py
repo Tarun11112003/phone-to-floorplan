@@ -204,6 +204,10 @@ def extract_layout(points, planes, camera_centers, down=None, path_breaks=()):
     polygons = [p.simplify(0.005, preserve_topology=True) for p in polygons
                 if p.area >= 1 and not p.interiors and any(p.buffer(0.05).covers(Point(c)) for c in path)]
     polygons.sort(key=lambda p: (p.centroid.x, p.centroid.y))
+    fallback_evidence=[]
+    if not polygons:
+        from .supported_cells import propose_supported_cells
+        polygons,fallback_evidence=propose_supported_cells(segments,path)
     rooms = []
     for i, poly in enumerate(polygons):
         corners = list(poly.exterior.coords)[:-1]
@@ -214,6 +218,9 @@ def extract_layout(points, planes, camera_centers, down=None, path_breaks=()):
                       'local_corners': corners, 'placement': 'origin' if i == 0 else 'stitched',
                       'metric_status': 'sensor_scaled', 'ceiling_height_m': ceiling,
                       'ceiling_evidence':ceiling_evidence,'openings': []})
+        if fallback_evidence:
+            rooms[-1]['boundary_evidence']=fallback_evidence[i]
+            rooms[-1]['requires_boundary_review']=True
     connections = []
     for d in doors:
         line = _line(d)
@@ -237,7 +244,8 @@ def extract_layout(points, planes, camera_centers, down=None, path_breaks=()):
                    'wall_sampling_slab_bound_m':floor, **orientation_evidence,
                    'wall_segments': segments, 'connections': connections,
                    'camera_path_2d': path.tolist(), 'camera_center_coverage_fraction':camera_coverage,
-                   'unclosed_geometry': not bool(rooms) or camera_coverage<.9,
+                   'unclosed_geometry': not bool(rooms) or camera_coverage<.9 or bool(fallback_evidence),
+                   'inferred_room_boundaries':fallback_evidence,
                    'path_breaks':list(path_breaks),
                    'assumptions': ['straight orthogonal walls within 8 degrees', 'floor normal within 40 degrees of supplied down or first-camera down',
                                    'small endpoint gaps <=15 cm may be joined', 'only traversed doorway gaps are closed']}

@@ -1,0 +1,31 @@
+{
+  "experiment": "pose_correction_on_off",
+  "identical_inputs": true,
+  "identical_code": true,
+  "accuracy_improvement": null,
+  "reason": "No independent surveyed reference supplied",
+  "runs": [
+    {
+      "mode": "off",
+      "run_sha256": "c252baae98c0229b81e5699dedb3d44b0e30a609bd6e69078df28ec1322f8f5f",
+      "status": "partial",
+      "room_count": 1,
+      "runtime_s": 12.804154500016011,
+      "footprint_area_m2": 7.535366127207538,
+      "camera_coverage": 0.36627906976744184,
+      "verified_loops": 0,
+      "max_camera_translation_correction_m": 0.0
+    },
+    {
+      "mode": "on",
+      "run_sha256": "f4575421fb49bad6012d6be1afa783e0e4957dbfa79b3945bae7a92a7693f93b",
+      "status": "partial",
+      "room_count": 1,
+      "runtime_s": 16.46151659998577,
+      "footprint_area_m2": 7.608332622641792,
+      "camera_coverage": 0.36627906976744184,
+      "verified_loops": 0,
+      "max_camera_translation_correction_m": 0.14034552005049553
+    }
+  ]
+}

@@ -4,7 +4,7 @@ from __future__ import annotations
 import numpy as np
 
 
-def optimize_poses(clouds, poses, features=None, intrinsics=None, keyframe_stride=5):
+def optimize_poses(clouds, poses, features=None, intrinsics=None, keyframe_stride=5, calibrations=None):
     import open3d as o3d
     from .rgbd import _relative_pose
     import cv2
@@ -31,8 +31,12 @@ def optimize_poses(clouds, poses, features=None, intrinsics=None, keyframe_strid
             if loop:
                 if features is None:
                     continue  # Geometry alone can falsely join repetitive rooms.
+                if features[ids[a]] is None or features[ids[b]] is None:
+                    continue
                 try:
-                    initial, quality = _relative_pose(features[ids[a]], features[ids[b]], intrinsics, cv2)
+                    source_k=calibrations[ids[a]] if calibrations is not None else intrinsics
+                    target_k=calibrations[ids[b]] if calibrations is not None else intrinsics
+                    initial, quality = _relative_pose(features[ids[a]], features[ids[b]], target_k, cv2, source_k)
                     if quality['metric_inliers'] < 40:
                         raise ValueError('weak visual loop')
                 except ValueError:
