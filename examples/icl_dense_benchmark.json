@@ -1,0 +1,10 @@
+{
+  "cases": [
+    {
+      "id": "icl_heldout_dense",
+      "capture": "icl_heldout_dense.json",
+      "icl_mesh": "../datasets/icl_nuim/living_room_obj_mtl.tar.gz",
+      "category": "synthetic_heldout_shared_geometry_temporal_sampling_ablation"
+    }
+  ]
+}

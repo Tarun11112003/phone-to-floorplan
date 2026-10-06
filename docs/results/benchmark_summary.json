@@ -1,0 +1,86 @@
+{
+  "recorded_date": "2026-10-05",
+  "scope": "development results on ICL-NUIM synthetic living room; no field accuracy claim",
+  "rgbd": {
+    "input_frames": 177,
+    "tracked_frames": 177,
+    "tracked_fraction": 1.0,
+    "point_count": 296945,
+    "floor_plan_ready": true,
+    "ground_truth_used_for_reconstruction": false
+  },
+  "rgbd_evaluation": {
+    "evaluation_scope": "one synthetic rectangular room; dimension-only comparison",
+    "independent_dimensions": 2,
+    "predicted_dimensions_m": [
+      4.886113107735501,
+      4.978092299467361
+    ],
+    "reference_dimensions_m": [
+      4.93682383,
+      4.9800483700000004
+    ],
+    "absolute_errors_m": [
+      0.050710722264498465,
+      0.0019560705326391314
+    ],
+    "max_dimension_error_m": 0.050710722264498465,
+    "mean_dimension_error_m": 0.026333396398568798,
+    "floor_area_error_m2": 0.2620994316240193,
+    "target_dimension_error_m": 0.03,
+    "dimension_target_met_on_this_case": false,
+    "global_corner_error_m": null,
+    "real_phone_cm_accuracy_validated": false,
+    "alignment": "sort two rectangle side lengths; no scaling fitted to reference",
+    "trajectory": {
+      "matched_frames": 176,
+      "unmatched_estimated_frames": 1,
+      "alignment": "fixed native-y reflection, then SE(3) only; scale held at 1",
+      "ate_rmse_m": 0.07009456711292246,
+      "ate_median_m": 0.057258852030693724,
+      "ate_p95_m": 0.10897246343454475,
+      "ate_max_m": 0.13164823629049577
+    }
+  },
+  "oracle_component": {
+    "input": "simulated complete, semantically filtered wall point cloud",
+    "point_count": 30000,
+    "noise_sigma_m": 0.008,
+    "max_edge_error_m": 0.0008170649873431302,
+    "real_phone_cm_accuracy_validated": false
+  },
+  "photos": {
+    "input_images": 45,
+    "registered_images": 43,
+    "registered_fraction": 0.9555555555555556,
+    "sparse_points": 2803,
+    "metric_scale": false,
+    "floor_plan_ready": false
+  },
+  "video_sequential": {
+    "input_images": 89,
+    "registered_images": 55,
+    "registered_fraction": 0.6179775280898876,
+    "sparse_points": 3206,
+    "metric_scale": false,
+    "floor_plan_ready": false
+  },
+  "video_exhaustive": {
+    "input_images": 89,
+    "registered_images": 89,
+    "registered_fraction": 1.0,
+    "sparse_points": 5325,
+    "metric_scale": false,
+    "floor_plan_ready": false,
+    "matching_method": "exhaustive"
+  },
+  "versions": {
+    "numpy": "2.5.3",
+    "opencv-python-headless": "5.0.0.93",
+    "pycolmap": "4.2.1",
+    "Pillow": "12.3.0",
+    "Shapely": "2.1.2",
+    "ezdxf": "1.4.4",
+    "imageio-ffmpeg": "0.6.0"
+  }
+}

@@ -1,0 +1,411 @@
+{
+  "generated_utc": "2026-10-05T09:40:42.732007+00:00",
+  "tests": {
+    "tests": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "public_cases": [
+    {
+      "id": "icl_development",
+      "category": "synthetic_development",
+      "targets_met": false,
+      "status": "proposal_requires_review",
+      "runtime_s": 28.35025100002531,
+      "peak_rss_bytes": 312274944,
+      "reason": null,
+      "metrics": {
+        "evaluation_scope": "one synthetic rectangular room; dimension-only comparison",
+        "independent_dimensions": 2,
+        "predicted_dimensions_m": [
+          4.927875518802438,
+          4.976514771712621
+        ],
+        "reference_dimensions_m": [
+          4.93682383,
+          4.9800483700000004
+        ],
+        "absolute_errors_m": [
+          0.00894831119756212,
+          0.0035335982873796468
+        ],
+        "max_dimension_error_m": 0.00894831119756212,
+        "mean_dimension_error_m": 0.006240954742470883,
+        "floor_area_error_m2": 0.061976155087332785,
+        "target_dimension_error_m": 0.03,
+        "dimension_target_met_on_this_case": true,
+        "global_corner_error_m": null,
+        "real_phone_cm_accuracy_validated": false,
+        "alignment": "sort two rectangle side lengths; no scaling fitted to reference"
+      },
+      "dimension_target_met": true,
+      "evaluation_limitation": "Rectangle dimensions only; full topology/corner targets unevaluated"
+    },
+    {
+      "id": "icl_heldout_trajectory",
+      "category": "synthetic_heldout_shared_geometry",
+      "targets_met": false,
+      "status": "incomplete_geometry",
+      "runtime_s": 7.664336699992418,
+      "peak_rss_bytes": 261283840,
+      "reason": "Insufficient supported vertical walls",
+      "evaluation_limitation": "No evaluable metric plan or reference"
+    },
+    {
+      "id": "arkit_development",
+      "category": "real_phone_development_provisional_laser_reference",
+      "targets_met": true,
+      "status": "proposal_requires_review",
+      "runtime_s": 6.826239800080657,
+      "peak_rss_bytes": 224415744,
+      "reason": null,
+      "metrics": {
+        "alignment": {
+          "mode": "rigid",
+          "rotation": [
+            [
+              -0.9995794724639262,
+              -0.028997900419483514
+            ],
+            [
+              0.02899790041948344,
+              -0.9995794724639254
+            ]
+          ],
+          "translation_m": [
+            0.034070503971341815,
+            0.14308763299936167
+          ],
+          "scale": 1
+        },
+        "room_matches": [
+          {
+            "prediction": "room_0",
+            "reference": "laser_room",
+            "iou": 0.9926746991675178,
+            "corner_errors_m": [
+              0.006578795134184562,
+              0.013350075490015096,
+              0.003569913542586905,
+              0.018003722050635825
+            ],
+            "corner_count_match": true
+          }
+        ],
+        "missing_rooms": 0,
+        "extra_rooms": 0,
+        "dimension_count": 4,
+        "dimension_errors_m": [
+          0.002933681072215144,
+          0.015139572156316117,
+          0.012209076363250748,
+          0.0203691918725597
+        ],
+        "corner_count": 4,
+        "p95_dimension_error_m": 0.01958474891512316,
+        "p95_corner_error_m": 0.017305675066542715,
+        "boundary_coverage_at_5cm": 1.0,
+        "max_area_error_m2": 0.09065924768970213,
+        "opening_width_errors_m": [],
+        "missing_connections": [],
+        "extra_connections": [],
+        "topology_correct": true,
+        "excluded_control_edges": 0,
+        "reference_provenance": {
+          "type": "FARO-derived reference with manually selected wall regions",
+          "sample": "datasets\\arkitscenes\\references\\416418\\inspection\\reference_sample.npz",
+          "region_specification": "examples\\arkit_41418135_reference_regions.json",
+          "wall_fits": [
+            {
+              "wall": "west",
+              "region_points": 13145,
+              "inliers": 12654,
+              "rms_m": 0.0028340066526871843,
+              "observed_span_m": 2.800498253455398
+            },
+            {
+              "wall": "north",
+              "region_points": 15760,
+              "inliers": 9529,
+              "rms_m": 0.0034793392183455766,
+              "observed_span_m": 3.100799714069275
+            },
+            {
+              "wall": "east",
+              "region_points": 59847,
+              "inliers": 58483,
+              "rms_m": 0.002219601015814747,
+              "observed_span_m": 2.8008568621983816
+            },
+            {
+              "wall": "south",
+              "region_points": 14081,
+              "inliers": 13037,
+              "rms_m": 0.00281105688645892,
+              "observed_span_m": 2.1007619660583012
+            }
+          ],
+          "annotation_uncertainty_floor_m": 0.01,
+          "independently_reviewed": false,
+          "field_certification": false,
+          "limitation": "Extrapolated wall intersections; one scanner station; uncertainty floor is assumed, not a metrology certificate"
+        },
+        "reference_uncertainty_m": 0.01,
+        "targets_met": true
+      }
+    },
+    {
+      "id": "arkit_heldout_1",
+      "category": "real_phone_heldout_reference_unannotated",
+      "targets_met": false,
+      "status": "proposal_requires_review",
+      "runtime_s": 7.70047889999114,
+      "peak_rss_bytes": 227942400,
+      "reason": null,
+      "evaluation_limitation": "No evaluable metric plan or reference"
+    },
+    {
+      "id": "arkit_heldout_2",
+      "category": "real_phone_heldout_reference_unannotated",
+      "targets_met": false,
+      "status": "proposal_requires_review",
+      "runtime_s": 8.448670099955052,
+      "peak_rss_bytes": 230260736,
+      "reason": null,
+      "evaluation_limitation": "No evaluable metric plan or reference"
+    }
+  ],
+  "rgb_cases": [
+    {
+      "id": "photos",
+      "category": "synthetic_rgb_remeasured_control",
+      "targets_met": false,
+      "status": "incomplete_geometry",
+      "runtime_s": 12.131846100091934,
+      "peak_rss_bytes": 236638208,
+      "reason": "No closed room supported by observed walls and camera coverage",
+      "evaluation_limitation": "No evaluable metric plan or reference"
+    },
+    {
+      "id": "video",
+      "category": "synthetic_rgb_remeasured_control",
+      "targets_met": false,
+      "status": "partial",
+      "runtime_s": 13.553569499985315,
+      "peak_rss_bytes": 244940800,
+      "reason": null,
+      "metrics": {
+        "alignment": {
+          "mode": "rigid",
+          "rotation": [
+            [
+              -0.598215967952164,
+              -0.8013349210455354
+            ],
+            [
+              0.8013349210455354,
+              -0.5982159679521643
+            ]
+          ],
+          "translation_m": [
+            2.2243220476927017,
+            2.7630597215171204
+          ],
+          "scale": 1
+        },
+        "room_matches": [],
+        "missing_rooms": 2,
+        "extra_rooms": 1,
+        "dimension_count": 0,
+        "dimension_errors_m": [],
+        "corner_count": 0,
+        "p95_dimension_error_m": null,
+        "p95_corner_error_m": null,
+        "boundary_coverage_at_5cm": 0.0,
+        "max_area_error_m2": null,
+        "opening_width_errors_m": [],
+        "missing_connections": [
+          [
+            "a",
+            "b"
+          ]
+        ],
+        "extra_connections": [],
+        "topology_correct": false,
+        "excluded_control_edges": 0,
+        "reference_provenance": "Analytic scene definition; evaluation-only, never loaded by inference",
+        "reference_uncertainty_m": null,
+        "targets_met": false
+      }
+    }
+  ],
+  "controlled_sensor": {
+    "alignment": {
+      "mode": "rigid",
+      "rotation": [
+        [
+          -4.1494839964390387e-05,
+          0.9999999991390899
+        ],
+        [
+          -0.9999999991390894,
+          -4.149483996431068e-05
+        ]
+      ],
+      "translation_m": [
+        -0.00014293491389549828,
+        0.0005420597650835912
+      ],
+      "scale": 1
+    },
+    "room_matches": [
+      {
+        "prediction": "room_0",
+        "reference": "b",
+        "iou": 0.9998423820680187,
+        "corner_errors_m": [
+          5.17017615349348e-05,
+          0.00017667247224490692,
+          0.00012375314354131096,
+          0.00020807536650171106
+        ],
+        "corner_count_match": true
+      },
+      {
+        "prediction": "room_1",
+        "reference": "a",
+        "iou": 0.9998768001124586,
+        "corner_errors_m": [
+          0.0001588405678940648,
+          5.17017615349348e-05,
+          0.00020807536650171106,
+          0.00029422220140025863,
+          0.00032853648252017994,
+          0.00019556706088166715
+        ],
+        "corner_count_match": true
+      }
+    ],
+    "missing_rooms": 0,
+    "extra_rooms": 0,
+    "dimension_count": 10,
+    "dimension_errors_m": [
+      1.3399645792500081e-05,
+      0.0002359517175041237,
+      1.339964579338826e-05,
+      0.0002359517175041237,
+      0.00012030244060445838,
+      0.0002359517175041237,
+      0.0002814697658529708,
+      0.0005385593759870133,
+      0.00016116732524906752,
+      0.0003026076584822235
+    ],
+    "corner_count": 10,
+    "p95_dimension_error_m": 0.00043238110310985764,
+    "p95_corner_error_m": 0.0003130950560162153,
+    "boundary_coverage_at_5cm": 1.0,
+    "max_area_error_m2": 0.0007537162109709783,
+    "opening_width_errors_m": [
+      0.0038023134418296856
+    ],
+    "missing_connections": [],
+    "extra_connections": [],
+    "topology_correct": true,
+    "excluded_control_edges": 0,
+    "reference_provenance": "Analytic scene definition; evaluation-only, never loaded by inference",
+    "reference_uncertainty_m": null,
+    "targets_met": true
+  },
+  "stitched_sensor": {
+    "alignment": {
+      "mode": "rigid",
+      "rotation": [
+        [
+          -1.2890709347792136e-05,
+          0.9999999999169145
+        ],
+        [
+          -0.9999999999169146,
+          -1.2890709347621473e-05
+        ]
+      ],
+      "translation_m": [
+        -2.2524190000705602e-05,
+        0.00030743684631318047
+      ],
+      "scale": 1
+    },
+    "room_matches": [
+      {
+        "prediction": "room_0",
+        "reference": "b",
+        "iou": 0.9999413981590006,
+        "corner_errors_m": [
+          2.1412723534831777e-05,
+          6.720523003813076e-05,
+          5.929607886238222e-05,
+          6.307724618980829e-05
+        ],
+        "corner_count_match": true
+      },
+      {
+        "prediction": "room_1",
+        "reference": "a",
+        "iou": 0.9999613409025868,
+        "corner_errors_m": [
+          5.696106476776173e-05,
+          2.1412723534831777e-05,
+          6.307724618980829e-05,
+          9.774862634037723e-05,
+          9.278802371233312e-05,
+          4.2958640170763985e-05
+        ],
+        "corner_count_match": true
+      }
+    ],
+    "missing_rooms": 0,
+    "extra_rooms": 0,
+    "dimension_count": 10,
+    "dimension_errors_m": [
+      2.6361077810399536e-05,
+      7.602379930937708e-05,
+      2.6361077810843625e-05,
+      7.602379930937708e-05,
+      5.27967051935363e-05,
+      7.602379930937708e-05,
+      0.00010076810182257923,
+      0.0001495311400296906,
+      4.7971396628376795e-05,
+      7.350734072009146e-05
+    ],
+    "corner_count": 10,
+    "p95_dimension_error_m": 0.0001275877728364904,
+    "p95_corner_error_m": 9.551635515775737e-05,
+    "boundary_coverage_at_5cm": 1.0,
+    "max_area_error_m2": 0.00028079154948024154,
+    "opening_width_errors_m": [
+      0.003948518241541743
+    ],
+    "missing_connections": [],
+    "extra_connections": [],
+    "topology_correct": true,
+    "excluded_control_edges": 0,
+    "reference_provenance": "Analytic scene definition; evaluation-only, never loaded by inference",
+    "reference_uncertainty_m": null,
+    "targets_met": true
+  },
+  "evidence_categories": {
+    "controlled": "synthetic exact simulated sensor poses",
+    "phone_reference": "provisional manually selected FARO wall regions; 1cm assumed uncertainty floor",
+    "rgb": "synthetic controlled capture with measured scale; same scene for photo/video"
+  },
+  "real_phone_cm_accuracy_validated": false,
+  "source_runs": [
+    "demo/v2_public_verified",
+    "demo/v2_rgb_verified",
+    "demo/v2_controlled_verified",
+    "demo/v2_stitched_verified"
+  ]
+}

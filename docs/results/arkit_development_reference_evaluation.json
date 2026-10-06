@@ -1,0 +1,94 @@
+{
+  "alignment": {
+    "mode": "rigid",
+    "rotation": [
+      [
+        -0.9995795308486354,
+        -0.028995887784694856
+      ],
+      [
+        0.028995887784694915,
+        -0.9995795308486358
+      ]
+    ],
+    "translation_m": [
+      1.3667020663733793,
+      1.1838158121915168
+    ],
+    "scale": 1
+  },
+  "room_matches": [
+    {
+      "prediction": "room_0",
+      "reference": "laser_room",
+      "iou": 0.9896122280961608,
+      "corner_errors_m": [
+        0.0073831136436029845,
+        0.016958739368748275,
+        0.00758457150530473,
+        0.021955458198256894
+      ],
+      "corner_count_match": true
+    }
+  ],
+  "missing_rooms": 0,
+  "extra_rooms": 0,
+  "dimension_count": 4,
+  "dimension_errors_m": [
+    0.01179129103829002,
+    0.01803012296534723,
+    0.02106668632932429,
+    0.023259742681591256
+  ],
+  "corner_count": 4,
+  "p95_dimension_error_m": 0.02293078422875121,
+  "p95_corner_error_m": 0.0212059503738306,
+  "boundary_coverage_at_5cm": 1.0,
+  "max_area_error_m2": 0.13192029407161243,
+  "opening_width_errors_m": [],
+  "missing_connections": [],
+  "extra_connections": [],
+  "topology_correct": true,
+  "excluded_control_edges": 0,
+  "reference_provenance": {
+    "type": "FARO-derived reference with manually selected wall regions",
+    "sample": "datasets\\arkitscenes\\references\\416418\\inspection\\reference_sample.npz",
+    "region_specification": "examples\\arkit_41418135_reference_regions.json",
+    "wall_fits": [
+      {
+        "wall": "west",
+        "region_points": 13145,
+        "inliers": 12654,
+        "rms_m": 0.0028340066526871843,
+        "observed_span_m": 2.800498253455398
+      },
+      {
+        "wall": "north",
+        "region_points": 15760,
+        "inliers": 9529,
+        "rms_m": 0.0034793392183455766,
+        "observed_span_m": 3.100799714069275
+      },
+      {
+        "wall": "east",
+        "region_points": 59847,
+        "inliers": 58483,
+        "rms_m": 0.002219601015814747,
+        "observed_span_m": 2.8008568621983816
+      },
+      {
+        "wall": "south",
+        "region_points": 14081,
+        "inliers": 13037,
+        "rms_m": 0.00281105688645892,
+        "observed_span_m": 2.1007619660583012
+      }
+    ],
+    "annotation_uncertainty_floor_m": 0.01,
+    "independently_reviewed": false,
+    "field_certification": false,
+    "limitation": "Extrapolated wall intersections; one scanner station; uncertainty floor is assumed, not a metrology certificate"
+  },
+  "reference_uncertainty_m": 0.01,
+  "targets_met": true
+}

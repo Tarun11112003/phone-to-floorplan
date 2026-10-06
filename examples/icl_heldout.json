@@ -1,0 +1,6 @@
+{
+  "schema_version": 2,
+  "tier": "rgbd",
+  "sequence": "../datasets/icl_nuim/trajectory1/sequence.json",
+  "optimize_poses": true
+}

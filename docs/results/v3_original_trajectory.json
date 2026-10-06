@@ -1,0 +1,407 @@
+{
+  "registered_images": 97,
+  "metric_scale": 0.3560948294104659,
+  "scale_evidence": [
+    {
+      "length_m": 0.5,
+      "reprojection_max_px": 0.02503428165508493,
+      "scale": 0.3560948294104659,
+      "excluded_evaluation_edges": []
+    }
+  ],
+  "rigid_ate_rmse_m": 1.094147199579991,
+  "rigid_ate_p95_m": 2.1642028476461004,
+  "diagnostic_similarity_scale": 0.906920883391395,
+  "diagnostic_similarity_ate_rmse_m": 1.0840068225238573,
+  "alignment": "one global proper rigid transform; measured scale unchanged",
+  "per_image": [
+    {
+      "image": "frame_00001.png",
+      "error_m": 0.43846916215062276
+    },
+    {
+      "image": "frame_00002.png",
+      "error_m": 0.3299728933910365
+    },
+    {
+      "image": "frame_00003.png",
+      "error_m": 0.22553705758070644
+    },
+    {
+      "image": "frame_00004.png",
+      "error_m": 0.1292794848165426
+    },
+    {
+      "image": "frame_00005.png",
+      "error_m": 0.05596549932945123
+    },
+    {
+      "image": "frame_00006.png",
+      "error_m": 0.07456228493285312
+    },
+    {
+      "image": "frame_00007.png",
+      "error_m": 0.13570515155617863
+    },
+    {
+      "image": "frame_00008.png",
+      "error_m": 0.19020108674662478
+    },
+    {
+      "image": "frame_00009.png",
+      "error_m": 0.23065903497945708
+    },
+    {
+      "image": "frame_00010.png",
+      "error_m": 0.25527296996308635
+    },
+    {
+      "image": "frame_00011.png",
+      "error_m": 0.2630466751114633
+    },
+    {
+      "image": "frame_00012.png",
+      "error_m": 0.25419076147062997
+    },
+    {
+      "image": "frame_00013.png",
+      "error_m": 0.22895977190244599
+    },
+    {
+      "image": "frame_00014.png",
+      "error_m": 0.1879604719182977
+    },
+    {
+      "image": "frame_00015.png",
+      "error_m": 0.1335584977606075
+    },
+    {
+      "image": "frame_00016.png",
+      "error_m": 0.07338027449760769
+    },
+    {
+      "image": "frame_00017.png",
+      "error_m": 0.06163415054218756
+    },
+    {
+      "image": "frame_00018.png",
+      "error_m": 0.13617338076266933
+    },
+    {
+      "image": "frame_00019.png",
+      "error_m": 0.23305362403674793
+    },
+    {
+      "image": "frame_00020.png",
+      "error_m": 0.3379427681695776
+    },
+    {
+      "image": "frame_00021.png",
+      "error_m": 0.44653065288197186
+    },
+    {
+      "image": "frame_00022.png",
+      "error_m": 0.5552050140209697
+    },
+    {
+      "image": "frame_00023.png",
+      "error_m": 0.661787029193354
+    },
+    {
+      "image": "frame_00024.png",
+      "error_m": 0.7632167779147202
+    },
+    {
+      "image": "frame_00025.png",
+      "error_m": 0.8564924509894992
+    },
+    {
+      "image": "frame_00026.png",
+      "error_m": 0.9397084018783576
+    },
+    {
+      "image": "frame_00027.png",
+      "error_m": 1.010218904483406
+    },
+    {
+      "image": "frame_00028.png",
+      "error_m": 1.0661795547637132
+    },
+    {
+      "image": "frame_00029.png",
+      "error_m": 1.1073514999237781
+    },
+    {
+      "image": "frame_00030.png",
+      "error_m": 1.131899455941366
+    },
+    {
+      "image": "frame_00031.png",
+      "error_m": 1.139523468514726
+    },
+    {
+      "image": "frame_00032.png",
+      "error_m": 1.1299424435840828
+    },
+    {
+      "image": "frame_00033.png",
+      "error_m": 1.1034959242334295
+    },
+    {
+      "image": "frame_00034.png",
+      "error_m": 1.06052791989014
+    },
+    {
+      "image": "frame_00035.png",
+      "error_m": 1.0020391875897867
+    },
+    {
+      "image": "frame_00036.png",
+      "error_m": 0.9298166804958212
+    },
+    {
+      "image": "frame_00037.png",
+      "error_m": 0.8449571093489213
+    },
+    {
+      "image": "frame_00038.png",
+      "error_m": 0.7508823170593376
+    },
+    {
+      "image": "frame_00039.png",
+      "error_m": 0.6501415855318059
+    },
+    {
+      "image": "frame_00040.png",
+      "error_m": 0.5458608855612966
+    },
+    {
+      "image": "frame_00041.png",
+      "error_m": 0.1555666855355341
+    },
+    {
+      "image": "frame_00042.png",
+      "error_m": 0.5488180074255756
+    },
+    {
+      "image": "frame_00043.png",
+      "error_m": 0.9481841301475388
+    },
+    {
+      "image": "frame_00044.png",
+      "error_m": 1.3482646893753827
+    },
+    {
+      "image": "frame_00045.png",
+      "error_m": 1.7485479563558182
+    },
+    {
+      "image": "frame_00046.png",
+      "error_m": 2.148765617656656
+    },
+    {
+      "image": "frame_00047.png",
+      "error_m": 3.8230535806775685
+    },
+    {
+      "image": "frame_00048.png",
+      "error_m": 3.424913008210856
+    },
+    {
+      "image": "frame_00049.png",
+      "error_m": 3.0254461830637296
+    },
+    {
+      "image": "frame_00050.png",
+      "error_m": 2.625442063372951
+    },
+    {
+      "image": "frame_00051.png",
+      "error_m": 2.225951767603882
+    },
+    {
+      "image": "frame_00052.png",
+      "error_m": 1.826812559319936
+    },
+    {
+      "image": "frame_00053.png",
+      "error_m": 1.4274912924150267
+    },
+    {
+      "image": "frame_00054.png",
+      "error_m": 1.0281536740744939
+    },
+    {
+      "image": "frame_00055.png",
+      "error_m": 0.6298437949229434
+    },
+    {
+      "image": "frame_00056.png",
+      "error_m": 0.23399072062725737
+    },
+    {
+      "image": "frame_00057.png",
+      "error_m": 0.1779313757414792
+    },
+    {
+      "image": "frame_00058.png",
+      "error_m": 0.7761835986353639
+    },
+    {
+      "image": "frame_00059.png",
+      "error_m": 0.8853049208897876
+    },
+    {
+      "image": "frame_00060.png",
+      "error_m": 0.9916956911422744
+    },
+    {
+      "image": "frame_00061.png",
+      "error_m": 1.0929075188266013
+    },
+    {
+      "image": "frame_00062.png",
+      "error_m": 1.1862464422587102
+    },
+    {
+      "image": "frame_00063.png",
+      "error_m": 1.2692483831987629
+    },
+    {
+      "image": "frame_00064.png",
+      "error_m": 1.340007197576929
+    },
+    {
+      "image": "frame_00065.png",
+      "error_m": 1.3965509905281022
+    },
+    {
+      "image": "frame_00066.png",
+      "error_m": 1.4373400332563384
+    },
+    {
+      "image": "frame_00067.png",
+      "error_m": 1.4619590515570626
+    },
+    {
+      "image": "frame_00068.png",
+      "error_m": 1.4697738927578055
+    },
+    {
+      "image": "frame_00069.png",
+      "error_m": 1.4603360444337776
+    },
+    {
+      "image": "frame_00070.png",
+      "error_m": 1.4336429168179707
+    },
+    {
+      "image": "frame_00071.png",
+      "error_m": 1.390670822951348
+    },
+    {
+      "image": "frame_00072.png",
+      "error_m": 1.332682278181064
+    },
+    {
+      "image": "frame_00073.png",
+      "error_m": 1.2607711535023416
+    },
+    {
+      "image": "frame_00074.png",
+      "error_m": 1.1770389057850104
+    },
+    {
+      "image": "frame_00075.png",
+      "error_m": 1.0832932835961557
+    },
+    {
+      "image": "frame_00076.png",
+      "error_m": 0.9818786224014712
+    },
+    {
+      "image": "frame_00077.png",
+      "error_m": 0.8752975893154434
+    },
+    {
+      "image": "frame_00078.png",
+      "error_m": 0.7662531970332599
+    },
+    {
+      "image": "frame_00079.png",
+      "error_m": 0.6570764359046763
+    },
+    {
+      "image": "frame_00080.png",
+      "error_m": 0.5508382238282867
+    },
+    {
+      "image": "frame_00081.png",
+      "error_m": 0.45023108923890126
+    },
+    {
+      "image": "frame_00082.png",
+      "error_m": 0.3577233736554422
+    },
+    {
+      "image": "frame_00083.png",
+      "error_m": 0.27566286292721964
+    },
+    {
+      "image": "frame_00084.png",
+      "error_m": 0.20633886750591665
+    },
+    {
+      "image": "frame_00085.png",
+      "error_m": 0.15176213085233567
+    },
+    {
+      "image": "frame_00086.png",
+      "error_m": 0.11341013001977882
+    },
+    {
+      "image": "frame_00087.png",
+      "error_m": 0.09162826091891711
+    },
+    {
+      "image": "frame_00088.png",
+      "error_m": 0.08537933522395089
+    },
+    {
+      "image": "frame_00089.png",
+      "error_m": 0.09297509659442957
+    },
+    {
+      "image": "frame_00090.png",
+      "error_m": 0.11584695846965253
+    },
+    {
+      "image": "frame_00091.png",
+      "error_m": 0.15596938446387154
+    },
+    {
+      "image": "frame_00092.png",
+      "error_m": 0.21183924747703492
+    },
+    {
+      "image": "frame_00093.png",
+      "error_m": 0.28257778050309484
+    },
+    {
+      "image": "frame_00094.png",
+      "error_m": 0.3657554288629294
+    },
+    {
+      "image": "frame_00095.png",
+      "error_m": 0.4589855259582367
+    },
+    {
+      "image": "frame_00096.png",
+      "error_m": 0.560001266563885
+    },
+    {
+      "image": "frame_00097.png",
+      "error_m": 0.6666407474646617
+    }
+  ]
+}

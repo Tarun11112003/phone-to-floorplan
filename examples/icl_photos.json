@@ -1,0 +1,10 @@
+{
+  "schema_version": 2,
+  "tier": "photos",
+  "source": "../datasets/icl_nuim/photos",
+  "camera_model": "PINHOLE",
+  "camera_params": "481.2,480,319.5,239.5",
+  "max_frames": 45,
+  "matching": "exhaustive",
+  "scale_references": []
+}

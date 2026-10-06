@@ -1,0 +1,78 @@
+{
+  "alignment": {
+    "mode": "rigid",
+    "rotation": [
+      [
+        -1.2890709347792136e-05,
+        0.9999999999169145
+      ],
+      [
+        -0.9999999999169146,
+        -1.2890709347621473e-05
+      ]
+    ],
+    "translation_m": [
+      -2.2524190000705602e-05,
+      0.00030743684631318047
+    ],
+    "scale": 1
+  },
+  "room_matches": [
+    {
+      "prediction": "room_0",
+      "reference": "b",
+      "iou": 0.9999413981590006,
+      "corner_errors_m": [
+        2.141272353483447e-05,
+        6.720523003813321e-05,
+        5.929607886238222e-05,
+        6.307724618980829e-05
+      ],
+      "corner_count_match": true
+    },
+    {
+      "prediction": "room_1",
+      "reference": "a",
+      "iou": 0.9999613409025868,
+      "corner_errors_m": [
+        5.696106476775836e-05,
+        2.141272353483447e-05,
+        6.307724618980829e-05,
+        9.774862634037723e-05,
+        9.278802371233312e-05,
+        4.295864017076417e-05
+      ],
+      "corner_count_match": true
+    }
+  ],
+  "missing_rooms": 0,
+  "extra_rooms": 0,
+  "dimension_count": 10,
+  "dimension_errors_m": [
+    2.6361077810399536e-05,
+    7.602379930937708e-05,
+    2.6361077810843625e-05,
+    7.602379930937708e-05,
+    5.27967051935363e-05,
+    7.602379930937708e-05,
+    0.00010076810182257923,
+    0.0001495311400296906,
+    4.7971396628376795e-05,
+    7.350734072009146e-05
+  ],
+  "corner_count": 10,
+  "p95_dimension_error_m": 0.0001275877728364904,
+  "p95_corner_error_m": 9.551635515775737e-05,
+  "boundary_coverage_at_5cm": 1.0,
+  "max_area_error_m2": 0.00028079154948024154,
+  "opening_width_errors_m": [
+    0.003948518241541743
+  ],
+  "missing_connections": [],
+  "extra_connections": [],
+  "topology_correct": true,
+  "excluded_control_edges": 0,
+  "reference_provenance": "Analytic scene definition; evaluation-only, never loaded by inference",
+  "reference_uncertainty_m": null,
+  "targets_met": true
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/laser_scanner_point_clouds/laser_scanner_point_clouds_mapping.csv",
+    "file": "datasets\\arkitscenes\\references\\mapping.csv",
+    "bytes": 51175,
+    "sha256": "025f38165e7ccd009fef9560a77eeeda2b090968d0a4b98cfb8b7adacb62e467"
+  },
+  {
+    "url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/laser_scanner_point_clouds/416418/168477.ply",
+    "file": "datasets\\arkitscenes\\references\\416418\\168477.ply",
+    "bytes": 1861146740,
+    "sha256": "57f467eea29ff5be275c0120df90d0cd0881ea141cdf7e8014753832521ae5ca"
+  },
+  {
+    "url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/laser_scanner_point_clouds/416418/168477_pose.txt",
+    "file": "datasets\\arkitscenes\\references\\416418\\168477_pose.txt",
+    "bytes": 154,
+    "sha256": "cafe5ce105cb81f531a3bfa411d86fb7bd5e5743ad6766c71e6361d837ecce05"
+  },
+  {
+    "url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/laser_scanner_point_clouds/416411/168472.ply",
+    "file": "datasets\\arkitscenes\\references\\416411\\168472.ply",
+    "bytes": 1887615380,
+    "sha256": "334ccd22923911ad15c2c04e92a2fc14b028338fff771bc5524f8d5c82c9c89d"
+  },
+  {
+    "url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/laser_scanner_point_clouds/416411/168472_pose.txt",
+    "file": "datasets\\arkitscenes\\references\\416411\\168472_pose.txt",
+    "bytes": 141,
+    "sha256": "d48cd6a9ae14b2ece7bbf14110f5771b43ae6976048433386e06c762fc72801a"
+  },
+  {
+    "url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/laser_scanner_point_clouds/416407/168483.ply",
+    "file": "datasets\\arkitscenes\\references\\416407\\168483.ply",
+    "bytes": 1862009096,
+    "sha256": "f238826e773d1f7914e3256d3ec2839c83a2924bef3c64d3f7102b5610b6e2bc"
+  },
+  {
+    "url": "https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1/raw/laser_scanner_point_clouds/416407/168483_pose.txt",
+    "file": "datasets\\arkitscenes\\references\\416407\\168483_pose.txt",
+    "bytes": 153,
+    "sha256": "577312a51ded4ec6f92397c3d1949da8d0b689b70634c52f1288534d00b0896d"
+  },
+  {
+    "url": "https://www.doc.ic.ac.uk/~ahanda/living_room_traj1_frei_png.tar.gz",
+    "file": "datasets\\icl_nuim\\living_room_traj1_frei_png.tar.gz",
+    "bytes": 473108638,
+    "sha256": "75d5f87ebaf313f6ddf9d1750815c277e3b16db8abd68a950f6a3665a49f2403"
+  }
+]

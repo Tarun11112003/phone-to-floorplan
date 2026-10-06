@@ -1,0 +1,10 @@
+{
+  "room_id": "laser_room",
+  "selection_basis": "Manual inspection of independent scanner top-down wall-height slice; venue metres",
+  "walls_in_boundary_order": [
+    {"name": "west", "min": [-1.2,-0.6,-80.3], "max": [-0.9,2.2,-78.8]},
+    {"name": "north", "min": [-0.8,2.2,-80.3], "max": [2.3,2.5,-78.8]},
+    {"name": "east", "min": [2.3,-0.6,-80.3], "max": [2.7,2.2,-78.8]},
+    {"name": "south", "min": [0.1,-1.25,-80.3], "max": [2.2,-0.85,-78.8]}
+  ]
+}

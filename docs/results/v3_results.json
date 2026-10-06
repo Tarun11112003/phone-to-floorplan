@@ -1,0 +1,78 @@
+{
+  "controlled": [
+    {
+      "case": "lidar",
+      "status": "proposal_requires_review",
+      "full_targets": true,
+      "dimension_p95_cm": 0.04323811031098576,
+      "corner_p95_cm": 0.03130950560162153,
+      "opening_p95_cm": 0.38023134418296856,
+      "runtime_s": 3.532880499958992
+    },
+    {
+      "case": "photos",
+      "status": "proposal_requires_review",
+      "full_targets": true,
+      "dimension_p95_cm": 0.5652997640628538,
+      "corner_p95_cm": 0.5731766021901342,
+      "opening_p95_cm": 1.3205101132841568,
+      "runtime_s": 194.8153280999977
+    },
+    {
+      "case": "video",
+      "status": "proposal_requires_review",
+      "full_targets": true,
+      "dimension_p95_cm": 0.8716281225301926,
+      "corner_p95_cm": 0.8648987012600571,
+      "opening_p95_cm": 1.7936567899722755,
+      "runtime_s": 178.68339520005975
+    }
+  ],
+  "public": [
+    {
+      "case": "icl_development",
+      "status": "proposal_requires_review",
+      "runtime_s": 21.929604100063443,
+      "dimension_error_m": 0.00956521755956885,
+      "limitation": "Rectangle dimensions only; full topology/corner targets unevaluated",
+      "reason": null
+    },
+    {
+      "case": "icl_heldout_trajectory",
+      "status": "incomplete_geometry",
+      "runtime_s": 24.32439850002993,
+      "dimension_error_m": null,
+      "limitation": "No evaluable metric plan or reference",
+      "reason": "Observed wall segments do not close a room; inspect layout_evidence.json"
+    },
+    {
+      "case": "arkit_development",
+      "status": "proposal_requires_review",
+      "runtime_s": 4.239052599994466,
+      "dimension_error_m": 0.01958474891512354,
+      "limitation": null,
+      "reason": null
+    },
+    {
+      "case": "arkit_heldout_1",
+      "status": "proposal_requires_review",
+      "runtime_s": 4.560280499979854,
+      "dimension_error_m": null,
+      "limitation": "No evaluable metric plan or reference",
+      "reason": null
+    },
+    {
+      "case": "arkit_heldout_2",
+      "status": "proposal_requires_review",
+      "runtime_s": 4.898093799944036,
+      "dimension_error_m": null,
+      "limitation": "No evaluable metric plan or reference",
+      "reason": null
+    }
+  ],
+  "rgb_camera_trajectory": {
+    "rigid_ate_rmse_cm": 0.5078793510556664,
+    "rigid_ate_p95_cm": 0.877064791691657
+  },
+  "interpretation": "Controlled synthetic passes are demo evidence, not real-phone field certification."
+}

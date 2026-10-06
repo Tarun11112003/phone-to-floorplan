@@ -1,0 +1,9 @@
+{
+  "cases": [
+    {"id": "icl_development", "capture": "icl_rgbd.json", "icl_mesh": "../datasets/icl_nuim/living_room_obj_mtl.tar.gz", "category": "synthetic_development"},
+    {"id": "icl_heldout_trajectory", "capture": "icl_heldout.json", "icl_mesh": "../datasets/icl_nuim/living_room_obj_mtl.tar.gz", "category": "synthetic_heldout_shared_geometry"},
+    {"id": "arkit_development", "capture": "../datasets/arkitscenes/41418135/prepared/capture.json", "reference": "../datasets/arkitscenes/references/416418/reference.json", "category": "real_phone_development_provisional_laser_reference"},
+    {"id": "arkit_heldout_1", "capture": "../datasets/arkitscenes/41418140/prepared/capture.json", "category": "real_phone_heldout_reference_unannotated"},
+    {"id": "arkit_heldout_2", "capture": "../datasets/arkitscenes/41418155/prepared/capture.json", "category": "real_phone_heldout_reference_unannotated"}
+  ]
+}

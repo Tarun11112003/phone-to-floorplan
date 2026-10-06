@@ -1,0 +1,407 @@
+{
+  "registered_images": 97,
+  "metric_scale": 0.4498027234158359,
+  "scale_evidence": [
+    {
+      "length_m": 0.5,
+      "reprojection_max_px": 0.019299952474654113,
+      "scale": 0.4498027234158359,
+      "excluded_evaluation_edges": []
+    }
+  ],
+  "rigid_ate_rmse_m": 0.005078793510556664,
+  "rigid_ate_p95_m": 0.00877064791691657,
+  "diagnostic_similarity_scale": 1.001499205354657,
+  "diagnostic_similarity_ate_rmse_m": 0.004296749684335593,
+  "alignment": "one global proper rigid transform; measured scale unchanged",
+  "per_image": [
+    {
+      "image": "frame_00001.png",
+      "error_m": 0.004513683126670909
+    },
+    {
+      "image": "frame_00002.png",
+      "error_m": 0.004850185688857758
+    },
+    {
+      "image": "frame_00003.png",
+      "error_m": 0.005239429544606831
+    },
+    {
+      "image": "frame_00004.png",
+      "error_m": 0.0057417431545734345
+    },
+    {
+      "image": "frame_00005.png",
+      "error_m": 0.005733142069522851
+    },
+    {
+      "image": "frame_00006.png",
+      "error_m": 0.005714594451069052
+    },
+    {
+      "image": "frame_00007.png",
+      "error_m": 0.005389015980034912
+    },
+    {
+      "image": "frame_00008.png",
+      "error_m": 0.004489199750054556
+    },
+    {
+      "image": "frame_00009.png",
+      "error_m": 0.0032298244634919194
+    },
+    {
+      "image": "frame_00010.png",
+      "error_m": 0.0016532201992147755
+    },
+    {
+      "image": "frame_00011.png",
+      "error_m": 0.0013238797655752076
+    },
+    {
+      "image": "frame_00012.png",
+      "error_m": 0.0024424038583004785
+    },
+    {
+      "image": "frame_00013.png",
+      "error_m": 0.0031664044561321883
+    },
+    {
+      "image": "frame_00014.png",
+      "error_m": 0.005034316247901612
+    },
+    {
+      "image": "frame_00015.png",
+      "error_m": 0.0060936946475861975
+    },
+    {
+      "image": "frame_00016.png",
+      "error_m": 0.007412078301666793
+    },
+    {
+      "image": "frame_00017.png",
+      "error_m": 0.008186906368993451
+    },
+    {
+      "image": "frame_00018.png",
+      "error_m": 0.00902489109125812
+    },
+    {
+      "image": "frame_00019.png",
+      "error_m": 0.009606783109097482
+    },
+    {
+      "image": "frame_00020.png",
+      "error_m": 0.009915248474315295
+    },
+    {
+      "image": "frame_00021.png",
+      "error_m": 0.009879440734499116
+    },
+    {
+      "image": "frame_00022.png",
+      "error_m": 0.009354748201933865
+    },
+    {
+      "image": "frame_00023.png",
+      "error_m": 0.008707087123331188
+    },
+    {
+      "image": "frame_00024.png",
+      "error_m": 0.007815858539151389
+    },
+    {
+      "image": "frame_00025.png",
+      "error_m": 0.006790895004602425
+    },
+    {
+      "image": "frame_00026.png",
+      "error_m": 0.005872794483559964
+    },
+    {
+      "image": "frame_00027.png",
+      "error_m": 0.005262265613789312
+    },
+    {
+      "image": "frame_00028.png",
+      "error_m": 0.005563478693566377
+    },
+    {
+      "image": "frame_00029.png",
+      "error_m": 0.0058326901512184455
+    },
+    {
+      "image": "frame_00030.png",
+      "error_m": 0.006194767185546056
+    },
+    {
+      "image": "frame_00031.png",
+      "error_m": 0.0063520707931546206
+    },
+    {
+      "image": "frame_00032.png",
+      "error_m": 0.005906400705422269
+    },
+    {
+      "image": "frame_00033.png",
+      "error_m": 0.005274269572188184
+    },
+    {
+      "image": "frame_00034.png",
+      "error_m": 0.0046152738447569576
+    },
+    {
+      "image": "frame_00035.png",
+      "error_m": 0.003602410165340705
+    },
+    {
+      "image": "frame_00036.png",
+      "error_m": 0.003053741675839188
+    },
+    {
+      "image": "frame_00037.png",
+      "error_m": 0.0026247533917150142
+    },
+    {
+      "image": "frame_00038.png",
+      "error_m": 0.001964721387368095
+    },
+    {
+      "image": "frame_00039.png",
+      "error_m": 0.0014785644395521199
+    },
+    {
+      "image": "frame_00040.png",
+      "error_m": 0.0029581249701277857
+    },
+    {
+      "image": "frame_00041.png",
+      "error_m": 0.0025356269110501563
+    },
+    {
+      "image": "frame_00042.png",
+      "error_m": 0.0024922402998199594
+    },
+    {
+      "image": "frame_00043.png",
+      "error_m": 0.0023193872539186244
+    },
+    {
+      "image": "frame_00044.png",
+      "error_m": 0.0024466370845827633
+    },
+    {
+      "image": "frame_00045.png",
+      "error_m": 0.0019321955313096836
+    },
+    {
+      "image": "frame_00046.png",
+      "error_m": 0.0019345044868546843
+    },
+    {
+      "image": "frame_00047.png",
+      "error_m": 0.001876820034866631
+    },
+    {
+      "image": "frame_00048.png",
+      "error_m": 0.008562039778573739
+    },
+    {
+      "image": "frame_00049.png",
+      "error_m": 0.004218465166851252
+    },
+    {
+      "image": "frame_00050.png",
+      "error_m": 0.005024029665924967
+    },
+    {
+      "image": "frame_00051.png",
+      "error_m": 0.004063457323964415
+    },
+    {
+      "image": "frame_00052.png",
+      "error_m": 0.00414516785903114
+    },
+    {
+      "image": "frame_00053.png",
+      "error_m": 0.0020811995144076204
+    },
+    {
+      "image": "frame_00054.png",
+      "error_m": 0.002489676763454455
+    },
+    {
+      "image": "frame_00055.png",
+      "error_m": 0.002896785659322466
+    },
+    {
+      "image": "frame_00056.png",
+      "error_m": 0.003782860669073668
+    },
+    {
+      "image": "frame_00057.png",
+      "error_m": 0.003911463313208857
+    },
+    {
+      "image": "frame_00058.png",
+      "error_m": 0.007834508692638619
+    },
+    {
+      "image": "frame_00059.png",
+      "error_m": 0.008087129171502304
+    },
+    {
+      "image": "frame_00060.png",
+      "error_m": 0.007965263539102051
+    },
+    {
+      "image": "frame_00061.png",
+      "error_m": 0.0074979707091806826
+    },
+    {
+      "image": "frame_00062.png",
+      "error_m": 0.00706494639484759
+    },
+    {
+      "image": "frame_00063.png",
+      "error_m": 0.006492558417970256
+    },
+    {
+      "image": "frame_00064.png",
+      "error_m": 0.006126926034643074
+    },
+    {
+      "image": "frame_00065.png",
+      "error_m": 0.005547540855944027
+    },
+    {
+      "image": "frame_00066.png",
+      "error_m": 0.005229755073723761
+    },
+    {
+      "image": "frame_00067.png",
+      "error_m": 0.004632162008749285
+    },
+    {
+      "image": "frame_00068.png",
+      "error_m": 0.0038911153315061855
+    },
+    {
+      "image": "frame_00069.png",
+      "error_m": 0.0032175682219580935
+    },
+    {
+      "image": "frame_00070.png",
+      "error_m": 0.0027136615558153807
+    },
+    {
+      "image": "frame_00071.png",
+      "error_m": 0.0026339948132110317
+    },
+    {
+      "image": "frame_00072.png",
+      "error_m": 0.002093724003925721
+    },
+    {
+      "image": "frame_00073.png",
+      "error_m": 0.0013509096755964158
+    },
+    {
+      "image": "frame_00074.png",
+      "error_m": 0.0010576673603893696
+    },
+    {
+      "image": "frame_00075.png",
+      "error_m": 0.0013412392649576235
+    },
+    {
+      "image": "frame_00076.png",
+      "error_m": 0.0018041449858307228
+    },
+    {
+      "image": "frame_00077.png",
+      "error_m": 0.002472035719324254
+    },
+    {
+      "image": "frame_00078.png",
+      "error_m": 0.0029067475507754503
+    },
+    {
+      "image": "frame_00079.png",
+      "error_m": 0.003117902011414336
+    },
+    {
+      "image": "frame_00080.png",
+      "error_m": 0.003304702102763672
+    },
+    {
+      "image": "frame_00081.png",
+      "error_m": 0.003161142232629737
+    },
+    {
+      "image": "frame_00082.png",
+      "error_m": 0.0027460714823707997
+    },
+    {
+      "image": "frame_00083.png",
+      "error_m": 0.0025434468599828345
+    },
+    {
+      "image": "frame_00084.png",
+      "error_m": 0.002347102156266491
+    },
+    {
+      "image": "frame_00085.png",
+      "error_m": 0.0021810094331686323
+    },
+    {
+      "image": "frame_00086.png",
+      "error_m": 0.002422399698175385
+    },
+    {
+      "image": "frame_00087.png",
+      "error_m": 0.0023624343765570833
+    },
+    {
+      "image": "frame_00088.png",
+      "error_m": 0.002217826433405998
+    },
+    {
+      "image": "frame_00089.png",
+      "error_m": 0.002945411353659678
+    },
+    {
+      "image": "frame_00090.png",
+      "error_m": 0.003791198855646473
+    },
+    {
+      "image": "frame_00091.png",
+      "error_m": 0.004013870331201017
+    },
+    {
+      "image": "frame_00092.png",
+      "error_m": 0.004473666329394194
+    },
+    {
+      "image": "frame_00093.png",
+      "error_m": 0.005191051637371263
+    },
+    {
+      "image": "frame_00094.png",
+      "error_m": 0.0057701747550437795
+    },
+    {
+      "image": "frame_00095.png",
+      "error_m": 0.006396474344602035
+    },
+    {
+      "image": "frame_00096.png",
+      "error_m": 0.007013463830151656
+    },
+    {
+      "image": "frame_00097.png",
+      "error_m": 0.007539713804964152
+    }
+  ]
+}
