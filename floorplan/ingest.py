@@ -77,8 +77,9 @@ def prepare_photos(source, output):
                        note='No measured scale, depth or poses were inferred from source files'))
 
 
-def prepare_video(source, output):
+def prepare_video(source, output, max_frames=300):
     source=Path(source).resolve(); output=_fresh(output)
+    if max_frames<2: raise ValueError('Video max_frames must be at least two')
     if source.suffix.lower() not in VIDEO_EXTENSIONS or not source.is_file():
         raise ValueError('Expected an existing MOV/MP4/M4V video')
     try:
@@ -88,10 +89,10 @@ def prepare_video(source, output):
     if frames<5 or duration<=0:
         raise ValueError('Walkthrough clip is too short for reconstruction')
     return _write(output,dict(schema_version=2,tier='video',source=str(source),fps=2,
-                              max_frames=min(180,max(5,int(duration*2))),dense_backend='openmvs',
+                              max_frames=min(max_frames,180,max(5,int(duration*2))),dense_backend='openmvs',
                               unsupported_required_capabilities=['metric scale without supplied evidence']),
                   dict(format='native_camera_video',source=str(source),source_sha256=_hash(source),
-                       decoded_frames=frames,duration_s=duration))
+                       decoded_frames=frames,duration_s=duration,requested_max_frames=max_frames))
 
 
 def prepare_stray_scanner(source, output, max_frames=300):
@@ -210,6 +211,6 @@ def prepare_stray_scanner(source, output, max_frames=300):
 
 def prepare_capture(tier, source, output, max_frames=300):
     if tier=='photos': return prepare_photos(source,output)
-    if tier=='video': return prepare_video(source,output)
+    if tier=='video': return prepare_video(source,output,max_frames=max_frames)
     if tier=='lidar': return prepare_stray_scanner(source,output,max_frames=max_frames)
     raise ValueError('tier must be photos, video or lidar')

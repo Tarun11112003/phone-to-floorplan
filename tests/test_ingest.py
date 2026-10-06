@@ -13,6 +13,17 @@ from PIL import Image
 from floorplan.ingest import prepare_capture
 
 
+def test_video_intake_honors_explicit_frame_budget_and_preserves_default_cap(tmp_path,monkeypatch):
+    source=tmp_path/'capture.mp4'; source.write_bytes(b'test metadata fixture')
+    monkeypatch.setattr(imageio_ffmpeg,'count_frames_and_secs',lambda path:(9000,300.))
+    manifest=prepare_capture('video',source,tmp_path/'limited',max_frames=24)
+    assert json.loads(manifest.read_text())['max_frames']==24
+    default=prepare_capture('video',source,tmp_path/'default')
+    assert json.loads(default.read_text())['max_frames']==180
+    with pytest.raises(ValueError,match='at least two'):
+        prepare_capture('video',source,tmp_path/'invalid',max_frames=1)
+
+
 def test_photos_keep_room_identity_and_exif_orientation(tmp_path):
     source = tmp_path / 'property'
     for room in ('kitchen', 'hall'):
