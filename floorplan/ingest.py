@@ -64,14 +64,24 @@ def prepare_photos(source, output):
                     raise RuntimeError('Install capture extra for HEIC: pip install -e ".[capture]"') from exc
             name=f'{room.name}__{index:02d}.png'
             with Image.open(path) as image:
+                exif=image.getexif()
+                tags={str(key):str(value) for key,value in exif.items()}
+                try:
+                    tags.update({str(key):str(value) for key,value in exif.get_ifd(34665).items()})
+                except (KeyError,TypeError): pass
+                original_size=image.size
+                orientation=int(exif.get(274,1))
                 normalized_image=ImageOps.exif_transpose(image).convert('RGB')
-                normalized_image.save(normalized/name)
+                normalized_image.save(normalized/name,exif=normalized_image.getexif())
             mapping.append(dict(room_id=room.name,source=str(path),source_sha256=_hash(path),
                                 normalized=f'images/{name}',width=normalized_image.width,
-                                height=normalized_image.height))
+                                height=normalized_image.height,original_width=original_size[0],original_height=original_size[1],
+                                original_orientation=orientation,exif=tags,
+                                camera_metadata_source='original EXIF; not a measured intrinsic matrix'))
     return _write(output,dict(schema_version=2,tier='photos',source='images',max_frames=max(5,len(mapping)),
                               matching='exhaustive',dense_backend='openmvs',
                               capture_structure='per_room_folders',
+                              room_groups={room.name:[image['normalized'].split('/')[-1] for image in mapping if image['room_id']==room.name] for room in rooms},
                               unsupported_required_capabilities=['automatic room-folder stitching','metric scale without supplied evidence']),
                   dict(format='native_camera_room_folders',rooms=[r.name for r in rooms],images=mapping,
                        note='No measured scale, depth or poses were inferred from source files'))
