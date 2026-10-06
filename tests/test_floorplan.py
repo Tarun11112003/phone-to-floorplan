@@ -1,4 +1,5 @@
 import json
+import shutil
 from pathlib import Path
 from xml.etree import ElementTree
 
@@ -77,3 +78,47 @@ def test_disconnected_rooms_do_not_get_a_combined_cad_plan(tmp_path: Path):
     assert (output / "room_a.dxf").exists()
     assert (output / "room_b.dxf").exists()
     assert "placement unknown" in (output / "plan.svg").read_text(encoding="utf-8")
+
+
+def test_three_room_stitch_chain_exports_one_consistent_property_plan(tmp_path: Path):
+    manifest_path = make_demo(tmp_path / "three_room_capture")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    room_c = json.loads(json.dumps(manifest["rooms"][1]))
+    room_c.update(id="room_c", label="Room C")
+    room_c["source"]["path"] = "room_c.png"
+    room_c["source"]["type"] = "image"
+    room_c["source"].pop("frame_time_s", None)
+    shutil.copyfile(manifest_path.parent / "room_a.png", manifest_path.parent / "room_c.png")
+    manifest["rooms"].append(room_c)
+    manifest["stitches"].append({
+        "room_id": "room_c",
+        "target_room_id": "room_b",
+        "source_points": [[0, 1], [0, 2]],
+        "target_points": [[3, 1], [3, 2]],
+    })
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    truth_path = manifest_path.parent / "ground_truth.json"
+    truth = json.loads(truth_path.read_text(encoding="utf-8"))
+    truth["room_c"] = [[7, 0], [10, 0], [10, 3], [7, 3]]
+    truth_path.write_text(json.dumps(truth), encoding="utf-8")
+
+    output = tmp_path / "three_room_result"
+    plan = run_project(manifest_path, output)
+    metrics = _evaluate(output / "plan.json", truth_path)
+
+    assert [room["id"] for room in plan["rooms"]] == ["room_a", "room_b", "room_c"]
+    assert [room["placement"] for room in plan["rooms"]] == ["origin", "stitched", "stitched"]
+    assert metrics["max_corner_error_m"] < 1e-9
+    assert metrics["p95_dimension_error_m"] < 1e-9
+    assert (output / "plan.svg").is_file()
+    assert (output / "plan.dxf").is_file()
+
+
+def test_stitch_chain_rejects_inconsistent_connector_anchors(tmp_path: Path):
+    manifest_path = make_demo(tmp_path / "conflicting_stitch_capture")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["stitches"][0]["source_points"] = [[0, 1], [0, 2.4]]
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(GeometryError, match="doorway anchors disagree"):
+        run_project(manifest_path, tmp_path / "conflicting_stitch_result")
