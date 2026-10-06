@@ -38,6 +38,8 @@ and cannot establish improvement without survey truth. A pinned open-source dept
 model was run on eight provided images and rejected as a measurement source based
 on 0.13–0.77 m per-image mean absolute disagreement with LiDAR.
 See [current flow](RESTORATION_FLOW.md) and [research decisions](OPEN_SOURCE_DECISIONS.md).
+For the ordered next phases and evidence required to close each one, see
+[PENDING_PLAN.md](PENDING_PLAN.md).
 
 Source of authority: [Applied AI.html](<Applied AI.html>), Cozmo AI Case Study, Aug 2026.
 This audit supersedes earlier descriptions of assignment readiness. V3 is a useful
