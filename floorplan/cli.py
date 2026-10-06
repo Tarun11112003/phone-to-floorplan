@@ -56,10 +56,12 @@ def main() -> None:
     intake.add_argument('--tier',choices=['photos','video','lidar'],required=True)
     intake.add_argument('--source',required=True,type=Path)
     intake.add_argument('--out',required=True,type=Path)
+    intake.add_argument('--max-frames',type=int,default=300,help='LiDAR frame budget, sampled uniformly')
     capture = commands.add_parser('run-capture',help='Prepare and reconstruct a raw capture in one command')
     capture.add_argument('--tier',choices=['photos','video','lidar'],required=True)
     capture.add_argument('--source',required=True,type=Path)
     capture.add_argument('--out',required=True,type=Path)
+    capture.add_argument('--max-frames',type=int,default=300,help='LiDAR frame budget, sampled uniformly')
     benchmark = commands.add_parser('benchmark',help='Run a suite and independently evaluate all results')
     benchmark.add_argument('suite',type=Path)
     benchmark.add_argument('--out',required=True,type=Path)
@@ -121,7 +123,7 @@ def main() -> None:
         if args.command == 'run-capture':
             if args.out.exists() and any(args.out.iterdir()):
                 raise FileExistsError(f'Use a fresh output directory: {args.out}')
-            manifest = prepare_capture(args.tier,args.source,args.out/'intake')
+            manifest = prepare_capture(args.tier,args.source,args.out/'intake',args.max_frames)
             from .workflow import reconstruct
             ledger = reconstruct(manifest,args.out/'result')
             print(json.dumps({'capture':str(manifest),'run':str(args.out/'result'/'run.json'),
@@ -131,7 +133,7 @@ def main() -> None:
             if not ledger['result'].get('floor_plan_ready',False):
                 raise SystemExit(1)
         else:
-            print(json.dumps({'manifest':str(prepare_capture(args.tier,args.source,args.out))},indent=2))
+            print(json.dumps({'manifest':str(prepare_capture(args.tier,args.source,args.out,args.max_frames))},indent=2))
     elif args.command == 'evaluate-assignment':
         from .assignment_gates import evaluate_assignment
         metrics=evaluate_assignment(json.loads(args.plan.read_text(encoding='utf-8')),

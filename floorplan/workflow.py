@@ -154,7 +154,10 @@ def reconstruct(manifest_path: Path, output: Path):
     artifact = output/'artifacts'/'plan.json'
     if artifact.exists():
         # Stable top-level filenames for consumers; detailed stage data stays nested.
-        for name in ('plan.json','plan.svg','plan.dxf','quantities.csv'):
+        for name in ('plan.json','plan.svg','plan.dxf','quantities.csv','layout_diagnostic.svg'):
             source = artifact.parent/name
             if source.exists(): shutil.copy2(source,output/name)
+    else:
+        diagnostic=output/'artifacts'/'layout_diagnostic.svg'
+        if diagnostic.exists(): shutil.copy2(diagnostic,output/'layout_diagnostic.svg')
     return ledger

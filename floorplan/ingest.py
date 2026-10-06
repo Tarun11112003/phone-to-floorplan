@@ -4,7 +4,9 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import math
 import re
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -92,30 +94,48 @@ def prepare_video(source, output):
                        decoded_frames=frames,duration_s=duration))
 
 
-def prepare_stray_scanner(source, output):
+def prepare_stray_scanner(source, output, max_frames=300):
     source=Path(source).resolve(); output=_fresh(output)
     required=[source/'odometry.csv',source/'rgb.mp4',source/'depth']
     if any(not p.exists() for p in required):
         raise ValueError('Expected Stray Scanner odometry.csv, rgb.mp4 and depth/')
     with (source/'odometry.csv').open(newline='',encoding='utf-8-sig') as stream:
-        rows=list(csv.DictReader(stream))
+        rows=list(csv.DictReader(stream,skipinitialspace=True))
     keys={'timestamp','frame','x','y','z','qx','qy','qz','qw','fx','fy','cx','cy'}
     if not rows or not keys.issubset(rows[0]):
         raise ValueError('Stray Scanner odometry header is incomplete')
+    if max_frames<2:
+        raise ValueError('max_frames must be at least two')
+    if any(int(row['frame'])!=index for index,row in enumerate(rows)):
+        raise ValueError('Odometry frame numbers must match video indices; no silent synchronization')
+    confidence_dir=source/'confidence'
+    eligible=[row for row in rows if (source/'depth'/f"{int(row['frame']):06d}.png").is_file()
+              and (not confidence_dir.exists() or (confidence_dir/f"{int(row['frame']):06d}.png").is_file())]
+    if len(eligible)<2:
+        raise ValueError('Fewer than two RGB frames have matching depth/confidence maps')
+    stride=max(1,math.ceil(len(eligible)/max_frames))
+    selected_rows=eligible[::stride]
     frames_dir=output/'frames'; frames_dir.mkdir()
+    selection='+'.join(f"eq(n\\,{int(row['frame'])})" for row in selected_rows)
     command=[imageio_ffmpeg.get_ffmpeg_exe(),'-loglevel','error','-noautorotate','-i',str(source/'rgb.mp4'),
-             '-vsync','0','-start_number','0',str(frames_dir/'rgb_%06d.png')]
+             '-vf',f'select={selection}','-vsync','0','-start_number','0',
+             str(frames_dir/'rgb_%06d.png')]
     subprocess.run(command,capture_output=True,text=True,check=True)
+    decoded_count=sum(1 for _ in frames_dir.glob('rgb_*.png'))
+    if decoded_count<2 or decoded_count>len(selected_rows):
+        raise ValueError('Video decoding produced an invalid RGB/depth selection')
+    omitted_video_tail=len(selected_rows)-decoded_count
+    selected_rows=selected_rows[:decoded_count]
     import cv2
     records=[]
     origin_time=None
     seen_frames=set()
-    for row in rows:
+    for selected_index,row in enumerate(selected_rows):
         number=int(row['frame']); depth=source/'depth'/f'{number:06d}.png'
         if number in seen_frames:
             raise ValueError(f'Duplicate frame ID {number}')
         seen_frames.add(number)
-        rgb=frames_dir/f'rgb_{number:06d}.png'
+        rgb=frames_dir/f'rgb_{selected_index:06d}.png'
         if not depth.is_file() or not rgb.is_file():
             raise ValueError(f'RGB/depth pair missing for frame {number}; no silent synchronization')
         depth_image=cv2.imread(str(depth),cv2.IMREAD_UNCHANGED)
@@ -148,34 +168,48 @@ def prepare_stray_scanner(source, output):
             registered=frames_dir/f'registered_{number:06d}.png'
             cv2.imwrite(str(registered),cv2.resize(rgb_image,(depth_width,depth_height),interpolation=cv2.INTER_AREA))
             rgb=registered
+        local_depth=frames_dir/f'depth_{number:06d}.png'
+        shutil.copy2(depth,local_depth)
+        local_confidence=None
+        if confidence.exists():
+            local_confidence=frames_dir/f'confidence_{number:06d}.png'
+            shutil.copy2(confidence,local_confidence)
         quaternion=np.array([float(row[k]) for k in ('qx','qy','qz','qw')])
         if abs(np.linalg.norm(quaternion)-1)>.01:
             raise ValueError(f'Non-unit camera quaternion at frame {number}')
         pose=np.eye(4)
-        pose[:3,:3]=Rotation.from_quat(quaternion/np.linalg.norm(quaternion)).as_matrix() @ np.diag([1,-1,-1])
+        # Stray Scanner exports the camera-to-world rotation in the same optical
+        # axes used by its depth/RGB frames. A further ARKit-axis flip mirrored
+        # real scans around each camera and erased vertical-wall support.
+        pose[:3,:3]=Rotation.from_quat(quaternion/np.linalg.norm(quaternion)).as_matrix()
         pose[:3,3]=[float(row[k]) for k in ('x','y','z')]
         timestamp=float(row['timestamp'])
         if origin_time is None: origin_time=timestamp
-        record=dict(id=number,timestamp_s=timestamp-origin_time,rgb=str(rgb),depth=str(depth),
+        record=dict(id=number,timestamp_s=timestamp-origin_time,
+                    rgb=str(rgb.relative_to(output)),depth=str(local_depth.relative_to(output)),
                     intrinsics=camera,camera_to_world=pose.tolist())
-        if confidence.exists(): record['confidence']=str(confidence)
+        if local_confidence is not None: record['confidence']=str(local_confidence.relative_to(output))
         records.append(record)
     if len(records)<2 or any(b['timestamp_s']<=a['timestamp_s'] for a,b in zip(records,records[1:])):
         raise ValueError('At least two synchronized frames with strictly increasing timestamps required')
     sequence=dict(schema_version=1,intrinsics=records[0]['intrinsics'],depth_scale=1000,
                   pose_source='sensor',minimum_confidence=1,frames=records,
                   source='Stray Scanner odometry, raw RGB/depth/confidence',
-                  coordinate_conversion='ARKit camera right/up/back to OpenCV right/down/forward')
+                  coordinate_conversion='Stray Scanner quaternion used directly as optical camera-to-world; verified by same-frame wall-plane ablation')
     (output/'sequence.json').write_text(json.dumps(sequence,indent=2),encoding='utf-8')
     return _write(output,dict(schema_version=2,tier='lidar',sequence='sequence.json',
                               optimize_poses=True,down_direction=[0,-1,0]),
                   dict(format='stray_scanner',version_tested='format.md as read 2026-10-06; device untested',
                        source=str(source),source_sha256={str(p):_hash(p) for p in required[:2]},frames=len(records),
-                       note='RGB resampled to depth resolution with scaled per-frame intrinsics; optical registration and sensor coordinates require physical verification'))
+                       original_frames=len(rows),available_depth_confidence_pairs=len(eligible),
+                       omitted_unpaired_frames=len(rows)-len(eligible),
+                       omitted_video_tail_frames=omitted_video_tail,sampling_stride=stride,
+                       selected_frame_ids=[int(row['frame']) for row in selected_rows],
+                       note='RGB resampled to depth resolution with scaled per-frame intrinsics; unmatched tail video frames are disclosed; optical registration and sensor coordinates require physical verification'))
 
 
-def prepare_capture(tier, source, output):
+def prepare_capture(tier, source, output, max_frames=300):
     if tier=='photos': return prepare_photos(source,output)
     if tier=='video': return prepare_video(source,output)
-    if tier=='lidar': return prepare_stray_scanner(source,output)
+    if tier=='lidar': return prepare_stray_scanner(source,output,max_frames=max_frames)
     raise ValueError('tier must be photos, video or lidar')

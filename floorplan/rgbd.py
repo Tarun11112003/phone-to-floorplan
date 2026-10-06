@@ -258,7 +258,7 @@ def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None =
             entry['camera_to_first'] = matrix.tolist()
     cloud = np.concatenate([c @ p[:3,:3].T + p[:3,3] for c,p in zip(clouds, pose_matrices)])
     color = np.concatenate(colors)
-    from .layout import weighted_voxels, extract_layout, export_layout
+    from .layout import weighted_voxels, extract_layout, export_layout, render_layout_diagnostic
     cloud, color, support_weights = weighted_voxels(cloud, color, np.concatenate(weights))
     np.savez_compressed(output / "cloud.npz", points=cloud.astype(np.float32), rgb=color.astype(np.uint8), weights=support_weights)
     (output / "trajectory.json").write_text(json.dumps(poses, indent=2), encoding="utf-8")
@@ -273,6 +273,7 @@ def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None =
         if manifest.get('layout', 'rectangle') == 'polygons':
             rooms, metadata = extract_layout(cloud, planes, np.asarray(pose_matrices)[:,:3,3], manifest.get('down_direction'))
             (output / 'layout_evidence.json').write_text(json.dumps(metadata, indent=2), encoding='utf-8')
+            render_layout_diagnostic(metadata,output/'layout_diagnostic.svg')
             if not rooms:
                 raise ValueError('Observed wall segments do not close a room; inspect layout_evidence.json')
             complete_capture=complete_capture and not metadata['unclosed_geometry']
