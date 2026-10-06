@@ -1,0 +1,1 @@
+property_id,room_id,label,floor_area_m2,corners_xz_json,ceiling_height_m,adjacent_room_ids_json,measurement_method,truth_evidence_path,notes

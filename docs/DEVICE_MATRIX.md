@@ -2,7 +2,7 @@
 
 | Tier | Eligible phone | Source and retained evidence | Current route | Metric accuracy evidence |
 |---|---|---|---|---|
-| 2–8 stills per room | iPhone 15+ including non-Pro | Original HEIC/JPEG, room folders, EXIF; no depth or poses | Camera → importer → SfM. Under five total views fails; arbitrary-scale SfM cannot yield dimensions without independent scale. Separate-room stitching absent. | No assignment-compliant physical test; 8% wall and footprint gates unproven. |
+| 2–8 stills per room | iPhone 15+ including non-Pro | Original HEIC/JPEG, room folders, EXIF; no depth or poses | Camera → importer → SfM. Code accepts 2–8 photos, but tested supplied 2/4/8 RGB subsets form no sparse model. Arbitrary monocular scale and separate-room stitch remain unresolved. | No assignment-compliant physical test; 8% wall and footprint gates unproven. |
 | Walkthrough video | iPhone 15+ including non-Pro | Original MOV/MP4/HEVC, duration and source hash | Camera → importer → frame selection/SfM. Requires scale evidence for metric plan. | Synthetic dense-video result only; 3% wall gate unproven on native phone clip. |
 | RGB-D / LiDAR | Pro-class iPhone with LiDAR | Stray Scanner RGB, depth (mm), odometry, intrinsics, confidence if exported | Raw export → strict synchronisation and coordinate conversion → RGB-D reconstruction. Registration and coordinate conventions need device verification. | ARKitScenes public-data provisional single-room result; no on-device Stray Scanner test or required multiroom survey. |
 

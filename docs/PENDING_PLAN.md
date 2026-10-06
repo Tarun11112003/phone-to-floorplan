@@ -14,7 +14,7 @@ Treat each item below as pending until its completion evidence is recorded here.
 
 | Phase | Current state | Close condition |
 | --- | --- | --- |
-| 0. Acceptance data and definitions | **Pending external inputs.** Current raw scans have no surveyed truth; published schema and Round 1 gates are absent. | Freeze schema/gates, capture manifest and independent truth inventory. |
+| 0. Acceptance data and definitions | **Prepared; pending external inputs.** Inventory and manifest/truth templates are checked in; current scans have no surveyed truth and the published schema/full Round 1 gates are absent. | Fill manifest with one surveyed 3+ room property shared across tiers; add truth, repeat, damage and consumer export; version external schema/gates. |
 | 1. Sparse photos | **Failing baseline.** Supplied 2/4/8 RGB-only trials and an 8-image full-resolution trial yield no sparse model. | Held-out 2/4/8 photo capture yields metric room geometry or an honest capture-quality failure; pass photo wall/footprint gates. |
 | 2. LiDAR geometry and ceilings | **Partial.** One supplied room, 36.6% coverage; two other raw scans have no closed plan; synthetic rooms lack ceilings. | Surveyed held-out rooms, full supported boundaries, correct topology, 1.5 cm ceiling error and 1 cm repeat spread. |
 | 3. Video | **Partial.** Synthetic cached path works; public clip weakly registers; native phone video untested. | Held-out native phone video passes the 3% wall gate, ceiling and repeat checks. |
@@ -231,12 +231,13 @@ matches the actual run evidence.
 
 ## Recommended next focus
 
-Start with **Phase 0** and finish its benchmark manifest, ground-truth template,
-and list of externally missing definitions. This determines whether later accuracy
-work can be measured and prevents us from tuning to an unsurveyed capture. Once
-Phase 0 is closed, work only on **Phase 1** until its photo gate is measured. Do not
-start Phase 2 or add another model during Phase 1 unless a recorded experiment shows
-it directly addresses that phase's failure.
+Phase 0's inventory, manifest skeleton, truth templates and missing-definition list
+are now prepared in [docs/benchmark/PHASE0_INVENTORY.md](benchmark/PHASE0_INVENTORY.md).
+Phase 0 cannot close from the existing data: the remaining work is the physical
+survey/capture package and externally missing schema/gates. Once those inputs are
+available, close Phase 0 before working only on Phase 1 until its photo gate is
+measured. Do not start Phase 2 or add another model during Phase 1 unless a recorded
+experiment shows it directly addresses that phase's failure.
 
 The missing schema, Round 1 rules, surveyed truth and consumer export are input
 dependencies; they are not implementation defects. Record each one as an external
