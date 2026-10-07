@@ -1,0 +1,1156 @@
+{
+  "version": "controlled-original-video-bridge-checkpoint-v1",
+  "date": "2026-10-07",
+  "production_code_unchanged": true,
+  "baseline_files_unchanged": true,
+  "whole_requirements_closed": [],
+  "matching_verification_mapping_acceptance_guards_changed": false,
+  "production_fix_adopted": false,
+  "baseline": {
+    "input_views": 68,
+    "verified_pairs": 139,
+    "nontrivial_components": 8,
+    "isolated_views": 8,
+    "component_sizes": [
+      16,
+      12,
+      8,
+      7,
+      7,
+      6,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "models": [
+      {
+        "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_sync_boundary\\video_sampling_verified_input\\video72\\result\\sfm\\sparse\\0",
+        "registered_images": 9,
+        "image_names": [
+          "frame_00016.png",
+          "frame_00017.png",
+          "frame_00018.png",
+          "frame_00019.png",
+          "frame_00020.png",
+          "frame_00021.png",
+          "frame_00022.png",
+          "frame_00023.png",
+          "frame_00024.png"
+        ],
+        "sparse_points": 1104,
+        "mean_reprojection_error_px": 0.5501048034877035
+      },
+      {
+        "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_sync_boundary\\video_sampling_verified_input\\video72\\result\\sfm\\sparse\\1",
+        "registered_images": 10,
+        "image_names": [
+          "frame_00028.png",
+          "frame_00029.png",
+          "frame_00030.png",
+          "frame_00031.png",
+          "frame_00032.png",
+          "frame_00033.png",
+          "frame_00034.png",
+          "frame_00035.png",
+          "frame_00036.png",
+          "frame_00037.png"
+        ],
+        "sparse_points": 153,
+        "mean_reprojection_error_px": 0.895259689860046
+      }
+    ]
+  },
+  "trials": {
+    "trial1": {
+      "requested_spacing_s": 0.125,
+      "input_views": 78,
+      "candidate_frames": 12,
+      "added_frames": 10,
+      "verified_pairs": 169,
+      "new_verified_pairs": 30,
+      "nontrivial_components": 8,
+      "component_sizes": [
+        17,
+        16,
+        8,
+        7,
+        7,
+        6,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "isolated_views": 13,
+      "original_isolated_views": 7,
+      "target_groups_connected": false,
+      "joint_target_sparse_models": [],
+      "union_original_registered_views": 19,
+      "selected_model_original_views": 9,
+      "models": [
+        {
+          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\trial1\\sparse\\0",
+          "registered_images": 12,
+          "image_names": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "frame_00016.png",
+            "frame_00017.png",
+            "frame_00018.png",
+            "frame_00019.png",
+            "frame_00020.png",
+            "frame_00021.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png"
+          ],
+          "sparse_points": 1294,
+          "mean_reprojection_error_px": 0.6115493929538693
+        },
+        {
+          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\trial1\\sparse\\1",
+          "registered_images": 10,
+          "image_names": [
+            "frame_00028.png",
+            "frame_00029.png",
+            "frame_00030.png",
+            "frame_00031.png",
+            "frame_00032.png",
+            "frame_00033.png",
+            "frame_00034.png",
+            "frame_00035.png",
+            "frame_00036.png",
+            "frame_00037.png"
+          ],
+          "sparse_points": 153,
+          "mean_reprojection_error_px": 0.895259689860046
+        }
+      ],
+      "runtime_s": 78.53394299990032,
+      "max_added_pair_sampson_px": 3.877453047532459,
+      "baseline_rows_preserved": {
+        "cameras": true,
+        "images": true,
+        "keypoints": true,
+        "descriptors": true,
+        "matches": true,
+        "two_view_geometries": true
+      }
+    },
+    "trial2": {
+      "requested_spacing_s": 0.125,
+      "input_views": 78,
+      "candidate_frames": 12,
+      "added_frames": 10,
+      "verified_pairs": 169,
+      "new_verified_pairs": 30,
+      "nontrivial_components": 8,
+      "component_sizes": [
+        17,
+        16,
+        8,
+        7,
+        7,
+        6,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "isolated_views": 13,
+      "original_isolated_views": 7,
+      "target_groups_connected": false,
+      "joint_target_sparse_models": [],
+      "union_original_registered_views": 19,
+      "selected_model_original_views": 9,
+      "models": [
+        {
+          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\trial2\\sparse\\0",
+          "registered_images": 12,
+          "image_names": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "frame_00016.png",
+            "frame_00017.png",
+            "frame_00018.png",
+            "frame_00019.png",
+            "frame_00020.png",
+            "frame_00021.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png"
+          ],
+          "sparse_points": 1294,
+          "mean_reprojection_error_px": 0.6115493929538693
+        },
+        {
+          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\trial2\\sparse\\1",
+          "registered_images": 10,
+          "image_names": [
+            "frame_00028.png",
+            "frame_00029.png",
+            "frame_00030.png",
+            "frame_00031.png",
+            "frame_00032.png",
+            "frame_00033.png",
+            "frame_00034.png",
+            "frame_00035.png",
+            "frame_00036.png",
+            "frame_00037.png"
+          ],
+          "sparse_points": 153,
+          "mean_reprojection_error_px": 0.895259689860046
+        }
+      ],
+      "runtime_s": 66.16554379998706,
+      "max_added_pair_sampson_px": 3.877453047532459,
+      "baseline_rows_preserved": {
+        "cameras": true,
+        "images": true,
+        "keypoints": true,
+        "descriptors": true,
+        "matches": true,
+        "two_view_geometries": true
+      }
+    },
+    "dense_trial1": {
+      "requested_spacing_s": 0.0625,
+      "input_views": 88,
+      "candidate_frames": 23,
+      "added_frames": 20,
+      "verified_pairs": 222,
+      "new_verified_pairs": 83,
+      "nontrivial_components": 9,
+      "component_sizes": [
+        23,
+        18,
+        8,
+        7,
+        7,
+        6,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "isolated_views": 13,
+      "original_isolated_views": 7,
+      "target_groups_connected": false,
+      "joint_target_sparse_models": [],
+      "union_original_registered_views": 19,
+      "selected_model_original_views": 9,
+      "models": [
+        {
+          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\dense_trial1\\sparse\\0",
+          "registered_images": 16,
+          "image_names": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "bridge_00005.png",
+            "bridge_00006.png",
+            "bridge_00007.png",
+            "bridge_00008.png",
+            "frame_00016.png",
+            "frame_00017.png",
+            "frame_00018.png",
+            "frame_00019.png",
+            "frame_00020.png",
+            "frame_00021.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png"
+          ],
+          "sparse_points": 1506,
+          "mean_reprojection_error_px": 0.6680059381288898
+        },
+        {
+          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\dense_trial1\\sparse\\1",
+          "registered_images": 10,
+          "image_names": [
+            "frame_00028.png",
+            "frame_00029.png",
+            "frame_00030.png",
+            "frame_00031.png",
+            "frame_00032.png",
+            "frame_00033.png",
+            "frame_00034.png",
+            "frame_00035.png",
+            "frame_00036.png",
+            "frame_00037.png"
+          ],
+          "sparse_points": 153,
+          "mean_reprojection_error_px": 0.895259689860046
+        }
+      ],
+      "runtime_s": 123.84136540000327,
+      "max_added_pair_sampson_px": 3.975227413194212,
+      "baseline_rows_preserved": {
+        "cameras": true,
+        "images": true,
+        "keypoints": true,
+        "descriptors": true,
+        "matches": true,
+        "two_view_geometries": true
+      }
+    },
+    "dense_trial2": {
+      "requested_spacing_s": 0.0625,
+      "input_views": 88,
+      "candidate_frames": 23,
+      "added_frames": 20,
+      "verified_pairs": 222,
+      "new_verified_pairs": 83,
+      "nontrivial_components": 9,
+      "component_sizes": [
+        23,
+        18,
+        8,
+        7,
+        7,
+        6,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "isolated_views": 13,
+      "original_isolated_views": 7,
+      "target_groups_connected": false,
+      "joint_target_sparse_models": [],
+      "union_original_registered_views": 19,
+      "selected_model_original_views": 9,
+      "models": [
+        {
+          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\dense_trial2\\sparse\\0",
+          "registered_images": 16,
+          "image_names": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "bridge_00005.png",
+            "bridge_00006.png",
+            "bridge_00007.png",
+            "bridge_00008.png",
+            "frame_00016.png",
+            "frame_00017.png",
+            "frame_00018.png",
+            "frame_00019.png",
+            "frame_00020.png",
+            "frame_00021.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png"
+          ],
+          "sparse_points": 1506,
+          "mean_reprojection_error_px": 0.6680059381288898
+        },
+        {
+          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\dense_trial2\\sparse\\1",
+          "registered_images": 10,
+          "image_names": [
+            "frame_00028.png",
+            "frame_00029.png",
+            "frame_00030.png",
+            "frame_00031.png",
+            "frame_00032.png",
+            "frame_00033.png",
+            "frame_00034.png",
+            "frame_00035.png",
+            "frame_00036.png",
+            "frame_00037.png"
+          ],
+          "sparse_points": 153,
+          "mean_reprojection_error_px": 0.895259689860046
+        }
+      ],
+      "runtime_s": 103.65765389997978,
+      "max_added_pair_sampson_px": 3.975227413194212,
+      "baseline_rows_preserved": {
+        "cameras": true,
+        "images": true,
+        "keypoints": true,
+        "descriptors": true,
+        "matches": true,
+        "two_view_geometries": true
+      }
+    }
+  },
+  "repeat_comparisons": {
+    "comparison": {
+      "same_input_images_and_options": true,
+      "semantic_database_tables_exact": {
+        "cameras": true,
+        "images": true,
+        "keypoints": true,
+        "descriptors": true,
+        "matches": true,
+        "two_view_geometries": true
+      },
+      "same_verified_pairs": true,
+      "same_components": true,
+      "model_comparison": [
+        {
+          "registered_images": 12,
+          "image_names": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "frame_00016.png",
+            "frame_00017.png",
+            "frame_00018.png",
+            "frame_00019.png",
+            "frame_00020.png",
+            "frame_00021.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png"
+          ],
+          "matching_model_found": true,
+          "binary_model_files_exact": true,
+          "model1_sha256": {
+            "cameras.bin": "d8d1c9f1e02f3deb38b0666924f007925929ab6da330e4666ec1275169903d7f",
+            "frames.bin": "ed3a56ecdfbd44044e1948546e2a63eb4a78174df7f6eaa71fe101a1c1d6a38a",
+            "images.bin": "c8e0fbeaa405bbdd8e056b9b418f09989de159cf6e9513872cf8d8448f280b48",
+            "points3D.bin": "036c87b4998314614e1be997be5e411cb82460c18af4fe2fbe5b979e96b41122",
+            "rigs.bin": "e9f314e45fd7a8f5ba4b8ca352ac97e60b985ec2aacd73c481d2d911916bb3cc"
+          },
+          "model2_sha256": {
+            "cameras.bin": "d8d1c9f1e02f3deb38b0666924f007925929ab6da330e4666ec1275169903d7f",
+            "frames.bin": "ed3a56ecdfbd44044e1948546e2a63eb4a78174df7f6eaa71fe101a1c1d6a38a",
+            "images.bin": "c8e0fbeaa405bbdd8e056b9b418f09989de159cf6e9513872cf8d8448f280b48",
+            "points3D.bin": "036c87b4998314614e1be997be5e411cb82460c18af4fe2fbe5b979e96b41122",
+            "rigs.bin": "e9f314e45fd7a8f5ba4b8ca352ac97e60b985ec2aacd73c481d2d911916bb3cc"
+          },
+          "maximum_camera_center_raw_coordinate_difference": 0.0,
+          "sparse_points": [
+            1294,
+            1294
+          ],
+          "mean_reprojection_error_px": [
+            0.6115493929538693,
+            0.6115493929538693
+          ]
+        },
+        {
+          "registered_images": 10,
+          "image_names": [
+            "frame_00028.png",
+            "frame_00029.png",
+            "frame_00030.png",
+            "frame_00031.png",
+            "frame_00032.png",
+            "frame_00033.png",
+            "frame_00034.png",
+            "frame_00035.png",
+            "frame_00036.png",
+            "frame_00037.png"
+          ],
+          "matching_model_found": true,
+          "binary_model_files_exact": true,
+          "model1_sha256": {
+            "cameras.bin": "633ad9c3f9dbb77d7fe66f836d2858639d2101b1fd424b32b74f7a0d1f47c6cc",
+            "frames.bin": "4aed7faaa6a540f76b54329ef4754236aa0ad1b9b0f99ae487fb6bf374189e16",
+            "images.bin": "e163e01cd9895d8b308babab8c9f31707b20c07a4aad3f5d114d02fd1f68651f",
+            "points3D.bin": "8fdb7c94d22367d2dea95361df6d0a698f2fc6a9c9b3cb4b50b9744516fc91e9",
+            "rigs.bin": "0eeb4bd32515ac5f453757f07099f52cb155d8ca96b153a204db581f562059c7"
+          },
+          "model2_sha256": {
+            "cameras.bin": "633ad9c3f9dbb77d7fe66f836d2858639d2101b1fd424b32b74f7a0d1f47c6cc",
+            "frames.bin": "4aed7faaa6a540f76b54329ef4754236aa0ad1b9b0f99ae487fb6bf374189e16",
+            "images.bin": "e163e01cd9895d8b308babab8c9f31707b20c07a4aad3f5d114d02fd1f68651f",
+            "points3D.bin": "8fdb7c94d22367d2dea95361df6d0a698f2fc6a9c9b3cb4b50b9744516fc91e9",
+            "rigs.bin": "0eeb4bd32515ac5f453757f07099f52cb155d8ca96b153a204db581f562059c7"
+          },
+          "maximum_camera_center_raw_coordinate_difference": 0.0,
+          "sparse_points": [
+            153,
+            153
+          ],
+          "mean_reprojection_error_px": [
+            0.895259689860046,
+            0.895259689860046
+          ]
+        }
+      ],
+      "adjacent_pairs": [
+        {
+          "image_a": "frame_00024.png",
+          "image_b": "bridge_00002.png",
+          "delta_source_time_s": 0.1333329999999986,
+          "keypoints_a": 1845,
+          "keypoints_b": 1289,
+          "native_preverification_matches": 651,
+          "stored_matches": 653,
+          "verified_inliers": 636,
+          "geometry_configuration": 6,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00002.png",
+          "image_b": "bridge_00003.png",
+          "delta_source_time_s": 0.1333340000000014,
+          "keypoints_a": 1289,
+          "keypoints_b": 894,
+          "native_preverification_matches": 367,
+          "stored_matches": 364,
+          "verified_inliers": 357,
+          "geometry_configuration": 3,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00003.png",
+          "image_b": "bridge_00004.png",
+          "delta_source_time_s": 0.1333329999999986,
+          "keypoints_a": 894,
+          "keypoints_b": 419,
+          "native_preverification_matches": 133,
+          "stored_matches": 131,
+          "verified_inliers": 114,
+          "geometry_configuration": 6,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00004.png",
+          "image_b": "frame_00025.png",
+          "delta_source_time_s": 0.11666700000000141,
+          "keypoints_a": 419,
+          "keypoints_b": 133,
+          "native_preverification_matches": 22,
+          "stored_matches": 22,
+          "verified_inliers": 20,
+          "geometry_configuration": 3,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "frame_00025.png",
+          "image_b": "bridge_00005.png",
+          "delta_source_time_s": 0.01666599999999896,
+          "keypoints_a": 133,
+          "keypoints_b": 143,
+          "native_preverification_matches": 29,
+          "stored_matches": 30,
+          "verified_inliers": 28,
+          "geometry_configuration": 3,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00005.png",
+          "image_b": "bridge_00006.png",
+          "delta_source_time_s": 0.13333399999999962,
+          "keypoints_a": 143,
+          "keypoints_b": 67,
+          "native_preverification_matches": 13,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00006.png",
+          "image_b": "bridge_00007.png",
+          "delta_source_time_s": 0.13333300000000037,
+          "keypoints_a": 67,
+          "keypoints_b": 55,
+          "native_preverification_matches": 12,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00007.png",
+          "image_b": "bridge_00008.png",
+          "delta_source_time_s": 0.15000000000000036,
+          "keypoints_a": 55,
+          "keypoints_b": 60,
+          "native_preverification_matches": 3,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00008.png",
+          "image_b": "frame_00026.png",
+          "delta_source_time_s": 0.0666670000000007,
+          "keypoints_a": 60,
+          "keypoints_b": 76,
+          "native_preverification_matches": 6,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "frame_00026.png",
+          "image_b": "bridge_00009.png",
+          "delta_source_time_s": 0.06666599999999967,
+          "keypoints_a": 76,
+          "keypoints_b": 48,
+          "native_preverification_matches": 5,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00009.png",
+          "image_b": "bridge_00010.png",
+          "delta_source_time_s": 0.13333399999999962,
+          "keypoints_a": 48,
+          "keypoints_b": 46,
+          "native_preverification_matches": 7,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00010.png",
+          "image_b": "bridge_00011.png",
+          "delta_source_time_s": 0.15000000000000036,
+          "keypoints_a": 46,
+          "keypoints_b": 62,
+          "native_preverification_matches": 10,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00011.png",
+          "image_b": "frame_00027.png",
+          "delta_source_time_s": 0.15000000000000036,
+          "keypoints_a": 62,
+          "keypoints_b": 197,
+          "native_preverification_matches": 13,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        }
+      ]
+    },
+    "dense_comparison": {
+      "same_input_images_and_options": true,
+      "semantic_database_tables_exact": {
+        "cameras": true,
+        "images": true,
+        "keypoints": true,
+        "descriptors": true,
+        "matches": true,
+        "two_view_geometries": true
+      },
+      "same_verified_pairs": true,
+      "same_components": true,
+      "model_comparison": [
+        {
+          "registered_images": 16,
+          "image_names": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "bridge_00005.png",
+            "bridge_00006.png",
+            "bridge_00007.png",
+            "bridge_00008.png",
+            "frame_00016.png",
+            "frame_00017.png",
+            "frame_00018.png",
+            "frame_00019.png",
+            "frame_00020.png",
+            "frame_00021.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png"
+          ],
+          "matching_model_found": true,
+          "binary_model_files_exact": true,
+          "model1_sha256": {
+            "cameras.bin": "0bd009ac1812fb861ffa257ffc54ae25b2b2ae2dede63e9299bbf72f4baf6ab8",
+            "frames.bin": "fbcf4f2011d6d80d20235324ff15dca38dc193add15fea1d560732a1b60305eb",
+            "images.bin": "0f7857beb3059bc80b3a35a0221445e2d9bb2fd7cca7791eda285b2d8ae5c39b",
+            "points3D.bin": "aa358897afa9b4fe69b9682dbbbbf1c7f1bc7f11ebf862f5013a21cc2b6e9a76",
+            "rigs.bin": "92fb969433aadc692fab716175ebca8cd7be70fc548aa0d0d3f449ea113714c6"
+          },
+          "model2_sha256": {
+            "cameras.bin": "0bd009ac1812fb861ffa257ffc54ae25b2b2ae2dede63e9299bbf72f4baf6ab8",
+            "frames.bin": "fbcf4f2011d6d80d20235324ff15dca38dc193add15fea1d560732a1b60305eb",
+            "images.bin": "0f7857beb3059bc80b3a35a0221445e2d9bb2fd7cca7791eda285b2d8ae5c39b",
+            "points3D.bin": "aa358897afa9b4fe69b9682dbbbbf1c7f1bc7f11ebf862f5013a21cc2b6e9a76",
+            "rigs.bin": "92fb969433aadc692fab716175ebca8cd7be70fc548aa0d0d3f449ea113714c6"
+          },
+          "maximum_camera_center_raw_coordinate_difference": 0.0,
+          "sparse_points": [
+            1506,
+            1506
+          ],
+          "mean_reprojection_error_px": [
+            0.6680059381288898,
+            0.6680059381288898
+          ]
+        },
+        {
+          "registered_images": 10,
+          "image_names": [
+            "frame_00028.png",
+            "frame_00029.png",
+            "frame_00030.png",
+            "frame_00031.png",
+            "frame_00032.png",
+            "frame_00033.png",
+            "frame_00034.png",
+            "frame_00035.png",
+            "frame_00036.png",
+            "frame_00037.png"
+          ],
+          "matching_model_found": true,
+          "binary_model_files_exact": true,
+          "model1_sha256": {
+            "cameras.bin": "633ad9c3f9dbb77d7fe66f836d2858639d2101b1fd424b32b74f7a0d1f47c6cc",
+            "frames.bin": "4aed7faaa6a540f76b54329ef4754236aa0ad1b9b0f99ae487fb6bf374189e16",
+            "images.bin": "e163e01cd9895d8b308babab8c9f31707b20c07a4aad3f5d114d02fd1f68651f",
+            "points3D.bin": "8fdb7c94d22367d2dea95361df6d0a698f2fc6a9c9b3cb4b50b9744516fc91e9",
+            "rigs.bin": "0eeb4bd32515ac5f453757f07099f52cb155d8ca96b153a204db581f562059c7"
+          },
+          "model2_sha256": {
+            "cameras.bin": "633ad9c3f9dbb77d7fe66f836d2858639d2101b1fd424b32b74f7a0d1f47c6cc",
+            "frames.bin": "4aed7faaa6a540f76b54329ef4754236aa0ad1b9b0f99ae487fb6bf374189e16",
+            "images.bin": "e163e01cd9895d8b308babab8c9f31707b20c07a4aad3f5d114d02fd1f68651f",
+            "points3D.bin": "8fdb7c94d22367d2dea95361df6d0a698f2fc6a9c9b3cb4b50b9744516fc91e9",
+            "rigs.bin": "0eeb4bd32515ac5f453757f07099f52cb155d8ca96b153a204db581f562059c7"
+          },
+          "maximum_camera_center_raw_coordinate_difference": 0.0,
+          "sparse_points": [
+            153,
+            153
+          ],
+          "mean_reprojection_error_px": [
+            0.895259689860046,
+            0.895259689860046
+          ]
+        }
+      ],
+      "adjacent_pairs": [
+        {
+          "image_a": "frame_00024.png",
+          "image_b": "bridge_00002.png",
+          "delta_source_time_s": 0.06666699999999892,
+          "keypoints_a": 1845,
+          "keypoints_b": 1529,
+          "native_preverification_matches": 986,
+          "stored_matches": 987,
+          "verified_inliers": 985,
+          "geometry_configuration": 6,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00002.png",
+          "image_b": "bridge_00003.png",
+          "delta_source_time_s": 0.06666599999999967,
+          "keypoints_a": 1529,
+          "keypoints_b": 1289,
+          "native_preverification_matches": 703,
+          "stored_matches": 701,
+          "verified_inliers": 691,
+          "geometry_configuration": 6,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00003.png",
+          "image_b": "bridge_00004.png",
+          "delta_source_time_s": 0.0666670000000007,
+          "keypoints_a": 1289,
+          "keypoints_b": 837,
+          "native_preverification_matches": 445,
+          "stored_matches": 444,
+          "verified_inliers": 435,
+          "geometry_configuration": 3,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00004.png",
+          "image_b": "bridge_00005.png",
+          "delta_source_time_s": 0.0666670000000007,
+          "keypoints_a": 837,
+          "keypoints_b": 894,
+          "native_preverification_matches": 440,
+          "stored_matches": 443,
+          "verified_inliers": 433,
+          "geometry_configuration": 6,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00005.png",
+          "image_b": "bridge_00006.png",
+          "delta_source_time_s": 0.06666599999999967,
+          "keypoints_a": 894,
+          "keypoints_b": 503,
+          "native_preverification_matches": 225,
+          "stored_matches": 225,
+          "verified_inliers": 216,
+          "geometry_configuration": 3,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00006.png",
+          "image_b": "bridge_00007.png",
+          "delta_source_time_s": 0.06666699999999892,
+          "keypoints_a": 503,
+          "keypoints_b": 419,
+          "native_preverification_matches": 176,
+          "stored_matches": 170,
+          "verified_inliers": 167,
+          "geometry_configuration": 6,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00007.png",
+          "image_b": "bridge_00008.png",
+          "delta_source_time_s": 0.0666670000000007,
+          "keypoints_a": 419,
+          "keypoints_b": 277,
+          "native_preverification_matches": 90,
+          "stored_matches": 90,
+          "verified_inliers": 82,
+          "geometry_configuration": 6,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00008.png",
+          "image_b": "frame_00025.png",
+          "delta_source_time_s": 0.05000000000000071,
+          "keypoints_a": 277,
+          "keypoints_b": 133,
+          "native_preverification_matches": 39,
+          "stored_matches": 40,
+          "verified_inliers": 39,
+          "geometry_configuration": 3,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "frame_00025.png",
+          "image_b": "bridge_00009.png",
+          "delta_source_time_s": 0.01666599999999896,
+          "keypoints_a": 133,
+          "keypoints_b": 143,
+          "native_preverification_matches": 29,
+          "stored_matches": 30,
+          "verified_inliers": 29,
+          "geometry_configuration": 3,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00009.png",
+          "image_b": "bridge_00010.png",
+          "delta_source_time_s": 0.08333400000000069,
+          "keypoints_a": 143,
+          "keypoints_b": 93,
+          "native_preverification_matches": 20,
+          "stored_matches": 19,
+          "verified_inliers": 16,
+          "geometry_configuration": 3,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00010.png",
+          "image_b": "bridge_00011.png",
+          "delta_source_time_s": 0.06666599999999967,
+          "keypoints_a": 93,
+          "keypoints_b": 90,
+          "native_preverification_matches": 16,
+          "stored_matches": 15,
+          "verified_inliers": 15,
+          "geometry_configuration": 3,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00011.png",
+          "image_b": "bridge_00012.png",
+          "delta_source_time_s": 0.0666670000000007,
+          "keypoints_a": 90,
+          "keypoints_b": 56,
+          "native_preverification_matches": 13,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00012.png",
+          "image_b": "bridge_00013.png",
+          "delta_source_time_s": 0.06666699999999892,
+          "keypoints_a": 56,
+          "keypoints_b": 55,
+          "native_preverification_matches": 17,
+          "stored_matches": 16,
+          "verified_inliers": 16,
+          "geometry_configuration": 6,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00013.png",
+          "image_b": "bridge_00014.png",
+          "delta_source_time_s": 0.06666599999999967,
+          "keypoints_a": 55,
+          "keypoints_b": 53,
+          "native_preverification_matches": 9,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00014.png",
+          "image_b": "bridge_00015.png",
+          "delta_source_time_s": 0.0666670000000007,
+          "keypoints_a": 53,
+          "keypoints_b": 60,
+          "native_preverification_matches": 4,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00015.png",
+          "image_b": "frame_00026.png",
+          "delta_source_time_s": 0.0666670000000007,
+          "keypoints_a": 60,
+          "keypoints_b": 76,
+          "native_preverification_matches": 6,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "frame_00026.png",
+          "image_b": "bridge_00017.png",
+          "delta_source_time_s": 0.06666599999999967,
+          "keypoints_a": 76,
+          "keypoints_b": 48,
+          "native_preverification_matches": 5,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00017.png",
+          "image_b": "bridge_00018.png",
+          "delta_source_time_s": 0.06666699999999892,
+          "keypoints_a": 48,
+          "keypoints_b": 30,
+          "native_preverification_matches": 6,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00018.png",
+          "image_b": "bridge_00019.png",
+          "delta_source_time_s": 0.0666670000000007,
+          "keypoints_a": 30,
+          "keypoints_b": 46,
+          "native_preverification_matches": 7,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00019.png",
+          "image_b": "bridge_00020.png",
+          "delta_source_time_s": 0.06666599999999967,
+          "keypoints_a": 46,
+          "keypoints_b": 57,
+          "native_preverification_matches": 14,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00020.png",
+          "image_b": "bridge_00021.png",
+          "delta_source_time_s": 0.08333400000000069,
+          "keypoints_a": 57,
+          "keypoints_b": 62,
+          "native_preverification_matches": 14,
+          "stored_matches": 0,
+          "verified_inliers": 0,
+          "geometry_configuration": 1,
+          "fewer_than_existing_minimum_inliers": true
+        },
+        {
+          "image_a": "bridge_00021.png",
+          "image_b": "bridge_00022.png",
+          "delta_source_time_s": 0.06666599999999967,
+          "keypoints_a": 62,
+          "keypoints_b": 127,
+          "native_preverification_matches": 27,
+          "stored_matches": 26,
+          "verified_inliers": 23,
+          "geometry_configuration": 6,
+          "fewer_than_existing_minimum_inliers": false
+        },
+        {
+          "image_a": "bridge_00022.png",
+          "image_b": "frame_00027.png",
+          "delta_source_time_s": 0.08333400000000069,
+          "keypoints_a": 127,
+          "keypoints_b": 197,
+          "native_preverification_matches": 28,
+          "stored_matches": 26,
+          "verified_inliers": 26,
+          "geometry_configuration": 3,
+          "fewer_than_existing_minimum_inliers": false
+        }
+      ]
+    }
+  },
+  "artifacts": {
+    "trial1/experiment.json": {
+      "path": "demo\\phase3_video_bridge\\trial1\\experiment.json",
+      "sha256": "b44383a458be63159019abbbd968dd1dbc3399bba53bd47324c193a8f6d538ec"
+    },
+    "trial1/component_audit/audit.json": {
+      "path": "demo\\phase3_video_bridge\\trial1\\component_audit\\audit.json",
+      "sha256": "e22fa621be0fda1692f7fb5f613138f7463ebf9087ffc110080e1013a4df9b59"
+    },
+    "trial2/experiment.json": {
+      "path": "demo\\phase3_video_bridge\\trial2\\experiment.json",
+      "sha256": "1940be4f90e23d0f25d736c37f1c3f2343747ea37bb14728742b57331b4811d2"
+    },
+    "trial2/component_audit/audit.json": {
+      "path": "demo\\phase3_video_bridge\\trial2\\component_audit\\audit.json",
+      "sha256": "d7c24755d17c8239fda8a5af6a5d00e31bb8a02d06687f8b1d5c1f8c60a44cf8"
+    },
+    "dense_trial1/experiment.json": {
+      "path": "demo\\phase3_video_bridge\\dense_trial1\\experiment.json",
+      "sha256": "7b0f3ae5204ac7773092d137c28da15868e5c74e5de10303c5723b79cd4fd669"
+    },
+    "dense_trial1/component_audit/audit.json": {
+      "path": "demo\\phase3_video_bridge\\dense_trial1\\component_audit\\audit.json",
+      "sha256": "ce7f16b25e2b853d0e22d4da96b948e02b44311f18792a4756a6a7b2b7e6caed"
+    },
+    "dense_trial2/experiment.json": {
+      "path": "demo\\phase3_video_bridge\\dense_trial2\\experiment.json",
+      "sha256": "191a8685b43862341a83da5b6af6d1f3d7cde1bd5c0a3fc18271b9de15035304"
+    },
+    "dense_trial2/component_audit/audit.json": {
+      "path": "demo\\phase3_video_bridge\\dense_trial2\\component_audit\\audit.json",
+      "sha256": "77e7be56094d0cf3768986e1df241ad8ce9e9e58a14437a1c4b21f63342fc664"
+    },
+    "comparison": {
+      "path": "demo\\phase3_video_bridge\\comparison\\comparison.json",
+      "sha256": "52c7ccf53ded59239aeffa2d5ef2d0643d599039ac025491a60d2809cce84b85"
+    },
+    "dense_comparison": {
+      "path": "demo\\phase3_video_bridge\\dense_comparison\\comparison.json",
+      "sha256": "c3b3cb6b870a975e0c2d66c2dae2468e5cfa5c0adcc1f5a4b507d06ed68d7bbc"
+    },
+    "baseline": {
+      "path": "demo\\phase3_video_bridge\\baseline_audit\\audit.json",
+      "sha256": "531ad228fe3603ae43402857fb4fc28b99a75b34fcf67ce748043bcc00db5123"
+    },
+    "contact_sheet": {
+      "path": "demo\\phase3_video_bridge\\bridge_contact_sheet.png",
+      "sha256": "76ac174f44891f30d89529760bbe14e746d1783134d67f769052b52ca9032592"
+    },
+    "initial_experiment_source": {
+      "path": "demo\\phase3_video_bridge\\baseline_source\\experimental_video_bridge.py",
+      "sha256": "d5a8c728e398415419b00d3fab16e5a8c1268987a1742c32918d7df3c5ba774c"
+    }
+  },
+  "root_cause": "Insufficient stable local SIFT candidate support under existing guards across the low-detail view transition; both temporal sampling recipes fail to create a verified target-group bridge",
+  "matcher_diagnostic_caveat": "Fresh approximate descriptor-index context can differ from cached pipeline counts; reported pre-verification counts are native replay observations, not exact recovered historical raw counts",
+  "tests": {
+    "targeted": {
+      "passed": 10,
+      "failed": 0,
+      "seconds": 1.26
+    },
+    "full_suite": {
+      "passed": 182,
+      "failed": 0,
+      "seconds": 58.04
+    }
+  },
+  "execution_notes": [
+    "Initial PowerShell wrapper exit 1 from NativeCommandError on informational stderr; complete experiment artifacts validated. Later wrappers explicitly propagate Python LASTEXITCODE=0",
+    "One multi-file documentation patch failed context verification; no files changed in that failed patch, corrected patch applied",
+    "Two incorrect upstream source URLs returned 404; inspected existing official controller and SIFT source instead"
+  ],
+  "known_risks": [
+    "Models remain disconnected and unscaled; no safe common-coordinate concatenation demonstrated",
+    "Floor coverage remains 25/176, with 151 uncovered samples",
+    "Earlier 0.702677 m ceiling boundary shift remains unvalidated",
+    "Same-input software repeatability is not independently measured physical repeatability"
+  ],
+  "source_sha256": {
+    "scripts\\experimental_video_bridge.py": "7e626f14444231a095c0c792fd54c9e06e0d224d636fe52856cb216a561ed4d0",
+    "scripts\\compare_video_bridge_trials.py": "aa9044a18806f3e58aa029e786dc63793ae3846d7ef6e2aa054ef9c479c5cd4d",
+    "tests\\test_video_bridge_trial.py": "2d7c70bcfc7fe4e5a8a8998e92194e12f2a92099be7739e15b182664f861f95c"
+  },
+  "next_step": "Pinned DISK+LightGlue trial on the 24 retained transition views (20 dense-trial bridge images plus original frames 24/25/26/27), keeping verification and mapper guards; require verified endpoints and one model containing both",
+  "assessment_acceptance": false
+}
