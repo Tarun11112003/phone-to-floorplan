@@ -112,6 +112,11 @@ def test_stray_scanner_import_preserves_depth_intrinsics_and_pose(tmp_path):
     assert sequence['frames'][0]['intrinsics']['fx'] == 25
     assert sequence['frames'][1]['camera_to_world'][0][3] == pytest.approx(0.1)
     assert sequence['frames'][0]['camera_to_world'][1][1] == 1
+    intake=json.loads((manifest_path.parent/'intake.json').read_text())
+    assert intake['synchronization']['ignore_editlist']
+    assert intake['synchronization']['timestamp_consistent']
+    assert intake['selected_frame_mapping'][1]['sensor_frame_id']==1
+    assert sequence['frames'][1]['source_rgb_pts_s']==pytest.approx(.5)
 
 
 def test_stray_scanner_missing_depth_fails_loudly(tmp_path):
@@ -163,6 +168,34 @@ def test_stray_scanner_audits_missing_video_tail(tmp_path):
     intake=json.loads((manifest_path.parent/'intake.json').read_text())
     assert intake['omitted_video_tail_frames']==1
     assert intake['selected_frame_ids']==[0,1,2,3,4]
+
+
+def test_scanner_edit_list_cannot_shift_rgb_content_onto_the_wrong_sensor_frame(tmp_path):
+    from floorplan.capture_sync import decoded_timing
+    source=tmp_path/'scanner'
+    _scanner_fixture(source,frame_count=6)
+    edited=source/'edited.mp4'
+    ffmpeg=imageio_ffmpeg.get_ffmpeg_exe()
+    # Stream-copy a playback trim: encoded frame zero remains in the MP4, but
+    # the edit list hides it. This reproduces the real decoder identity defect.
+    subprocess.run([ffmpeg,'-loglevel','error','-ss','0.5','-i',str(source/'rgb.mp4'),
+                    '-c','copy',str(edited)],check=True)
+    edited.replace(source/'rgb.mp4')
+    playback=subprocess.run([ffmpeg,'-hide_banner','-i',str(source/'rgb.mp4'),
+        '-vf','showinfo=checksum=0','-vsync','0','-f','null','-'],capture_output=True,text=True,check=True)
+    timing=decoded_timing(playback.stderr)
+    assert len(timing['frames'])==5 and not timing['frames'][0]['keyframe']
+    manifest=prepare_capture('lidar',source,tmp_path/'intake',max_frames=6)
+    intake=json.loads((manifest.parent/'intake.json').read_text())
+    sequence=json.loads((manifest.parent/'sequence.json').read_text())
+    assert intake['synchronization']['decoded_frames']==6
+    assert intake['selected_frame_ids']==list(range(6))
+    means=[]
+    for frame in sequence['frames']:
+        with Image.open(manifest.parent/frame['rgb']) as image:
+            means.append(float(np.asarray(image).mean()))
+    assert means==pytest.approx([i*40 for i in range(6)],abs=4)
+    assert sequence['frames'][0]['camera_to_world'][0][3]==0
 
 
 def test_prepared_scanner_bundle_relocates_without_source_media(tmp_path):
