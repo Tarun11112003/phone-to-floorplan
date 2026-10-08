@@ -1,0 +1,679 @@
+{
+  "description": "Frozen exterior-strip sensor trace, supplied reconstructions, exact prior residual-policy and cell-preservation controls, and current-producer artifact replay; no physical accuracy claim.",
+  "artifacts": [
+    {
+      "id": "single",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/local_support_raw_replay/single/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 115
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/local_support_raw_replay/floor/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 176
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "ceiling",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/local_support_raw_replay/ceiling/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 300
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "single_dense",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/geometry_correctness_final/single_dense/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 286
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "control",
+      "expected_exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "benchmark",
+        "examples/phase3_regression_suite.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "control/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "control/assignment_metrics.json",
+          "field": [
+            "topology",
+            "gate"
+          ],
+          "value": "pass"
+        },
+        {
+          "path": "control/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "single_controlled",
+      "command": [
+        "python",
+        "scripts/compare_residual_wall_search.py",
+        "demo/phase3_floor_audit/current_residual/single",
+        "{output}/../single",
+        "--out",
+        "{output}/comparison",
+        "--baseline-mode",
+        "residual"
+      ],
+      "claims": [
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "controls_verified"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "initial_only_corners_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "all_prior_cell_corners_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "prior_connections_exact"
+          ],
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "single_artifact",
+      "command": [
+        "python",
+        "scripts/verify_layout_artifact.py",
+        "{output}/../single",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "checks",
+            "identical_measurement_producer"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "checks",
+            "geometry_artifacts_unchanged"
+          ],
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "floor_controlled",
+      "command": [
+        "python",
+        "scripts/compare_residual_wall_search.py",
+        "demo/phase3_floor_audit/current_residual/floor",
+        "{output}/../floor",
+        "--out",
+        "{output}/comparison",
+        "--baseline-mode",
+        "residual"
+      ],
+      "claims": [
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "controls_verified"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "initial_only_corners_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "all_prior_cell_corners_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "prior_connections_exact"
+          ],
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "floor_artifact",
+      "command": [
+        "python",
+        "scripts/verify_layout_artifact.py",
+        "{output}/../floor",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "checks",
+            "identical_measurement_producer"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "checks",
+            "geometry_artifacts_unchanged"
+          ],
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "ceiling_controlled",
+      "command": [
+        "python",
+        "scripts/compare_residual_wall_search.py",
+        "demo/phase3_floor_audit/current_residual/ceiling",
+        "{output}/../ceiling",
+        "--out",
+        "{output}/comparison",
+        "--baseline-mode",
+        "residual"
+      ],
+      "claims": [
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "controls_verified"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "initial_only_corners_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "all_prior_cell_corners_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "prior_connections_exact"
+          ],
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "ceiling_artifact",
+      "command": [
+        "python",
+        "scripts/verify_layout_artifact.py",
+        "{output}/../ceiling",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "checks",
+            "identical_measurement_producer"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "checks",
+            "geometry_artifacts_unchanged"
+          ],
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "single_dense_controlled",
+      "command": [
+        "python",
+        "scripts/compare_residual_wall_search.py",
+        "demo/phase3_floor_audit/current_residual/single_dense",
+        "{output}/../single_dense",
+        "--out",
+        "{output}/comparison",
+        "--baseline-mode",
+        "residual"
+      ],
+      "claims": [
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "controls_verified"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "initial_only_corners_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "all_prior_cell_corners_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "prior_connections_exact"
+          ],
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "single_dense_artifact",
+      "command": [
+        "python",
+        "scripts/verify_layout_artifact.py",
+        "{output}/../single_dense",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "checks",
+            "identical_measurement_producer"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "checks",
+            "geometry_artifacts_unchanged"
+          ],
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "control_controlled",
+      "command": [
+        "python",
+        "scripts/compare_residual_wall_search.py",
+        "demo/phase3_floor_audit/current_residual/control/control",
+        "{output}/../control/control",
+        "--out",
+        "{output}/comparison",
+        "--baseline-mode",
+        "residual"
+      ],
+      "claims": [
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "controls_verified"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "initial_only_corners_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "all_prior_cell_corners_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison/comparison.json",
+          "field": [
+            "checks",
+            "prior_connections_exact"
+          ],
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "control_artifact",
+      "command": [
+        "python",
+        "scripts/verify_layout_artifact.py",
+        "{output}/../control/control",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "checks",
+            "identical_measurement_producer"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "checks",
+            "geometry_artifacts_unchanged"
+          ],
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "floor_trace",
+      "command": [
+        "python",
+        "scripts/trace_exterior_strip.py",
+        "{output}/../floor",
+        "--source",
+        "datasets/Given_dataset/single_scan_floor_only/1a8384c3f6",
+        "--out",
+        "{output}/trace"
+      ],
+      "claims": [
+        {
+          "path": "trace/trace.json",
+          "field": [
+            "fusion_replay_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "trace/trace.json",
+          "field": [
+            "all_sensor_payloads_identical"
+          ],
+          "value": true
+        },
+        {
+          "path": "trace/trace.json",
+          "field": [
+            "reconstruction_unchanged"
+          ],
+          "value": true
+        },
+        {
+          "path": "trace/trace.json",
+          "field": [
+            "audited_surface_proposal_present"
+          ],
+          "value": true
+        },
+        {
+          "path": "trace/trace.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    }
+  ]
+}

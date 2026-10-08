@@ -1,0 +1,13 @@
+{
+  "schema_version": 2,
+  "tier": "video",
+  "source": "../../datasets/Given_dataset/single_room/c00a170fe1/rgb.mp4",
+  "fps": 2,
+  "max_frames": 72,
+  "dense_backend": "openmvs",
+  "profile": "assignment",
+  "metric_backend": "moge2_experimental",
+  "property_id": "given_single_identity_unverified",
+  "sfm_cache": "../../demo/phase3_sync_boundary/video_sampling_verified_input/video72/result",
+  "experiment_description": "Revalidate the frozen AUTO SfM input/producer/model hashes, then run the current rectification/metric/geometry backend. This avoids repeating unchanged feature extraction."
+}

@@ -1,0 +1,220 @@
+{
+  "description": "Layout-only comparison on the unchanged baseline cloud/planes/poses. Retains strict fresh-native equality failures separately. No independent ground truth or measured accuracy claim.",
+  "artifacts": [
+    {
+      "id": "single",
+      "command": [
+        "python",
+        "scripts/compare_frozen_partial_cells.py",
+        "demo/phase3_sync_boundary/exact_geometry_current/single",
+        "demo/phase3_partial_cells/current/single",
+        "--out",
+        "{output}/controlled"
+      ],
+      "claims": [
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "controlled_invariants_preserved"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "checks",
+            "frozen_observed_walls_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "checks",
+            "frozen_observed_cells_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "command": [
+        "python",
+        "scripts/compare_frozen_partial_cells.py",
+        "demo/phase3_sync_boundary/exact_geometry_current/floor",
+        "demo/phase3_partial_cells/current/floor",
+        "--out",
+        "{output}/controlled"
+      ],
+      "claims": [
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "controlled_invariants_preserved"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "checks",
+            "frozen_observed_walls_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "checks",
+            "frozen_observed_cells_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "ceiling",
+      "command": [
+        "python",
+        "scripts/compare_frozen_partial_cells.py",
+        "demo/phase3_sync_boundary/exact_geometry_current/ceiling",
+        "demo/phase3_partial_cells/current/ceiling",
+        "--out",
+        "{output}/controlled"
+      ],
+      "claims": [
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "controlled_invariants_preserved"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "checks",
+            "frozen_observed_walls_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "checks",
+            "frozen_observed_cells_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "single_dense",
+      "command": [
+        "python",
+        "scripts/compare_frozen_partial_cells.py",
+        "demo/phase3_sync_boundary/exact_geometry_current/single_dense",
+        "demo/phase3_partial_cells/current/single_dense",
+        "--out",
+        "{output}/controlled"
+      ],
+      "claims": [
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "controlled_invariants_preserved"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "checks",
+            "frozen_observed_walls_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "checks",
+            "frozen_observed_cells_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "control",
+      "command": [
+        "python",
+        "scripts/compare_frozen_partial_cells.py",
+        "demo/phase3_sync_boundary/exact_geometry_current/control/control",
+        "demo/phase3_partial_cells/current/control/control",
+        "--out",
+        "{output}/controlled"
+      ],
+      "claims": [
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "controlled_invariants_preserved"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "checks",
+            "frozen_observed_walls_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "checks",
+            "frozen_observed_cells_exact"
+          ],
+          "value": true
+        },
+        {
+          "path": "controlled/comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        }
+      ]
+    }
+  ]
+}

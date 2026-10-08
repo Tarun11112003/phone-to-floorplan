@@ -3,7 +3,7 @@
 **Historical research record; development is frozen.** Current evaluator-facing
 architecture/status are in [architecture](ARCHITECTURE.md), [validation](BENCHMARK_RESULTS.md)
 and [compliance](ASSIGNMENT_COMPLIANCE.md). Earlier next-step instructions below
-are superseded. Original bytes are retained in the handoff evidence archive.
+are superseded. Original private bytes are retained locally; published copies have separate hashes.
 
 **Latest local-floor source audit:** [batch032](fixes/032_ROOM_FLOOR_SOURCE_SUPPORT_AUDIT.md)
 traces all 6,899 original ceiling-scan depth/confidence pairs for fixed room_2 /
@@ -65,7 +65,7 @@ unchanged and retain the 0.702677 m accuracy warning; ceiling height stays null.
 60 targeted /360 full tests pass. No production fix, commit or push.
 Floor stays 25/176; RGB registration stays CLOSED and XFeat experimental.
 REQ-07/08/10/25 remain partial; no physical or final acceptance is claimed.
-Next trace _observed_ceiling() rejection reasons for current room_2 with existing
+Next trace _observed_ceiling rejection reasons for current room_2 with existing
 cloud/planes/cameras, keeping geometry and thresholds fixed.
 [Evidence](results/phase3_ceiling_boundary_summary.json). Earlier notices are historical.
 
@@ -154,8 +154,6 @@ Native timing source is checked once; prior reviewed alternatives/matcher resear
 Next isolate the pre-local-refinement registration pose with native stage replay,
 requiring reproduction of the saved post-refinement state before interpreting it.
 Earlier next-step notices below are historical. Floor/ceiling/physical holds remain.
-
-Research snapshot: **2026-10-07**.
 
 Purpose: preserve the read-only research from the side conversation as a reference for later engineering decisions. Refer to this document alongside the assessment, current code, latest validation evidence, and approved implementation roadmap.
 
@@ -424,8 +422,8 @@ Property-grouped calibration should remain. An off-the-shelf interval library sh
 
 Reference comparisons below use the recorded pinned reviews:
 
-- [reviewed alternative 1](https://github.com/Vatsalya001/cozmo-ai-assignment): **d5105858440bdb549626845948bc51da8a8b9f02**.
-- [reviewed alternative 2](https://github.com/kush07upadhyay/Cozmo_AI_Assignment): **c9dfacbed60ddb6554a7c9b6721696dfb748013a**.
+- [comparative source](https://github.com/Vatsalya001/cozmo-ai-assignment): **d5105858440bdb549626845948bc51da8a8b9f02**.
+- [comparative source](https://github.com/kush07upadhyay/Cozmo_AI_Assignment): **c9dfacbed60ddb6554a7c9b6721696dfb748013a**.
 
 Evidence: [OPEN_SOURCE_DECISIONS.md](OPEN_SOURCE_DECISIONS.md) and [PHASE3_REMAINING_PASS.md](PHASE3_REMAINING_PASS.md). These are recorded source-review findings, not freshly verified execution or comparative benchmarks.
 

@@ -56,3 +56,14 @@ def test_verify_rejects_changed_archive(tmp_path):
         stream.write(b'changed')
     with pytest.raises(ValueError,match='Archive hash mismatch'):
         package.verify(tmp_path)
+
+
+def test_verify_rejects_changed_process_bundle(tmp_path):
+    bundle = tmp_path/'repository.bundle'; bundle.write_bytes(b'original history')
+    manifest = {'archives':{}, 'git_bundle':{'file':bundle.name,
+                'sha256':package.digest(bundle), 'bytes':bundle.stat().st_size}}
+    (tmp_path/'package_manifest.json').write_text(json.dumps(manifest))
+    assert package.verify(tmp_path)['git_bundle_hash_verified'] is True
+    bundle.write_bytes(b'altered history')
+    with pytest.raises(ValueError,match='Git bundle hash/size mismatch'):
+        package.verify(tmp_path)

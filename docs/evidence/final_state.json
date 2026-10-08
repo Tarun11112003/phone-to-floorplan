@@ -1,15 +1,14 @@
 {
   "format_version": 1,
-  "development_freeze": "2026-10-08",
   "development_base_commit": "8aaca9ff8e8d431911a0d1f453c350243bb39473",
-  "source_scope": "Final worktree includes existing uncommitted implementation; documentation commits do not substitute for source snapshot.",
+  "source_scope": "The final Git tree contains the frozen implementation and its required evaluation/diagnostic tooling; experiments remain unpromoted.",
   "software_validation": "390 passed in 43.22s (recorded batch032); final handoff checks are separate.",
   "physical_accuracy": "NOT DEMONSTRATED",
   "assessment_acceptance": "NOT DEMONSTRATED",
   "evidence": {
     "batch014": {
       "source": "docs/results/phase3_exterior_strip_summary.json",
-      "sha256": "36f7834ea598e56747bca8e6f3ba2f986dc2f028c6ffc057fd8cffde02c8b3c7",
+      "sha256": "2c8fa8360a8df9fdb2b783d46645c2a5f6652d79baf0d895b7998879d9c43585",
       "classification": "PRODUCTION",
       "values": {
         "/cases/1/before": {
@@ -45,7 +44,7 @@
     },
     "batch019": {
       "source": "docs/results/phase3_transition_context_summary.json",
-      "sha256": "d8242d752874598ec708b8b67a1a05c3cb096b4a7a7b1326aecfa214dbeb98f0",
+      "sha256": "2151dc4a947cd7b8891fde841258144bbfff10d32d7cde27cc4d31daa6314fb6",
       "classification": "EXPERIMENTAL",
       "values": {
         "/runs/0/verified_pairs": 68,
@@ -191,7 +190,7 @@
     },
     "batch023": {
       "source": "docs/results/phase3_mapping_only_summary.json",
-      "sha256": "400c174d910606e449d6cd34586b56153999258e8de2e2c6696cf0d49317f9cc",
+      "sha256": "4b55b784a5d03a4c6b5602129c69024fff2518905741dcdad24874a226e22594",
       "classification": "EXPERIMENTAL",
       "values": {
         "/metrics": {
@@ -343,7 +342,7 @@
     },
     "batch028": {
       "source": "docs/results/phase3_frame31_final_summary.json",
-      "sha256": "e435986160ef359100210eb0b9352bedc54277daa65b1b2da82bf470e106be77",
+      "sha256": "5e0eb1f164ef8843062eba5238d540ea7eecdf73573ea7f31c5d67804198ee16",
       "classification": "DIAGNOSTIC",
       "values": {
         "/replay_snapshot27_reproduced": false,
@@ -354,7 +353,7 @@
     },
     "batch029": {
       "source": "docs/results/phase3_lidar_sampling_summary.json",
-      "sha256": "4b3cfc3e712579406beddd9619aaf5ed70fbf60cd0483d7f4f7d342c797454d2",
+      "sha256": "1c79cc1625a6be8767c743ba8ed5ea576a2209f253c4ea011c36898f75e0386d",
       "classification": "EXPERIMENTAL",
       "values": {
         "/baseline": {
@@ -393,7 +392,7 @@
     },
     "batch030": {
       "source": "docs/results/phase3_ceiling_boundary_summary.json",
-      "sha256": "4141ea185a6285a03a5a9ef76a7a7ab7c36c35922fad64eb1a8cb498694d5fd5",
+      "sha256": "6a52f66a60e31ecd9337c8648542b9ddedc9f7fe72c17a521fb556503499970e",
       "classification": "DIAGNOSTIC",
       "values": {
         "/historical_comparison": {
@@ -415,7 +414,7 @@
     },
     "batch031": {
       "source": "docs/results/phase3_observed_ceiling_summary.json",
-      "sha256": "bee7b83b50c1e18b3932da7b1ba6d44d6183f052486b4df342c29b60b0e23f1e",
+      "sha256": "d1cd59044239acb5c3da94d89bfbf46a887d16d9a25e1394cda297b52dc8e98d",
       "classification": "DIAGNOSTIC",
       "values": {
         "/actual_ceiling_path": {
@@ -451,7 +450,7 @@
     },
     "batch032": {
       "source": "docs/results/phase3_room_floor_support_summary.json",
-      "sha256": "6d3855b782ce7bb23d72db516608ce15e4b7d0d69f12b94c1e308f68997b0c32",
+      "sha256": "44948fb16d917284ca584be340746ea14bb15a180f730db1a9c612496078c84e",
       "classification": "DIAGNOSTIC",
       "values": {
         "/source_inventory": {
@@ -700,5 +699,6 @@
     }
   },
   "supersession": "Historical next-step suggestions are superseded by the freeze. The dense floor-support control is NOT RUN. RGB registration investigation is CLOSED as inconclusive.",
-  "interpretation": "Coverage, graph connectivity, reprojection residual and exact artifact consistency are not independent physical accuracy."
+  "interpretation": "Coverage, graph connectivity, reprojection residual and exact artifact consistency are not independent physical accuracy.",
+  "final_qa": "docs/evidence/final_qa.json"
 }

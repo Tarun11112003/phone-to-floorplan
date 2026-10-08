@@ -1,6 +1,6 @@
 # V3 measured results
 
-**Scope correction, 2026-10-06:** these are historical custom-benchmark results,
+**Scope correction ** these are historical custom-benchmark results,
 not passes against the newly supplied Cozmo brief. The [compliance audit](ASSIGNMENT_COMPLIANCE.md)
 details the differences in inputs, outputs, data composition and scoring gates.
 

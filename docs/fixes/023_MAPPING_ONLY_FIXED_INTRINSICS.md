@@ -1,6 +1,6 @@
 # Mapping-only fixed-intrinsics ablation with original verified rows
 
-Date: 2026-10-08. Uses the existing [component research](../ASSESSMENT_COMPONENT_RESEARCH.md),
+Uses the existing [component research](../ASSESSMENT_COMPONENT_RESEARCH.md),
 [fixed-intrinsics control](022_FIXED_INTRINSICS_CONTROL.md) and unchanged
 [withheld-odometry audit](021_TRANSITION_ODOMETRY_AUDIT.md). No matcher investigation,
 production replacement, physical measurement or assessment acceptance is added.

@@ -1,6 +1,6 @@
 # Phone to Floorplan — final technical report
 
-Development freeze: 8 October 2026. [Five-page PDF](TECHNICAL_REPORT.pdf).
+[Five-page PDF](TECHNICAL_REPORT.pdf).
 Source: `docs/Applied AI.html`; [evidence index](evidence/final_state.json).
 Final status: **partial implementation; physical assessment acceptance not demonstrated**.
 
@@ -66,21 +66,23 @@ effective physical drift correction and qualifying footprint on/off benchmark
 have not been demonstrated. Interval fitting/auditing is property-grouped and
 producer-bound; adequate independent calibration properties are absent.
 
-Local support, reprojection error, calibrated coverage and physical accuracy are
-different quantities. Uncalibrated/unsupported measurements remain explicit.
+The unquantified error budget includes depth bias, intrinsic/distortion error,
+pose drift, plane fitting, boundary/jamb localization and missing observations.
+No per-component centimetre allocation is supported by a physical survey.
+Support, reprojection error and field accuracy remain different quantities.
 Base iPhone hardware supports RGB; depth capture requires compatible Pro hardware.
 The novice/cold-device Route 2 rehearsal and timed clean installation are pending.
 
 <!-- PAGE 3 -->
 ## 3. Validation evidence and benchmark results
 
-Evidence sources are immutable detailed records indexed by SHA-256 and JSON
-field path. Controlled tests establish software invariants. Supplied-sensor
+Published evidence has SHA-256 and exact JSON field paths; original-byte
+provenance is recorded separately. Controlled tests establish software invariants. Supplied-sensor
 audits establish internal consistency; they do not replace laser/tape truth.
 
 | Claim /metric | Recorded result | Status /scope |
 |---|---|---|
-| Software regression, batch032 | 390 tests pass; 43.22 s | PASS, current worktree only |
+| Software regression, batch032 | 390 tests pass; 43.22 s | PASS, historical software run |
 | Fixed ceiling-layout replay | 15/15 exact checks | PASS, same saved artifact |
 | Native sensor fusion | 218,873 samples; 202,477 points, bit-identical arrays | PASS, internal consistency |
 | Floor-only containment | 25/176 camera samples | PARTIAL, not floor-area accuracy |
@@ -141,19 +143,18 @@ negative results are retained rather than marketed as fixes.
 <!-- PAGE 5 -->
 ## 5. Reproduction and final assessment status
 
-The source-and-evidence handoff includes the current worktree snapshot, curated
-records, supplied raw data and integrity manifests. Documentation commits and
-Git HEAD are distinct: pre-existing uncommitted implementation is preserved in
-the source snapshot. External model weights/environments are excluded; usage
-terms, pins and separate prerequisites are disclosed.
+The submitted Git tree contains the frozen implementation and required tests/
+tooling. The separate package contains clean tracked source, portable evidence,
+supplied raw data and integrity manifests. Private document backups, environments
+and external model assets are excluded; original-byte provenance is retained.
 
-Setup uses `scripts/bootstrap_windows.ps1`; run the CLI help and `python -m
-pytest -q` from the extracted source root. `run-capture` accepts a tier/source,
-fresh output and assignment profile. A nonzero readiness result must remain
-visible. Packaging and report commands are documented in PHASE3_OPERATIONS.md.
-Historical absolute producer paths and omitted native assets limit portable
-exact experiment regeneration. The bundle is PARTIAL against every-number
-live reproduction, not a proven clean-machine installation.
+Setup uses `scripts/bootstrap_windows.ps1`; run CLI help and `python -m pytest -q`
+from the source root. Final QA's documented LiDAR command wrote JSON/HTML/plan
+artifacts but exited 1: 300 frames, 202,477 points, 12 cell hypotheses, zero accepted
+ceiling heights and zero connections. Capture-command runtime was 221.196 s;
+reconstruction-ledger runtime was 69.057 s, excluding install/capture/transfer.
+This is partial execution evidence. Historical native producer pins, omitted
+experimental assets and physical truth limit every-number reproduction.
 
 | Assessment area | Final status | Missing evidence /impact |
 |---|---|---|

@@ -1,0 +1,894 @@
+{
+  "batch": 22,
+  "experiment": "retained_xfeat_fixed_per_frame_intrinsics_control",
+  "artifacts": {
+    "scripts\\experimental_fixed_intrinsics.py": "784fb2e158ced3660c6a05441d331a64243d4a33ce5c997f58bd60acdf900245",
+    "scripts\\evaluate_fixed_intrinsics.py": "e1903f71d893d06cd239d98ae1d59a71f18f5ec3bdd876207ac9430d2ed760ac",
+    "tests\\test_fixed_intrinsics.py": "9e035dd227a27b5e2f50df6e6c891ca6432c2380574847cdcb890c1a53a1e674",
+    "docs\\fixes\\022_FIXED_INTRINSICS_CONTROL.md": "0c7ea869a908a7143b467e0a2018bdb0c2aaf0bb23d91915aa799449a026e4ed",
+    "demo\\fixed_intrinsics_trial1.log": "4722e5d9589a385eb2ed302482a9853afa5f504bf8bbc849cff9d43a8244d63f",
+    "demo\\fixed_intrinsics_trial2.log": "0ffdec0c440af9778b5f268df3be0e488a4d3a0480db1ca5eab398896ec9cd46",
+    "demo\\fixed_intrinsics_evaluation.log": "a7b1b429aff8a066ea075901921a4149c8201394686ff215a819a706626e38d1",
+    "demo\\fixed_intrinsics_evaluation2.log": "af60e463c0fc5f7dd6f47e6b5d7f816ff660123dd712b0f7e45ce2e78db124f7",
+    "demo\\fixed_intrinsics_targeted.log": "f55c5718e3f798bd2515c54551aa6108ece6389256eb48f4a7ba7834af4df211",
+    "demo\\fixed_intrinsics_targeted_final.log": "b51dc27088a4024fc1621170ab233f899e18dfdec1d6f3b91c6bf9f20d9668bb",
+    "demo\\fixed_intrinsics_regression.log": "a9bc1040dd5e225601e647ab1a6f94a70faf1bf2d11e389bb757c90fa9461056",
+    "demo\\phase3_fixed_intrinsics\\calibration.json": "21438be7c32e78f417c0b1b795de107c792e1a37bc197501d1d1a2fe4bfc7f87",
+    "demo\\phase3_fixed_intrinsics\\evaluation2\\evaluation.json": "1a6f9a712cfcf598789b1ad04328236a2fc9ac4543ffc43c86ec4d4c6264a529",
+    "demo\\phase3_fixed_intrinsics\\evaluation2\\safety\\safety.json": "c017cf9218cfe017eeab843ff3cf8b937d70b90b854c3a6edeb1c3e0e676cad9",
+    "demo\\phase3_fixed_intrinsics\\evaluation2\\safety\\xfeat_fixed_intrinsics_bridge_00003.png_frame_00027.png.jpg": "755c936133a84ca23a79dec2e59dea25c8787c8d4b3f3290b8c3045ede63b53b",
+    "demo\\phase3_fixed_intrinsics\\evaluation2\\safety\\xfeat_fixed_intrinsics_frame_00024.png_bridge_00003.png.jpg": "83e7ce86d2d06609874fee1d5e6569c0f130b12cca5d3be27faea4b4e73201db"
+  },
+  "source_trial_sha256": {
+    "demo\\phase3_fixed_intrinsics\\trial1\\experiment.json": "0910bbd8a29e7956a062973e79cc8523b3db31df80d0b02b10376456171372f5",
+    "demo\\phase3_fixed_intrinsics\\trial1\\features.db": "dc507a44a90bf20ac8c48a55954eef7b274622cbb7350ee59620559416ac67d2",
+    "demo\\phase3_fixed_intrinsics\\trial1\\features.db-wal": "0a332e459f3dbb74e62211f9b682a9881a93fc21d0ef3477c843c13b9dc9ef60",
+    "demo\\phase3_fixed_intrinsics\\trial1\\pairs.txt": "79d675aa74cba13951360bfbba027b62f5e43412debb10619455d54a2cf801b9",
+    "demo\\phase3_fixed_intrinsics\\trial1\\setup.json": "23b1631f9b28c0fc96ef2cd2cc5105b4b5ba40f588c51ccc9a6b293777b79d61",
+    "demo\\phase3_fixed_intrinsics\\trial1\\verified_frontend.json": "9ef0c6e0f95c23e32877441da4bcce0aaeacdbde887e090894b7c96045145de8",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "demo\\phase3_fixed_intrinsics\\trial1\\images\\frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040",
+    "demo\\phase3_fixed_intrinsics\\trial1\\sparse\\0\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_fixed_intrinsics\\trial1\\sparse\\0\\frames.bin": "d2ddf9f798ac0dfa43e1b87a171ecdfe13cd97ace902faa8e76aec852f789906",
+    "demo\\phase3_fixed_intrinsics\\trial1\\sparse\\0\\images.bin": "694f5e90695535be52667fb001e5d0b5508cadc1c5453cc07cc23d207040cc85",
+    "demo\\phase3_fixed_intrinsics\\trial1\\sparse\\0\\points3D.bin": "1b654ac7bb58ada6cf3e556e1ed6a3790a577141eeeea93f38f16844a0030ead",
+    "demo\\phase3_fixed_intrinsics\\trial1\\sparse\\0\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_fixed_intrinsics\\trial2\\experiment.json": "e3409ee4726a6843852c5ad497811eaea4695d38562e74ce84f1452be78a0ff8",
+    "demo\\phase3_fixed_intrinsics\\trial2\\features.db": "c96cb6b1ff1483ece06c627c699b333aede0698141adf60a5607e939034201fa",
+    "demo\\phase3_fixed_intrinsics\\trial2\\features.db-wal": "167f3fc4931fac97ffa39bce4aa872ea5e889a5e9ea749c963161e814beaf83e",
+    "demo\\phase3_fixed_intrinsics\\trial2\\pairs.txt": "79d675aa74cba13951360bfbba027b62f5e43412debb10619455d54a2cf801b9",
+    "demo\\phase3_fixed_intrinsics\\trial2\\setup.json": "35c82f3c641ff7457a56a5bd1875f78d72b1b786a0a620940ba2f06d38f8ba24",
+    "demo\\phase3_fixed_intrinsics\\trial2\\verified_frontend.json": "9ef0c6e0f95c23e32877441da4bcce0aaeacdbde887e090894b7c96045145de8",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "demo\\phase3_fixed_intrinsics\\trial2\\images\\frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040",
+    "demo\\phase3_fixed_intrinsics\\trial2\\sparse\\0\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_fixed_intrinsics\\trial2\\sparse\\0\\frames.bin": "d2ddf9f798ac0dfa43e1b87a171ecdfe13cd97ace902faa8e76aec852f789906",
+    "demo\\phase3_fixed_intrinsics\\trial2\\sparse\\0\\images.bin": "694f5e90695535be52667fb001e5d0b5508cadc1c5453cc07cc23d207040cc85",
+    "demo\\phase3_fixed_intrinsics\\trial2\\sparse\\0\\points3D.bin": "1b654ac7bb58ada6cf3e556e1ed6a3790a577141eeeea93f38f16844a0030ead",
+    "demo\\phase3_fixed_intrinsics\\trial2\\sparse\\0\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+  },
+  "retained_hashes_checked": 528,
+  "retained_evidence_unchanged": true,
+  "calibration_sha256": "21438be7c32e78f417c0b1b795de107c792e1a37bc197501d1d1a2fe4bfc7f87",
+  "input_views": 32,
+  "retained_candidate_matches": 85439,
+  "initial_frontend_candidates": 86525,
+  "candidate_count_scope": "retained post-verification raw rows; sub-15 rows were already cleared",
+  "image_sha256": {
+    "frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040"
+  },
+  "temporal_window": [
+    {
+      "image": "frame_00016.png",
+      "source_timestamp_s": 7.516667,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00019.png",
+      "source_timestamp_s": 9.033333,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00022.png",
+      "source_timestamp_s": 10.55,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00023.png",
+      "source_timestamp_s": 11.05,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00024.png",
+      "source_timestamp_s": 11.55
+    },
+    {
+      "image": "bridge_00002.png",
+      "source_timestamp_s": 11.616667,
+      "sharpness": 285.88697493472625,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00003.png",
+      "source_timestamp_s": 11.683333,
+      "sharpness": 263.6703776026408,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00004.png",
+      "source_timestamp_s": 11.75,
+      "sharpness": 192.91752423078748,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00005.png",
+      "source_timestamp_s": 11.816667,
+      "sharpness": 172.9054030149672,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00006.png",
+      "source_timestamp_s": 11.883333,
+      "sharpness": 109.75379570244682,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00007.png",
+      "source_timestamp_s": 11.95,
+      "sharpness": 88.00385164320204,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00008.png",
+      "source_timestamp_s": 12.016667,
+      "sharpness": 57.29717352549235,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "frame_00025.png",
+      "source_timestamp_s": 12.066667
+    },
+    {
+      "image": "bridge_00009.png",
+      "source_timestamp_s": 12.083333,
+      "sharpness": 32.42592264539931,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00010.png",
+      "source_timestamp_s": 12.166667,
+      "sharpness": 24.891253336419,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00011.png",
+      "source_timestamp_s": 12.233333,
+      "sharpness": 18.68442472262912,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00012.png",
+      "source_timestamp_s": 12.3,
+      "sharpness": 17.678306833224827,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00013.png",
+      "source_timestamp_s": 12.366667,
+      "sharpness": 22.617343472629123,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00014.png",
+      "source_timestamp_s": 12.433333,
+      "sharpness": 26.505859341769746,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00015.png",
+      "source_timestamp_s": 12.5,
+      "sharpness": 26.185140319654675,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "frame_00026.png",
+      "source_timestamp_s": 12.566667
+    },
+    {
+      "image": "bridge_00017.png",
+      "source_timestamp_s": 12.633333,
+      "sharpness": 23.066651776631677,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00018.png",
+      "source_timestamp_s": 12.7,
+      "sharpness": 24.427757280815975,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00019.png",
+      "source_timestamp_s": 12.766667,
+      "sharpness": 28.44941811455621,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00020.png",
+      "source_timestamp_s": 12.833333,
+      "sharpness": 30.300770173984105,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00021.png",
+      "source_timestamp_s": 12.916667,
+      "sharpness": 40.883230101013176,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00022.png",
+      "source_timestamp_s": 12.983333,
+      "sharpness": 53.74002329084609,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "frame_00027.png",
+      "source_timestamp_s": 13.066667
+    },
+    {
+      "image": "frame_00028.png",
+      "source_timestamp_s": 13.583333,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00031.png",
+      "source_timestamp_s": 15.116667,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00034.png",
+      "source_timestamp_s": 16.633333,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00037.png",
+      "source_timestamp_s": 18.15,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    }
+  ],
+  "option_changes": {
+    "mapping.ba_refine_focal_length": {
+      "before": true,
+      "after": false
+    },
+    "mapping.mapper.constant_cameras": {
+      "before": "set()",
+      "after": "{13, 16, 19, 20, 21, 22, 23, 24, 25, 28, 31, 34, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88}"
+    },
+    "mapping.constant_cameras": {
+      "before": "set()",
+      "after": "{13, 16, 19, 20, 21, 22, 23, 24, 25, 28, 31, 34, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88}"
+    },
+    "mapping.mapper.abs_pose_refine_extra_params": {
+      "before": true,
+      "after": false
+    },
+    "mapping.ba_refine_extra_params": {
+      "before": true,
+      "after": false
+    },
+    "mapping.mapper.abs_pose_refine_focal_length": {
+      "before": true,
+      "after": false
+    }
+  },
+  "verification_options_exact": true,
+  "retained_tables_exact": {
+    "images": true,
+    "keypoints": true,
+    "descriptors": true,
+    "matches": true
+  },
+  "verified_pairs": 236,
+  "component_sizes": [
+    32
+  ],
+  "isolated_views": 0,
+  "verified_edge_identities_exact": true,
+  "verified_inlier_count_rows_changed": 60,
+  "geometry_configurations": {
+    "CALIBRATED": 150,
+    "UNCALIBRATED": 86
+  },
+  "models": [
+    {
+      "model_id": 0,
+      "image_names": [
+        "bridge_00002.png",
+        "bridge_00003.png",
+        "bridge_00004.png",
+        "bridge_00005.png",
+        "bridge_00006.png",
+        "bridge_00007.png",
+        "bridge_00008.png",
+        "bridge_00009.png",
+        "bridge_00010.png",
+        "bridge_00011.png",
+        "bridge_00012.png",
+        "bridge_00013.png",
+        "bridge_00014.png",
+        "bridge_00015.png",
+        "bridge_00017.png",
+        "bridge_00018.png",
+        "bridge_00019.png",
+        "bridge_00020.png",
+        "bridge_00021.png",
+        "bridge_00022.png",
+        "frame_00016.png",
+        "frame_00019.png",
+        "frame_00022.png",
+        "frame_00023.png",
+        "frame_00024.png",
+        "frame_00025.png",
+        "frame_00026.png",
+        "frame_00027.png",
+        "frame_00028.png",
+        "frame_00031.png",
+        "frame_00034.png",
+        "frame_00037.png"
+      ],
+      "registered_images": 32,
+      "sparse_points": 6360,
+      "mean_reprojection_error_px": 1.4702160925007688,
+      "both_endpoints_registered": true,
+      "target_group_registered_members": [
+        [
+          "frame_00027.png",
+          "frame_00028.png",
+          "frame_00031.png",
+          "frame_00034.png",
+          "frame_00037.png"
+        ],
+        [
+          "frame_00016.png",
+          "frame_00019.png",
+          "frame_00022.png",
+          "frame_00023.png",
+          "frame_00024.png"
+        ]
+      ],
+      "both_target_groups_registered": true,
+      "fixed_intrinsics": {
+        "checked_cameras": 32,
+        "maximum_parameter_change": 0.0,
+        "all_exact": true
+      },
+      "binary_sha256": {
+        "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+        "frames.bin": "d2ddf9f798ac0dfa43e1b87a171ecdfe13cd97ace902faa8e76aec852f789906",
+        "images.bin": "694f5e90695535be52667fb001e5d0b5508cadc1c5453cc07cc23d207040cc85",
+        "points3D.bin": "1b654ac7bb58ada6cf3e556e1ed6a3790a577141eeeea93f38f16844a0030ead",
+        "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+      }
+    }
+  ],
+  "joint_endpoint_model": true,
+  "joint_target_group_model": true,
+  "focal_range_px": [
+    1587.4941,
+    1608.2819
+  ],
+  "all_saved_intrinsics_exact": true,
+  "before_after": [
+    {
+      "image_a": "frame_00019.png",
+      "image_b": "frame_00024.png",
+      "before": {
+        "relative_rotation_error_deg": 0.9697318933576407,
+        "translation_direction_error_deg": 4.329982741873818,
+        "relative_length_ratio": 1.0,
+        "candidate_length_model_units": 8.293933066202227,
+        "sensor_length_m": 1.036796492981444
+      },
+      "after": {
+        "relative_rotation_error_deg": 1.508318500662875,
+        "translation_direction_error_deg": 2.3736111759051117,
+        "relative_length_ratio": 1.0,
+        "candidate_length_model_units": 14.673115869010163,
+        "sensor_length_m": 1.036796492981444
+      }
+    },
+    {
+      "image_a": "frame_00024.png",
+      "image_b": "frame_00027.png",
+      "before": {
+        "relative_rotation_error_deg": 24.771981666012163,
+        "translation_direction_error_deg": 34.595082079461406,
+        "relative_length_ratio": 1.4964556352412222,
+        "candidate_length_model_units": 6.781461132142952,
+        "sensor_length_m": 0.56649023005318
+      },
+      "after": {
+        "relative_rotation_error_deg": 5.199806150984092,
+        "translation_direction_error_deg": 10.23593252037023,
+        "relative_length_ratio": 1.0804502627557726,
+        "candidate_length_model_units": 8.662156605845318,
+        "sensor_length_m": 0.56649023005318
+      }
+    },
+    {
+      "image_a": "frame_00024.png",
+      "image_b": "frame_00028.png",
+      "before": {
+        "relative_rotation_error_deg": 34.735237466291736,
+        "translation_direction_error_deg": 66.47946645784324,
+        "relative_length_ratio": 3.721359239532153,
+        "candidate_length_model_units": 21.81014076695447,
+        "sensor_length_m": 0.7326387167169245
+      },
+      "after": {
+        "relative_rotation_error_deg": 5.38119994745592,
+        "translation_direction_error_deg": 9.309386946451882,
+        "relative_length_ratio": 1.079836828307552,
+        "candidate_length_model_units": 11.196359334450376,
+        "sensor_length_m": 0.7326387167169245
+      }
+    },
+    {
+      "image_a": "frame_00027.png",
+      "image_b": "frame_00028.png",
+      "before": {
+        "relative_rotation_error_deg": 11.63924959889483,
+        "translation_direction_error_deg": 47.762522234155,
+        "relative_length_ratio": 10.872672310612552,
+        "candidate_length_model_units": 17.285680841914637,
+        "sensor_length_m": 0.19873903844178897
+      },
+      "after": {
+        "relative_rotation_error_deg": 0.5810968206407722,
+        "translation_direction_error_deg": 4.264817177052835,
+        "relative_length_ratio": 1.0395851452898355,
+        "candidate_length_model_units": 2.9239643751857503,
+        "sensor_length_m": 0.19873903844178897
+      }
+    }
+  ],
+  "common_adjacent": {
+    "free": {
+      "spans": 28,
+      "rotation_error_deg": {
+        "min": 0.08373402516941178,
+        "median": 0.49365025163153453,
+        "p95": 6.081030444286333,
+        "max": 11.63924959889483
+      },
+      "direction_error_deg": {
+        "min": 1.8983183783504989,
+        "median": 22.11341970976408,
+        "p95": 55.12935662889346,
+        "max": 59.992278755188536
+      },
+      "relative_length_ratio": {
+        "min": 0.6227038983855046,
+        "median": 1.188131204181919,
+        "p95": 5.404016194748241,
+        "max": 10.872672310612552
+      }
+    },
+    "fixed": {
+      "spans": 28,
+      "rotation_error_deg": {
+        "min": 0.018195535547958285,
+        "median": 0.2789876043812322,
+        "p95": 1.5734617483823647,
+        "max": 1.9978686763628346
+      },
+      "direction_error_deg": {
+        "min": 0.65762468948273,
+        "median": 7.6459168595885405,
+        "p95": 35.41985130046599,
+        "max": 55.91425619465513
+      },
+      "relative_length_ratio": {
+        "min": 0.5882901686296041,
+        "median": 1.0268751548167758,
+        "p95": 1.4555443516877318,
+        "max": 1.8953617268871177
+      }
+    }
+  },
+  "one_frame_sensitivity": [
+    {
+      "image_a": "bridge_00003.png",
+      "image_b": "frame_00027.png",
+      "relative_rotation_error_deg_range": [
+        4.466853105481566,
+        6.880103708137847
+      ],
+      "translation_direction_error_deg_range": [
+        9.389170536958003,
+        11.426515687188076
+      ],
+      "interpretation": "one-frame association sensitivity, not an acceptance band"
+    },
+    {
+      "image_a": "frame_00019.png",
+      "image_b": "frame_00024.png",
+      "relative_rotation_error_deg_range": [
+        1.3214164104066215,
+        1.8230137279514775
+      ],
+      "translation_direction_error_deg_range": [
+        2.270044210080969,
+        2.496684048385952
+      ],
+      "interpretation": "one-frame association sensitivity, not an acceptance band"
+    },
+    {
+      "image_a": "frame_00022.png",
+      "image_b": "frame_00027.png",
+      "relative_rotation_error_deg_range": [
+        4.039344360359317,
+        6.582950626315266
+      ],
+      "translation_direction_error_deg_range": [
+        10.252753233004395,
+        15.588736506789521
+      ],
+      "interpretation": "one-frame association sensitivity, not an acceptance band"
+    },
+    {
+      "image_a": "frame_00022.png",
+      "image_b": "frame_00028.png",
+      "relative_rotation_error_deg_range": [
+        4.789004990162962,
+        5.4525184431580715
+      ],
+      "translation_direction_error_deg_range": [
+        11.50361879721656,
+        13.488592614768038
+      ],
+      "interpretation": "one-frame association sensitivity, not an acceptance band"
+    },
+    {
+      "image_a": "frame_00023.png",
+      "image_b": "frame_00027.png",
+      "relative_rotation_error_deg_range": [
+        4.13007602525458,
+        7.492923786055926
+      ],
+      "translation_direction_error_deg_range": [
+        9.741380696978574,
+        15.972361615746939
+      ],
+      "interpretation": "one-frame association sensitivity, not an acceptance band"
+    },
+    {
+      "image_a": "frame_00023.png",
+      "image_b": "frame_00028.png",
+      "relative_rotation_error_deg_range": [
+        4.828252934440168,
+        6.304269829103167
+      ],
+      "translation_direction_error_deg_range": [
+        9.473278211366715,
+        12.797536596963841
+      ],
+      "interpretation": "one-frame association sensitivity, not an acceptance band"
+    },
+    {
+      "image_a": "frame_00024.png",
+      "image_b": "frame_00027.png",
+      "relative_rotation_error_deg_range": [
+        4.59051310934908,
+        6.704423053063061
+      ],
+      "translation_direction_error_deg_range": [
+        9.592162738922806,
+        11.667284737440422
+      ],
+      "interpretation": "one-frame association sensitivity, not an acceptance band"
+    }
+  ],
+  "late_anchor_comparisons": [
+    {
+      "image_b": "frame_00031.png",
+      "relative_rotation_error_deg": 8.951518200280846,
+      "translation_direction_error_deg": 11.659329918041937,
+      "relative_length_ratio": 1.0046274128222483
+    },
+    {
+      "image_b": "frame_00034.png",
+      "relative_rotation_error_deg": 14.872498696519669,
+      "translation_direction_error_deg": 6.916333934425726,
+      "relative_length_ratio": 1.0908233283014246
+    },
+    {
+      "image_b": "frame_00037.png",
+      "relative_rotation_error_deg": 18.70680558359047,
+      "translation_direction_error_deg": 4.22027271637239,
+      "relative_length_ratio": 1.1935163035467398
+    }
+  ],
+  "repeat": {
+    "database_tables_exact": true,
+    "model_binaries_exact": true,
+    "model_memberships_exact": true,
+    "graph_exact": true,
+    "posthoc_pose_metrics_exact": true
+  },
+  "control_runtime_s": [
+    39.11406279999983,
+    38.39346799999976
+  ],
+  "stage_runtime_s": [
+    {
+      "verification_s": 0.8765296000001399,
+      "mapping_s": 36.48728019999999
+    },
+    {
+      "verification_s": 0.7974538000003122,
+      "mapping_s": 36.101657499999874
+    }
+  ],
+  "runtime_scope": "cached feature/match database preparation, calibrated verification and fresh mapping; excludes matching/export/post-hoc audit",
+  "mapper_linear_solver_warning_counts": [
+    23,
+    23
+  ],
+  "tracks": {
+    "tracks": 4229,
+    "observations": 39183,
+    "conflicting_tracks": 792,
+    "observations_in_conflicting_tracks": 29912,
+    "clean_tracks_at_least_three_views": 1355,
+    "endpoint_spanning_tracks": 6,
+    "clean_endpoint_spanning_tracks": 0,
+    "maximum_views": 32,
+    "conflicting_tracks_separated_over_4px": 792,
+    "conflicting_tracks_separated_over_12px": 583,
+    "maximum_same_image_separation_lower_bound_px": 1755.0,
+    "endpoint_track_conflict_details": [
+      {
+        "views": 32,
+        "observations": 18562,
+        "conflicting": true,
+        "same_image_separation_lower_bound_px": 1755.0
+      },
+      {
+        "views": 29,
+        "observations": 300,
+        "conflicting": true,
+        "same_image_separation_lower_bound_px": 864.375
+      },
+      {
+        "views": 28,
+        "observations": 375,
+        "conflicting": true,
+        "same_image_separation_lower_bound_px": 1336.875
+      },
+      {
+        "views": 22,
+        "observations": 116,
+        "conflicting": true,
+        "same_image_separation_lower_bound_px": 523.125
+      },
+      {
+        "views": 21,
+        "observations": 87,
+        "conflicting": true,
+        "same_image_separation_lower_bound_px": 545.625
+      },
+      {
+        "views": 8,
+        "observations": 18,
+        "conflicting": true,
+        "same_image_separation_lower_bound_px": 30.0
+      }
+    ]
+  },
+  "cycles": {
+    "triangles": 875,
+    "directly_testable": 73191,
+    "agreeing": 55219,
+    "conflicting": 17972,
+    "triangles_with_conflicts": 727
+  },
+  "cycle_conflict_percentage": 24.554931617275347,
+  "native_model_safety": [
+    {
+      "model_id": 0,
+      "registered_views": 32,
+      "point_tracks_spanning_original_groups": 0,
+      "duplicate_image_point_tracks": 145,
+      "same_image_duplicate_separation_lower_bound_max_px": 7.5,
+      "observations": 23410,
+      "nonpositive_depth_observations": 0,
+      "reprojection_observations": 23410,
+      "observation_reprojection_quantiles_px": [
+        0.0003037268780413702,
+        1.510528136907983,
+        3.1748968288310184,
+        3.9779463209988477
+      ],
+      "registered_image_observations": {
+        "frame_00019.png": 563,
+        "bridge_00002.png": 1309,
+        "frame_00022.png": 1083,
+        "frame_00024.png": 1339,
+        "bridge_00003.png": 1267,
+        "bridge_00005.png": 1112,
+        "bridge_00004.png": 1186,
+        "frame_00023.png": 1424,
+        "bridge_00006.png": 984,
+        "bridge_00007.png": 1062,
+        "bridge_00008.png": 1008,
+        "frame_00025.png": 944,
+        "bridge_00009.png": 916,
+        "bridge_00010.png": 774,
+        "frame_00016.png": 122,
+        "bridge_00012.png": 652,
+        "bridge_00011.png": 633,
+        "bridge_00014.png": 692,
+        "frame_00026.png": 623,
+        "bridge_00019.png": 383,
+        "bridge_00020.png": 441,
+        "frame_00027.png": 603,
+        "bridge_00017.png": 560,
+        "bridge_00021.png": 524,
+        "bridge_00022.png": 563,
+        "bridge_00018.png": 405,
+        "frame_00028.png": 434,
+        "bridge_00013.png": 751,
+        "bridge_00015.png": 625,
+        "frame_00031.png": 190,
+        "frame_00037.png": 105,
+        "frame_00034.png": 133
+      }
+    }
+  ],
+  "targeted_tests": {
+    "passed": 67,
+    "new_cases": 17,
+    "runtime_s": 2.13
+  },
+  "full_regression": {
+    "passed": 249,
+    "failed": 0,
+    "runtime_s": 43.68
+  },
+  "initial_targeted": {
+    "passed": 41,
+    "runtime_s": 2.18
+  },
+  "initial_diagnostic_errors": [
+    "PowerShell trial1 wrapper status 1 from native informational stderr; complete record/model saved; native exit not separately captured",
+    "First evaluator used UTF-8 on UTF-16 PowerShell log; corrected BOM-aware decoding; authoritative evaluation2 passes; reconstruction not repeated for this correction"
+  ],
+  "trial1_wrapper_exit_code": 1,
+  "trial1_native_exit_code": null,
+  "trial2_native_exit_code": 0,
+  "classification": "B - substantially improved transition geometry with residual sensor disagreement; later chain remains questionable",
+  "root_cause_conclusion": "Calibrated camera policy contributes to improvement; fixed supplied initialization/prior/refinement and changed calibration-dependent inliers are not yet separated; remaining drift/track ambiguity persists",
+  "decision": "Keep XFeat experimental and retain production SIFT; no production arithmetic or intake bug established",
+  "production_changed": false,
+  "production_adoption": false,
+  "poses_used_in_reconstruction": false,
+  "previous_optimized_poses_used": false,
+  "sensor_poses_used_to_correct_or_optimize": false,
+  "model_alignment_or_scale_fit": false,
+  "physical_accuracy_validated": false,
+  "assessment_acceptance": false,
+  "affected_requirements": {
+    "REQ-03": "PARTIALLY IMPLEMENTED",
+    "REQ-05": "PARTIALLY IMPLEMENTED",
+    "REQ-10": "PARTIALLY IMPLEMENTED",
+    "REQ-27": "PARTIALLY IMPLEMENTED",
+    "REQ-29": "PARTIALLY IMPLEMENTED"
+  },
+  "floor_covered_samples": 25,
+  "floor_total_samples": 176,
+  "ceiling_boundary_shift_m": 0.702677,
+  "ceiling_shift_independently_validated": false,
+  "commit_created": false,
+  "pushed": false,
+  "next_step": "Mapping-only fixed-intrinsics ablation retaining exact original 236 verified-pair/inlier rows, no re-verification, same independent post-hoc audit",
+  "limitations": [
+    "No independently surveyed dimensions/trajectory or sensor covariance",
+    "No metric scale inferred or fitted",
+    "Correct calibration does not eliminate late rotational drift",
+    "Reverification changes 60 inlier-count rows, so intrinsic optimization effect is not isolated",
+    "Stock videos may not supply the per-frame calibration used here",
+    "No actual assessment drift correction/footprint ablation or full property output is established"
+  ]
+}

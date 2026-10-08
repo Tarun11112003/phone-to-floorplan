@@ -1,4 +1,17 @@
-# Incremental end-to-end status — 2026-10-06
+# Incremental end-to-end status — **Latest evidence:** [batch 017](fixes/017_DISK_LIGHTGLUE_TRANSITION.md)
+
+**Historical engineering record. Development is closed. Current requirements/status and evaluator commands are in [compliance](ASSIGNMENT_COMPLIANCE.md) and [README](../README.md).
+connects the bounded RGB match graph using pinned DISK + LightGlue, but does not
+produce a joint endpoint sparse model. No production backend or acceptance rule
+is changed; 192 regressions pass. This is a validated matcher experiment, not
+a successful end-to-end property reconstruction or a physical accuracy result.
+
+**Update:** [Phase 3 implementation/test status](PHASE3_IMPLEMENTATION_STATUS.md)
+records the current frozen replays and provisional-v2 evaluator. The entries below
+retain earlier results and limitations; they are not the latest acceptance state.
+The latest [supplied-data continuation](PHASE3_SUPPLIED_DATA_PASS.md) records
+133 passing serial tests, three partial supplied sensor results and the actual
+RGB-only supplied-video failure to close a room.
 
 The [assignment brief](<Applied AI.html>) is the target. The evaluator is
 `assignment-aug2026-provisional-v1`; the published schema and earlier Round 1
@@ -9,8 +22,8 @@ commands below and the documented V3 fixture.
 
 ## Latest restoration and open-source increment
 
-Earlier rows below are historical checkpoints. The current suite passes **44 tests**
-(12.08 s). The supplied single-room scan now produces a partial room, while sparse
+Earlier rows below are historical checkpoints. The current suite passes **52 tests**.
+The supplied single-room scan now produces a partial room, while sparse
 RGB inference is attempted for 2–8 photos instead of being rejected by a five-image rule.
 
 | Increment | Actual result | Acceptance limit |
@@ -23,13 +36,50 @@ RGB inference is attempted for 2–8 photos instead of being rejected by a five-
 | Depth Anything V2 Small, actual pinned CPU model | Eight images; per-frame mean absolute depth disagreement with LiDAR 0.128–0.774 m | Experimental adapter retained; rejected as cm-scale measurement source |
 | Supplied RGB-only 2/4/8 subsets at 256x192 | All reach feature matching; all return `no_model`, no fabricated plan | Widely spaced frames do not provide verified matches |
 | Supplied RGB-only 8-image subset at original 1920x1440 | Still `no_model`, 18.97 s | More resolution alone did not establish sufficient correspondences |
+| Contiguous RGB-only subsets, original 1920x1440, starts 0 and 80 | Across two groups each at 2/4/8 views: 2-view groups both fail; 4-view groups yield 0/4 and 4/4; 8-view groups yield 8/8 and 7/8, with 62–223 sparse points on successful models | Confirms overlap/view selection changes registration. Extracted from the LiDAR recording but only RGB entered inference; no scale, no plan, and no independent-photo/accuracy validation |
+| ARKitScenes held-out iPhone RGB segment 41418140, 256x192, four seconds | 2-image and 4-image runs: 0 registered; 8-image run: 2/8 registered and 56 sparse points | RGB only entered inference; mobile depth, poses, calibration and FARO scan withheld. Low-resolution failure case, no metric plan or accuracy score |
+| ICL-NUIM RGB-only subsets, 640x480, known PINHOLE intrinsics | 2/2, 4/4 and 8/8 registered; final seeded rerun: 126, 220 and 491 sparse points | Synthetic calibrated-camera feasibility check only; depth, trajectory and mesh withheld, arbitrary scale and no floor plan |
+| Fresh stock-photo intake E2E on held-out ARKitScenes low-res RGB, 2/4/8 images | 2: `no_model`, 0/1 pairs verified; 4: `no_model`, 4/6 pairs verified; 8: `scale_unresolved`, 4/8 registered, 12 sparse points, 23/28 pairs verified; reports written for all. Runtime 0.84/0.96/1.34 s. | The CLI returns nonzero because no metric floor plan is ready; this is the expected honest failure for missing geometry/scale, not a crash |
+| Identical 8-photo software repeat, three fresh one-command runs | Each `scale_unresolved`, 4/8 registered, 12 sparse points and 23/28 pairs verified; same input ordering | Software determinism only; no physical rescan or accuracy claim |
+| MoGe-2 ViT-S RGB-only metric-depth probe on ARKitScenes 41418140 | 8 synchronized RGB frames; 10.35 s/frame CPU, raw depth MAE 0.554 m, median absolute error 0.456 m, signed bias -0.364 m | No reference scale fitting; substantial frame variation; fails as a cm-scale source. Depth agreement only, not plan accuracy or surveyed truth. |
+| Walk-in report coverage before/after on the same two ARKitScenes RGB photos | Both runs: `no_model`, 0/2 registered, no plan. After run: 0.81 s and 12 explicit output-coverage rows in JSON/HTML; baseline: 1.28 s and no coverage artifact. | Auditability changed as predicted; timing variation is noise. Photo geometry, metric scale and walk-in readiness remain failed. |
+| Isolated LightGlue + DISK comparison, two four-view RGB groups | On failing `start0`, max verified inliers rose 581→1,224 but registration stayed 0/4; on control `start80`, registration stayed 4/4 and sparse points rose 60→305. Geometry classes and measured runtime/RSS are recorded in fixes 008–009. | Matcher not integrated: it did not recover the failed group and cost ~27–29 s / ~2.2 GB for four images. No scale or plan resulted. |
+| Two-view geometry classification diagnostics | Fresh unit tests cover COLMAP config labels and unknown values; direct summaries match all four saved SIFT/LightGlue databases. Full suite: 50 passed. | Read-only diagnostics only; mapper decisions and acceptance thresholds are unchanged. |
+| Fresh four-view SIFT diagnostic replay | Same `start0` RGB frames, fresh database: `no_model`, 0/4 registered, 0 points, 6/6 verified pairs, all `PLANAR_OR_PANORAMIC`, max 581 inliers. | Confirms the new configuration labels match the baseline; it does not resolve sparse-photo initialization. |
+| Three-room software stitch chain | Deterministic A→B→C synthetic manifest, independent room captures, two connector alignments; exports one SVG/DXF plan with max corner error <1e-9 m and p95 dimension error <1e-9 m. | Closes the synthetic manifest-chain smoke test only. It does not test visual connector matching, physical room scans, or the assignment's 3+ room accuracy gate. |
+| Stitch failure guard | Synthetic doorway anchors with a 0.4 m mismatch are rejected with a doorway-anchor disagreement error. | Prevents a deliberately inconsistent connector declaration from silently producing a combined plan. |
 
-Sparse trials live under `demo/given_sparse_photo_trials/run_*`; each includes a
-failure report and run ledger. Sensor depth, sensor poses and calibration were not
-passed to these photo trials. They are extracted video views for debugging, not
-the brief's independent still-photo capture benchmark. Full-resolution matching
-also failed, so the low-resolution result is not the sole basis for the conclusion.
-See [research decisions](OPEN_SOURCE_DECISIONS.md), [restoration architecture](RESTORATION_FLOW.md),
+## Fresh public candidate benchmark — Command: `python -m floorplan.cli benchmark examples/public_benchmark.json --out demo/public_candidates_e2e_20261006`.
+The run completed all five cases; **1/5 met the complete configured target**.
+
+| Candidate | Result | Interpretation |
+| --- | --- | --- |
+| ICL-NUIM development | Maximum error 0.96 cm across the scored room dimensions; target <=3 cm met. | Synthetic RGB-D sequence; dimension-only scoring, proposal still requires review. |
+| ICL-NUIM held-out trajectory | Dimension errors 0.52 cm and 2.01 cm; target <=3 cm met, but reconstruction is partial. | Synthetic feasibility evidence, not a complete floor-plan pass. |
+| ARKitScenes development `41418135` | FARO-derived reference: P95 dimension error 1.96 cm, P95 corner error 1.73 cm, 100% sampled boundary coverage at 5 cm, IoU 0.993. | Best real-room candidate result. Provisional manually selected polygon from one scanner venue, four correlated edges, assumed 1 cm annotation floor; no independent review, openings, or field certification. Keep as a promising single-room result, not proof of general cm accuracy. |
+| ARKitScenes held-out `41418140`, `41418155` | Both produce reviewable proposals, but have no vetted reference polygons. | Reconstruction output exists; accuracy is unscored. FARO PLYs are local, but annotation must be blind to predictions and independently reviewed. |
+
+The FARO-only review found that the sampled wall-height projections do not
+support defensible closed room annotations for either held-out venue: one has
+interrupted/ambiguous perimeter runs, and the other appears to span multiple
+spaces. We deliberately left both unscored instead of inventing polygons. See
+[held-out reference review](ARKIT_HELDOUT_REFERENCE_REVIEW.md). Full-cloud,
+multi-height room/topology annotation and a second reviewer remain the gate.
+
+Raw machine-readable metrics and the rendered report are in ignored
+`demo/public_candidates_e2e_20261006/benchmark.json` and `REPORT.md` on this
+workstation. FARO scans were used only for reference scoring, not inference.
+This candidate suite does not exercise restoration damage truth, a multiroom
+physical stitch, or a property captured across all input tiers.
+
+Sparse trials live under `demo/given_sparse_photo_trials/run_*` and
+`demo/sparse_overlap_trials/`; they use RGB only. The public ARKitScenes low-res
+trial likewise withheld its sensor streams and FARO scan from inference. These
+are useful feasibility diagnostics, not the brief's independent still-photo
+accuracy benchmark. The full-resolution supplied RGB trial is also recorded and
+failed, while some contiguous subsets register. See
+[overlap diagnosis](fixes/003_SPARSE_OVERLAP_TRIAL.md),
+[research decisions](OPEN_SOURCE_DECISIONS.md), [restoration architecture](RESTORATION_FLOW.md),
 and prospective [geometry](fixes/001_SUPPORTED_CELLS.md) / [sparse-entry](fixes/002_SPARSE_PHOTO_ENTRY.md) fixes.
 
 [Archived regression summary](results/restoration_v3_regression.json) records all

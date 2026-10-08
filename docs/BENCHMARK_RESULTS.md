@@ -1,20 +1,36 @@
 # Final validation and benchmark ledger
 
-Evidence freeze: 2026-10-08. Existing recorded results are reused; no new
+Existing recorded results are reused; no new
 reconstruction experiment was run during finalization. Source SHA-256 and JSON
 field paths are indexed by [the evidence manifest](evidence/final_state.json).
-Full originals and selected artifacts accompany the separate handoff bundle.
+Portable records and selected artifacts accompany the separate handoff bundle;
+private original documents remain local with separately recorded hashes.
 
 Statuses describe the named claim: **PASS** means demonstrated on its stated
 scope; **PARTIAL** means incomplete; **FAIL** means a required or tested criterion
 was violated; **NOT DEMONSTRATED** means required evidence is absent;
 **INCONCLUSIVE** means causality/physical interpretation is unresolved.
 
+## Final evaluator workflow QA
+
+| Metric | Result | Evidence | Status | Limitation |
+|---|---|---|---|---|
+| Existing frozen-source regression | 390 passed, 50.17 s | [QA receipt](evidence/final_qa.json) | PASS | Software only |
+| Fresh-environment regression | 396 passed, 48.01 s | QA receipt | PASS | 390 existing + 6 packaging checks; no field accuracy claim |
+| Documented supplied LiDAR command | Exit 1; partial; 300 frames, 202,477 points | QA receipt and separately packaged run | PARTIAL | Not acceptance-ready |
+| End-to-end command runtime | 221.196 s; reconstruction ledger 69.057 s | QA receipt | PASS | Existing dependency environment; excludes install/capture/transfer |
+| Committed-checkout capture | Exit 1, same guarded metrics; 211.239 s command | QA receipt | PARTIAL | Fresh dependencies, floating-point output differences; no field truth |
+| Written contract | Internal schema valid; 0 accepted ceiling heights, 0 connections, 12 cell hypotheses | QA receipt | PARTIAL | No physical room-count or dimensional truth |
+
+Fresh-environment installation and clean-checkout results are recorded in
+[final QA](FINAL_QA.md). Earlier benchmark values below retain their own input/
+producer scope; QA execution does not replace them.
+
 ## Results by evidence type
 
 | Metric / claim | Result | Evidence | Status | Limitation |
 |---|---|---|---|---|
-| Software regression | 390 passed, 43.22 s | batch032 validation + retained full test log | PASS | Current worktree/software only; not a clean Git checkout or physical gate |
+| Software regression | 390 passed, 43.22 s | batch032 validation + retained full test log | PASS | Historical software run; final Git/QA checks are separate; not a physical gate |
 | Fixed ceiling layout replay | 15/15 exact checks | batch032 geometry verification | PASS | Same saved capture/producer, not independent repeatability |
 | Native sensor projection/fusion | 218,873 samples →202,477 points; point/weight arrays bit-identical | batch032 audit | PASS | Consistency with saved pipeline, not survey accuracy |
 | Supplied floor-only camera containment | 25/176 =14.2045% | batch029 production_after | PARTIAL | Camera positions inside proposal footprints; not measured floor coverage |

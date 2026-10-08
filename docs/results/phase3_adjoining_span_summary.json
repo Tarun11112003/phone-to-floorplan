@@ -1,0 +1,413 @@
+{
+  "version": "lower-adjoining-span-evidence-checkpoint-v1",
+  "artifacts": {
+    "sensor_trace": {
+      "path": "demo/phase3_adjoining_trace/lower_span/trace.json",
+      "sha256": "a84010913ed8837c2e846fa0ea95349940d43b79eeeae04e0eb9c68e6f9ce27b"
+    },
+    "video_components": {
+      "path": "demo/phase3_adjoining_trace/video72_components/audit.json",
+      "sha256": "531ad228fe3603ae43402857fb4fc28b99a75b34fcf67ce748043bcc00db5123"
+    },
+    "floor_replay": {
+      "path": "demo/phase3_adjoining_trace/floor_verification/verification.json",
+      "sha256": "02ccf0b0b0c533a2c5c024dda90c5e23e1fde112f74c115405e29c9c24f73bc6"
+    },
+    "ceiling_replay": {
+      "path": "demo/phase3_adjoining_trace/ceiling_verification/verification.json",
+      "sha256": "55ad1f5ac2112d8947289d9b2335a2419e036a66d39680d9c765f2c149159ce3"
+    }
+  },
+  "production_code_unchanged": true,
+  "baseline_artifacts_unchanged": true,
+  "whole_requirements_closed": [],
+  "geometry_fix_implemented": false,
+  "decision": "No supported continuous connector established; preserve geometry and investigate RGB pair-graph fragmentation",
+  "trace": {
+    "query": {
+      "x_bounds_m": [
+        -2.73,
+        -0.44
+      ],
+      "z_m": 4.44,
+      "half_width_m": 0.12,
+      "wall_height_bounds_m": [
+        0.25,
+        3.0
+      ],
+      "query_is_not_a_proposed_boundary": true
+    },
+    "frames": 176,
+    "totals": {
+      "positive_span_pixels": 2828,
+      "range_valid_span_pixels": 2828,
+      "confident_span_pixels": 1960,
+      "confidence_0_span_pixels": 868,
+      "confidence_1_span_pixels": 473,
+      "confidence_2_span_pixels": 1487,
+      "stride8_span_points": 29,
+      "raw_pose_confident_span_pixels": 2810,
+      "free_space_crossing_rays": 132289,
+      "confidence_2_crossing_rays": 115983
+    },
+    "fusion_replay_exact": true,
+    "proposals_replay_exact": true,
+    "fused_all_height_span_points": 510,
+    "fused_wall_height_span_points": 29,
+    "residual_span_points": 9,
+    "frames_with_free_space_crossings": 16,
+    "refined_camera_crossings": [
+      {
+        "from_frame": 870,
+        "to_frame": 900,
+        "x_m": -2.1466477875325025,
+        "step_m": 0.2228238736273947,
+        "endpoint_clearance_z_m": 0.0416186337657507,
+        "continuous_under_existing_guard": true
+      },
+      {
+        "from_frame": 990,
+        "to_frame": 1020,
+        "x_m": -1.5476168816828406,
+        "step_m": 0.25622956495207677,
+        "endpoint_clearance_z_m": 0.04404918768771804,
+        "continuous_under_existing_guard": true
+      },
+      {
+        "from_frame": 1020,
+        "to_frame": 1050,
+        "x_m": -1.1922828137868244,
+        "step_m": 0.26116182751757366,
+        "endpoint_clearance_z_m": 0.013421715710419946,
+        "continuous_under_existing_guard": true
+      },
+      {
+        "from_frame": 1170,
+        "to_frame": 1200,
+        "x_m": -0.7138054562534552,
+        "step_m": 0.2302803439394135,
+        "endpoint_clearance_z_m": 0.00874925326009457,
+        "continuous_under_existing_guard": true
+      }
+    ],
+    "raw_camera_crossings": [
+      {
+        "from_frame": 870,
+        "to_frame": 900,
+        "x_m": -2.1383630439798793,
+        "step_m": 0.22280845121556556,
+        "endpoint_clearance_z_m": 0.01122652291127757,
+        "continuous_under_existing_guard": true
+      },
+      {
+        "from_frame": 990,
+        "to_frame": 1020,
+        "x_m": -1.5868199699653738,
+        "step_m": 0.2562271995496005,
+        "endpoint_clearance_z_m": 0.0167382564372085,
+        "continuous_under_existing_guard": true
+      },
+      {
+        "from_frame": 1050,
+        "to_frame": 1080,
+        "x_m": -1.1286433803859557,
+        "step_m": 0.3001987300405627,
+        "endpoint_clearance_z_m": 0.011540835636701274,
+        "continuous_under_existing_guard": true
+      },
+      {
+        "from_frame": 1140,
+        "to_frame": 1170,
+        "x_m": -0.7051461888195765,
+        "step_m": 0.23317571144108268,
+        "endpoint_clearance_z_m": 0.014044468334220461,
+        "continuous_under_existing_guard": true
+      }
+    ],
+    "camera_coverage_fraction": 0.14204545454545456,
+    "accuracy_validated": false,
+    "geometry_changed": false
+  },
+  "dense_sensor": {
+    "frames": 5251,
+    "confident_span_stride8_points": 1628,
+    "frames_with_span_returns": 133,
+    "camera_crossings": [
+      {
+        "from_frame": 898,
+        "to_frame": 899,
+        "x_m": -2.147558764805663,
+        "step_m": 0.015691955442264642,
+        "endpoint_clearance_z_m": 0.005064698811643176,
+        "continuous_under_existing_guard": true
+      },
+      {
+        "from_frame": 992,
+        "to_frame": 993,
+        "x_m": -1.5954652481352811,
+        "step_m": 0.016143419138572576,
+        "endpoint_clearance_z_m": 0.004907129747469874,
+        "continuous_under_existing_guard": true
+      },
+      {
+        "from_frame": 1052,
+        "to_frame": 1053,
+        "x_m": -1.1356879930180208,
+        "step_m": 0.005274126643389303,
+        "endpoint_clearance_z_m": 3.764646619330847e-05,
+        "continuous_under_existing_guard": true
+      },
+      {
+        "from_frame": 1168,
+        "to_frame": 1169,
+        "x_m": -0.7006500132760727,
+        "step_m": 0.008329394732932068,
+        "endpoint_clearance_z_m": 0.0014446169310398105,
+        "continuous_under_existing_guard": true
+      }
+    ],
+    "pose_policy": "Original odometry only; not interpolated refined poses",
+    "limitation": "All raw frames at stride 8; does not exclude thin geometry missed between stride samples"
+  },
+  "video": {
+    "input_images": 68,
+    "verified_pairs": 139,
+    "pair_component_sizes": [
+      16,
+      12,
+      8,
+      7,
+      7,
+      6,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "selected_model_registered_images": 10,
+    "union_registered_images_diagnostic_only": 19,
+    "models": [
+      {
+        "directory": "demo\\phase3_sync_boundary\\video_sampling_verified_input\\video72\\result\\sfm\\sparse\\0",
+        "registered_images": 9,
+        "image_names": [
+          "frame_00016.png",
+          "frame_00017.png",
+          "frame_00018.png",
+          "frame_00019.png",
+          "frame_00020.png",
+          "frame_00021.png",
+          "frame_00022.png",
+          "frame_00023.png",
+          "frame_00024.png"
+        ],
+        "sparse_points": 1104,
+        "mean_reprojection_error_px": 0.5501048034877035
+      },
+      {
+        "directory": "demo\\phase3_sync_boundary\\video_sampling_verified_input\\video72\\result\\sfm\\sparse\\1",
+        "registered_images": 10,
+        "image_names": [
+          "frame_00028.png",
+          "frame_00029.png",
+          "frame_00030.png",
+          "frame_00031.png",
+          "frame_00032.png",
+          "frame_00033.png",
+          "frame_00034.png",
+          "frame_00035.png",
+          "frame_00036.png",
+          "frame_00037.png"
+        ],
+        "sparse_points": 153,
+        "mean_reprojection_error_px": 0.895259689860046
+      }
+    ],
+    "calibrated_pair_count": 0
+  },
+  "frozen_layout_validation": {
+    "floor_replay": {
+      "checks": {
+        "basis_columns_in_input": true,
+        "floor_level_m": true,
+        "wall_segments": true,
+        "connections": true,
+        "boundary_stages": true,
+        "camera_center_coverage_fraction": true,
+        "inferred_room_boundaries": true,
+        "polygonization_diagnostics": true,
+        "identical_layout_producer": true,
+        "identical_geometry_dependencies": true,
+        "identical_measurement_producer": true,
+        "geometry_artifacts_unchanged": true,
+        "original_run_code_unchanged": true,
+        "unchanged_layout_during_replay": true,
+        "identical_room_corners": true
+      },
+      "source_coverage": 0.14204545454545456,
+      "replayed_coverage": 0.14204545454545456,
+      "source_stages": {
+        "global_planes": 14,
+        "secondary_wall_planes": 0,
+        "wall_proposals": 29,
+        "segments_before_face_filter": 69,
+        "retained_wall_segments": 69,
+        "lower_band_segments": 71,
+        "door_gap_candidates": 20,
+        "rejected_untraversed_gaps": 9,
+        "door_bridges": 11,
+        "network_segments": 80,
+        "raw_polygons": 28,
+        "cut_edges": 1,
+        "dangles": 70,
+        "invalid_rings": 0,
+        "accepted_observed_polygons": 1,
+        "inferred_fallback_cells": 1
+      },
+      "replayed_stages": {
+        "global_planes": 14,
+        "secondary_wall_planes": 0,
+        "wall_proposals": 29,
+        "segments_before_face_filter": 69,
+        "retained_wall_segments": 69,
+        "lower_band_segments": 71,
+        "door_gap_candidates": 20,
+        "rejected_untraversed_gaps": 9,
+        "door_bridges": 11,
+        "network_segments": 80,
+        "raw_polygons": 28,
+        "cut_edges": 1,
+        "dangles": 70,
+        "invalid_rings": 0,
+        "accepted_observed_polygons": 1,
+        "inferred_fallback_cells": 1
+      },
+      "layout_sha256": "a19a7c9fa23a3d61d177bc59e85143804fae3df6ae925c925e75ee7a1e8d3c1f"
+    },
+    "ceiling_replay": {
+      "checks": {
+        "basis_columns_in_input": true,
+        "floor_level_m": true,
+        "wall_segments": true,
+        "connections": true,
+        "boundary_stages": true,
+        "camera_center_coverage_fraction": true,
+        "inferred_room_boundaries": true,
+        "polygonization_diagnostics": true,
+        "identical_layout_producer": true,
+        "identical_geometry_dependencies": true,
+        "identical_measurement_producer": true,
+        "geometry_artifacts_unchanged": true,
+        "original_run_code_unchanged": true,
+        "unchanged_layout_during_replay": true,
+        "identical_room_corners": true
+      },
+      "source_coverage": 0.9833333333333333,
+      "replayed_coverage": 0.9833333333333333,
+      "source_stages": {
+        "global_planes": 14,
+        "secondary_wall_planes": 0,
+        "wall_proposals": 40,
+        "segments_before_face_filter": 84,
+        "retained_wall_segments": 81,
+        "lower_band_segments": 87,
+        "door_gap_candidates": 21,
+        "rejected_untraversed_gaps": 13,
+        "door_bridges": 8,
+        "network_segments": 89,
+        "raw_polygons": 120,
+        "cut_edges": 1,
+        "dangles": 91,
+        "invalid_rings": 0,
+        "accepted_observed_polygons": 8,
+        "inferred_fallback_cells": 4
+      },
+      "replayed_stages": {
+        "global_planes": 14,
+        "secondary_wall_planes": 0,
+        "wall_proposals": 40,
+        "segments_before_face_filter": 84,
+        "retained_wall_segments": 81,
+        "lower_band_segments": 87,
+        "door_gap_candidates": 21,
+        "rejected_untraversed_gaps": 13,
+        "door_bridges": 8,
+        "network_segments": 89,
+        "raw_polygons": 120,
+        "cut_edges": 1,
+        "dangles": 91,
+        "invalid_rings": 0,
+        "accepted_observed_polygons": 8,
+        "inferred_fallback_cells": 4
+      },
+      "layout_sha256": "a19a7c9fa23a3d61d177bc59e85143804fae3df6ae925c925e75ee7a1e8d3c1f"
+    }
+  },
+  "before_after": {
+    "covered_floor_samples": [
+      25,
+      25
+    ],
+    "floor_samples": 176,
+    "uncovered_floor_samples": [
+      151,
+      151
+    ],
+    "covered_ceiling_samples": [
+      295,
+      295
+    ],
+    "ceiling_samples": 300,
+    "floor_segments": [
+      69,
+      69
+    ],
+    "ceiling_segments": [
+      81,
+      81
+    ],
+    "video_registered_selected_model": [
+      10,
+      10
+    ]
+  },
+  "tests": {
+    "first_targeted": {
+      "passed": 22,
+      "failed": 1,
+      "seconds": 33.42,
+      "cause": "Two negative ray-fixture endpoints actually intersected inside diagnostic bounds; fixtures corrected without changing ray logic"
+    },
+    "corrected_targeted": {
+      "passed": 23,
+      "failed": 0,
+      "seconds": 30.68
+    },
+    "full_suite": {
+      "passed": 179,
+      "failed": 0,
+      "seconds": 56.94
+    }
+  },
+  "source_sha256": {
+    "scripts\\trace_adjoining_span.py": "7082204f0d646371a92554b955cd648ef6b985d280c8fa839690d9889100c3f3",
+    "scripts\\audit_sfm_components.py": "1e4841490160dee03621737dcb9b43f2cdbcc96f05e86d189683aa3e8d1cdea6",
+    "tests\\test_adjoining_span_trace.py": "e6e2558c1c90596bcbaeca582837f5b7f66139d219ab09db09eb019c54a900b3",
+    "tests\\test_sfm_components_audit.py": "101d4b4253e181cd580ead4a3f8bdfb03169c089f91458ce94906a0a8c8bd9c1"
+  },
+  "known_risks": [
+    "Historical ceiling boundary displacement 0.702677 m remains unvalidated",
+    "No independent dimensions or semantic wall/opening truth for this span",
+    "All-frame stride-8 raw-pose observations do not prove absence of thin unsampled structures",
+    "Disconnected video models cannot be unioned into a property"
+  ],
+  "fresh_end_to_end_raw_reconstruction_run": false,
+  "next_step": "One RGB-only bridge-view trial at source times 11.55-13.066667 s, retaining SIFT and geometric verification guards; measure cross-component edges against zero baseline",
+  "assessment_acceptance": false
+}

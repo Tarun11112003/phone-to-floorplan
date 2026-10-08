@@ -1,0 +1,250 @@
+{
+  "description": "Current-source geometry regression on audited supplied intake, denser raw single capture, strict extracted-photo development case, and generated measured-geometry control. Supplied/derived cases have no independent survey. All expected assignment exits remain non-acceptance.",
+  "artifacts": [
+    {
+      "id": "single",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/local_support_raw_replay/single/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 115
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/local_support_raw_replay/floor/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 176
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        }
+      ]
+    },
+    {
+      "id": "ceiling",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/local_support_raw_replay/ceiling/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 300
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        }
+      ]
+    },
+    {
+      "id": "single_dense",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "lidar",
+        "--source",
+        "datasets/Given_dataset/single_room/c00a170fe1",
+        "--max-frames",
+        "300",
+        "--profile",
+        "assignment",
+        "--property-id",
+        "given_single_identity_unverified",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "intake/intake.json",
+          "field": [
+            "synchronization",
+            "decoded_frames"
+          ],
+          "value": 1715
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        }
+      ]
+    },
+    {
+      "id": "photos4",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "photos",
+        "--source",
+        "demo/phase3_e2e/photos_input",
+        "--out",
+        "{output}",
+        "--experimental-rgb",
+        "--profile",
+        "assignment",
+        "--property-id",
+        "given_single_identity_unverified"
+      ],
+      "claims": [
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        },
+        {
+          "path": "result/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "control",
+      "expected_exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "benchmark",
+        "examples/phase3_regression_suite.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "control/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "control/assignment_metrics.json",
+          "field": [
+            "topology",
+            "gate"
+          ],
+          "value": "pass"
+        },
+        {
+          "path": "benchmark.json",
+          "field": [
+            "case_count"
+          ],
+          "value": 1
+        },
+        {
+          "path": "control/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    }
+  ]
+}

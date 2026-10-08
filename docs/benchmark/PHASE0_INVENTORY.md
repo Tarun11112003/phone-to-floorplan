@@ -1,6 +1,6 @@
 # Phase 0: benchmark inventory and collection status
 
-Authority: [Cozmo Applied AI brief](../Applied%20AI.html). Updated 2026-10-06.
+Authority: [Cozmo Applied AI brief](../Applied%20AI.html).
 This inventory separates the supplied integration data from the benchmark that
 the brief requires the candidate to create.
 
@@ -13,11 +13,11 @@ bundles are ignored by Git under `demo/`. Aggregate counts below come from the r
 folders and frozen intake ledgers; use full per-file manifests on newly collected
 benchmark data.
 
-| Supplied scan | Raw asset inventory | Latest observed reconstruction | Truth status |
+| Supplied scan | Raw asset inventory | Recorded reconstruction scope | Truth status |
 | --- | --- | --- | --- |
 | `single_room/c00a170fe1` | 1,715 odometry rows, 1,715 depth and confidence frames, `rgb.mp4`; intake sampled 172 frames. | One partial room about 2.54 x 3.00 m; 36.6% camera coverage; no ceiling. | No tape/laser survey or room-corner reference supplied. |
-| `single_scan_floor_only/1a8384c3f6` | 5,251 odometry rows, depth and confidence frames; decoded video ends one frame early; intake sampled 175. | No room plan; inadequate observed vertical-wall support. | No dimensional truth supplied. |
-| `single_scan_with_ceiling/c7d28f72c6` | 9,745 odometry rows, 6,899 depth/confidence pairs, 2,846 unpaired odometry rows; intake sampled 300. | Corrected-pose run tracks 300 frames but has four parallel wall segments and no closed plan. | No dimensional truth supplied. |
+| `single_scan_floor_only/1a8384c3f6` | 5,251 odometry rows, depth and confidence frames; decoded video ends one frame early; intake sampled 175. | Retained baseline: 25/176 camera containment; 69 wall segments, one observed and one inferred cell; property incomplete. | No dimensional truth supplied. |
+| `single_scan_with_ceiling/c7d28f72c6` | 9,745 odometry rows, 6,899 depth/confidence pairs, 2,846 unpaired odometry rows; intake sampled 300. | Final workflow QA: 300 frames, 202,477 points, 295/300 camera containment; 12 cell hypotheses, zero accepted ceiling heights/adjacency; partial. | No dimensional truth supplied. |
 
 These are useful raw-format, sensor-registration and failure-mode tests. They do
 not meet the required benchmark because they are not a surveyed 3+ room property
@@ -40,7 +40,7 @@ evaluation pipeline receives raw capture; survey measurements remain evaluator-o
 | --- | --- | --- |
 | `property_a_photos` | 3+ rooms plus connector; one folder per room; 2–8 stills per room; no depth or poses. | Missing physical capture. |
 | `property_a_video` | Handheld iPhone 15+ walkthrough covering the same rooms and connector. | Native-device video missing. |
-| `property_a_lidar` | Pro-class iPhone RGB, depth, poses and intrinsics covering the same rooms. | Only unrelated single-room supplied scans exist. |
+| `property_a_lidar` | Pro-class iPhone RGB, depth, poses and intrinsics covering the same rooms. | Supplied scans do not establish a surveyed same-property three-tier benchmark. |
 | `damage_room_*` | Furnished room, same room in each tier, with two staged damage classes and undamaged controls. | Missing capture and annotations. |
 | `repeat_room_*` | At least one room captured twice at the same tier, restarting capture independently. | Missing independent repeat. |
 | `consumer_room_*` | Two benchmark rooms scanned by one named consumer app; version and actual export retained. | App choice/export missing. |

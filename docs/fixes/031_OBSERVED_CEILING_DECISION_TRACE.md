@@ -1,14 +1,14 @@
 # room_2: native observed-ceiling decision trace
 
-Date: 2026-10-08. This read-only diagnostic uses the current retained ceiling-scan
+This read-only diagnostic uses the current retained ceiling-scan
 cloud, planes, camera positions and `room_2` footprint. Production reconstruction,
 geometry and every threshold remain fixed. The prior [boundary audit](030_CEILING_BOUNDARY_SENSOR_AUDIT.md)
 and [component research](../ASSESSMENT_COMPONENT_RESEARCH.md) are the primary
 references. The RGB registration chain remains CLOSED; XFeat remains experimental.
 
-**Finding:** `_observed_ceiling()` returns `(None, None)` at its initial
+**Finding:** `_observed_ceiling` returns `(None, None)` at its initial
 **missing local floor** guard. It visits **zero ceiling planes**. The upstream
-`_observed_floor()` rejects the relevant plane because its local occupied-cell
+`_observed_floor` rejects the relevant plane because its local occupied-cell
 support covers **14.1246%**, below the unchanged **25%** guard. Above-camera
 surfaces are present in the same cloud, including one with **89.8986%** coverage;
 their presence does not establish a measured local floor-to-ceiling height.
@@ -21,11 +21,11 @@ No production fix, geometry edit, commit or push is made.
 ## Actual execution path
 
 Source functions in [layout.py](../../floorplan/layout.py):
-`extract_layout()`, `_observed_floor()`, `_observed_ceiling()` and
-`_horizontal_support()`.
+`extract_layout`, `_observed_floor`, `_observed_ceiling` and
+`_horizontal_support`.
 
-1. `extract_layout()` supplies the exact room polygon, aligned cloud, combined
-   plane list and camera positions to `_observed_floor()`. The reference
+1. `extract_layout` supplies the exact room polygon, aligned cloud, combined
+   plane list and camera positions to `_observed_floor`. The reference
    projection/storey datum is **1.479748246 m**.
 2. The local floor function finds **46 camera positions inside the 5 cm buffered
    room**, from the same 300 retained cameras. Their median aligned y is
@@ -33,9 +33,9 @@ Source functions in [layout.py](../../floorplan/layout.py):
 3. All **54 existing planes** are considered. None is accepted as a local floor
    after the native guards described below.
 4. `room_floor` and `floor_evidence` therefore return `None`.
-5. `extract_layout()` passes that actual unavailable `room_floor` to
-   `_observed_ceiling()`. It does not pass the global projection datum instead.
-6. `_observed_ceiling()` executes line 387, `if floor is None or not camera_path`,
+5. `extract_layout` passes that actual unavailable `room_floor` to
+   `_observed_ceiling`. It does not pass the global projection datum instead.
+6. `_observed_ceiling` executes line 387, `if floor is None or not camera_path`,
    then line 388, `return None, None`. The camera path contains 300 positions;
    **`floor is None` is the satisfied condition**.
 
@@ -81,7 +81,7 @@ approximately `(0, -1, 0)`, original RMS **0.012258441 m**. Its centroid level
 **1.441541902 m** is sufficiently below the cameras and only **0.038206344 m**
 from the reference, so neither of those guards rejects it.
 
-`_horizontal_support()` finds 13,175 near-plane cloud points before the room
+`_horizontal_support` finds 13,175 near-plane cloud points before the room
 filter, then only **148 within the room's 5 cm buffer**. The minimum 100-point
 condition passes. Coverage sums **1.404795563 m² of occupied 20 cm cells clipped
 to the actual 9.945719535 m² polygon**, producing **0.14124624752511566**.
@@ -95,7 +95,7 @@ that lowering the 25% guard would preserve accuracy or identify a valid floor.
 
 ## Horizontal surfaces already present
 
-A supplementary inventory calls the existing `_horizontal_support()` helper on
+A supplementary inventory calls the existing `_horizontal_support` helper on
 the same polygon/cloud and planes rejected by the floor camera-height condition.
 It changes no input or threshold. These are descriptive support measurements,
 **not executed ceiling decisions or inferred heights**. The global floor datum

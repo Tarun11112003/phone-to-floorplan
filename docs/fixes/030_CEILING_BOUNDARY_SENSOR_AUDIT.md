@@ -1,6 +1,6 @@
 # Ceiling-scan boundary shift: original sensor evidence audit
 
-Date: 2026-10-08. Scope is exclusively the historical 0.702677 m boundary change
+Scope is exclusively the historical 0.702677 m boundary change
 in `single_scan_with_ceiling`. Production reconstruction, accepted geometry,
 sampling, matching, poses and acceptance guards are unchanged. The RGB registration
 investigation remains CLOSED and XFeat remains experimental.
@@ -230,7 +230,7 @@ benchmark/repeats, opening/damage truth, calibration/uncertainty, measured drift
 and Fix Loop, consumer comparison, official external schema/gates and cold/walk-in
 evidence remain open. The registration diagnostic chain stays CLOSED.
 
-**Single next technical step:** trace `_observed_ceiling()` rejection reasons for
+**Single next technical step:** trace `_observed_ceiling` rejection reasons for
 the affected current `room_2` using its existing cloud, planes and sensor-camera
 positions, to distinguish missing ceiling observations from plane-selection or
 support loss. Keep geometry and thresholds fixed until that trace establishes

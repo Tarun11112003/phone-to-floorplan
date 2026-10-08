@@ -1,6 +1,4 @@
-# Exterior-strip sensor trace and original-seed recovery
-
-2026-10-07. Continues [batch 013](013_FLOOR_SAMPLE_WALL_AUDIT.md) under Phase 1
+# Exterior-strip sensor trace and original-seed recovery . Continues [batch 013](013_FLOOR_SAMPLE_WALL_AUDIT.md) under Phase 1
 of the assessment roadmap. No commits or pushes. The prior baseline remains
 `demo/phase3_floor_audit/current_residual`; a copy of its reconstruction source
 is retained at `demo/phase3_strip_trace/baseline_source/floorplan`.

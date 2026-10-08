@@ -2,7 +2,7 @@
 
 Development is frozen. Existing commits and records are retained; no new
 algorithm fix is claimed by documentation work. Evidence: [manifest](evidence/final_state.json),
-[validation](BENCHMARK_RESULTS.md), original detailed records in the handoff.
+[validation](BENCHMARK_RESULTS.md), portable records in the handoff; original-byte provenance retained locally.
 
 ## Fix-loop evidence flow
 

@@ -1,0 +1,140 @@
+{
+  "description": "Supplied sensor data integration; reconstruction outcomes are not independent accuracy evidence. Normalized inputs are from the explicitly inventoried raw supplied scans.",
+  "artifacts": [
+    {
+      "id": "single",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_supplied/baseline_single/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 115
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "floor_plan_ready"
+          ],
+          "value": false
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_e2e/final_floor_only/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 175
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "floor_plan_ready"
+          ],
+          "value": false
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "ceiling",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_e2e/final_with_ceiling/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 300
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "floor_plan_ready"
+          ],
+          "value": false
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        }
+      ]
+    }
+  ]
+}

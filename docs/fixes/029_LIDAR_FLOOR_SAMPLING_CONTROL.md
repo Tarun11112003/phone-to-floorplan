@@ -1,6 +1,6 @@
 # Supplied LiDAR floor completeness: bounded depth-density control
 
-Date: 2026-10-08. The RGB registration chain is formally
+The RGB registration chain is formally
 [closed](028_FINAL_FRAME31_REPLAY.md); no earlier frames or registration solvers
 are revisited. Use [component research](../ASSESSMENT_COMPONENT_RESEARCH.md) and
 the existing floor sensor traces rather than repeating previous investigations.

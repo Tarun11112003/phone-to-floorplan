@@ -1,0 +1,389 @@
+{
+  "batch": 18,
+  "experiment": "retained_24_view_track_safety_audit",
+  "artifacts": {
+    "demo\\phase3_transition_matchers\\track_safety2\\audit.json": "91ae659624e7628b8e69f067392cf210297d942773cf5c7de73b76673563e001",
+    "demo\\phase3_transition_matchers\\track_safety3\\audit.json": "91ae659624e7628b8e69f067392cf210297d942773cf5c7de73b76673563e001",
+    "demo\\phase3_transition_matchers\\track_safety2\\reverified_comparison\\comparison.json": "58dceeb9a328b075c84af619ea5c668fc40a503b1619ccf895d6d5365b77a064",
+    "docs\\results\\phase3_transition_matcher_summary.json": "33480a1426c9a98d6f1134a540466f56797d491b629747eef79584bb967d020d",
+    "docs\\ASSESSMENT_COMPONENT_RESEARCH.md": "aac11e0158283bfbe690c5914657eefc3cfce276d8886db9225258586e738582",
+    "scripts\\audit_transition_tracks.py": "e3dcbd20bf8f427c61428835c26a84f1c0751d293b0641f03ad775ce8971dbb4",
+    "tests\\test_transition_tracks.py": "512dd848e6d2ef076232a489df69fe216637a736b25d4e5a2bdee3563cc9b293"
+  },
+  "runs": [
+    {
+      "mode": "sift",
+      "tracks": {
+        "tracks": 1591,
+        "observations": 5260,
+        "conflicting_tracks": 36,
+        "observations_in_conflicting_tracks": 260,
+        "clean_tracks_at_least_three_views": 816,
+        "endpoint_spanning_tracks": 0,
+        "clean_endpoint_spanning_tracks": 0,
+        "maximum_views": 11,
+        "conflicting_tracks_separated_over_4px": 20,
+        "conflicting_tracks_separated_over_12px": 10,
+        "maximum_same_image_separation_lower_bound_px": 753.5870971679688,
+        "endpoint_track_conflict_details": []
+      },
+      "cycles": {
+        "triangles": 61,
+        "directly_testable": 5203,
+        "agreeing": 5190,
+        "conflicting": 13,
+        "triangles_with_conflicts": 9
+      },
+      "models": [
+        {
+          "images": [
+            "bridge_00004.png",
+            "bridge_00005.png"
+          ],
+          "points": 371,
+          "track_length_histogram": {
+            "2": 371
+          },
+          "mean_reprojection_px": 0.2976954361227544,
+          "both_endpoints_registered": false
+        }
+      ],
+      "path": [],
+      "path_pairs": [],
+      "candidates": {
+        "minimum": 0,
+        "median": 3.0,
+        "maximum": 986,
+        "below_15": 231,
+        "total": 7931,
+        "pairs": 276
+      },
+      "verified_pairs": 39,
+      "component_sizes": [
+        12,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "isolated_views": 7,
+      "maximum_sampson_px": 3.975227413194212
+    },
+    {
+      "mode": "lightglue",
+      "tracks": {
+        "tracks": 5942,
+        "observations": 27876,
+        "conflicting_tracks": 978,
+        "observations_in_conflicting_tracks": 14225,
+        "clean_tracks_at_least_three_views": 2017,
+        "endpoint_spanning_tracks": 4,
+        "clean_endpoint_spanning_tracks": 0,
+        "maximum_views": 24,
+        "conflicting_tracks_separated_over_4px": 978,
+        "conflicting_tracks_separated_over_12px": 736,
+        "maximum_same_image_separation_lower_bound_px": 1063.125,
+        "endpoint_track_conflict_details": [
+          {
+            "views": 24,
+            "observations": 1567,
+            "conflicting": true,
+            "same_image_separation_lower_bound_px": 1063.125
+          },
+          {
+            "views": 24,
+            "observations": 1047,
+            "conflicting": true,
+            "same_image_separation_lower_bound_px": 973.1248779296875
+          },
+          {
+            "views": 23,
+            "observations": 292,
+            "conflicting": true,
+            "same_image_separation_lower_bound_px": 770.6248779296875
+          },
+          {
+            "views": 7,
+            "observations": 8,
+            "conflicting": true,
+            "same_image_separation_lower_bound_px": 18.75
+          }
+        ]
+      },
+      "cycles": {
+        "triangles": 188,
+        "directly_testable": 18542,
+        "agreeing": 15663,
+        "conflicting": 2879,
+        "triangles_with_conflicts": 154
+      },
+      "models": [
+        {
+          "images": [
+            "bridge_00018.png",
+            "frame_00026.png"
+          ],
+          "points": 67,
+          "track_length_histogram": {
+            "2": 67
+          },
+          "mean_reprojection_px": 1.000242277209105,
+          "both_endpoints_registered": false
+        }
+      ],
+      "path": [
+        "frame_00024.png",
+        "bridge_00002.png",
+        "frame_00025.png",
+        "frame_00027.png"
+      ],
+      "path_pairs": [
+        {
+          "image_a": "frame_00024.png",
+          "image_b": "bridge_00002.png",
+          "inliers": 1243,
+          "config": 3,
+          "candidates": 1321,
+          "spatial_a": {
+            "hull_image_fraction": 0.43700020276527785,
+            "occupied_8x8_cells": 34
+          },
+          "spatial_b": {
+            "hull_image_fraction": 0.4370860242077911,
+            "occupied_8x8_cells": 31
+          },
+          "disconnects_endpoints_if_removed": false,
+          "inliers_in_conflicting_tracks": 793,
+          "inliers_in_tracks_with_separated_conflicts_over_12px": 640,
+          "visualization": "lightglue_frame_00024.png_bridge_00002.png.jpg"
+        },
+        {
+          "image_a": "frame_00025.png",
+          "image_b": "bridge_00002.png",
+          "inliers": 23,
+          "config": 3,
+          "candidates": 30,
+          "spatial_a": {
+            "hull_image_fraction": 0.16566717224195843,
+            "occupied_8x8_cells": 9
+          },
+          "spatial_b": {
+            "hull_image_fraction": 0.10119627570319557,
+            "occupied_8x8_cells": 8
+          },
+          "disconnects_endpoints_if_removed": false,
+          "inliers_in_conflicting_tracks": 17,
+          "inliers_in_tracks_with_separated_conflicts_over_12px": 16,
+          "visualization": "lightglue_bridge_00002.png_frame_00025.png.jpg"
+        },
+        {
+          "image_a": "frame_00025.png",
+          "image_b": "frame_00027.png",
+          "inliers": 18,
+          "config": 3,
+          "candidates": 21,
+          "spatial_a": {
+            "hull_image_fraction": 0.11125181595691427,
+            "occupied_8x8_cells": 6
+          },
+          "spatial_b": {
+            "hull_image_fraction": 0.10378073426480973,
+            "occupied_8x8_cells": 5
+          },
+          "disconnects_endpoints_if_removed": false,
+          "inliers_in_conflicting_tracks": 14,
+          "inliers_in_tracks_with_separated_conflicts_over_12px": 14,
+          "visualization": "lightglue_frame_00025.png_frame_00027.png.jpg"
+        }
+      ],
+      "candidates": {
+        "minimum": 0,
+        "median": 15.5,
+        "maximum": 1321,
+        "below_15": 129,
+        "total": 42224,
+        "pairs": 276
+      },
+      "verified_pairs": 109,
+      "component_sizes": [
+        24
+      ],
+      "isolated_views": 0,
+      "maximum_sampson_px": 3.9990565506569022
+    }
+  ],
+  "original_target_groups": [
+    [
+      "frame_00027.png",
+      "frame_00028.png",
+      "frame_00029.png",
+      "frame_00030.png",
+      "frame_00031.png",
+      "frame_00032.png",
+      "frame_00033.png",
+      "frame_00034.png",
+      "frame_00035.png",
+      "frame_00036.png",
+      "frame_00037.png",
+      "frame_00038.png",
+      "frame_00039.png",
+      "frame_00040.png",
+      "frame_00041.png",
+      "frame_00042.png"
+    ],
+    [
+      "frame_00013.png",
+      "frame_00014.png",
+      "frame_00015.png",
+      "frame_00016.png",
+      "frame_00017.png",
+      "frame_00018.png",
+      "frame_00019.png",
+      "frame_00020.png",
+      "frame_00021.png",
+      "frame_00022.png",
+      "frame_00023.png",
+      "frame_00024.png"
+    ]
+  ],
+  "retained_target_members": [
+    [
+      "frame_00027.png"
+    ],
+    [
+      "frame_00024.png"
+    ]
+  ],
+  "diagnostic_repeat_checks": {
+    "runs": true,
+    "artifact_sha256": true,
+    "production_code_sha256": true,
+    "script_sha256": true,
+    "original_target_groups": true,
+    "retained_target_members": true
+  },
+  "retained_matcher_repeats": [
+    {
+      "mode": "sift",
+      "database_tables_exact": {
+        "cameras": true,
+        "images": true,
+        "keypoints": true,
+        "descriptors": true,
+        "matches": true,
+        "two_view_geometries": true
+      },
+      "matcher_identity_exact": true,
+      "feature_outputs_exact": true,
+      "full_diagnostics_exact": true,
+      "verified_components_exact": true,
+      "verified_pair_rows_exact": true,
+      "actual_or_replayed_candidate_counts_exact": true,
+      "models": [
+        {
+          "images": [
+            "bridge_00004.png",
+            "bridge_00005.png"
+          ],
+          "repeat_model_found": true,
+          "binary_exact": true,
+          "max_camera_center_difference": 0.0
+        }
+      ],
+      "all_model_memberships_reproduced": true
+    },
+    {
+      "mode": "lightglue",
+      "database_tables_exact": {
+        "cameras": true,
+        "images": true,
+        "keypoints": true,
+        "descriptors": true,
+        "matches": true,
+        "two_view_geometries": true
+      },
+      "matcher_identity_exact": true,
+      "feature_outputs_exact": true,
+      "full_diagnostics_exact": true,
+      "verified_components_exact": true,
+      "verified_pair_rows_exact": true,
+      "actual_or_replayed_candidate_counts_exact": true,
+      "models": [
+        {
+          "images": [
+            "bridge_00018.png",
+            "frame_00026.png"
+          ],
+          "repeat_model_found": true,
+          "binary_exact": true,
+          "max_camera_center_difference": 0.0
+        }
+      ],
+      "all_model_memberships_reproduced": true
+    }
+  ],
+  "production_code_sha256": {
+    "floorplan\\ablation.py": "405e51e3f9d83ac8e2835578ba0431479fe7f645dd3d20b28832486f7e28f660",
+    "floorplan\\acceptance.py": "7f52877d8561b5cdd393f6c1b28bab06760d481babdafd84dd5f4e9d28e7e91a",
+    "floorplan\\assessment.py": "5e3a528bad5b716dd53e0fa19f31ca4b46d833ff5c87c2b1ca85af15ff936949",
+    "floorplan\\assessment_io.py": "17cbf941593ea4cdedc334d95da9b6548c3381edcab403eb6dfef4d1a938c849",
+    "floorplan\\assignment_gates.py": "16510d915af1c3147ccdc30896540b91d9e745ba5fcc44d65a0e5a29c864e948",
+    "floorplan\\benchmark.py": "de98bdaa63b5065860216c31c46a31bd225943a74020238dd72c98f5ee6998e5",
+    "floorplan\\benchmark_manifest.py": "e0ba8006168ef673f115618be0d6636762c77230f348bf9ff1dfa2a60e62fa48",
+    "floorplan\\calibration_records.py": "77e6b6e50c6cf649791c4967226b731d89bce2e133be353a3e0ced3969a761f6",
+    "floorplan\\capture_sync.py": "9f192978af50c26c32a2992e45974ff1c561e8a64eb8e888ef4551af79435e26",
+    "floorplan\\cli.py": "bfee6a69dd1de88c168b25c490fe8b85b9b8019983622fce2d864c96dc44e2ac",
+    "floorplan\\consumer_comparison.py": "68e19b631a40d071d4e1db2ab56544f7de5bc6f745f89c5894f35b1a2eb30324",
+    "floorplan\\contracts.py": "b202f48b06ed3ba7486eff8ad749b82a4a290d27a970a0ab86d90de3df35e610",
+    "floorplan\\damage.py": "5af1fb5501e1c577bbe8d8d58e4fbaf2d95306913d6286009830dd1f70b8f1e9",
+    "floorplan\\damage_evaluation.py": "48a2fe339b6a62f35a325b2164a9bf40080325a87b64a9bccc4ab45302db2712",
+    "floorplan\\demo.py": "def8fe532951db043c1683d212266edf889989d6b9c79edf1c7611edc1122113",
+    "floorplan\\dense.py": "7492eb82b8970c02d98293c869c7994340fe6add0bb59df9e2e640b3d16f033a",
+    "floorplan\\evaluation.py": "6e50a52feea0d2a1c50a26e769671afe80122f875254ed693be044cde3315250",
+    "floorplan\\geometry.py": "b7e0e09488d876634d9d3c109ce48ce4fb8fedf4e5fb8bbcf2659fa8a3495c91",
+    "floorplan\\icl_benchmark.py": "4577d69df0796183961c35cfa3829b5e3b94d0866c49db193eb4c374656a450e",
+    "floorplan\\ingest.py": "18d15134fb074fd04664d0d75568516ef81a9e7d32dbef6d16012bf9e75fbf94",
+    "floorplan\\layout.py": "a19a7c9fa23a3d61d177bc59e85143804fae3df6ae925c925e75ee7a1e8d3c1f",
+    "floorplan\\mapping.py": "60f139bbb7b5b1fc1dd060f824e0c9f4964fbf692e4c5257176b56dde848daf6",
+    "floorplan\\metric_depth.py": "17955bb8f79cd5f080b9b6cbbcdd8bd61980318de632d25a5cc97bf7fb036960",
+    "floorplan\\openings.py": "be5b6655e9d0caacb2b5956243658fd0fc39986e36f7c46115ca1aac6a38cd95",
+    "floorplan\\openmvs.py": "7e96a98f29efcab571ef6fc03b4326460eacc167611095f26401909e149d76cf",
+    "floorplan\\pipeline.py": "920fa9fa0dd6b04d5789cc4ec598a6cbdb876452d679e7f44d5a30ad97bce5b7",
+    "floorplan\\pose_graph.py": "5ccca2da6ddf56ddce5966d92babc495f68c619922f6f7391655b5eda87265be",
+    "floorplan\\provenance.py": "bfe2e1476b02485729feeeafafdafd479b4f9891d1a035d6e5d788fdca83eaf0",
+    "floorplan\\repeatability.py": "2ab9277bf9b30ef55d671113b5a09116ec3e609f849c3d04e5a3e7b4a19d2810",
+    "floorplan\\rgbd.py": "dc340ba54d71c96ae828fcd339cb583dd601ba5cc9c521e361073258bc6fa980",
+    "floorplan\\rgb_metric.py": "ef5469e4c524f9b6ccf0b58d5e709122dd4d96e3265e0d0eb113c701a564c1ac",
+    "floorplan\\sfm.py": "a939d6493330d7ebdbc45c9247ee47d04872d4a65fd06065facbcf74e7cbb939",
+    "floorplan\\stitching.py": "ded7e3ade62c3899b9dce0bf4ab4a428fa75006f3eb3184315efa4c152e3416e",
+    "floorplan\\supported_cells.py": "d6414dac09a1e52ba0ed8140a903e86dacab90718593f2cbe9213696bd92e722",
+    "floorplan\\survey.py": "bcbfcc781c4adb19a7742235054926c38bfd79c3650908ab10c1db14da37549d",
+    "floorplan\\uncertainty.py": "5f16d8f6f648b80b3f6f4752a806638d667756dd0a8e071ad5396ecad4febb6b",
+    "floorplan\\workflow.py": "38a05342edfdc5901a36cf8213e2555a64f75805d9271908706697e6d1a9bacc",
+    "floorplan\\__init__.py": "902fa5d5912e34b6e650827ecad59c419d8b4b04482b766eee6f0bda24aee402"
+  },
+  "production_unchanged": true,
+  "guards_unchanged": true,
+  "production_adoption": false,
+  "new_inference_or_mapping_runs": false,
+  "new_diagnostic_runs": 2,
+  "decision": "Reject production adoption on this retained chain: no joint model, no clean endpoint-spanning track, substantial conflicting correspondence identities",
+  "tests": {
+    "targeted": "26 passed in 1.38 s",
+    "full": "198 passed in 61.08 s",
+    "failures": 0
+  },
+  "floor_samples_covered": 25,
+  "floor_samples_total": 176,
+  "ceiling_boundary_displacement_m": 0.702677,
+  "ceiling_displacement_independently_validated": false,
+  "physical_accuracy_validated": false,
+  "assessment_acceptance": false,
+  "commit_created": false,
+  "next_step": "Matched 32-view SIFT/DISK+LightGlue context comparison with RGB anchors 16/19/22/23/28/31/34/37, unchanged guards, no old optimized poses, requiring a joint original-group model and evaluating track consistency"
+}

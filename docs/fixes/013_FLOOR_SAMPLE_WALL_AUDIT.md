@@ -3,7 +3,7 @@
 Subsequent per-frame trace and source revision: [batch 014](014_EXTERIOR_STRIP_SENSOR_TRACE.md).
 Figures below retain this batch's original producer.
 
-Continuation of [batch 012](012_PARTIAL_CELL_COMPLETENESS.md), 2026-10-07.
+Continuation of [batch 012](012_PARTIAL_CELL_COMPLETENESS.md) .
 The user required audit evidence before reconstruction edits. That order was
 followed: the saved audit verifies the unchanged baseline layout SHA-256
 `8f9bdf67e55ca593ed484038a6ecfa51c21cd15f37d25010a2985b0855ab8a6b`,

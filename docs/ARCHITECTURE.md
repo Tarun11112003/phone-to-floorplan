@@ -1,6 +1,6 @@
 # Implemented architecture
 
-Final development state: 2026-10-08. This describes executable modules, not a
+This describes executable modules, not a
 target redesign. [Validation](BENCHMARK_RESULTS.md) and
 [limitations](LIMITATIONS.md) bound every capability described here.
 

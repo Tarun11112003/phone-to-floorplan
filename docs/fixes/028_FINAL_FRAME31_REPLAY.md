@@ -1,6 +1,6 @@
 # Final frame31 replay: reproduction failure and diagnostic closure
 
-Date: 2026-10-08. Continue [batch027](027_REGISTRATION_SUPPORT_AUDIT.md), using
+Continue [batch027](027_REGISTRATION_SUPPORT_AUDIT.md), using
 [component research](../ASSESSMENT_COMPONENT_RESEARCH.md) and the retained native
 stage/history records. This is the final registration-chain diagnostic.
 
@@ -101,7 +101,7 @@ This closes the diagnostic chain, not the geometry defect or assessment requirem
 Keep production SIFT, all guards, existing geometry and previous evidence unchanged.
 No matcher adoption, filtering intervention, sensor-assisted correction, commit
 or push is justified. Prior alternatives are reused as research; no repeated
-Repository A/B or public matcher investigation is performed.
+alternative-implementation or public matcher investigation is performed.
 
 ## Reproduction, validation and artifacts
 

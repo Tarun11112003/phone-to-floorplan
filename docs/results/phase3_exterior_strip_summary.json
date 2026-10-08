@@ -1,6 +1,5 @@
 {
   "version": "exterior-strip-sensor-to-seed-checkpoint-v1",
-  "date": "2026-10-07",
   "root_cause": "Initial quota omits eligible peak; explained-point masking dilutes residual seed bin while sufficient fitted residual consensus remains",
   "software_omission_addressed": true,
   "whole_requirements_closed": [],
@@ -9,8 +8,8 @@
       "path": "demo/phase3_strip_trace/unchanged_baseline/trace.json",
       "sha256": "cc3015cce2d43098fdbed6b12f44575348888cbca1c26d7807ea7bc450e17fc1",
       "experiment": "exterior_strip_sensor_to_seed_trace",
-      "run": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor",
-      "source": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\datasets\\Given_dataset\\single_scan_floor_only\\1a8384c3f6",
+      "run": "demo\\phase3_floor_audit\\current_residual\\floor",
+      "source": "datasets\\Given_dataset\\single_scan_floor_only\\1a8384c3f6",
       "strip_query": {
         "x_m": -2.73,
         "half_width_m": 0.12,
@@ -242,8 +241,8 @@
       "path": "demo/phase3_strip_trace/unchanged_baseline_detailed/trace.json",
       "sha256": "ae18f007cd00b0ca69be3b43ddc52082de5e6dfbde793a940f6b1d43330049f0",
       "experiment": "exterior_strip_sensor_to_seed_trace",
-      "run": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor",
-      "source": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\datasets\\Given_dataset\\single_scan_floor_only\\1a8384c3f6",
+      "run": "demo\\phase3_floor_audit\\current_residual\\floor",
+      "source": "datasets\\Given_dataset\\single_scan_floor_only\\1a8384c3f6",
       "strip_query": {
         "x_m": -2.73,
         "half_width_m": 0.12,
@@ -479,8 +478,8 @@
       "path": "demo/phase3_strip_trace/postfix_detailed/trace.json",
       "sha256": "47efbfe706c91489cc2de64866a5ffd542d085259825ae4614e8a5dbc1ea14f1",
       "experiment": "exterior_strip_sensor_to_seed_trace",
-      "run": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor",
-      "source": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\datasets\\Given_dataset\\single_scan_floor_only\\1a8384c3f6",
+      "run": "demo\\phase3_strip_trace\\current_exterior\\floor",
+      "source": "datasets\\Given_dataset\\single_scan_floor_only\\1a8384c3f6",
       "strip_query": {
         "x_m": -2.73,
         "half_width_m": 0.12,
@@ -716,7 +715,7 @@
       "path": "demo/phase3_floor_audit/postfix_verified/audit.json",
       "sha256": "79ff11e4562afc1666e707b6ed1b2b551c6193cfbf6cb62024d70c147b59741b",
       "experiment": "frozen_floor_boundary_audit",
-      "run": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor",
+      "run": "demo\\phase3_floor_audit\\current_residual\\floor",
       "script_sha256": "8556fd295e639c69f460144506e32c15fa8c6ac017219b9f1c956642cd7a2ac1",
       "layout_sha256": "588782263e0c1cf7f8f796ace20a16654998dc0d45e7aed4395e74da397edf3b",
       "reconstruction_logic_unchanged": true,
@@ -756,7 +755,7 @@
       "path": "demo/phase3_strip_trace/postfix_uncovered_audit/audit.json",
       "sha256": "c482f24bd5c8eca24f2177151d64cb60537373153fb54b742a0074ad316fd872",
       "experiment": "frozen_floor_boundary_audit",
-      "run": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor",
+      "run": "demo\\phase3_strip_trace\\current_exterior\\floor",
       "script_sha256": "11f3f46902f02e95be336c7916c48f19d4fecf2b0d8ae000463cdb274465eb8e",
       "layout_sha256": "a19a7c9fa23a3d61d177bc59e85143804fae3df6ae925c925e75ee7a1e8d3c1f",
       "reconstruction_logic_unchanged": true,
@@ -1292,14 +1291,14 @@
       "comparison_path": "demo/phase3_strip_trace/current_exterior/single_controlled/comparison/comparison.json",
       "comparison_sha256": "af56f18d0899cd4e4f101c80f16a4abf6e2ede4bef654fde076aa45f8e903903",
       "evidence_sha256": {
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single\\run.json": "415ca91f97f772681654cb22e5486a33bf641aa2ea82cf2f56067c6a482caa69",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single\\plan.json": "95668592dc4ed4c348c9a1e3d4b0a18f9c01b2ef1e677687dd96eb7276faf039",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single\\artifacts\\cloud.npz": "de0953497c259e09aaf3d8b29f8814128825f41453d88e709747ebc0fd2811d9",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single\\artifacts\\layout_evidence.json": "e20c3207fab60f361947da37d5cfbf51f6579e595ecf1b32b10ea9e3dce07a23",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single\\run.json": "9b05ae39cdef5f05c525c8496602cd9c49d2e85f7f6e84019ebbeb26b8323749",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single\\plan.json": "9486e490ef9d363a6ad1c1250dec059a9f0538c62a7a0bc65d21c864a7bccdd7",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single\\artifacts\\cloud.npz": "e0985476e43039be176b85ed2504f3542b9766e7192a80d8b295b5bdb5791564",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single\\artifacts\\layout_evidence.json": "a12b694fd10eecd0da8ad9b4da549876adb1a65a239ce305a512e1658eaea859"
+        "demo\\phase3_floor_audit\\current_residual\\single\\run.json": "415ca91f97f772681654cb22e5486a33bf641aa2ea82cf2f56067c6a482caa69",
+        "demo\\phase3_floor_audit\\current_residual\\single\\plan.json": "95668592dc4ed4c348c9a1e3d4b0a18f9c01b2ef1e677687dd96eb7276faf039",
+        "demo\\phase3_floor_audit\\current_residual\\single\\artifacts\\cloud.npz": "de0953497c259e09aaf3d8b29f8814128825f41453d88e709747ebc0fd2811d9",
+        "demo\\phase3_floor_audit\\current_residual\\single\\artifacts\\layout_evidence.json": "e20c3207fab60f361947da37d5cfbf51f6579e595ecf1b32b10ea9e3dce07a23",
+        "demo\\phase3_strip_trace\\current_exterior\\single\\run.json": "9b05ae39cdef5f05c525c8496602cd9c49d2e85f7f6e84019ebbeb26b8323749",
+        "demo\\phase3_strip_trace\\current_exterior\\single\\plan.json": "9486e490ef9d363a6ad1c1250dec059a9f0538c62a7a0bc65d21c864a7bccdd7",
+        "demo\\phase3_strip_trace\\current_exterior\\single\\artifacts\\cloud.npz": "e0985476e43039be176b85ed2504f3542b9766e7192a80d8b295b5bdb5791564",
+        "demo\\phase3_strip_trace\\current_exterior\\single\\artifacts\\layout_evidence.json": "a12b694fd10eecd0da8ad9b4da549876adb1a65a239ce305a512e1658eaea859"
       },
       "raw_prior_cell_boundary_hausdorff_max_m": 1.3322676295501878e-15,
       "raw_ordered_corner_max_absolute_difference_m": 1.3322676295501878e-15
@@ -1359,14 +1358,14 @@
       "comparison_path": "demo/phase3_strip_trace/current_exterior/floor_controlled/comparison/comparison.json",
       "comparison_sha256": "28810d4550ace4e8979adbc6bc9d5ddfddf65774d56d7d5f415e1658eb21f665",
       "evidence_sha256": {
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor\\run.json": "127dd3a3dc3f12fd07a23eb1135d792473a695195230e708a344260b804397ee",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor\\plan.json": "4eb7423789031ec5dc0181bfe9069db68f9ac99f5e84c7510b24b7e2310f1804",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor\\artifacts\\cloud.npz": "e93405dc0c71d82d6ca51f8c5dbca9299a5249d4fc7820db06449697a1941bfc",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor\\artifacts\\layout_evidence.json": "dc7b471d0cb5fb487ac2bcdb8ecfec608c582166ae764b3dca1783cbb08c8ebd",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor\\run.json": "1955a9cc131a7d5620ad7b0ee4b9a924205505b6156e2f2136f70e283f47afda",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor\\plan.json": "6379accc119177dfd456541c30554084a990f4163829532157574b6ba76c33aa",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor\\artifacts\\cloud.npz": "d1f2d1388b90425246ca500f6ec8c652af663357712cbcfc1bdedbc25aaa6b49",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor\\artifacts\\layout_evidence.json": "6db09f95bcacb0b9457f8443c9178c2dc6566a3b1e0843d88c8ff2c36735987e"
+        "demo\\phase3_floor_audit\\current_residual\\floor\\run.json": "127dd3a3dc3f12fd07a23eb1135d792473a695195230e708a344260b804397ee",
+        "demo\\phase3_floor_audit\\current_residual\\floor\\plan.json": "4eb7423789031ec5dc0181bfe9069db68f9ac99f5e84c7510b24b7e2310f1804",
+        "demo\\phase3_floor_audit\\current_residual\\floor\\artifacts\\cloud.npz": "e93405dc0c71d82d6ca51f8c5dbca9299a5249d4fc7820db06449697a1941bfc",
+        "demo\\phase3_floor_audit\\current_residual\\floor\\artifacts\\layout_evidence.json": "dc7b471d0cb5fb487ac2bcdb8ecfec608c582166ae764b3dca1783cbb08c8ebd",
+        "demo\\phase3_strip_trace\\current_exterior\\floor\\run.json": "1955a9cc131a7d5620ad7b0ee4b9a924205505b6156e2f2136f70e283f47afda",
+        "demo\\phase3_strip_trace\\current_exterior\\floor\\plan.json": "6379accc119177dfd456541c30554084a990f4163829532157574b6ba76c33aa",
+        "demo\\phase3_strip_trace\\current_exterior\\floor\\artifacts\\cloud.npz": "d1f2d1388b90425246ca500f6ec8c652af663357712cbcfc1bdedbc25aaa6b49",
+        "demo\\phase3_strip_trace\\current_exterior\\floor\\artifacts\\layout_evidence.json": "6db09f95bcacb0b9457f8443c9178c2dc6566a3b1e0843d88c8ff2c36735987e"
       },
       "raw_prior_cell_boundary_hausdorff_max_m": 7.105427357601002e-15,
       "raw_ordered_corner_max_absolute_difference_m": 7.105427357601002e-15
@@ -1496,14 +1495,14 @@
       "comparison_path": "demo/phase3_strip_trace/current_exterior/ceiling_controlled/comparison/comparison.json",
       "comparison_sha256": "13e09c0597e8d18c69ab86d16d23ee38bb7686eb928ac618234d1f957362e300",
       "evidence_sha256": {
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\ceiling\\run.json": "5a3b298264dde323e481841e12e55f04516aff754e0381d303e2b43cfacbf683",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\ceiling\\plan.json": "92a957fc94316434d758a488474d14e2c649217fd645f8b121aaa17b53092a64",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\ceiling\\artifacts\\cloud.npz": "023a297f9278b3367bec42b2db40d27996aeaca38238a997fc0ad65246eef557",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\ceiling\\artifacts\\layout_evidence.json": "7736b13487bb91e8240c74b2ff62addfc30c9b2497a643001ca0a1502d09f6ab",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\ceiling\\run.json": "30da087c6325f38e5e0756eca64a82fda22f21ee8a75dd9ad083c24b522d4480",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\ceiling\\plan.json": "6e4ddd8a2046ffaf404001e18b25693f6135ba5b685ee18884c4c49f4fb959a7",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\ceiling\\artifacts\\cloud.npz": "202f61f8292048402092f1a33bf667bc2b8ee710989660c777b259c85b5c5288",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\ceiling\\artifacts\\layout_evidence.json": "f452d50194e906fc78566a837f8579a2af26ee129f4f35e419908b0fde977a63"
+        "demo\\phase3_floor_audit\\current_residual\\ceiling\\run.json": "5a3b298264dde323e481841e12e55f04516aff754e0381d303e2b43cfacbf683",
+        "demo\\phase3_floor_audit\\current_residual\\ceiling\\plan.json": "92a957fc94316434d758a488474d14e2c649217fd645f8b121aaa17b53092a64",
+        "demo\\phase3_floor_audit\\current_residual\\ceiling\\artifacts\\cloud.npz": "023a297f9278b3367bec42b2db40d27996aeaca38238a997fc0ad65246eef557",
+        "demo\\phase3_floor_audit\\current_residual\\ceiling\\artifacts\\layout_evidence.json": "7736b13487bb91e8240c74b2ff62addfc30c9b2497a643001ca0a1502d09f6ab",
+        "demo\\phase3_strip_trace\\current_exterior\\ceiling\\run.json": "30da087c6325f38e5e0756eca64a82fda22f21ee8a75dd9ad083c24b522d4480",
+        "demo\\phase3_strip_trace\\current_exterior\\ceiling\\plan.json": "6e4ddd8a2046ffaf404001e18b25693f6135ba5b685ee18884c4c49f4fb959a7",
+        "demo\\phase3_strip_trace\\current_exterior\\ceiling\\artifacts\\cloud.npz": "202f61f8292048402092f1a33bf667bc2b8ee710989660c777b259c85b5c5288",
+        "demo\\phase3_strip_trace\\current_exterior\\ceiling\\artifacts\\layout_evidence.json": "f452d50194e906fc78566a837f8579a2af26ee129f4f35e419908b0fde977a63"
       },
       "raw_prior_cell_boundary_hausdorff_max_m": 7.865027091016412e-14,
       "raw_ordered_corner_max_absolute_difference_m": 7.205347429817266e-14
@@ -1552,14 +1551,14 @@
       "comparison_path": "demo/phase3_strip_trace/current_exterior/single_dense_controlled/comparison/comparison.json",
       "comparison_sha256": "86ed973357a49b0111a98d1831108ed44ea9aaf595550ae7452bec0f99583264",
       "evidence_sha256": {
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single_dense\\run.json": "30c37d7f2ab70cdc8e70b0c4a88be73563d2eb01a34dd9e4619c2867187bb0a3",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single_dense\\plan.json": "22a2d2b573b3640e14df1111fe5a6818f8625f133e4fa0a88cde6d73f25a840f",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single_dense\\artifacts\\cloud.npz": "c6d2a1b2b983c9b81d94b7b71c5835e0d0a79aab9b65ad18d4300527b82f7e8c",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single_dense\\artifacts\\layout_evidence.json": "5a092ef816fa57eec26f211b5e30234c8995a79e639eb643a0499d1b32669175",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single_dense\\run.json": "238c502ad654c9d3e3604da931985ad73535c35cf29bb0da31961a68b51c9608",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single_dense\\plan.json": "72866cfe993fc045ae06d1119f4f884f3ad792de0e33b9ff9e2be414f7ea84d6",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single_dense\\artifacts\\cloud.npz": "de68f58e750beaa54deef51ce6a55d83852fc056d7ccb766b6302e7086250db4",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single_dense\\artifacts\\layout_evidence.json": "2065a1b807acf03e66aab860e14fc346e5f6ff339bc56648928b087e24373c50"
+        "demo\\phase3_floor_audit\\current_residual\\single_dense\\run.json": "30c37d7f2ab70cdc8e70b0c4a88be73563d2eb01a34dd9e4619c2867187bb0a3",
+        "demo\\phase3_floor_audit\\current_residual\\single_dense\\plan.json": "22a2d2b573b3640e14df1111fe5a6818f8625f133e4fa0a88cde6d73f25a840f",
+        "demo\\phase3_floor_audit\\current_residual\\single_dense\\artifacts\\cloud.npz": "c6d2a1b2b983c9b81d94b7b71c5835e0d0a79aab9b65ad18d4300527b82f7e8c",
+        "demo\\phase3_floor_audit\\current_residual\\single_dense\\artifacts\\layout_evidence.json": "5a092ef816fa57eec26f211b5e30234c8995a79e639eb643a0499d1b32669175",
+        "demo\\phase3_strip_trace\\current_exterior\\single_dense\\run.json": "238c502ad654c9d3e3604da931985ad73535c35cf29bb0da31961a68b51c9608",
+        "demo\\phase3_strip_trace\\current_exterior\\single_dense\\plan.json": "72866cfe993fc045ae06d1119f4f884f3ad792de0e33b9ff9e2be414f7ea84d6",
+        "demo\\phase3_strip_trace\\current_exterior\\single_dense\\artifacts\\cloud.npz": "de68f58e750beaa54deef51ce6a55d83852fc056d7ccb766b6302e7086250db4",
+        "demo\\phase3_strip_trace\\current_exterior\\single_dense\\artifacts\\layout_evidence.json": "2065a1b807acf03e66aab860e14fc346e5f6ff339bc56648928b087e24373c50"
       },
       "raw_prior_cell_boundary_hausdorff_max_m": 2.1159580986387714e-14,
       "raw_ordered_corner_max_absolute_difference_m": 1.8790524691780774e-14
@@ -1629,14 +1628,14 @@
       "comparison_path": "demo/phase3_strip_trace/current_exterior/control_controlled/comparison/comparison.json",
       "comparison_sha256": "d0d91f8868aed8b17ce1ce9aff51c388f32b7c8c2b79786b3bd8c08e40e212a5",
       "evidence_sha256": {
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\control\\control\\run.json": "0e46f747200fa856a957b090366ce45dd21a908698df49f7e10bd4b0afb76db2",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\control\\control\\plan.json": "daf13ea9a17227ff774d432795a88b0b8d614e0c139496c0afee3cddeabce470",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\control\\control\\artifacts\\cloud.npz": "4ac1f2561d4c136f77cb453dc5b55445b38a43fed7d7b386256cf53c90c4d8af",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\control\\control\\artifacts\\layout_evidence.json": "63487397ad08b6f7fa9ad31dae41727b1359cba5fb4bb75e9e3499812ba58589",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\control\\control\\run.json": "1671cc09ec391b5ef7a19bc5b41add2b319312fdb30495dc69e33a7a64c5bd46",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\control\\control\\plan.json": "8fbd682f773af15414463cb82b5d5306a3c4a7404fe37cfcb01fecf4d4360268",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\control\\control\\artifacts\\cloud.npz": "4ac1f2561d4c136f77cb453dc5b55445b38a43fed7d7b386256cf53c90c4d8af",
-        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\control\\control\\artifacts\\layout_evidence.json": "932a51f2a5f4bc7adf6db9cf08d7c55e8bac4feab140baca5a8fdd69ec16b990"
+        "demo\\phase3_floor_audit\\current_residual\\control\\control\\run.json": "0e46f747200fa856a957b090366ce45dd21a908698df49f7e10bd4b0afb76db2",
+        "demo\\phase3_floor_audit\\current_residual\\control\\control\\plan.json": "daf13ea9a17227ff774d432795a88b0b8d614e0c139496c0afee3cddeabce470",
+        "demo\\phase3_floor_audit\\current_residual\\control\\control\\artifacts\\cloud.npz": "4ac1f2561d4c136f77cb453dc5b55445b38a43fed7d7b386256cf53c90c4d8af",
+        "demo\\phase3_floor_audit\\current_residual\\control\\control\\artifacts\\layout_evidence.json": "63487397ad08b6f7fa9ad31dae41727b1359cba5fb4bb75e9e3499812ba58589",
+        "demo\\phase3_strip_trace\\current_exterior\\control\\control\\run.json": "1671cc09ec391b5ef7a19bc5b41add2b319312fdb30495dc69e33a7a64c5bd46",
+        "demo\\phase3_strip_trace\\current_exterior\\control\\control\\plan.json": "8fbd682f773af15414463cb82b5d5306a3c4a7404fe37cfcb01fecf4d4360268",
+        "demo\\phase3_strip_trace\\current_exterior\\control\\control\\artifacts\\cloud.npz": "4ac1f2561d4c136f77cb453dc5b55445b38a43fed7d7b386256cf53c90c4d8af",
+        "demo\\phase3_strip_trace\\current_exterior\\control\\control\\artifacts\\layout_evidence.json": "932a51f2a5f4bc7adf6db9cf08d7c55e8bac4feab140baca5a8fdd69ec16b990"
       },
       "raw_prior_cell_boundary_hausdorff_max_m": 0.0,
       "raw_ordered_corner_max_absolute_difference_m": 0.0

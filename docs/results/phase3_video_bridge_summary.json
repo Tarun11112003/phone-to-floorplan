@@ -1,6 +1,5 @@
 {
   "version": "controlled-original-video-bridge-checkpoint-v1",
-  "date": "2026-10-07",
   "production_code_unchanged": true,
   "baseline_files_unchanged": true,
   "whole_requirements_closed": [],
@@ -31,7 +30,7 @@
     ],
     "models": [
       {
-        "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_sync_boundary\\video_sampling_verified_input\\video72\\result\\sfm\\sparse\\0",
+        "directory": "demo\\phase3_sync_boundary\\video_sampling_verified_input\\video72\\result\\sfm\\sparse\\0",
         "registered_images": 9,
         "image_names": [
           "frame_00016.png",
@@ -48,7 +47,7 @@
         "mean_reprojection_error_px": 0.5501048034877035
       },
       {
-        "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_sync_boundary\\video_sampling_verified_input\\video72\\result\\sfm\\sparse\\1",
+        "directory": "demo\\phase3_sync_boundary\\video_sampling_verified_input\\video72\\result\\sfm\\sparse\\1",
         "registered_images": 10,
         "image_names": [
           "frame_00028.png",
@@ -107,7 +106,7 @@
       "selected_model_original_views": 9,
       "models": [
         {
-          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\trial1\\sparse\\0",
+          "directory": "demo\\phase3_video_bridge\\trial1\\sparse\\0",
           "registered_images": 12,
           "image_names": [
             "bridge_00002.png",
@@ -127,7 +126,7 @@
           "mean_reprojection_error_px": 0.6115493929538693
         },
         {
-          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\trial1\\sparse\\1",
+          "directory": "demo\\phase3_video_bridge\\trial1\\sparse\\1",
           "registered_images": 10,
           "image_names": [
             "frame_00028.png",
@@ -195,7 +194,7 @@
       "selected_model_original_views": 9,
       "models": [
         {
-          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\trial2\\sparse\\0",
+          "directory": "demo\\phase3_video_bridge\\trial2\\sparse\\0",
           "registered_images": 12,
           "image_names": [
             "bridge_00002.png",
@@ -215,7 +214,7 @@
           "mean_reprojection_error_px": 0.6115493929538693
         },
         {
-          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\trial2\\sparse\\1",
+          "directory": "demo\\phase3_video_bridge\\trial2\\sparse\\1",
           "registered_images": 10,
           "image_names": [
             "frame_00028.png",
@@ -284,7 +283,7 @@
       "selected_model_original_views": 9,
       "models": [
         {
-          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\dense_trial1\\sparse\\0",
+          "directory": "demo\\phase3_video_bridge\\dense_trial1\\sparse\\0",
           "registered_images": 16,
           "image_names": [
             "bridge_00002.png",
@@ -308,7 +307,7 @@
           "mean_reprojection_error_px": 0.6680059381288898
         },
         {
-          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\dense_trial1\\sparse\\1",
+          "directory": "demo\\phase3_video_bridge\\dense_trial1\\sparse\\1",
           "registered_images": 10,
           "image_names": [
             "frame_00028.png",
@@ -377,7 +376,7 @@
       "selected_model_original_views": 9,
       "models": [
         {
-          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\dense_trial2\\sparse\\0",
+          "directory": "demo\\phase3_video_bridge\\dense_trial2\\sparse\\0",
           "registered_images": 16,
           "image_names": [
             "bridge_00002.png",
@@ -401,7 +400,7 @@
           "mean_reprojection_error_px": 0.6680059381288898
         },
         {
-          "directory": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_video_bridge\\dense_trial2\\sparse\\1",
+          "directory": "demo\\phase3_video_bridge\\dense_trial2\\sparse\\1",
           "registered_images": 10,
           "image_names": [
             "frame_00028.png",

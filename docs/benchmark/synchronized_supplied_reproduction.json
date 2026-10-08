@@ -1,0 +1,194 @@
+{
+  "description": "Fresh raw scanner intake and reconstruction after encoded-timeline synchronization. Checks establish execution and honest non-acceptance, not measured accuracy or property identity.",
+  "artifacts": [
+    {
+      "id": "single",
+      "expected_exit_code": 1,
+      "timeout_s": 600,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "lidar",
+        "--source",
+        "datasets/Given_dataset/single_room/c00a170fe1",
+        "--max-frames",
+        "120",
+        "--profile",
+        "assignment",
+        "--property-id",
+        "given_single_identity_unverified",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "intake/intake.json",
+          "field": [
+            "synchronization",
+            "decoded_frames"
+          ],
+          "value": 1715
+        },
+        {
+          "path": "intake/intake.json",
+          "field": [
+            "synchronization",
+            "timestamp_consistent"
+          ],
+          "value": true
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 115
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "expected_exit_code": 1,
+      "timeout_s": 600,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "lidar",
+        "--source",
+        "datasets/Given_dataset/single_scan_floor_only/1a8384c3f6",
+        "--max-frames",
+        "180",
+        "--profile",
+        "assignment",
+        "--property-id",
+        "given_floor_identity_unverified",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "intake/intake.json",
+          "field": [
+            "synchronization",
+            "decoded_frames"
+          ],
+          "value": 5251
+        },
+        {
+          "path": "intake/intake.json",
+          "field": [
+            "synchronization",
+            "timestamp_consistent"
+          ],
+          "value": true
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 176
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "ceiling",
+      "expected_exit_code": 1,
+      "timeout_s": 600,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "lidar",
+        "--source",
+        "datasets/Given_dataset/single_scan_with_ceiling/c7d28f72c6",
+        "--max-frames",
+        "300",
+        "--profile",
+        "assignment",
+        "--property-id",
+        "given_ceiling_identity_unverified",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "intake/intake.json",
+          "field": [
+            "synchronization",
+            "decoded_frames"
+          ],
+          "value": 9745
+        },
+        {
+          "path": "intake/intake.json",
+          "field": [
+            "synchronization",
+            "timestamp_consistent"
+          ],
+          "value": true
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 300
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    }
+  ]
+}

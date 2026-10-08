@@ -1,6 +1,6 @@
 # room_2: original floor returns versus sampling and fusion
 
-Date: 2026-10-08. This diagnostic addresses only the upstream local-floor
+This diagnostic addresses only the upstream local-floor
 blocker in the supplied ceiling scan. It uses the unchanged room_2 polygon,
 plane 1, 300 retained camera poses, intrinsics, cloud and acceptance guards.
 The [component research](../ASSESSMENT_COMPONENT_RESEARCH.md),
@@ -159,7 +159,7 @@ It does not prove sensor poses or calibration are physically accurate.
 
 Original selected stride-8 projection, source confidences and native weights
 produce **218,873 input points**. Calling the unchanged global
-`layout.weighted_voxels()` reproduces the saved **202,477 cloud points AND
+`layout.weighted_voxels` reproduces the saved **202,477 cloud points AND
 their weight array bit-for-bit**. No resampling or local-only fusion replaces
 the saved cloud.
 
@@ -167,7 +167,7 @@ The 150 local sampled returns occupy **148 native world-frame voxel IDs**.
 All 148 remain inside the same plane/room support after weighted fusion:
 **zero support voxels lost, zero gained; zero occupied cells lost or gained**.
 The independent diagnostic cell calculation and unmodified native
-`_horizontal_support()` agree exactly on **148 /0.14124624752511566**.
+`_horizontal_support` agree exactly on **148 /0.14124624752511566**.
 Fusion is not responsible for losing the demonstrated off-lattice cells: those
 pixels never enter it. A different TSDF backend is therefore not justified by
 this failure. Dense global fusion has **not** been run or validated here.

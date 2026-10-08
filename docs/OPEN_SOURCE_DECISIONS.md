@@ -2,8 +2,8 @@
 
 Finalization uses the existing local research record; no new external research
 or model experiment is performed. Architecture and claims are bounded by
-[validation](BENCHMARK_RESULTS.md). Full original research/decision records
-are preserved in the evidence handoff, including their original hashes.
+[validation](BENCHMARK_RESULTS.md). Portable research records are published with original-byte provenance; private
+original records are retained locally.
 
 ## Components actually used
 
@@ -23,7 +23,7 @@ This table records existing reviews, not a new legal audit. Code, weights,
 binaries and datasets have separate rights. Dependencies are not relicensed by
 this repository. No restricted/unlicensed code, model or asset is newly
 incorporated during finalization. Optional upstream code/weights remain outside
-the source snapshot; retained relevant notices/provenance accompany the evidence
+the source archive; retained relevant notices/provenance accompany the evidence
 archive. Fetch/use them only under their actual upstream terms.
 
 The locally retained LightGlue/XFeat notice texts and exact source pins are

@@ -1,0 +1,6 @@
+# Published evidence hashes must survive Windows and archive/Unix checkouts.
+docs/** text eol=lf
+"docs/Applied AI.html" -text
+README.md text eol=lf
+DESIGN_NOTES.md text eol=lf
+datasets/reference_acquisition.json text eol=lf

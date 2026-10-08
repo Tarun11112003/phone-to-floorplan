@@ -25,7 +25,7 @@ Fresh RGB reconstruction outputs must agree with direct database counts, while
 registered-image counts, sparse-point counts, geometry, and scale status remain
 unchanged. The matcher experiment remains isolated and optional.
 
-## Outcome (2026-10-06)
+## Outcome
 
 Implemented labels and counts in the existing read-only pair diagnostics. Direct
 queries on the four saved trial databases agree with the emitted classifier:

@@ -1,6 +1,6 @@
 # Final limitations and impact
 
-Development freeze: 2026-10-08. No additional algorithm experiment is planned
+No additional algorithm experiment is planned
 for this handoff. [Validation](BENCHMARK_RESULTS.md) provides the supporting
 record and [compliance](ASSIGNMENT_COMPLIANCE.md) maps the assessment consequences.
 
@@ -22,8 +22,7 @@ record and [compliance](ASSIGNMENT_COMPLIANCE.md) maps the assessment consequenc
 | Benchmark/consumer composition missing | Same-property3+rooms/connector, damage, repeats and original consumer export unavailable | Required benchmark and≥70% head-to-head cannot be scored | NOT DEMONSTRATED |
 | Published specification gaps | Output schema and earlier Round1 gates absent from suppliedHTML | Internal evaluator remains provisional | NOT DEMONSTRATED |
 | Device/cold setup route untested | Native HEIC/MOV/current app and nonengineer unseen rehearsal missing | No<15min clean machine or cold walk-in acceptance | NOT DEMONSTRATED |
-| Reproduction portability incomplete | Raw/model assets excluded fromGit; historic ledgers contain local absolute paths | Source/evidence integrity bundle is not every-number live regeneration | PARTIAL |
-| Git source versus final worktree | Existing uncommitted implementation is preserved separately in source snapshot | Documentation commits alone do not create a complete final-source Git checkout | Explicit handoff distinction |
+| Reproduction portability incomplete | Raw/model assets excluded fromGit; historical native producer/path identities may need remounting; public text uses portable paths | Source/evidence integrity bundle is not every-number live regeneration | PARTIAL |
 
 Physical closure requires independently identified room/perimeter/surface
 measurements, the prescribed same-property three tiers and repeats, staged damage

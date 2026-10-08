@@ -2,145 +2,182 @@
 
 ## Overview
 
-A Python command-line prototype for turning phone photos, video and LiDAR/depth
-captures into dimensioned floor-plan artifacts for property restoration. It
-normalizes captures, reconstructs observed geometry, proposes rooms/openings,
-links damage evidence to surfaces, and exports plans with validation/provenance.
+A Python command-line prototype that turns phone photos, video and LiDAR/depth
+captures into floor-plan and property-restoration review artifacts. It preserves
+capture provenance, reconstructs supported geometry, proposes surfaces/openings
+and damage regions, and reports missing measurements and acceptance blockers.
 
-**Assessment status: partial.** Supplied sensor scans produce partial layouts;
-RGB-only property reconstruction remains incomplete. Independent centimetre-level
-accuracy, the required physical benchmark and cold walk-in readiness have
-**not been demonstrated**. Unknown measurements are withheld.
+**Current assessment status: partial, not acceptance-ready.** The supplied
+LiDAR scan runs end to end and writes plans, JSON and HTML. Whole-property
+completeness, strict RGB metric reconstruction and independently measured
+centimetre accuracy have **not been demonstrated**. Unsupported measurements
+remain unavailable; a plausible drawing is not a passed assessment gate.
 
-**Validated:** the latest current-worktree suite has **390 passing tests** and
-the retained ceiling layout passes **15/15 exact replay checks**. These verify
-software behavior and artifact consistency, not physical accuracy.
+**Verified in final QA:** 396 tests passed in a fresh environment (390 existing + 6 packaging checks);
+the documented supplied-scan
+command processed 300 frames into 202,477 points and exited **1 (`partial`)**.
+It wrote 12 room/cell hypotheses, with **0 accepted ceiling heights and 0
+adjacency connections**. The retained ceiling layout also has 15/15 exact saved
+artifact checks. These are software/internal-consistency results, not physical
+accuracy or a verified 12-room property. See [QA evidence](docs/FINAL_QA.md).
 
-## What the system does
+## Input tiers and hardware
 
-- Preserves raw capture identities, metadata and timestamped sensor pairing.
-- Reconstructs sparse RGB models or calibrated metric RGB-D clouds.
-- Extracts supported walls, partial rooms and observed floor/ceiling measurements.
-- Verifies stitching constraints and proposes openings and surface-linked damage.
-- Exports review artifacts with explicit metric, completeness and failure status.
-
-## Input tiers
-
-| Tier | Input | Current processing and limitation |
+| Tier | Required capture | Production path and current limitation |
 |---|---|---|
-| Photos | RGB stills; assessment requires 2–8 per room without depth/poses | Production SIFT sparse reconstruction; opt-in learned metric geometry remains experimental. Strict-photo whole-property acceptance is not demonstrated. |
-| Video | Phone MP4/MOV | Timestamped frames and RGB reconstruction. Supplied low-detail transitions remain unresolved; SIFT stays the production baseline. |
-| LiDAR/depth | Supported Stray Scanner export: RGB, depth, confidence, intrinsics, odometry | Per-frame calibrated backprojection and weighted fusion. Supplied layouts remain partial; LiDAR needs compatible Pro hardware. |
+| Photos | 2?8 original stills **per room**, any iPhone 15+, no depth or poses | Per-room folders, HEIC/EXIF intake, SIFT/COLMAP. Strict RGB metric scale and whole-property stitching remain unresolved. |
+| Video | Original handheld walkthrough, any iPhone 15+ | Timestamped sampling and the same SIFT baseline. Difficult RGB transitions remain incomplete. |
+| LiDAR | iPhone 15+ with LiDAR (Pro); depth, confidence, poses, intrinsics and RGB | Supported Stray Scanner raw export, calibrated backprojection, verified pose constraints and weighted fusion. Supplied plans remain partial. |
 
-Route 2 uses stock phone tools and a transfer protocol. There is no custom phone
-app. See [capture protocol](docs/CAPTURE_PROTOCOL.md) and
-[device matrix](docs/DEVICE_MATRIX.md); a novice/cold-device rehearsal is pending.
+Every tier is required to produce the **same whole-property output contract**:
+recognizable, connected, correctly placed and dimensioned rooms with adjacency.
+A single-room result does not satisfy that requirement. Intervals may be wider
+for photos; the accuracy gates still require independent evidence.
+
+Route 2 uses stock tools; there is no custom app. See the
+[capture protocol](docs/CAPTURE_PROTOCOL.md) and [device matrix](docs/DEVICE_MATRIX.md).
+The novice/cold-device capture route remains unverified.
 
 ## End-to-end pipeline
 
 ```mermaid
 flowchart LR
-  A[Photos / video / LiDAR] --> B[Intake and source identity]
-  B --> C[RGB SfM or calibrated RGB-D]
-  C --> D[Supported geometry and verified stitching]
+  A[Photos / video / LiDAR] --> B[Intake: identity, timing, calibration]
+  B --> C[SIFT RGB or calibrated RGB-D]
+  C --> D[Supported geometry and explicit verified stitching]
   D --> E[Rooms, surfaces and openings]
-  E --> F[Damage evidence and inspection scope]
-  F --> G[Contracts, uncertainty and readiness guards]
-  G --> H[JSON / HTML / SVG / DXF / CSV / provenance]
+  E --> F[Damage candidates and inspection scope]
+  F --> G[Uncertainty, contracts and readiness guards]
+  G --> H[JSON / HTML / conditional SVG, DXF and CSV]
 ```
 
-See [architecture](docs/ARCHITECTURE.md) for actual branches and execution order.
-Insufficient support can terminate a branch; a report is not an accepted plan.
+[Architecture](docs/ARCHITECTURE.md) explains the actual branches. Insufficient
+support can terminate reconstruction; a report is not an accepted plan.
 
-## Outputs
+## Install
 
-`run-capture` writes `intake/` records and a `result/` directory:
+Run from the repository root in PowerShell. The tested platform is **Windows,
+Python 3.12, CPU**; `py -3.12` must be available. Network/package-index access and
+native Python wheels are needed unless an offline wheelhouse is supplied.
 
-| Artifact | Meaning |
-|---|---|
-| `assessment.json`, `report.html` | Internal surface/room/damage contract and offline review; completeness and unavailable measurements remain visible. |
-| `plan.json`, `plan.svg`, `plan.dxf`, `quantities.csv` | Geometry/quantities when supported; may be absent or partial on failed captures. |
-| `layout_diagnostic.svg`, `artifacts/` | Supported segments, cloud/trajectory and intermediate evidence where available. |
-| `run.json`, `intake.json` | Producer/input hashes, execution results and readiness blockers. |
-
-The published assessment schema and earlier Round 1 definitions are absent from
-the supplied HTML. Internal schema validation is not official schema compliance.
-
-## Current status
-
-- **Production:** SIFT baseline, calibrated sensor intake/fusion, conservative
-  geometry/stitching, contracts and evaluation tools.
-- **Experimental/ablation:** learned RGB geometry, DISK/LightGlue,
-  XFeat/LightGlue, fixed-intrinsics/mapping controls and denser LiDAR sampling.
-- **Diagnostic/audit:** source-return, boundary, track/pose and acceptance traces.
-  The RGB registration investigation is closed as inconclusive.
-- **Benchmark/evaluation:** scorers exist; the required independently surveyed,
-  same-property three-tier benchmark remains unavailable.
-
-Latest floor audit: accepted pixels in the same 300 frames give **29.2154%
-diagnostic occupancy**, versus **14.1246%** after stride-8 sampling. Native fusion
-loses no local occupied cells. **Production remains unchanged:** room_2 has no
-accepted local floor or ceiling height. The **0.703 m footprint notch remains
-unvalidated**. Development is frozen; no further experiment belongs to this handoff.
-
-## Validation / benchmarks
-
-Read [validation results](docs/BENCHMARK_RESULTS.md),
-[assignment compliance](docs/ASSIGNMENT_COMPLIANCE.md) and
-[fix-loop evidence](docs/FIX_LOOP.md). Historical V2/V3 numbers use other inputs
-and evaluators; they do not establish current assessment acceptance.
-
-## Known limitations
-
-Property completeness, strict RGB metric reconstruction, physical opening/ceiling
-accuracy, damage validation, calibrated intervals, repeats, consumer comparison
-and cold walk-in performance remain open. Supplied data has sensor evidence but
-no independent dimensional survey. See [limitations](docs/LIMITATIONS.md).
-
-## Quickstart
-
-Python 3.12 on Windows; CPU execution is the documented baseline. Bootstrap may
-require network access. Native binaries and experimental model assets have
-separate requirements.
+Obtain the final Git checkout or extract the supplied `source.zip` into a fresh
+`phone-to-floorplan` directory. For offline Git/process review, clone the provided
+`repository.bundle`. This QA pass does not upload/push the repository;
+use the submitted commit recorded in `package_manifest.json`, not an older remote.
 
 ```powershell
+cd phone-to-floorplan
 & .\scripts\bootstrap_windows.ps1
 & .\.venv\Scripts\python.exe -m floorplan.cli --help
-& .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-In an activated Python 3.12 virtual environment, dependencies can also be
-installed using `python -m pip install -r requirements.txt`. The root file reuses
-the [observed Windows CPU pins](requirements/windows-cpu.txt); experimental
-models and OpenMVS remain separate prerequisites.
+The root **[requirements.txt](requirements.txt)** installs the project and the
+[Windows CPU pins](requirements/windows-cpu.txt). In an activated Python 3.12
+environment, the equivalent install is `python -m pip install -r requirements.txt`.
+The bootstrap preserves existing environments. See [operations](docs/PHASE3_OPERATIONS.md)
+for alternate environments/offline wheels and actual setup-test limitations.
 
-Supplied sensor-case review, using a **fresh output directory**:
+**No model checkpoint, API key or environment variable is required for the
+production SIFT/LiDAR baseline.** OpenMVS and learned-model assets are separate,
+optional research prerequisites. `--experimental-rgb` is not an accepted default.
+
+## Place inputs and run one capture
+
+Raw assessment data is excluded from Git. Obtain it through the assessment
+handoff, then preserve this directory structure:
+
+```text
+datasets/Given_dataset/
+  single_scan_with_ceiling/c7d28f72c6/
+    rgb.mp4
+    camera_matrix.csv
+    imu.csv
+    odometry.csv
+    depth/       # original frame files
+    confidence/  # matching original frame files
+captures/
+  property_photos/room_01/*.HEIC   # 2?8 originals per room
+  property_photos/hall/*.JPG
+  walkthrough.mov
+```
+
+**Supplied-data evaluator command** (fresh output directory):
 
 ```powershell
 & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier lidar --source datasets\Given_dataset\single_scan_with_ceiling\c7d28f72c6 --out runs\ceiling_review --profile assignment --property-id supplied_ceiling
 ```
 
-This command is **not an expected acceptance pass**. Nonzero readiness status
-must remain visible. Raw captures and retained `demo/` evidence are excluded from
-Git and need a separate handoff. See [reproduction/package instructions](docs/PHASE3_OPERATIONS.md)
-for real commands, asset requirements and current snapshot versus Git checkout.
-Clean-machine installation time has not been demonstrated.
+Other supported intake paths use the same command contract:
 
-## Repository structure
+```powershell
+& .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier photos --source captures\property_photos --out runs\photos_review --profile assignment --property-id property_01
+& .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier video --source captures\walkthrough.mov --out runs\video_review --profile assignment --property-id property_01
+```
+
+**Expect a nonzero readiness exit for the supplied scan.** Final QA recorded exit
+1 and `partial`; keep that status visible. Strict RGB may return
+`scale_unresolved` or incomplete reconstruction. Neither condition is success.
+Existing outputs must not be reused as fresh capture directories.
+
+## Outputs and inspection
+
+Open `runs/ceiling_review/result/report.html` and `plan.svg` locally; inspect
+`run.json`, `assessment.json` and `contract_coverage.json` for blockers.
+
+| Artifact under `result/` | Meaning |
+|---|---|
+| `assessment.json`, `report.html` | Rooms/surfaces, measurements, opening and damage candidates, concealed-rule flags, surface-keyed inspection scope and unavailable intervals |
+| `plan.json`, `plan.svg`, `plan.dxf`, `quantities.csv` | Conditional dimensioned geometry/quantities; may be absent or partial |
+| `layout_diagnostic.svg`, `artifacts/` | Supported fragments, cloud, trajectory and intermediate evidence |
+| `run.json`, `contract_coverage.json` | Input/producer hashes, runtime, readiness and required-output inventory |
+
+`intake/` preserves normalization/source identity. Preflight failures may instead
+write `capture_attempt.json`. Internal JSON schema validation is available; the
+published assessment schema was not supplied, so official compliance is unverified.
+
+## Validation and reproducibility
+
+```powershell
+& .\.venv\Scripts\python.exe -m pytest -q
+& .\.venv\Scripts\python.exe scripts/render_assessment_report.py --out demo\report_review
+& .\.venv\Scripts\python.exe scripts/package_assessment.py --verify demo\final_qa\handoff
+```
+
+The report command reads saved evidence and produces a five-page PDF/editable
+SVGs; it does not run reconstruction. The package verification command requires
+the separately delivered package at that path. Package generation and benchmark
+commands are in [operations](docs/PHASE3_OPERATIONS.md).
+The **submitted Git tree contains the frozen implementation**; an uncommitted
+source snapshot is no longer required to obtain the code that was tested.
+
+## Status and known limitations
+
+- **Production:** SIFT, calibrated RGB-D intake/fusion, conservative geometry,
+  explicit stitching, internal contracts and evaluation tools.
+- **Experimental:** MoGe metric RGB, DISK/LightGlue, XFeat/LightGlue,
+  fixed-intrinsics/mapping controls and denser sampling. None was promoted.
+- **Diagnostic:** RGB registration investigation is **closed as inconclusive**.
+  room_2 has no accepted local floor or ceiling. The **0.703 m footprint notch**
+  remains unvalidated; it is not a measured ceiling-height change.
+- **Acceptance missing:** complete property/adjacency, physical wall/opening/
+  ceiling accuracy, field damage labels, calibrated intervals, same-property
+  three-tier benchmark, repeats, consumer exports, prospective measured Fix Loop
+  and an unseen-phone walk-in. Installation/runnability does not close these gates.
+
+See [results](docs/BENCHMARK_RESULTS.md), [compliance](docs/ASSIGNMENT_COMPLIANCE.md),
+[fix loops](docs/FIX_LOOP.md) and [limitations](docs/LIMITATIONS.md).
+
+## Repository and documentation
 
 | Path | Role |
 |---|---|
-| `floorplan/` | Intake, reconstruction, geometry, contracts and evaluation |
-| `scripts/` | Setup/reproduction tools, explicitly named experiments and audits |
-| `tests/`, `examples/` | Software regression and controlled fixtures |
-| `docs/` | Assessment, architecture, validation, decisions and evidence records |
-| `datasets/`, `demo/` | Local raw data/generated artifacts; generally Git-excluded |
+| `floorplan/` | Production modules; `rgb_metric.py` is opt-in experimental |
+| `scripts/` | Setup, packaging, evaluation and explicitly catalogued diagnostic/experimental tools |
+| `tests/`, `examples/` | Regression tests and controlled fixtures, not physical benchmark truth |
+| `docs/` | Canonical handoff, report, evidence and historical engineering records |
+| `datasets/`, `demo/`, `runs/` | Local input/generated assets; excluded from Git |
 
-## Documentation
-
-Start with the [index](docs/INDEX.md), [technical report](docs/TECHNICAL_REPORT.md),
-[architecture](docs/ARCHITECTURE.md), [validation](docs/BENCHMARK_RESULTS.md) and
-[compliance matrix](docs/ASSIGNMENT_COMPLIANCE.md).
-[Applied AI.html](docs/Applied%20AI.html) is the requirements source.
-Dated `docs/fixes/` and `docs/results/` entries retain negative/inconclusive
-evidence; historical next-step suggestions are superseded by the development freeze.
+Start with the [documentation index](docs/INDEX.md), [technical report](docs/TECHNICAL_REPORT.pdf)
+and [final QA](docs/FINAL_QA.md). The [original brief](docs/Applied%20AI.html) defines
+success. Older plans are historical; their next-step suggestions are superseded.
+No further algorithm investigation belongs to this final handoff.

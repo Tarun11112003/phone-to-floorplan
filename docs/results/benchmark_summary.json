@@ -1,5 +1,4 @@
 {
-  "recorded_date": "2026-10-05",
   "scope": "development results on ICL-NUIM synthetic living room; no field accuracy claim",
   "rgbd": {
     "input_frames": 177,

@@ -33,7 +33,7 @@ def source_files(root: Path) -> list[Path]:
         raise ValueError('Commit the intended tracked changes before packaging')
     names = git(root, 'ls-files', '--cached', '-z').split('\0')
     directories = {'floorplan', 'scripts', 'tests', 'docs', 'examples', 'requirements', 'datasets'}
-    root_names = {'README.md', 'DESIGN_NOTES.md', 'pyproject.toml', 'requirements.txt', '.gitignore', 'LICENSE', 'LICENSE.md', 'LICENSE.txt'}
+    root_names = {'README.md', 'DESIGN_NOTES.md', 'pyproject.toml', 'requirements.txt', '.gitignore', '.gitattributes', 'LICENSE', 'LICENSE.md', 'LICENSE.txt'}
     files = []
     untracked = git(root, 'ls-files', '--others', '--exclude-standard', '-z').split('\0')
     if any(name and (PurePosixPath(name).parts[0] in directories or name in root_names)
@@ -155,6 +155,11 @@ def package(root: Path, output: Path) -> dict:
         raise FileNotFoundError('Supplied raw dataset is not mounted')
     before_head = git(root, 'rev-parse', 'HEAD').strip()
     started = time.perf_counter()
+    # Preserve genuine process history for offline review; an archive alone
+    # cannot show the submitted commits. Do not rewrite or manufacture history.
+    bundle = output/'repository.bundle'
+    git(root, 'bundle', 'create', str(bundle), '--all')
+    git(root, 'bundle', 'verify', str(bundle))
     archives = {}
     for name, files, stored in [('source.zip',sources,False), ('evidence.zip',evidence,False),
                                  ('supplied_raw_dataset.zip',raw,True)]:
@@ -165,6 +170,7 @@ def package(root: Path, output: Path) -> dict:
     manifest = {'format_version':1, 'git_base_at_packaging':before_head,
         'git_status_at_packaging':git(root,'status','--porcelain'),
         'source_kind':'Clean tracked source from the submitted Git tree; no untracked implementation',
+        'git_bundle':{'file':bundle.name, 'sha256':digest(bundle), 'bytes':bundle.stat().st_size},
         'archives':archives,'historical_assets_not_selected':unavailable,
         'runtime_s':time.perf_counter()-started,'reconstruction_run':False,
         'physical_accuracy':'NOT DEMONSTRATED','assessment_acceptance':'NOT DEMONSTRATED',
@@ -180,6 +186,7 @@ def package(root: Path, output: Path) -> dict:
         'Extract source.zip, evidence.zip and supplied_raw_dataset.zip to the SAME fresh root.\n'
         'Start with README.md, docs/INDEX.md and docs/TECHNICAL_REPORT.pdf.\n'
         'Source is tracked and clean at the Git commit recorded in package_manifest.json.\n'
+        'Offline Git history: git clone repository.bundle phone-to-floorplan\n'
         'Raw data is provided for assessment transfer, not public redistribution.\n'
         'No model weights/environment are bundled. See docs/PHASE3_OPERATIONS.md.\n'
         'Physical accuracy and full assessment acceptance are NOT DEMONSTRATED.\n',encoding='utf-8')
@@ -188,6 +195,13 @@ def package(root: Path, output: Path) -> dict:
 
 def verify(directory: Path) -> dict:
     manifest = json.loads((directory/'package_manifest.json').read_text(encoding='utf-8'))
+    bundle = manifest.get('git_bundle')
+    if bundle:
+        if PurePosixPath(bundle['file']).name != bundle['file']:
+            raise ValueError('Invalid Git bundle name')
+        path = directory/bundle['file']
+        if digest(path) != bundle['sha256'] or path.stat().st_size != bundle['bytes']:
+            raise ValueError('Git bundle hash/size mismatch')
     checked = 0
     for name, record in manifest['archives'].items():
         if PurePosixPath(name).name != name: raise ValueError('Invalid archive name')
@@ -209,6 +223,7 @@ def verify(directory: Path) -> dict:
                 checked += 1
         print(f'Verified {name}: {len(record["files"])} entries',flush=True)
     return {'archives_verified':len(manifest['archives']),'files_verified':checked,
+            'git_bundle_hash_verified':bool(bundle),
             'sha256_and_crc':'PASS','reconstruction_run':False}
 
 

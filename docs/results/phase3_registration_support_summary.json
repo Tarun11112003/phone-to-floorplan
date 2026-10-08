@@ -1,0 +1,1224 @@
+{
+  "batch": 27,
+  "experiment": "native_frame34_registration_support_audit",
+  "artifacts": {
+    "demo\\phase3_registration_support\\audit1\\features.db": "af96403751d30a9c8d05c70ec5aa185a53076237f3259dc5e4f53cfbc74a9ec1",
+    "demo\\phase3_registration_support\\audit1.log": "cda3f6c961a093543ecea74a6381cb4ff76ab37360fe057415211511572f0ede",
+    "demo\\phase3_registration_support\\audit1_final\\audit.json": "514c9ef00de0c4d6e327f234e51534900507be8958c4c39943b7d43eee2cbb12",
+    "demo\\phase3_registration_support\\audit1_final\\features.db": "af96403751d30a9c8d05c70ec5aa185a53076237f3259dc5e4f53cfbc74a9ec1",
+    "demo\\phase3_registration_support\\audit1_final.log": "75a318df979d19ff64a70dd08101e7ba036d4a95c49084a7538be7b858fb0446",
+    "demo\\phase3_registration_support\\audit2_final\\audit.json": "1926ce9c7b7d7a1664b47471f2e52094b4b5a196a43d5df12a05cfe56d410e6f",
+    "demo\\phase3_registration_support\\audit2_final\\features.db": "af96403751d30a9c8d05c70ec5aa185a53076237f3259dc5e4f53cfbc74a9ec1",
+    "demo\\phase3_registration_support\\audit2_final.log": "f72e5e5c95a8d78d2056a45c092cf65afba82080ade9d8d2a21e530312a05567",
+    "demo\\phase3_registration_support\\final_git_status.txt": "0b5c88a6640ac3624b640b2d158661a541b7a9c4c1e13e381424a2888f1079d0",
+    "demo\\phase3_registration_support\\full_tests.log": "9e0efaa2cd8e1f347f0d3200c62f4ab3da71c4271a916cc2f4d60c336f4f7997",
+    "demo\\phase3_registration_support\\incremental_mapper_4.2.1.cc": "ed54fd69e838bd189926110607bcb4ac5dc302b9840612447cc76612118f6969",
+    "demo\\phase3_registration_support\\probe\\features.db": "db479be82127c237e1b7422d891ac833ddc00a75886c82e04d8a2a9d13da7531",
+    "demo\\phase3_registration_support\\probe1_preflight_failure.txt": "d008d2a7085781cbff8b7eb71ec1c23d6649173e544193da3e395e153ea8c118",
+    "demo\\phase3_registration_support\\probe2\\candidates.json": "8620d8736dce3baef5cf41d7c45c2d525b53da76e91632dd7e971c01b7171124",
+    "demo\\phase3_registration_support\\probe2\\features.db": "89d16d3f6684ddd6041b6c56ce39e27b661da616d56092c953467b86e21533da",
+    "demo\\phase3_registration_support\\probe_geometry.json": "70440cdea718dcc9f83288c76dea72400f740269d23f2cfe02c2e6f50305d00f",
+    "demo\\phase3_registration_support\\probe_inherited.json": "6ff2077b1f60382c2aa16b79fe0dd18c4e40d74d2ef083bc75a57efc3db6ab78",
+    "demo\\phase3_registration_support\\registration_support.png": "1de6f102a7d7208e79dd4c334acc7ab6ab33082c382b1bcb5cbc4fce724228b0",
+    "demo\\phase3_registration_support\\repeat_comparison.json": "d6e461133e62898bf67264c401889384f8c6c15105b41a5ea11eb05b444c7ab0",
+    "demo\\phase3_registration_support\\source_identity_collision.json": "d70443173d421648ca4497de006e0c434ac39580f80dca5f26fccdc654cf9e01",
+    "demo\\phase3_registration_support\\source_provenance.json": "26f8ea750fd21509690d2bff5ae64ed191a673938c9cb87243182b19b53d97bf",
+    "demo\\phase3_registration_support\\support_overview.json": "95ef8a85fe266958b78b0711697456ea7f92f4371bab45dc9de8a075edeb19b5",
+    "demo\\phase3_registration_support\\targeted_tests.log": "662ac7590a1da26588660fce7d02798bc36f9fd76743eeb5083229e50fa49146",
+    "demo\\phase3_registration_support\\worktree_start.json": "847cdd86c406c1a1afc43eed091ee2d0aff250e921f463d2060411c05a2387c9",
+    "docs\\fixes\\027_REGISTRATION_SUPPORT_AUDIT.md": "97f2c5d97ddcbb3b42bc0c6173934a952a2ad043a67bd7d7d027a18ef49a0655",
+    "scripts\\audit_registration_support.py": "1febac3d6abac1b77f128aae04936e022436fbd80ca617086e6320b793522f50",
+    "tests\\test_registration_support.py": "ad1ca9ae1a47806ad2c8cfdfd9f06f7dd79b62f6f72aaba6c7c9f8c1d83f80b9"
+  },
+  "dependency_sha256": {
+    "docs\\results\\phase3_transition_context_summary.json": "d8242d752874598ec708b8b67a1a05c3cb096b4a7a7b1326aecfa214dbeb98f0",
+    "docs\\results\\phase3_xfeat_context_summary.json": "e8df373445f5dc3ee7b3beb34e31f6df88b18b57e03f5ed2b453214c0ee22364",
+    "docs\\results\\phase3_transition_odometry_summary.json": "6728071139596bfdea6370e9a59674b07062796cfe1d067f9bae4e78a8291369",
+    "docs\\results\\phase3_fixed_intrinsics_summary.json": "8be3cd26e71ef0c335dfd6b4a3a6c6678e3cedfb658212037568516ca3c7de71",
+    "docs\\results\\phase3_mapping_only_summary.json": "400c174d910606e449d6cd34586b56153999258e8de2e2c6696cf0d49317f9cc",
+    "docs\\results\\phase3_late_landmarks_summary.json": "761f32d2d05bbc3a171672dbc0b77ffb071212babbce76893fae9c1d3d95960d",
+    "docs\\results\\phase3_registration_snapshots_summary.json": "918f5f0b3d08d4f1cd4f7ffcca4738f3dfc79b2da4c3848f1712cdf0b4d2d215",
+    "docs\\results\\phase3_registration_stage_summary.json": "911b219190e026cbde95caeae693de9365a677e888f52eb0a9f6654a69e68742"
+  },
+  "production_code_sha256": {
+    "floorplan\\acceptance.py": "7f52877d8561b5cdd393f6c1b28bab06760d481babdafd84dd5f4e9d28e7e91a",
+    "floorplan\\assessment_io.py": "17cbf941593ea4cdedc334d95da9b6548c3381edcab403eb6dfef4d1a938c849",
+    "floorplan\\benchmark_manifest.py": "e0ba8006168ef673f115618be0d6636762c77230f348bf9ff1dfa2a60e62fa48",
+    "floorplan\\calibration_records.py": "77e6b6e50c6cf649791c4967226b731d89bce2e133be353a3e0ced3969a761f6",
+    "floorplan\\consumer_comparison.py": "68e19b631a40d071d4e1db2ab56544f7de5bc6f745f89c5894f35b1a2eb30324",
+    "floorplan\\openings.py": "be5b6655e9d0caacb2b5956243658fd0fc39986e36f7c46115ca1aac6a38cd95",
+    "floorplan\\pose_graph.py": "5ccca2da6ddf56ddce5966d92babc495f68c619922f6f7391655b5eda87265be",
+    "floorplan\\rgb_metric.py": "ef5469e4c524f9b6ccf0b58d5e709122dd4d96e3265e0d0eb113c701a564c1ac",
+    "floorplan\\survey.py": "bcbfcc781c4adb19a7742235054926c38bfd79c3650908ab10c1db14da37549d",
+    "requirements\\windows-cpu.txt": "33b8e600a591035a981671ce58764e1351703b5458d14bdbd4338d571919d368",
+    "floorplan\\__init__.py": "902fa5d5912e34b6e650827ecad59c419d8b4b04482b766eee6f0bda24aee402",
+    "floorplan\\ablation.py": "405e51e3f9d83ac8e2835578ba0431479fe7f645dd3d20b28832486f7e28f660",
+    "floorplan\\assessment.py": "5e3a528bad5b716dd53e0fa19f31ca4b46d833ff5c87c2b1ca85af15ff936949",
+    "floorplan\\assignment_gates.py": "16510d915af1c3147ccdc30896540b91d9e745ba5fcc44d65a0e5a29c864e948",
+    "floorplan\\benchmark.py": "de98bdaa63b5065860216c31c46a31bd225943a74020238dd72c98f5ee6998e5",
+    "floorplan\\capture_sync.py": "9f192978af50c26c32a2992e45974ff1c561e8a64eb8e888ef4551af79435e26",
+    "floorplan\\cli.py": "bfee6a69dd1de88c168b25c490fe8b85b9b8019983622fce2d864c96dc44e2ac",
+    "floorplan\\contracts.py": "b202f48b06ed3ba7486eff8ad749b82a4a290d27a970a0ab86d90de3df35e610",
+    "floorplan\\damage.py": "5af1fb5501e1c577bbe8d8d58e4fbaf2d95306913d6286009830dd1f70b8f1e9",
+    "floorplan\\damage_evaluation.py": "48a2fe339b6a62f35a325b2164a9bf40080325a87b64a9bccc4ab45302db2712",
+    "floorplan\\demo.py": "def8fe532951db043c1683d212266edf889989d6b9c79edf1c7611edc1122113",
+    "floorplan\\dense.py": "7492eb82b8970c02d98293c869c7994340fe6add0bb59df9e2e640b3d16f033a",
+    "floorplan\\evaluation.py": "6e50a52feea0d2a1c50a26e769671afe80122f875254ed693be044cde3315250",
+    "floorplan\\geometry.py": "b7e0e09488d876634d9d3c109ce48ce4fb8fedf4e5fb8bbcf2659fa8a3495c91",
+    "floorplan\\icl_benchmark.py": "4577d69df0796183961c35cfa3829b5e3b94d0866c49db193eb4c374656a450e",
+    "floorplan\\ingest.py": "18d15134fb074fd04664d0d75568516ef81a9e7d32dbef6d16012bf9e75fbf94",
+    "floorplan\\layout.py": "a19a7c9fa23a3d61d177bc59e85143804fae3df6ae925c925e75ee7a1e8d3c1f",
+    "floorplan\\mapping.py": "60f139bbb7b5b1fc1dd060f824e0c9f4964fbf692e4c5257176b56dde848daf6",
+    "floorplan\\metric_depth.py": "17955bb8f79cd5f080b9b6cbbcdd8bd61980318de632d25a5cc97bf7fb036960",
+    "floorplan\\openmvs.py": "7e96a98f29efcab571ef6fc03b4326460eacc167611095f26401909e149d76cf",
+    "floorplan\\pipeline.py": "920fa9fa0dd6b04d5789cc4ec598a6cbdb876452d679e7f44d5a30ad97bce5b7",
+    "floorplan\\provenance.py": "bfe2e1476b02485729feeeafafdafd479b4f9891d1a035d6e5d788fdca83eaf0",
+    "floorplan\\repeatability.py": "2ab9277bf9b30ef55d671113b5a09116ec3e609f849c3d04e5a3e7b4a19d2810",
+    "floorplan\\rgbd.py": "dc340ba54d71c96ae828fcd339cb583dd601ba5cc9c521e361073258bc6fa980",
+    "floorplan\\schemas\\assessment.schema.json": "24531b70a31b6673ce05226ad665e9f0f8a87fac7ffc5660c83b47750f458008",
+    "floorplan\\sfm.py": "a939d6493330d7ebdbc45c9247ee47d04872d4a65fd06065facbcf74e7cbb939",
+    "floorplan\\stitching.py": "ded7e3ade62c3899b9dce0bf4ab4a428fa75006f3eb3184315efa4c152e3416e",
+    "floorplan\\supported_cells.py": "d6414dac09a1e52ba0ed8140a903e86dacab90718593f2cbe9213696bd92e722",
+    "floorplan\\uncertainty.py": "5f16d8f6f648b80b3f6f4752a806638d667756dd0a8e071ad5396ecad4febb6b",
+    "floorplan\\workflow.py": "38a05342edfdc5901a36cf8213e2555a64f75805d9271908706697e6d1a9bacc",
+    "pyproject.toml": "e88c2cbca460500e4948a012cf94ea640f64428efa82900e25e9d15911955c2d"
+  },
+  "prior_pinned_entries_verified": 1301,
+  "controlled_audits": [
+    "demo/phase3_registration_support/audit1_final",
+    "demo/phase3_registration_support/audit2_final"
+  ],
+  "measured": {
+    "groups": {
+      "accepted": {
+        "candidate_rows": 37,
+        "unique_target_features": 37,
+        "unique_source_landmarks": 37,
+        "multiple_landmark_features": 1,
+        "prior_view_counts": {
+          "2": 28,
+          "3": 5,
+          "5": 3,
+          "4": 1
+        },
+        "prior_frames": {
+          "frame_00027.png": 33,
+          "frame_00031.png": 37,
+          "bridge_00020.png": 5,
+          "bridge_00022.png": 7,
+          "bridge_00021.png": 5,
+          "frame_00028.png": 3
+        },
+        "native_positive_target_depth": 37,
+        "native_projection_residual_px": {
+          "min": 0.13664143324587652,
+          "median": 6.319156884757348,
+          "p95": 11.54657814970771,
+          "max": 11.840311040475852
+        },
+        "sensor_epipolar_median_px": {
+          "min": 0.33320744281374126,
+          "median": 2.688944678652036,
+          "p95": 7.949260470941502,
+          "max": 15.043863016667409
+        },
+        "sensor_prior_epipolar_median_px": {
+          "min": 0.0509189263437092,
+          "median": 3.6123930708285394,
+          "p95": 7.44506079214263,
+          "max": 10.106541305485738
+        },
+        "source_reprojection_max_px": {
+          "min": 0.05792471515046194,
+          "median": 1.8587301556875437,
+          "p95": 3.018626503863307,
+          "max": 3.270944978767766
+        },
+        "prior_maximum_triangulation_angle_deg": {
+          "min": 10.232792957079575,
+          "median": 10.76786776275528,
+          "p95": 12.855422954416207,
+          "max": 13.12706780851982
+        },
+        "sensor_prior_reprojection_max_px": {
+          "min": 0.03618334533807857,
+          "median": 3.3216875940231128,
+          "p95": 7.125225600129296,
+          "max": 7.19192645045506
+        },
+        "sensor_holdout_residual_px": {
+          "min": 1.5890431014366948,
+          "median": 9.420435838930311,
+          "p95": 25.028540065298877,
+          "max": 28.944543838760104
+        },
+        "sensor_holdout_positive_depth": 37,
+        "all_prior_sensor_depths_positive": 37,
+        "inherited_depth_ratio": {
+          "min": 1.163624135107716,
+          "median": 1.1942921951212562,
+          "p95": 1.2072003410526786,
+          "max": 1.2112532174464454
+        },
+        "sensor_motion_fixed_landmark_residual_px": {
+          "min": 67.18638989901189,
+          "median": 83.63026265538109,
+          "p95": 98.67014369014542,
+          "max": 101.94092312401352
+        },
+        "triangle_conflict_candidates": 1,
+        "source_identity_conflict_landmarks": 0,
+        "spatial": {
+          "hull_image_fraction": 0.034038543701171875,
+          "occupied_8x8_cells": 5
+        },
+        "saved_point_shape": {
+          "count": 37,
+          "singular_values_model_units": [
+            36.194878842599564,
+            4.371567379418107,
+            2.9129927976497267
+          ],
+          "smallest_over_middle": 0.6663497425121401,
+          "smallest_over_largest": 0.08048079979262922,
+          "plane_abs_distance_model_units": {
+            "min": 0.007144314867625884,
+            "median": 0.3584032763239743,
+            "p95": 0.9127138078068677,
+            "max": 1.0286271729917846
+          },
+          "interpretation": "Shape diagnostic of saved points; not independent truth or a pass threshold"
+        },
+        "fixed_landmark_pose_condition": {
+          "observations": 37,
+          "singular_values_px": [
+            13670.14341809108,
+            13544.631124116486,
+            1930.1487103470379,
+            1752.6700111067694,
+            236.5543823564876,
+            184.26538860943532
+          ],
+          "condition_number": 74.18725524773403,
+          "translation_normalization_median_depth_model_units": 22.345325364555332,
+          "interpretation": "Local fixed-landmark pose block; not joint-BA conditioning, uncertainty or acceptance"
+        }
+      },
+      "not_accepted": {
+        "candidate_rows": 50,
+        "unique_target_features": 47,
+        "unique_source_landmarks": 50,
+        "multiple_landmark_features": 4,
+        "prior_view_counts": {
+          "8": 1,
+          "4": 10,
+          "3": 13,
+          "5": 6,
+          "2": 16,
+          "7": 2,
+          "9": 1,
+          "6": 1
+        },
+        "prior_frames": {
+          "bridge_00008.png": 8,
+          "bridge_00011.png": 5,
+          "bridge_00012.png": 7,
+          "bridge_00013.png": 13,
+          "bridge_00014.png": 3,
+          "bridge_00015.png": 1,
+          "frame_00025.png": 5,
+          "frame_00026.png": 13,
+          "bridge_00018.png": 16,
+          "bridge_00021.png": 8,
+          "bridge_00022.png": 9,
+          "frame_00027.png": 21,
+          "bridge_00017.png": 10,
+          "bridge_00019.png": 22,
+          "bridge_00020.png": 6,
+          "frame_00028.png": 8,
+          "frame_00031.png": 7,
+          "bridge_00007.png": 8,
+          "bridge_00009.png": 2,
+          "bridge_00010.png": 6
+        },
+        "native_positive_target_depth": 39,
+        "native_projection_residual_px": {
+          "min": 13.337287625478627,
+          "median": 12706.343849070267,
+          "p95": 58703.67204801421,
+          "max": 70844.22926490003
+        },
+        "sensor_epipolar_median_px": {
+          "min": 0.9885146499217352,
+          "median": 268.18612298871517,
+          "p95": 386.3845115024084,
+          "max": 688.3873182001334
+        },
+        "sensor_prior_epipolar_median_px": {
+          "min": 0.07304379862042466,
+          "median": 2.6407936304631847,
+          "p95": 8.889296547544447,
+          "max": 10.937863924445114
+        },
+        "source_reprojection_max_px": {
+          "min": 0.12874394277064022,
+          "median": 2.480374627723875,
+          "p95": 3.1833376725077294,
+          "max": 3.267648819951248
+        },
+        "prior_maximum_triangulation_angle_deg": {
+          "min": 3.0954758373968194,
+          "median": 6.026450505382213,
+          "p95": 13.171726136907656,
+          "max": 16.19375315850048
+        },
+        "sensor_prior_reprojection_max_px": {
+          "min": 0.05395077560813819,
+          "median": 4.225139649303797,
+          "p95": 8.35826502023924,
+          "max": 13.61957091201864
+        },
+        "sensor_holdout_residual_px": {
+          "min": 3.149744416693916,
+          "median": 5233.148588164044,
+          "p95": 8364.796561998886,
+          "max": 9134.48281443742
+        },
+        "sensor_holdout_positive_depth": 39,
+        "all_prior_sensor_depths_positive": 50,
+        "inherited_depth_ratio": {
+          "min": 0.8279431524328356,
+          "median": 0.936863576383301,
+          "p95": 1.1667495906977052,
+          "max": 1.2112532174464454
+        },
+        "sensor_motion_fixed_landmark_residual_px": {
+          "min": 72.93775844133692,
+          "median": 7044.911725756403,
+          "p95": 12393.208819554762,
+          "max": 12949.118325313995
+        },
+        "triangle_conflict_candidates": 1,
+        "source_identity_conflict_landmarks": 1,
+        "spatial": {
+          "hull_image_fraction": 0.3303356170654297,
+          "occupied_8x8_cells": 15
+        },
+        "saved_point_shape": {
+          "count": 50,
+          "singular_values_model_units": [
+            90.60067913981457,
+            47.50075300507728,
+            22.956954983628428
+          ],
+          "smallest_over_middle": 0.4832966538693523,
+          "smallest_over_largest": 0.25338612471327454,
+          "plane_abs_distance_model_units": {
+            "min": 0.1360966595029589,
+            "median": 1.7148130952629153,
+            "p95": 7.5819268521540115,
+            "max": 10.956061295303133
+          },
+          "interpretation": "Shape diagnostic of saved points; not independent truth or a pass threshold"
+        },
+        "fixed_landmark_pose_condition": {
+          "unavailable_reason": "No points or nonpositive depths"
+        }
+      },
+      "accepted_unambiguous": {
+        "candidate_rows": 36,
+        "unique_target_features": 36,
+        "unique_source_landmarks": 36,
+        "multiple_landmark_features": 0,
+        "prior_view_counts": {
+          "2": 27,
+          "3": 5,
+          "5": 3,
+          "4": 1
+        },
+        "prior_frames": {
+          "frame_00027.png": 32,
+          "frame_00031.png": 36,
+          "bridge_00020.png": 5,
+          "bridge_00022.png": 7,
+          "bridge_00021.png": 5,
+          "frame_00028.png": 3
+        },
+        "native_positive_target_depth": 36,
+        "native_projection_residual_px": {
+          "min": 0.13664143324587652,
+          "median": 6.26906973355568,
+          "p95": 11.554444030439734,
+          "max": 11.840311040475852
+        },
+        "sensor_epipolar_median_px": {
+          "min": 0.33320744281374126,
+          "median": 2.68023883245992,
+          "p95": 8.29266907091631,
+          "max": 15.043863016667409
+        },
+        "sensor_prior_epipolar_median_px": {
+          "min": 0.0509189263437092,
+          "median": 3.661397810508756,
+          "p95": 7.526788736793174,
+          "max": 10.106541305485738
+        },
+        "source_reprojection_max_px": {
+          "min": 0.05792471515046194,
+          "median": 1.8779982760186023,
+          "p95": 3.0302345173533936,
+          "max": 3.270944978767766
+        },
+        "prior_maximum_triangulation_angle_deg": {
+          "min": 10.232792957079575,
+          "median": 10.797222284370829,
+          "p95": 12.867579849525018,
+          "max": 13.12706780851982
+        },
+        "sensor_prior_reprojection_max_px": {
+          "min": 0.03618334533807857,
+          "median": 3.3746745588223677,
+          "p95": 7.128851354745329,
+          "max": 7.19192645045506
+        },
+        "sensor_holdout_residual_px": {
+          "min": 1.5890431014366948,
+          "median": 9.894538705865019,
+          "p95": 25.13208922367345,
+          "max": 28.944543838760104
+        },
+        "sensor_holdout_positive_depth": 36,
+        "all_prior_sensor_depths_positive": 36,
+        "inherited_depth_ratio": {
+          "min": 1.163624135107716,
+          "median": 1.1941023809694327,
+          "p95": 1.2073176078069963,
+          "max": 1.2112532174464454
+        },
+        "sensor_motion_fixed_landmark_residual_px": {
+          "min": 67.18638989901189,
+          "median": 83.52944694223336,
+          "p95": 98.70204069558685,
+          "max": 101.94092312401352
+        },
+        "triangle_conflict_candidates": 1,
+        "source_identity_conflict_landmarks": 0,
+        "spatial": {
+          "hull_image_fraction": 0.034038543701171875,
+          "occupied_8x8_cells": 5
+        },
+        "saved_point_shape": {
+          "count": 36,
+          "singular_values_model_units": [
+            36.063707769814066,
+            4.361488042003174,
+            2.9097717667839484
+          ],
+          "smallest_over_middle": 0.6671511508827911,
+          "smallest_over_largest": 0.08068420988092291,
+          "plane_abs_distance_model_units": {
+            "min": 0.0138450587504325,
+            "median": 0.3621350126954062,
+            "p95": 0.9181370759680634,
+            "max": 1.0270976143421902
+          },
+          "interpretation": "Shape diagnostic of saved points; not independent truth or a pass threshold"
+        },
+        "fixed_landmark_pose_condition": {
+          "observations": 36,
+          "singular_values_px": [
+            13466.58645354714,
+            13338.224296767066,
+            1924.4873565507594,
+            1745.0727743817288,
+            235.56963273632414,
+            183.93968930633125
+          ],
+          "condition_number": 73.21196694597013,
+          "translation_normalization_median_depth_model_units": 22.3028314279493,
+          "interpretation": "Local fixed-landmark pose block; not joint-BA conditioning, uncertainty or acceptance"
+        }
+      },
+      "accepted_multiple_prior_views": {
+        "candidate_rows": 9,
+        "unique_target_features": 9,
+        "unique_source_landmarks": 9,
+        "multiple_landmark_features": 0,
+        "prior_view_counts": {
+          "3": 5,
+          "5": 3,
+          "4": 1
+        },
+        "prior_frames": {
+          "bridge_00020.png": 5,
+          "frame_00027.png": 6,
+          "frame_00031.png": 9,
+          "bridge_00022.png": 6,
+          "bridge_00021.png": 5,
+          "frame_00028.png": 3
+        },
+        "native_positive_target_depth": 9,
+        "native_projection_residual_px": {
+          "min": 0.9691439504582532,
+          "median": 6.471092458096285,
+          "p95": 11.181832055637269,
+          "max": 11.302759019580876
+        },
+        "sensor_epipolar_median_px": {
+          "min": 0.9583800312040778,
+          "median": 2.5240835143438574,
+          "p95": 10.38376750363235,
+          "max": 13.443798070538
+        },
+        "sensor_prior_epipolar_median_px": {
+          "min": 0.8622188931261752,
+          "median": 2.3422202456555796,
+          "p95": 5.817880157049542,
+          "max": 7.012903517683793
+        },
+        "source_reprojection_max_px": {
+          "min": 1.4456494998540956,
+          "median": 2.2211241504427828,
+          "p95": 2.983610120368868,
+          "max": 3.204354719704676
+        },
+        "prior_maximum_triangulation_angle_deg": {
+          "min": 11.318945943644765,
+          "median": 12.60626296313876,
+          "p95": 13.096213995574752,
+          "max": 13.12706780851982
+        },
+        "sensor_prior_reprojection_max_px": {
+          "min": 1.38793082769634,
+          "median": 4.472738115331673,
+          "p95": 7.154231637057559,
+          "max": 7.183237673985821
+        },
+        "sensor_holdout_residual_px": {
+          "min": 6.761952480879973,
+          "median": 13.989066317819773,
+          "p95": 25.25138767422576,
+          "max": 26.68532659929192
+        },
+        "sensor_holdout_positive_depth": 9,
+        "all_prior_sensor_depths_positive": 9,
+        "inherited_depth_ratio": {
+          "min": 1.163624135107716,
+          "median": 1.1742794329266835,
+          "p95": 1.1898551088475027,
+          "max": 1.191173007923597
+        },
+        "sensor_motion_fixed_landmark_residual_px": {
+          "min": 75.41057526066527,
+          "median": 93.43483951624304,
+          "p95": 98.92531973367684,
+          "max": 99.18049577720825
+        },
+        "triangle_conflict_candidates": 0,
+        "source_identity_conflict_landmarks": 0,
+        "spatial": {
+          "hull_image_fraction": 0.0097198486328125,
+          "occupied_8x8_cells": 3
+        },
+        "saved_point_shape": {
+          "count": 9,
+          "singular_values_model_units": [
+            16.554524342581963,
+            2.2129233435929567,
+            0.8371798727971439
+          ],
+          "smallest_over_middle": 0.37831399592806414,
+          "smallest_over_largest": 0.05057106175160399,
+          "plane_abs_distance_model_units": {
+            "min": 0.017681208661905305,
+            "median": 0.17497237073966818,
+            "p95": 0.4730948063006214,
+            "max": 0.518508690167849
+          },
+          "interpretation": "Shape diagnostic of saved points; not independent truth or a pass threshold"
+        },
+        "fixed_landmark_pose_condition": {
+          "observations": 9,
+          "singular_values_px": [
+            7442.666180116009,
+            7172.526073771862,
+            1045.0533115687,
+            962.4152474330524,
+            106.10596346163044,
+            86.48083489533491
+          ],
+          "condition_number": 86.06145152418613,
+          "translation_normalization_median_depth_model_units": 29.626665493080562,
+          "interpretation": "Local fixed-landmark pose block; not joint-BA conditioning, uncertainty or acceptance"
+        }
+      },
+      "accepted_no_triangle_conflict": {
+        "candidate_rows": 36,
+        "unique_target_features": 36,
+        "unique_source_landmarks": 36,
+        "multiple_landmark_features": 1,
+        "prior_view_counts": {
+          "2": 27,
+          "3": 5,
+          "5": 3,
+          "4": 1
+        },
+        "prior_frames": {
+          "frame_00027.png": 32,
+          "frame_00031.png": 36,
+          "bridge_00020.png": 5,
+          "bridge_00022.png": 7,
+          "bridge_00021.png": 5,
+          "frame_00028.png": 3
+        },
+        "native_positive_target_depth": 36,
+        "native_projection_residual_px": {
+          "min": 0.13664143324587652,
+          "median": 6.26906973355568,
+          "p95": 11.554444030439734,
+          "max": 11.840311040475852
+        },
+        "sensor_epipolar_median_px": {
+          "min": 0.33320744281374126,
+          "median": 2.68023883245992,
+          "p95": 8.29266907091631,
+          "max": 15.043863016667409
+        },
+        "sensor_prior_epipolar_median_px": {
+          "min": 0.0509189263437092,
+          "median": 3.661397810508756,
+          "p95": 7.526788736793174,
+          "max": 10.106541305485738
+        },
+        "source_reprojection_max_px": {
+          "min": 0.05792471515046194,
+          "median": 1.8572357299109299,
+          "p95": 3.0302345173533936,
+          "max": 3.270944978767766
+        },
+        "prior_maximum_triangulation_angle_deg": {
+          "min": 10.232792957079575,
+          "median": 10.797222284370829,
+          "p95": 12.867579849525018,
+          "max": 13.12706780851982
+        },
+        "sensor_prior_reprojection_max_px": {
+          "min": 0.03618334533807857,
+          "median": 3.3746745588223677,
+          "p95": 7.128851354745329,
+          "max": 7.19192645045506
+        },
+        "sensor_holdout_residual_px": {
+          "min": 1.5890431014366948,
+          "median": 8.993692323708842,
+          "p95": 25.13208922367345,
+          "max": 28.944543838760104
+        },
+        "sensor_holdout_positive_depth": 36,
+        "all_prior_sensor_depths_positive": 36,
+        "inherited_depth_ratio": {
+          "min": 1.163624135107716,
+          "median": 1.1941023809694327,
+          "p95": 1.2064151933279808,
+          "max": 1.2090766091217606
+        },
+        "sensor_motion_fixed_landmark_residual_px": {
+          "min": 67.18638989901189,
+          "median": 83.52944694223336,
+          "p95": 98.70204069558685,
+          "max": 101.94092312401352
+        },
+        "triangle_conflict_candidates": 0,
+        "source_identity_conflict_landmarks": 0,
+        "spatial": {
+          "hull_image_fraction": 0.034038543701171875,
+          "occupied_8x8_cells": 5
+        },
+        "saved_point_shape": {
+          "count": 36,
+          "singular_values_model_units": [
+            36.01213377246806,
+            4.363006436435455,
+            2.901710403996769
+          ],
+          "smallest_over_middle": 0.6650713094907661,
+          "smallest_over_largest": 0.08057590872927335,
+          "plane_abs_distance_model_units": {
+            "min": 0.0016037043778000927,
+            "median": 0.3464005622732115,
+            "p95": 0.910039880190463,
+            "max": 1.0303627542644462
+          },
+          "interpretation": "Shape diagnostic of saved points; not independent truth or a pass threshold"
+        },
+        "fixed_landmark_pose_condition": {
+          "observations": 36,
+          "singular_values_px": [
+            13466.767152386199,
+            13340.226211658864,
+            1921.0747800075108,
+            1742.519235170089,
+            235.14681429542117,
+            183.3568658460285
+          ],
+          "condition_number": 73.44566613444809,
+          "translation_normalization_median_depth_model_units": 22.30791504095936,
+          "interpretation": "Local fixed-landmark pose block; not joint-BA conditioning, uncertainty or acceptance"
+        }
+      }
+    },
+    "source_motion_comparisons": [
+      {
+        "image_a": "frame_00022.png",
+        "image_b": "frame_00023.png",
+        "sensor_dt_s": 0.5000776670058258,
+        "candidate_relative_rotation": [
+          [
+            0.991894802882775,
+            0.12401446217482649,
+            0.0276606794137364
+          ],
+          [
+            -0.12701344028863398,
+            0.9737430216229787,
+            0.18892356609644215
+          ],
+          [
+            -0.0035051391108756433,
+            -0.19090558140620104,
+            0.9816021459775717
+          ]
+        ],
+        "sensor_relative_rotation": [
+          [
+            0.9918502700621865,
+            0.12445416887584515,
+            0.02728005914566558
+          ],
+          [
+            -0.12737136964658524,
+            0.9737625149967679,
+            0.1885818087237547
+          ],
+          [
+            -0.003094506733125341,
+            -0.19051961640889495,
+            0.9816785114239217
+          ]
+        ],
+        "candidate_local_translation_model_units": [
+          -0.71337074018114,
+          -2.8292113172009516,
+          1.1156857181859423
+        ],
+        "sensor_local_translation_m": [
+          -0.050371232425956675,
+          -0.2010553804530062,
+          0.0792209746636448
+        ],
+        "candidate_rotation_deg": 13.189688019203802,
+        "sensor_rotation_deg": 13.183242394463969,
+        "relative_rotation_error_deg": 0.03862492268345756,
+        "translation_direction_error_deg": 0.08149071263654581,
+        "candidate_length_model_units": 3.1237940252341563,
+        "sensor_length_m": 0.22189296945119885,
+        "candidate_length_over_reference": 0.21224276093658778,
+        "sensor_length_over_reference": 0.21401786266957423,
+        "relative_length_ratio": 0.9917058244071568
+      },
+      {
+        "image_a": "frame_00027.png",
+        "image_b": "frame_00031.png",
+        "sensor_dt_s": 2.0503166249982314,
+        "candidate_relative_rotation": [
+          [
+            0.9734509976265112,
+            0.22394213572659116,
+            -0.047361113438801006
+          ],
+          [
+            -0.21213610923773316,
+            0.9603690935287797,
+            0.18080231014062376
+          ],
+          [
+            0.08597340505892784,
+            -0.165955186845494,
+            0.9823784655526866
+          ]
+        ],
+        "sensor_relative_rotation": [
+          [
+            0.9633624162154122,
+            0.24950917939092687,
+            -0.09837695067072097
+          ],
+          [
+            -0.22255219808550614,
+            0.9483732751535064,
+            0.2259616120094767
+          ],
+          [
+            0.14967756729354223,
+            -0.1957889179046606,
+            0.9691559861419673
+          ]
+        ],
+        "candidate_local_translation_model_units": [
+          -9.38972795001075,
+          -0.328299931023071,
+          6.093029164789875
+        ],
+        "sensor_local_translation_m": [
+          -0.4449951098145574,
+          -0.11673723675742234,
+          0.38281452715380637
+        ],
+        "candidate_rotation_deg": 16.644724250127062,
+        "sensor_rotation_deg": 19.87343551302452,
+        "relative_rotation_error_deg": 4.206027496933061,
+        "translation_direction_error_deg": 12.260180021325084,
+        "candidate_length_model_units": 11.198204151688914,
+        "sensor_length_m": 0.5984941039013006,
+        "candidate_length_over_reference": 0.7608497063143775,
+        "sensor_length_over_reference": 0.5772532102035305,
+        "relative_length_ratio": 1.318051927413472
+      },
+      {
+        "image_a": "frame_00028.png",
+        "image_b": "frame_00031.png",
+        "sensor_dt_s": 1.5335701250005513,
+        "candidate_relative_rotation": [
+          [
+            0.9527390608061745,
+            0.29931095058701596,
+            0.05197342467901717
+          ],
+          [
+            -0.2982533491869197,
+            0.8890711526434558,
+            0.34727139996841483
+          ],
+          [
+            0.05773406025002814,
+            -0.34636027542998393,
+            0.9363233084202871
+          ]
+        ],
+        "sensor_relative_rotation": [
+          [
+            0.9461734874163432,
+            0.3236598290383332,
+            -0.00021628054047405156
+          ],
+          [
+            -0.2977846128775891,
+            0.8707923918821676,
+            0.391209578836559
+          ],
+          [
+            0.1268071608535561,
+            -0.3700877265014479,
+            0.920301591136976
+          ]
+        ],
+        "candidate_local_translation_model_units": [
+          -9.451607266776595,
+          4.066845368659264,
+          8.239637508349084
+        ],
+        "sensor_local_translation_m": [
+          -0.4575353699184941,
+          0.1609468001432413,
+          0.5294733963352828
+        ],
+        "candidate_rotation_deg": 27.243790246406807,
+        "sensor_rotation_deg": 29.699743183834247,
+        "relative_rotation_error_deg": 4.291576643540091,
+        "translation_direction_error_deg": 9.267045030520709,
+        "candidate_length_model_units": 13.181947407229423,
+        "sensor_length_m": 0.718042174687268,
+        "candidate_length_over_reference": 0.8956329673565944,
+        "sensor_length_over_reference": 0.6925584524523649,
+        "relative_length_ratio": 1.2932236465891624
+      },
+      {
+        "image_a": "frame_00024.png",
+        "image_b": "frame_00031.png",
+        "sensor_dt_s": 3.5672183749993565,
+        "candidate_relative_rotation": [
+          [
+            0.6910856576485511,
+            -0.6047671768043464,
+            0.3957995397326403
+          ],
+          [
+            0.5363795680671093,
+            0.06207919389469041,
+            -0.8416906395140243
+          ],
+          [
+            0.4844559554310495,
+            0.7939791153081333,
+            0.3672867976144844
+          ]
+        ],
+        "sensor_relative_rotation": [
+          [
+            0.7445827130468464,
+            -0.5787950381427993,
+            0.332555089050029
+          ],
+          [
+            0.5065828135838617,
+            0.16551563085118037,
+            -0.8461550856228388
+          ],
+          [
+            0.4347072997009087,
+            0.7984991419940356,
+            0.4164476963815902
+          ]
+        ],
+        "candidate_local_translation_model_units": [
+          3.3623959143094506,
+          -6.664903478135645,
+          -10.454463772129262
+        ],
+        "sensor_local_translation_m": [
+          0.3999646502632811,
+          -0.3996870797572563,
+          -0.6383034301810183
+        ],
+        "candidate_rotation_deg": 86.54722499605816,
+        "sensor_rotation_deg": 80.60307463117064,
+        "relative_rotation_error_deg": 6.286828169958014,
+        "translation_direction_error_deg": 12.805577478953682,
+        "candidate_length_model_units": 12.846106702818279,
+        "sensor_length_m": 0.8527325208797694,
+        "candidate_length_over_reference": 0.872814638822988,
+        "sensor_length_over_reference": 0.822468562203201,
+        "relative_length_ratio": 1.0612133751166388
+      },
+      {
+        "image_a": "frame_00031.png",
+        "image_b": "frame_00034.png",
+        "sensor_dt_s": 1.5168999169982271,
+        "candidate_relative_rotation": [
+          [
+            0.9940153926479834,
+            0.06141729536435636,
+            -0.09033999672903936
+          ],
+          [
+            -0.061474542780573585,
+            0.9981063332322364,
+            0.0021513139285884776
+          ],
+          [
+            0.0903010507624072,
+            0.003415170834281119,
+            0.9959086588836237
+          ]
+        ],
+        "sensor_relative_rotation": [
+          [
+            0.9905140154916915,
+            0.1334534447755256,
+            -0.03274390312823323
+          ],
+          [
+            -0.1292639776812934,
+            0.9857749384551862,
+            0.10741785134550172
+          ],
+          [
+            0.04661340138345922,
+            -0.1021662801085561,
+            0.9936746157672766
+          ]
+        ],
+        "candidate_local_translation_model_units": [
+          -4.839389196478827,
+          -0.6183921885898149,
+          8.089635530591504
+        ],
+        "sensor_local_translation_m": [
+          -0.38438351530745785,
+          -0.1638818484311517,
+          0.5731920302126615
+        ],
+        "candidate_rotation_deg": 6.271617495632322,
+        "sensor_rotation_deg": 9.942413495343864,
+        "relative_rotation_error_deg": 7.842072848343924,
+        "translation_direction_error_deg": 10.039021482791702,
+        "candidate_length_model_units": 9.446920117779836,
+        "sensor_length_m": 0.7093356402893078,
+        "candidate_length_over_reference": 0.6418606322786253,
+        "sensor_length_over_reference": 0.6841609178764875,
+        "relative_length_ratio": 0.9381720228493107
+      }
+    ],
+    "visible_features": 83,
+    "candidate_rows": 87,
+    "unique_source_landmarks": 86,
+    "accepted_observations": 37,
+    "not_accepted_features": 46,
+    "multiple_landmark_features": 4,
+    "source_same_image_identity_collisions": 1,
+    "accepted_source_identity_conflicts": 0,
+    "accepted_duplicate_landmarks": 0
+  },
+  "snapshot_reproduction": {
+    "model_state_exact": true,
+    "numeric_tolerance_used": false,
+    "raw_binary_equality": {
+      "cameras.bin": true,
+      "frames.bin": true,
+      "images.bin": false,
+      "points3D.bin": true,
+      "rigs.bin": true
+    },
+    "expected_sha256": {
+      "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+      "frames.bin": "485f73943437b470a9eb99f24650025a8087c2c38f42d9a656036d702ea75b22",
+      "images.bin": "994c15a37549ca023f79ce502b271bcca808f43a75e293fa83cdc7e96cf27817",
+      "points3D.bin": "06309a172cc896bc144d55c36f36a78b2f500a0e379035a609abc141ebdb6338",
+      "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+    },
+    "actual_sha256": {
+      "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+      "frames.bin": "485f73943437b470a9eb99f24650025a8087c2c38f42d9a656036d702ea75b22",
+      "images.bin": "8182a693a481f0f05a4bfdb265d9eca1ebf7c10bdd3268518bbaa4bdaefb2ce7",
+      "points3D.bin": "06309a172cc896bc144d55c36f36a78b2f500a0e379035a609abc141ebdb6338",
+      "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+    },
+    "image_records_exact": 31,
+    "expected_image_order": [
+      70,
+      16,
+      19,
+      72,
+      71,
+      74,
+      73,
+      20,
+      21,
+      69,
+      75,
+      22,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      23,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      24,
+      25,
+      13,
+      28,
+      31
+    ],
+    "actual_image_order": [
+      13,
+      16,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      28,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      31
+    ],
+    "image_record_sha256": {
+      "13": "2781bd44b8a714f738f48729cb69f220c0d586de4b6fb63f7420213228dd0db1",
+      "16": "0904dba0b14cfbb6df5dabfba8fc4cc8646ec56e37bac374830d186284ed2221",
+      "19": "301a23c7b6e7a6966c57b68e62bf860bd754483aeb9450825b5518e6c35a6ae4",
+      "20": "faa3ef6880a4c0ed785142f8927cf71a74fba8f4827dbf68379192ee467b8e65",
+      "21": "3db4c6ea739ccd833927eb638832698ffccc8c4820fae15d37a5f9f11c31cf24",
+      "22": "2d8439a21fa490091f45f31a5de9e34524805ff87d265a65c2e9bc0cbe4cb88a",
+      "23": "233c48a45d0ad63751c24786cb694c696109b6a238b68db677c2ea7e47d9c6e2",
+      "24": "684caaee0c552d08a3c6f5e1f6dbcdfd33e510937648a482818f48bf187c9fb1",
+      "25": "c38fb0f2a8371b8c7e3ceb0c620a24289a2dba01bd687fab112457fd6bf19552",
+      "28": "337c89c59e42bbb35da020013166d366a88b55e8744135c518de3ab3210f9cdf",
+      "31": "99750af58874a08cbfb9f0b9c852a67f62a0dd0fae34c41a4f40572a14f34f61",
+      "69": "0a012de2328e7cf722e51e63990884149c95b9579cd8cbfbe2930167c7ee7ad0",
+      "70": "833a397376bd26a4b88d3463ae1f2bda1d24b54197ede637aa379eecdde31f3c",
+      "71": "ff5889a0ad4d600b9ffd24946fb4eb93a462e95230ab6bf8e36952a114d12a46",
+      "72": "98259c85830d14a44e2cc9828d1b88c333f353646e5fa8397948aaef3d11cf8c",
+      "73": "ba72c8b4ecf0a408069daefbad5e22c072832fcfc33ebcbe217d3aa1cc555fb1",
+      "74": "b5758b9cd27167260eab98cc67700b0668108f89fbdbdb84a8189b8ca35b4fa7",
+      "75": "1d5c13e378f5c080a6fd2b57b4db02b3fda1ed6aa152c196b6df5ca3b8818b03",
+      "76": "8c594ab24be1def5cc3cd7811856bf318d46ca2575432216b6203b4f5f3bcfda",
+      "77": "51ffbf8652de922473fe4403bb1a6f54b1b981b9554598a8be4ddcde7286f99a",
+      "78": "5209ed43a751834a631799a0141cba7d644a4edd7c491bfe11cb5fd6cb242d4b",
+      "79": "87d36f72e85f95af13492b940682917bce93980277ddf481dde6e60306b0f361",
+      "80": "4af32c92c0ad72738ed945d05e4e5a343c28190ee60569bfde47d73e21439469",
+      "81": "a8316890b47b1956f3e4d5e40fe931971f56b82a36b9778ec03b35ce2c22b144",
+      "82": "fca919590da447df54f8d3ecb291fb0e3cf9dbdb56e92f0f5e639879d4b1a0f3",
+      "83": "de4a7e715dbc1012df2bfc7bf2a4cbde8ba8d00b445e4d2eeef5ba188ff0b131",
+      "84": "c59e1e1430ef00a9f056853682bcc12e5b1b9278abf3d29b0a9fa96f52cbd1bc",
+      "85": "fd6f3ed45914b772eb005cbbe6ef58357bd0590e9452425a8c5dcc8b0d2421ec",
+      "86": "a84efb283c86b90a26a2a11f5d3e7b885be465e72c4f3e708a74acc69afa68a3",
+      "87": "536bebd9b4f9eddc256474ce5d99ae41d6818e21604c38523c73378c08d4875f",
+      "88": "8053133ade24203c2f81c07facb02cba75f34f96c759e1c4b977e7e7acc4b0e9"
+    },
+    "order_only_difference": true
+  },
+  "landmark_first_saved_states": [
+    {
+      "first_saved_snapshot": 24,
+      "landmarks": 1,
+      "views": 27
+    },
+    {
+      "first_saved_snapshot": 25,
+      "landmarks": 2,
+      "views": 28
+    },
+    {
+      "first_saved_snapshot": 27,
+      "landmarks": 34,
+      "views": 30
+    }
+  ],
+  "exact_repeat": {
+    "fields": [
+      "candidates",
+      "groups",
+      "source_motion_comparisons",
+      "snapshot_reproduction",
+      "visible_features",
+      "candidate_rows",
+      "unique_source_landmarks",
+      "accepted_observations",
+      "not_accepted_features",
+      "multiple_landmark_features",
+      "source_same_image_identity_collisions",
+      "accepted_source_identity_conflicts",
+      "accepted_duplicate_landmarks"
+    ],
+    "all_exact": true
+  },
+  "source_provenance": {
+    "url": "https://raw.githubusercontent.com/colmap/colmap/4.2.1/src/colmap/sfm/incremental_mapper.cc",
+    "sha256": "ed54fd69e838bd189926110607bcb4ac5dc302b9840612447cc76612118f6969",
+    "call_lines": {
+      "bool IncrementalMapper::RegisterNextImage": [
+        233
+      ],
+      "tri_corrs.emplace_back": [
+        331
+      ],
+      "if (!point2D.HasPoint3D())": [
+        481,
+        660
+      ],
+      "RefineAbsolutePose(abs_pose_refinement_options": [
+        455
+      ]
+    },
+    "purpose": "New exact83-feature vs87-row candidate semantics only; no matcher or alternative research repeated",
+    "license": "BSD-3-Clause; no external implementation code incorporated"
+  },
+  "classification": "Evidence favors inherited local pose/depth inconsistency plus concentrated support over identity ambiguity; no unique software defect or causal share established",
+  "production_changed": false,
+  "production_adoption": false,
+  "reconstruction_solver_called": false,
+  "sensor_poses_used_in_inference": false,
+  "sensor_poses_used_to_optimize": false,
+  "physical_accuracy_validated": false,
+  "assessment_acceptance": false,
+  "pose_acceptance_tolerance": null,
+  "tests": {
+    "initial_focused": "36 passed in1.65s",
+    "targeted": "129 passed in2.94s",
+    "full": "311 passed in44.63s",
+    "new_cases": 13,
+    "failures": 0
+  },
+  "diagnostic_preflights": {
+    "failures": 2,
+    "causes": [
+      "Serialized empty-set cache option cannot be merged directly; reconstruct typed frozen options",
+      "Auditor initially rejects source duplicate feature identity; report the rejected quality flag without removing observations"
+    ],
+    "final_audits_exit_codes": [
+      0,
+      0
+    ]
+  },
+  "runtimes_s": [
+    5.840354699999807,
+    5.587200500000108
+  ],
+  "unchanged_baseline": {
+    "registered_views": 32,
+    "sparse_points": 6187,
+    "native_mean_error_px": 1.4805034435378603,
+    "accepted_rotation_deg": 7.842072848343924,
+    "local_rotation_deg": 6.5906964459488195,
+    "final_rotation_deg": 6.520813755266534
+  },
+  "requirement_status": {
+    "REQ-03": "PARTIALLY IMPLEMENTED / measured acceptance unproven",
+    "REQ-05": "PARTIALLY IMPLEMENTED / measured acceptance unproven",
+    "REQ-10": "PARTIALLY IMPLEMENTED / measured acceptance unproven",
+    "REQ-27": "PARTIALLY IMPLEMENTED / measured acceptance unproven",
+    "REQ-29": "PARTIALLY IMPLEMENTED / measured acceptance unproven"
+  },
+  "holds": {
+    "floor_covered_samples": 25,
+    "floor_camera_samples": 176,
+    "uncovered": 151,
+    "ceiling_boundary_shift_m": 0.702677,
+    "ceiling_shift_validated": false
+  },
+  "repository": {
+    "head": "8aaca9ff8e8d431911a0d1f453c350243bb39473",
+    "index_empty": true,
+    "new_commits": 0,
+    "pushed": false,
+    "preserved_existing_files": 275,
+    "status_notice_only_changes": [
+      "docs/ASSESSMENT_COMPONENT_RESEARCH.md",
+      "docs/ASSESSMENT_EXECUTION_ROADMAP.md",
+      "docs/PHASE3_DESIGN.md",
+      "docs/PHASE3_IMPLEMENTATION_STATUS.md",
+      "docs/PHASE3_OPERATIONS.md",
+      "docs/OPEN_SOURCE_DECISIONS.md"
+    ],
+    "historical_notice_bodies_exact": true
+  },
+  "next_step": "Replay native frame31 from29-view snapshot26; capture accepted pose and newly triangulated landmarks before local/global refinement; require unchanged refinement to reproduce snapshot27; sensors post-hoc only"
+}

@@ -1,7 +1,7 @@
 # Final assignment compliance matrix
 
 Source: [Applied AI.html](Applied%20AI.html), inspected at finalization.
-Current worktree is the baseline. **Full assessment acceptance is NOT DEMONSTRATED.**
+The frozen submitted source is the baseline. **Full assessment acceptance is NOT DEMONSTRATED.**
 Statuses use PASS, PARTIAL, FAIL, NOT DEMONSTRATED and INCONCLUSIVE as defined in
 [validation](BENCHMARK_RESULTS.md). Software output/scorers are not physical passes.
 Evidence IDs below refer to [the manifest](evidence/final_state.json) and the
@@ -69,7 +69,7 @@ separate handoff's original records. No unavailable specification is invented.
 | Requirement | Evidence /artifact | Status | Notes /limitation |
 |---|---|---|---|
 | Clean machine: README to fresh capture <15 min | bootstrap/requirements/operations | NOT DEMONSTRATED | No timed clean install/live-capture success |
-| Reproduction bundle for every reported number | source snapshot, curated evidence manifest, original records | PARTIAL | Integrity/readability packaged; raw/model/absolute-path regeneration and missing physical evidence explicitly limited |
+| Reproduction bundle for every reported number | tracked source, portable evidence manifest, retained artifacts | PARTIAL | Integrity/readability packaged; raw/model/absolute-path regeneration and missing physical evidence explicitly limited |
 | Live path plus deterministic cache | producer/input/model cache checks | PARTIAL | Supported software path; no full three-tier cold/live demonstration |
 | Max six-page technical report | [five-page report](TECHNICAL_REPORT.pdf) | PASS | Document/page-cap delivery only; not acceptance of its unresolved gates |
 | Incremental process history and live defense | genuine existing commits +focused final documentation commits | PARTIAL | History preserved; defense not yet conducted and early history not fabricated |

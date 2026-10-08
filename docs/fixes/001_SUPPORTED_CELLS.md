@@ -1,6 +1,6 @@
 # Prospective fix declaration: supported room cells
 
-Declared before implementation, 2026-10-06. Baseline: `40d7b81`.
+Declared before implementation . Baseline: `40d7b81`.
 
 **Observed failure:** the supplied `single_room/c00a170fe1` capture produces zero
 closed rooms from 172 selected RGB-D frames. Six supported wall segments exist.

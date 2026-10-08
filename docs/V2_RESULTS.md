@@ -1,6 +1,6 @@
 # V2 implementation results
 
-Recorded 2026-10-05T09:40:42.732007+00:00. CPU execution on the local Windows machine.
+Recorded  CPU execution on the local Windows machine.
 
 **The complete three-tier cm-accuracy requirement is not achieved.** Depth-based multiroom geometry and verified capture stitching work on a controlled fixture. RGB completeness/topology remains unresolved.
 

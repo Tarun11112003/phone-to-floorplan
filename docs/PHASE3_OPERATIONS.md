@@ -1,22 +1,16 @@
-# Final reproduction and evidence handoff
+# Evaluator operation and reproduction
 
-Development freeze: 2026-10-08. These are real existing interfaces. Commands
-below are documented for reproduction; **no new reconstruction experiment was
-run during finalization**. See [validation](BENCHMARK_RESULTS.md) for recorded
-results and [limitations](LIMITATIONS.md) for what cannot be regenerated now.
+Development is closed. These are existing interfaces. Final QA ran the documented
+production capture path; it did not introduce another reconstruction experiment.
+[QA results](FINAL_QA.md) separate execution checks from assessment acceptance.
 
-## Environment
+## Setup and source
 
-The documented baseline is Windows, Python3.12 and CPU. `pyproject.toml` permits
-Python>=3.10; the observed CPU pins are `requirements/windows-cpu.txt`.
-`scripts/bootstrap_windows.ps1` preserves an existing environment and supports
-an alternative environment directory and offline wheelhouse. Wheels/native
-binaries still need a compatible machine; a<15min clean-install pass is absent.
-
-The root `requirements.txt` includes the same observed Windows CPU pins and
-installs this project with capture support. In an activated Python 3.12 virtual
-environment, use `python -m pip install -r requirements.txt`. No duplicate pin
-set or fresh-install timing claim is introduced.
+Use the final submitted Git commit, or extract `source.zip` from the handoff.
+All required source/test modules are now tracked; a private worktree snapshot
+is not a substitute for the repository. Run commands from the source root.
+Windows/Python 3.12/CPU is the baseline. The root `requirements.txt` references
+`requirements/windows-cpu.txt` and installs this project with capture support.
 
 ```powershell
 & .\scripts\bootstrap_windows.ps1
@@ -24,28 +18,26 @@ set or fresh-install timing claim is introduced.
 & .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-Optional flags: `-EnvironmentDirectory .venv-review`, `-Wheelhouse <folder>`
-and `-WithOpenMVS`. Do not run the last flag to reproduce the sensor baseline;
-OpenMVS is an optional research dense backend with separate upstream terms.
-The bootstrap installs observed pins, not experimental learned assets.
+To create a separate environment, add
+`-EnvironmentDirectory .tmp_final_qa\review_env`. Offline preparation can use
+`-Wheelhouse <folder>` containing compatible wheels **and build dependencies**.
+An existing environment is preserved. Network/cache-assisted setup is not a
+cold machine/no-cache benchmark; the measured scope is in the QA evidence.
 
-## Source snapshot versus Git
+There are no production API keys/environment variables/checkpoints. PyCOLMAP,
+Open3D and image decoding need compatible native wheels; FFmpeg comes through
+imageio-ffmpeg. The baseline does not require a separately installed COLMAP CLI.
+An optional reference-scaled OpenMVS research path needs the pinned native binary;
+`-WithOpenMVS` installs it separately under disclosed upstream terms.
 
-Finalization creates focused documentation commits only. The existing validated
-but uncommitted implementation is preserved and included in `source_snapshot.zip`.
-That snapshot is the current development source, **not Git HEAD**. Do not claim
-a documentation-only checkout contains every current module or390 tests.
-Extract the snapshot to a fresh directory, install its own dependencies and
-run the commands there. The handoff's source inventory records every included
-file hash and the base commit; `.git`, environments, caches and model weights
-are excluded. A local snapshot test in the existing dependency environment does
-not prove clean-machine installation time.
+## Input structure and one command per capture
 
-## Capture commands
-
-Run from the extracted/current source root, with original input assets available.
-Output directories must be fresh. Assignment-profile runs may exit nonzero
-and still write useful failed/partial review evidence; never suppress that status.
+Supplied data is private assessment transfer, not Git content. Place each export
+under `datasets/Given_dataset/<case>/<export_id>/` with `rgb.mp4`,
+`camera_matrix.csv`, `odometry.csv`, `imu.csv`, `depth/`, and `confidence/`.
+Keep source filenames and timestamps. Do not manually reorder/renumber frames.
+Photos are `captures/property_photos/<room_id>/` with 2?8 originals per room;
+video is one original MOV/MP4. Truth/consumer measurements belong outside inference.
 
 ```powershell
 & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier lidar --source datasets\Given_dataset\single_scan_with_ceiling\c7d28f72c6 --out runs\ceiling_review --profile assignment --property-id supplied_ceiling
@@ -53,18 +45,27 @@ and still write useful failed/partial review evidence; never suppress that statu
 & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier video --source captures\walkthrough.mov --out runs\video_review --profile assignment --property-id property_01
 ```
 
-Strict RGB baseline can return scale_unresolved or incomplete geometry.
-Photo/video metric inference is opt-in experimental using `--experimental-rgb`;
-it remains unpromoted and is not an assignment success path merely because it
-produces geometry. No scale marker, manual pose or adjacency is silently added.
+Use a fresh output path. Final QA's supplied LiDAR run exited **1**, wrote
+`partial`/readiness false and produced conditional plans and review artifacts.
+This is an observed incomplete result, not an expected acceptance pass.
+Strict RGB can stop at unresolved metric scale or failed registration. Do not
+add manual scale/poses/adjacency to make a strict tier appear successful.
 
-Conditional output: `intake/capture.json`, `intake/intake.json`,
-`result/run.json`, `assessment.json`, `contract_coverage.json`, `report.html`;
-supported geometry adds plan JSON/SVG/DXF/CSV and/or layout diagnostics.
-Intake/preflight failure can instead write `capture_attempt.json` and a failed
-result. There is no `capture_workflow.json` output in this implementation.
+## Verify outputs
 
-## Existing artifact and evaluation commands
+Inspect `result/run.json`, `assessment.json`, `contract_coverage.json` and open
+`report.html`/`plan.svg`. Geometry also exports plan JSON, DXF and quantities CSV.
+Outputs can be absent on early failure. `intake/` records identity/calibration;
+preflight failures may write `capture_attempt.json`. There is no
+`capture_workflow.json`. A schema check from the repository root is:
+
+```powershell
+& .\.venv\Scripts\python.exe -c "import json; from floorplan.contracts import validate_assessment; validate_assessment(json.load(open('runs/ceiling_review/result/assessment.json', encoding='utf-8'))); print('Internal schema valid; inspect readiness separately')"
+```
+
+The official published schema is unavailable; internal validity is provisional.
+
+## Existing evidence and scoring interfaces
 
 ```powershell
 & .\.venv\Scripts\python.exe scripts/verify_layout_artifact.py demo/phase3_strip_trace/current_exterior/ceiling --out demo/ceiling_verification_fresh
@@ -74,14 +75,13 @@ result. There is no `capture_workflow.json` output in this implementation.
 & .\.venv\Scripts\python.exe -m floorplan.cli compare-pose-correction runs\off runs\on --reference survey\reference.json --out runs\drift.json
 ```
 
-The retained-artifact commands require their original cloud, planes, camera
-state and producer paths. Historical manifests contain local absolute paths;
-hash verification is portable, but native replay may need equivalent mounted
-paths or re-normalization from raw inputs. No blanket portable exact-replay claim
-is made. Independent survey/repeat assets in the evaluation examples are
-placeholders for **missing evidence**, not files supplied in the handoff.
-
-Survey/calibration/consumer interfaces are available without inventing inputs:
+Artifact replay requires its original cloud, planes, normalized source mappings
+and producer. Published documents use workspace-relative paths, but historic
+native ledgers/binaries may embed original path identities. Read the pinned
+manifest; do not suppress mismatch failures or silently substitute producers.
+Exact native experiment regeneration remains PARTIAL. `survey/reference.json`,
+repeat captures and consumer exports above describe **missing evidence**, not
+files supplied with the assessment. Templates and help are available:
 
 ```powershell
 & .\.venv\Scripts\python.exe -m floorplan.cli import-survey --help
@@ -92,42 +92,51 @@ Survey/calibration/consumer interfaces are available without inventing inputs:
 & .\.venv\Scripts\python.exe scripts/fix_evidence.py --help
 ```
 
-Their schemas/templates are retained; no physical benchmark, prospective
-worst-gate declaration or consumer scores are created for the deadline.
+## Package and report
 
-## Package contents and integrity
-
-The local `demo/assessment_handoff/package/` contains a source snapshot,
-curated evidence archive, supplied raw-data archive and package manifest.
-The package script inventories current sources and existing records; it does
-not reconstruct, optimize or alter original evidence. FileSHA-256 and archive
-integrity are verified. Original detailed summaries preserve absolute producer/
-input paths; the package inventory separately records portable relative paths.
+Package only the **clean intended Git tree**. The packager rejects dirty tracked
+source and untracked submission files; it does not hide implementation in an
+archive. Source, public evidence and supplied raw data are separate archives.
+`repository.bundle` preserves the real Git history for offline evaluator review.
+Clone it with `git clone repository.bundle phone-to-floorplan`; no history is
+rewritten. Older commit contents remain historical process evidence, including
+older development/path wording; the final publication files are cleaned.
+Private prior-document backups/finalization scratch helpers are not exported.
+Published text evidence has personal path prefixes removed; the manifest records
+both published hashes and original hashes when bytes differ. Numeric values,
+sensor timestamps and historical producer/input hashes are preserved.
 
 ```powershell
-& .\.venv\Scripts\python.exe scripts/package_assessment.py --out demo/handoff_package_fresh
-& .\.venv\Scripts\python.exe scripts/package_assessment.py --verify demo/handoff_package_fresh
-& .\.venv\Scripts\python.exe scripts/render_assessment_report.py --out demo/final_report_fresh
+& .\.venv\Scripts\python.exe scripts/package_assessment.py --out demo\final_qa\handoff
+& .\.venv\Scripts\python.exe scripts/package_assessment.py --verify demo\final_qa\handoff
+& .\.venv\Scripts\python.exe scripts/render_assessment_report.py --out demo\report_review
 ```
 
-Full raw supplied data is kept out of Git; the separate local archive is for
-assessment transfer, not public redistribution. External `.tools` code/binaries/
-weights and virtual environments are excluded. Recorded upstream notices and
-pins are retained. Optional assets must be downloaded/mounted separately under
-their applicable terms. The provided raw captures lack independent survey truth.
+Outputs must be fresh. Package creation requires Git metadata and supplied raw
+data; verification only requires the package and Python. Extract its three
+archives into the same fresh root, then follow README. The report reads indexed
+evidence and produces five PDF pages plus source-editable SVGs. Original private
+records remain local; [publication provenance](evidence/publication_provenance.json)
+explains which hashes name original bytes versus published copies.
 
-The bundle is a source-and-evidence handoff, **PARTIAL against the assessment's
-every-number live regeneration requirement**. Native experiment prerequisites,
-hardware, missing measured benchmark and historic path assumptions remain
-explicit. No source code/algorithm changes are needed to read the package.
+The handoff is **PARTIAL** against the every-number live regeneration requirement.
+External native/model assets, incomplete physical evidence, historical producer
+pins and machine-dependent numerical behavior prevent a blanket reproducibility claim.
 
-## Optional learned assets: disclosure, not promotion
+## Optional assets: experimental only
 
-The existing experiment pins MoGe code74fbce054ebed49800de42d0ad0e83495065719a,
-model `Ruicheng/moge-2-vits-normal` revision26b477f41595707c5db6770294c0d1721e8ed4ed
-and SHA-25679a16621928c2bf0ed04659218c55c01075e950507f40bb3332fb4c873d3e1dc.
-Its CPU assets are separate from bootstrap. DISK/LightGlue/XFeat checkpoints and
-fixed-intrinsics controls are isolated alternatives; none is promoted by this
-handoff. Original licensing/provenance is in [source decisions](OPEN_SOURCE_DECISIONS.md)
-and the archived research records. Setup/model download times are not included
-in old inference timings.
+`--experimental-rgb` uses MoGe, not the default SIFT route. Its retained code pin
+is `74fbce054ebed49800de42d0ad0e83495065719a`; model
+`Ruicheng/moge-2-vits-normal` revision `26b477f41595707c5db6770294c0d1721e8ed4ed`,
+SHA-256 `79a16621928c2bf0ed04659218c55c01075e950507f40bb3332fb4c873d3e1dc`.
+Weights/code under `.tools/`, torch/torchvision and model-specific packages are
+separate prerequisites; inspect the retained experimental CLI help before use.
+XFeat pin `e92685f57f8318b18725c5c8c0bd28c7fe188d9a` and LightGlue pin
+`eb42fee2d71449efb0aa5c10549752b5d75384d8` remain isolated alternatives.
+Matching helpers set their own `TORCH_HOME` cache; it is not a baseline dependency.
+Full optional asset setup was not clean-machine-tested in final QA.
+
+[Source decisions and attribution](OPEN_SOURCE_DECISIONS.md) disclose recorded
+rights/pins. No weights or downloaded upstream source/native binaries are
+redistributed in the source archive. Experimental connectivity is not physical
+accuracy and does not close an assessment gate.
