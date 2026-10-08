@@ -6,8 +6,12 @@ docs/specification/applied_ai.html -text
 *.png -text
 *.jpg -text
 README.md text eol=lf
+requirements.txt text eol=lf
 datasets/reference_acquisition.json text eol=lf
 
 # Public dataset evidence must hash identically across platforms.
 datasets/**/*.md text eol=lf
 datasets/tum_freiburg1_room/groundtruth.txt text eol=lf
+
+# Preserve the exact saved QA SVG used as the README preview.
+docs/figures/supplied_lidar_plan.svg -text

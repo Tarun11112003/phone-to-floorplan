@@ -12,7 +12,7 @@
     {
       "path": "README.md",
       "original_sha256": "2c4112957858a5cd24df3746c385d8c48e150b907fba8cb897a644ec0d118ed5",
-      "published_sha256": "3378cfd6ce62b29d9960d9c6f20e6717ae8b9e7e85f614a8a0a6f710e40d9b1f"
+      "published_sha256": "5b6175d7e73a15235014e2024b28e3ee01104fb7c1719494311edd72cbedc431"
     },
     {
       "path": "datasets/FLOORNET_SOURCE.md",
@@ -84,7 +84,7 @@
     {
       "path": "docs/capture_protocol.md",
       "original_sha256": "df2942af4a321c3735478f560fda5802d309f259d4a6227055ea15ef584960ec",
-      "published_sha256": "fe882bad2d12c6cb720e0e503d5001df6d8c4de626760a2ab3e42190b14790b3",
+      "published_sha256": "0dd75d3f2aaa4d668e4bd922b35137e3ff8b99e5236ccb70d11e797463ed1d96",
       "original_path": "docs/CAPTURE_PROTOCOL.md"
     },
     {
@@ -736,7 +736,14 @@
     {
       "path": "requirements.txt",
       "original_sha256": "8efcd43a0a09632d89efc4e4761defa9e13d5405db70338b4431cdf27470c0e0",
-      "published_sha256": "203df3589b92af5f7d24c0c7c1a5cc5a93ccdd35942c476c95c7434b7f98e29b"
+      "published_sha256": "8efcd43a0a09632d89efc4e4761defa9e13d5405db70338b4431cdf27470c0e0"
+    },
+    {
+      "path": "docs/figures/supplied_lidar_plan.svg",
+      "original_path": "demo/final_qa/live_ceiling/result/plan.svg",
+      "original_sha256": "625b6671723a5ea15f738a3a00f1e97098e054b71ae9fb1d6a245cc419e05f65",
+      "published_sha256": "625b6671723a5ea15f738a3a00f1e97098e054b71ae9fb1d6a245cc419e05f65",
+      "publication_transform": "Unmodified saved partial-plan preview; not independent physical ground truth."
     }
   ]
 }

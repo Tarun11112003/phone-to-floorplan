@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1384" height="1276" viewBox="0 0 1384 1276">
+<rect width="100%" height="100%" fill="white"/>
+<polygon points="63.65,730.19 60.00,542.50 344.67,542.23 344.19,729.52" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="203.1" y="635.9" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 1</text>
+<text x="61.8" y="629.3" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.56 m</text>
+<text x="202.3" y="535.4" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.37 m</text>
+<text x="344.4" y="628.9" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.56 m</text>
+<text x="203.9" y="722.9" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.34 m</text>
+<polygon points="62.62,376.60 361.22,374.53 360.97,470.02 344.86,470.02 344.79,497.67 63.26,499.01" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="210.4" y="436.3" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 2</text>
+<text x="211.9" y="368.6" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.49 m</text>
+<text x="361.1" y="415.3" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.80 m</text>
+<text x="352.9" y="463.0" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.13 m</text>
+<text x="344.8" y="476.8" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.23 m</text>
+<text x="204.0" y="491.3" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.35 m</text>
+<text x="62.9" y="430.8" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.02 m</text>
+<polygon points="70.83,1098.62 63.65,730.19 344.19,729.52 344.13,749.31 360.26,749.31 360.31,729.49 474.00,729.21 478.60,1006.73 395.98,1007.07 395.80,1098.62" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="263.2" y="907.0" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 3</text>
+<text x="67.2" y="907.4" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">3.07 m</text>
+<text x="203.9" y="722.9" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.34 m</text>
+<text x="344.2" y="732.4" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.16 m</text>
+<text x="352.2" y="742.3" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.13 m</text>
+<text x="360.3" y="732.4" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.17 m</text>
+<text x="417.2" y="722.3" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.95 m</text>
+<text x="476.3" y="861.0" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.31 m</text>
+<text x="437.3" y="999.9" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.69 m</text>
+<text x="395.9" y="1045.8" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.76 m</text>
+<text x="233.3" y="1091.6" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.71 m</text>
+<polygon points="485.05,1006.71 485.05,542.10 832.11,541.77 832.92,1005.32" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="658.7" y="774.1" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 4</text>
+<text x="485.0" y="767.4" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">3.87 m</text>
+<text x="658.6" y="534.9" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.89 m</text>
+<text x="832.5" y="766.5" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">3.86 m</text>
+<text x="659.0" y="999.0" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.90 m</text>
+<polygon points="831.28,60.77 831.78,346.56 746.18,346.99 744.15,60.00" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="788.3" y="203.2" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 5</text>
+<text x="831.5" y="196.7" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.38 m</text>
+<text x="789.0" y="339.8" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.71 m</text>
+<text x="745.2" y="196.5" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.39 m</text>
+<text x="787.7" y="53.4" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.73 m</text>
+<polygon points="850.75,1005.25 856.20,756.03 986.42,756.03 984.41,1004.71" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="919.4" y="881.0" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 6</text>
+<text x="853.5" y="873.6" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.08 m</text>
+<text x="921.3" y="749.0" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.09 m</text>
+<text x="985.4" y="873.4" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.07 m</text>
+<text x="917.6" y="998.0" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.11 m</text>
+<polygon points="988.15,541.62 986.62,731.84 867.52,731.84 867.52,541.74" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="927.5" y="636.6" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 7</text>
+<text x="987.4" y="629.7" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.59 m</text>
+<text x="927.1" y="724.8" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">0.99 m</text>
+<text x="867.5" y="629.8" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.58 m</text>
+<text x="927.8" y="534.7" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.01 m</text>
+<polygon points="997.18,541.61 1162.90,541.46 1163.93,731.84 996.74,731.84" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="1080.2" y="636.8" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 8</text>
+<text x="1080.0" y="534.5" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.38 m</text>
+<text x="1163.4" y="629.6" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.59 m</text>
+<text x="1080.3" y="724.8" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.39 m</text>
+<text x="997.0" y="629.7" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.59 m</text>
+<polygon points="990.61,1215.87 1204.33,1215.87 1204.33,752.27 990.61,752.27" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="1097.5" y="984.1" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 9</text>
+<text x="1097.5" y="1208.9" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.78 m</text>
+<text x="1204.3" y="977.1" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">3.86 m</text>
+<text x="1097.5" y="745.3" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.78 m</text>
+<text x="990.6" y="977.1" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">3.86 m</text>
+<polygon points="350.90,728.95 479.79,728.95 479.79,538.35 350.90,538.35" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="415.3" y="633.7" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 10</text>
+<text x="415.3" y="722.0" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.07 m</text>
+<text x="479.8" y="626.7" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.59 m</text>
+<text x="415.3" y="531.3" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.07 m</text>
+<text x="350.9" y="626.7" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.59 m</text>
+<polygon points="740.36,538.35 990.61,538.35 990.61,366.48 740.36,366.48" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="865.5" y="452.4" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 11</text>
+<text x="865.5" y="531.3" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.09 m</text>
+<text x="990.6" y="445.4" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.43 m</text>
+<text x="865.5" y="359.5" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.09 m</text>
+<text x="740.4" y="445.4" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.43 m</text>
+<polygon points="855.35,366.48 990.61,366.48 990.61,61.94 855.35,61.94" fill="#edf5fa" fill-opacity="0.55" stroke="#18364c" stroke-width="3"/>
+<text x="923.0" y="214.2" text-anchor="middle" font-family="Arial" font-size="18" fill="#17354c">Room 12</text>
+<text x="923.0" y="359.5" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.13 m</text>
+<text x="990.6" y="207.2" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.54 m</text>
+<text x="923.0" y="54.9" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">1.13 m</text>
+<text x="855.3" y="207.2" text-anchor="middle" font-family="Arial" font-size="13" fill="#b23b22" stroke="white" stroke-width="3" paint-order="stroke">2.54 m</text>
+</svg>

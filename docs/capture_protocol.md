@@ -1,43 +1,42 @@
-# Stock-phone capture protocol ? Route 2 candidate
+# Stock-phone capture protocol
 
-**Status: unverified capture route.** This is a one-page handoff protocol, not a
-passed novice/cold-device trial. Use the same property across all three tiers.
-Keep raw originals; do not input a consumer app's processed floor plan.
+**Status: unverified capture route.** These steps have not been validated by a
+first-time user on a freshly set up phone. Use the same property across all
+three tiers and keep the original capture files.
 
-1. **Prepare.** List unique room IDs, including a connector/hall. Keep one room
-   furnished and record two staged damage classes safely. Keep laser/tape
-   measurements and survey photographs in a separate folder outside inference.
-   Measure walls, openings, ceiling heights and damage extents; repeat at least
-   one room at the same tier. Record device/app version and transfer method.
-2. **Photos ? any iPhone 15+.** Use the stock Camera app. Take 2 to 8 original stills
-   per room from different corners. Include floor/wall/ceiling junctions,
-   openings and shared doorways from both adjoining rooms. Avoid digital zoom,
-   panoramas, blur and compressed chat copies. Transfer original HEIC/JPEG files
-   into `captures/property_photos/<room_id>/`. No depth, poses or scale annotations
-   belong in the strict photo input. Photo folders must ultimately form one
-   whole-property plan; isolated room drawings are insufficient.
-3. **Video ? any iPhone 15+.** Use Camera to record one slow continuous walkthrough.
-   Show each floor, ceiling, wall, opening and staged damage; traverse connecting
-   doorways while showing both sides. Avoid fast turns. Transfer the original
-   MOV/MP4 to `captures/walkthrough.mov`, preserving metadata.
-4. **LiDAR ? iPhone 15+ Pro device.** Use Stray Scanner if available in the
-   device's region. Follow the same slow route. Export raw `rgb.mp4`, `depth/`,
-   `confidence/`, `camera_matrix.csv`, `odometry.csv` and `imu.csv` together into
-   `captures/stray_export/`. Keep names/frame numbers unchanged. Current app
-   availability/export behavior must be checked on the actual phone.
-5. **Transfer and execute.** Open PowerShell at the repository root. Install
-   once with `scripts/bootstrap_windows.ps1`; choose the exact tier command in
-   the README, using a fresh output directory. Run one command per capture.
-   Inspect `result/report.html`, `run.json`, `assessment.json` and `plan.svg`
-   when available. Retain raw data and logs even if the command exits nonzero.
+1. **Prepare the property.** Choose at least three rooms and a connecting hall;
+   give each a unique ID. Keep one room furnished and safely stage two damage
+   classes. Record device/app versions and the transfer method. Separately
+   measure walls, openings, ceiling heights and damage extents with laser/tape.
+   Keep those measurements and survey photographs outside reconstruction inputs.
+   Capture at least one room twice independently at the same tier.
+2. **Capture each tier.** Include floors, walls, ceilings, openings and staged
+   damage. Show shared doorways from both adjoining rooms.
 
-**Current limitations:** strict RGB scale/stitching is incomplete; supplied LiDAR
-produces partial plans. A nonzero exit/absent measurement is not success.
-No tier is certified to centimetre accuracy. Consumer exports are comparison
-references only, never inference inputs. The device matrix and evaluator
-commands are linked from the README.
+   | Tier and device | Capture steps | Save originals to |
+   |---|---|---|
+   | Photos: any iPhone 15 or newer | Use Camera. Take **2-8 stills per room** from different corners, including floor/wall/ceiling junctions. Avoid digital zoom, panoramas, blur and compressed chat copies. | `captures/property_photos/<room_id>/` as HEIC/JPEG |
+   | Video: any iPhone 15 or newer | Use Camera for one slow continuous walkthrough through **every room and the connector**. Traverse doorways and show both sides; avoid fast turns. Preserve original MOV/MP4 metadata. | `captures/walkthrough.mov` |
+   | LiDAR: iPhone 15 or newer with LiDAR, Pro-class | Use Stray Scanner if available in the phone's region. Follow the same slow route and export raw sensor data. Check app availability and export behavior on the actual phone. | `captures/stray_export/` |
 
-[README](../README.md) ? [device matrix](device_matrix.md) ?
-[Stray export reference](https://github.com/strayrobots/scanner/blob/main/docs/format.md)
+   Strict photo inputs must contain no depth, poses or scale annotations. The
+   required photo result is one whole-property plan; isolated room drawings are
+   insufficient. For LiDAR, keep `rgb.mp4`, `depth/`, `confidence/`,
+   `camera_matrix.csv`, `odometry.csv` and `imu.csv` together with their original
+   names and frame numbers.
+3. **Transfer and run.** Open PowerShell at the repository root. Follow the
+   [README](../README.md) setup (`scripts/bootstrap_windows.ps1`) and exact tier
+   command. Use a fresh output directory and run once per capture. Keep raw data
+   and logs even if the command exits nonzero.
+4. **Review the result.** Inspect `result/report.html`, `run.json`,
+   `assessment.json` and `plan.svg` when available. Keep consumer-app exports
+   separate for comparison; never supply a processed consumer floor plan or
+   survey measurements to reconstruction.
 
-[Printable one-page protocol](capture_protocol.pdf).
+**Current limits:** strict RGB scale/stitching is incomplete and supplied LiDAR
+plans are partial. A nonzero exit or missing measurement does not demonstrate
+success. No tier has demonstrated independent centimetre accuracy or full
+assessment acceptance.
+
+See the [device matrix](device_matrix.md) and
+[Stray export reference](https://github.com/strayrobots/scanner/blob/main/docs/format.md).
