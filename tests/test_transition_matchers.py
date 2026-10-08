@@ -4,8 +4,8 @@ import sqlite3
 import numpy as np
 import pytest
 
-from scripts.experimental_transition_matchers import ANCHORS, colmap_keypoints, copy_database, frozen_options, pair_belongs
-from scripts.compare_transition_matchers import compare
+from scripts.experiments.experimental_transition_matchers import ANCHORS, colmap_keypoints, copy_database, frozen_options, pair_belongs
+from scripts.evaluation.compare_transition_matchers import compare
 
 
 def test_learned_keypoints_convert_original_pixel_centers_without_rescaling():

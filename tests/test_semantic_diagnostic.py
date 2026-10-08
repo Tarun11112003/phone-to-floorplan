@@ -1,6 +1,6 @@
 import numpy as np
 
-from scripts.experimental_semantic_walls import removal_mask,upright_turns
+from scripts.experiments.experimental_semantic_walls import removal_mask,upright_turns
 
 
 def test_unknown_single_view_and_disagreed_points_cannot_be_removed_as_furniture():

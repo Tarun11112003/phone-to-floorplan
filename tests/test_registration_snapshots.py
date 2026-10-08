@@ -4,9 +4,9 @@ from types import SimpleNamespace
 
 import numpy as np
 import pytest
-from scripts.experimental_registration_snapshots import (native_snapshot_mapping,
+from scripts.experiments.experimental_registration_snapshots import (native_snapshot_mapping,
     require_diagnostic_options, require_final_baseline)
-from scripts.audit_registration_snapshots import snapshot_log_events, observation_residuals
+from scripts.diagnostics.audit_registration_snapshots import snapshot_log_events, observation_residuals
 
 
 def options(tmp_path):

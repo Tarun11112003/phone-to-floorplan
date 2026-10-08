@@ -1,0 +1,283 @@
+{
+  "description": "Frozen development integration checks. Verified failures are not assessment passes. Run from repository root with the separately supplied raw assets and pinned experimental model installed.",
+  "artifacts": [
+    {
+      "id": "photos",
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "photos",
+        "--source",
+        "demo/phase3_e2e/photos_input",
+        "--out",
+        "{output}",
+        "--experimental-rgb",
+        "--profile",
+        "assignment",
+        "--property-id",
+        "given_single_room"
+      ],
+      "expected_exit_code": 1,
+      "timeout_s": 600,
+      "claims": [
+        {
+          "path": "result/run.json",
+          "field": [
+            "result",
+            "status"
+          ],
+          "value": "incomplete_geometry"
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "result",
+            "tracked_frames"
+          ],
+          "value": 1
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "video",
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "video",
+        "--source",
+        "demo/assignment_e2e1/tum_room.mp4",
+        "--out",
+        "{output}",
+        "--experimental-rgb",
+        "--profile",
+        "assignment",
+        "--property-id",
+        "tum_room_development"
+      ],
+      "expected_exit_code": 1,
+      "timeout_s": 600,
+      "claims": [
+        {
+          "path": "result/run.json",
+          "field": [
+            "result",
+            "status"
+          ],
+          "value": "partial"
+        },
+        {
+          "path": "result/metric_scale_attempt.json",
+          "field": [
+            "status"
+          ],
+          "value": "accepted"
+        },
+        {
+          "path": "result/metric_scale_attempt.json",
+          "field": [
+            "rejection_threshold_log_ratio_p80"
+          ],
+          "value": 0.25
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/sfm/video_frame_mapping.json",
+          "field": [
+            0,
+            "source_timestamp_s"
+          ],
+          "value": 0.0
+        },
+        {
+          "path": "result/sfm/video_frame_mapping.json",
+          "field": [
+            11,
+            "source_timestamp_s"
+          ],
+          "value": 5.5
+        }
+      ]
+    },
+    {
+      "id": "lidar",
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "lidar",
+        "--source",
+        "datasets/Given_dataset/single_room/c00a170fe1",
+        "--out",
+        "{output}",
+        "--max-frames",
+        "120",
+        "--profile",
+        "assignment",
+        "--property-id",
+        "given_single_room"
+      ],
+      "expected_exit_code": 1,
+      "timeout_s": 600,
+      "claims": [
+        {
+          "path": "result/run.json",
+          "field": [
+            "result",
+            "status"
+          ],
+          "value": "partial"
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 115
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "result",
+            "tracked_frames"
+          ],
+          "value": 115
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "control",
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "benchmark",
+        "examples/regression_suite.json",
+        "--out",
+        "{output}"
+      ],
+      "timeout_s": 600,
+      "claims": [
+        {
+          "path": "benchmark.json",
+          "field": [
+            "case_count"
+          ],
+          "value": 1
+        },
+        {
+          "path": "benchmark.json",
+          "field": [
+            "cases",
+            0,
+            "status"
+          ],
+          "value": "proposal_requires_review"
+        },
+        {
+          "path": "benchmark.json",
+          "field": [
+            "cases",
+            0,
+            "assignment_complete"
+          ],
+          "value": false
+        },
+        {
+          "path": "control/plan.json",
+          "field": [
+            "rooms",
+            1,
+            "id"
+          ],
+          "value": "room_1"
+        },
+        {
+          "path": "control/assignment_metrics.json",
+          "field": [
+            "topology",
+            "gate"
+          ],
+          "value": "pass"
+        },
+        {
+          "path": "control/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        },
+        {
+          "path": "control/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        }
+      ]
+    }
+  ]
+}

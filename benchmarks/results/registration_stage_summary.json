@@ -1,0 +1,817 @@
+{
+  "batch": 26,
+  "experiment": "native_frame34_accepted_registration_stage",
+  "artifacts": {
+    "demo\\phase3_preregistration\\api_probe\\features.db": "89d16d3f6684ddd6041b6c56ce39e27b661da616d56092c953467b86e21533da",
+    "demo\\phase3_preregistration\\api_probe\\refined\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\api_probe\\refined\\frames.bin": "485f73943437b470a9eb99f24650025a8087c2c38f42d9a656036d702ea75b22",
+    "demo\\phase3_preregistration\\api_probe\\refined\\images.bin": "8182a693a481f0f05a4bfdb265d9eca1ebf7c10bdd3268518bbaa4bdaefb2ce7",
+    "demo\\phase3_preregistration\\api_probe\\refined\\points3D.bin": "983633a44c183321872fac05a52012983b452bb57dc86e80a9bd71efe3dcc18e",
+    "demo\\phase3_preregistration\\api_probe\\refined\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\api_probe\\refined_with_colors\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\api_probe\\refined_with_colors\\frames.bin": "485f73943437b470a9eb99f24650025a8087c2c38f42d9a656036d702ea75b22",
+    "demo\\phase3_preregistration\\api_probe\\refined_with_colors\\images.bin": "804c36aeb2076d81fc047a757c72cedc06a6b43da777e5e6d31cb5571ed2bc38",
+    "demo\\phase3_preregistration\\api_probe\\refined_with_colors\\points3D.bin": "06309a172cc896bc144d55c36f36a78b2f500a0e379035a609abc141ebdb6338",
+    "demo\\phase3_preregistration\\api_probe\\refined_with_colors\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\api_probe\\registered\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\api_probe\\registered\\frames.bin": "4c544073d76ecfc95e2bcab35bb8563d8c72fc25ce30a8ff743b3bb0a7b98c18",
+    "demo\\phase3_preregistration\\api_probe\\registered\\images.bin": "a8d776d156f6d2568496de845de76c2240a8c01e613883c0601b85762830a3cd",
+    "demo\\phase3_preregistration\\api_probe\\registered\\points3D.bin": "25c2e2bf1e7097a0073a3003f03d0b935bdcbc9e988dccd563b2c89019e1afcb",
+    "demo\\phase3_preregistration\\api_probe\\registered\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\audit1\\audit.json": "93661e2d8e0e2d1f5ac26066f679b959052da73fe0a3e3a12591270ad2f6c35d",
+    "demo\\phase3_preregistration\\audit1.log": "34161b603ca297a9fc7740bfb401f973c01b5669ee7a3a2e927a002939be1f70",
+    "demo\\phase3_preregistration\\audit2\\audit.json": "bbfab1737ffd022acf9fc8fd4b7203bc0586235fdf9f79895179080493cc81dc",
+    "demo\\phase3_preregistration\\audit2.log": "2b620e4aa9beffc84b843d1da8b58aad5c3a8b771edcb62719c479d487a8b0e7",
+    "demo\\phase3_preregistration\\full_tests.log": "a1ca2f923f600e9d5728849ca29874b80038d79fb8653e065ad545850b6a5ec5",
+    "demo\\phase3_preregistration\\reconstruction_io_binary_4.2.1.cc": "b220d04376068fba4af1cbbbacbcb6f08529bc21f6f03c34aba5ba42f7f5b657",
+    "demo\\phase3_preregistration\\repeat_comparison.json": "2d99b316d586f8ce1e61197e7cd9ffc18c45d7114509ee7cbdeb56779afe295b",
+    "demo\\phase3_preregistration\\serialization_source_provenance.json": "6529eb8f235295173334507768be95b23f3c476b832bb13f08bba2fd224bc0dc",
+    "demo\\phase3_preregistration\\targeted_tests.log": "aca1f40b1ef31be9d0d63d6337531de24a300c94fc85d82af78fc310c3d2d868",
+    "demo\\phase3_preregistration\\trial1\\accepted_registration\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\trial1\\accepted_registration\\frames.bin": "4c544073d76ecfc95e2bcab35bb8563d8c72fc25ce30a8ff743b3bb0a7b98c18",
+    "demo\\phase3_preregistration\\trial1\\accepted_registration\\images.bin": "a8d776d156f6d2568496de845de76c2240a8c01e613883c0601b85762830a3cd",
+    "demo\\phase3_preregistration\\trial1\\accepted_registration\\points3D.bin": "25c2e2bf1e7097a0073a3003f03d0b935bdcbc9e988dccd563b2c89019e1afcb",
+    "demo\\phase3_preregistration\\trial1\\accepted_registration\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\trial1\\after_color_extraction\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\trial1\\after_color_extraction\\frames.bin": "485f73943437b470a9eb99f24650025a8087c2c38f42d9a656036d702ea75b22",
+    "demo\\phase3_preregistration\\trial1\\after_color_extraction\\images.bin": "8182a693a481f0f05a4bfdb265d9eca1ebf7c10bdd3268518bbaa4bdaefb2ce7",
+    "demo\\phase3_preregistration\\trial1\\after_color_extraction\\points3D.bin": "06309a172cc896bc144d55c36f36a78b2f500a0e379035a609abc141ebdb6338",
+    "demo\\phase3_preregistration\\trial1\\after_color_extraction\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\trial1\\after_local_refinement\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\trial1\\after_local_refinement\\frames.bin": "485f73943437b470a9eb99f24650025a8087c2c38f42d9a656036d702ea75b22",
+    "demo\\phase3_preregistration\\trial1\\after_local_refinement\\images.bin": "8182a693a481f0f05a4bfdb265d9eca1ebf7c10bdd3268518bbaa4bdaefb2ce7",
+    "demo\\phase3_preregistration\\trial1\\after_local_refinement\\points3D.bin": "983633a44c183321872fac05a52012983b452bb57dc86e80a9bd71efe3dcc18e",
+    "demo\\phase3_preregistration\\trial1\\after_local_refinement\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\trial1\\after_triangulation\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\trial1\\after_triangulation\\frames.bin": "4c544073d76ecfc95e2bcab35bb8563d8c72fc25ce30a8ff743b3bb0a7b98c18",
+    "demo\\phase3_preregistration\\trial1\\after_triangulation\\images.bin": "f5c8daabe0b6b74693814801973bd7341873818177f256fb063524523852713a",
+    "demo\\phase3_preregistration\\trial1\\after_triangulation\\points3D.bin": "e46f17637d96faa76df6a67167286d9ea5a937d86ef9157b003666ab6cfa1e13",
+    "demo\\phase3_preregistration\\trial1\\after_triangulation\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\trial1\\before_registration\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\trial1\\before_registration\\frames.bin": "b91d65e818d501604833ee8971400525339cd6a4e1156da5c5cef737caebac82",
+    "demo\\phase3_preregistration\\trial1\\before_registration\\images.bin": "c0f3782f7c103533f36061288a4da215a152487b8be98aca5d57b16aa446ec4f",
+    "demo\\phase3_preregistration\\trial1\\before_registration\\points3D.bin": "bbb989598914e8a10c40e9fd379cc15ad2f3494990c5acb45dacf624351600b7",
+    "demo\\phase3_preregistration\\trial1\\before_registration\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\trial1\\experiment.json": "8942647e68e19068a9d883b01bb6b5716d10f25af7519b09f2605e1c7162e57e",
+    "demo\\phase3_preregistration\\trial1\\features.db": "db479be82127c237e1b7422d891ac833ddc00a75886c82e04d8a2a9d13da7531",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "demo\\phase3_preregistration\\trial1\\images\\bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "demo\\phase3_preregistration\\trial1\\images\\frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040",
+    "demo\\phase3_preregistration\\trial1_native.log": "e93c0be7d8e4cb74f479e6e2858fb881009f71d80364b0202ebb11d25c550b8c",
+    "demo\\phase3_preregistration\\trial2\\accepted_registration\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\trial2\\accepted_registration\\frames.bin": "4c544073d76ecfc95e2bcab35bb8563d8c72fc25ce30a8ff743b3bb0a7b98c18",
+    "demo\\phase3_preregistration\\trial2\\accepted_registration\\images.bin": "a8d776d156f6d2568496de845de76c2240a8c01e613883c0601b85762830a3cd",
+    "demo\\phase3_preregistration\\trial2\\accepted_registration\\points3D.bin": "25c2e2bf1e7097a0073a3003f03d0b935bdcbc9e988dccd563b2c89019e1afcb",
+    "demo\\phase3_preregistration\\trial2\\accepted_registration\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\trial2\\after_color_extraction\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\trial2\\after_color_extraction\\frames.bin": "485f73943437b470a9eb99f24650025a8087c2c38f42d9a656036d702ea75b22",
+    "demo\\phase3_preregistration\\trial2\\after_color_extraction\\images.bin": "8182a693a481f0f05a4bfdb265d9eca1ebf7c10bdd3268518bbaa4bdaefb2ce7",
+    "demo\\phase3_preregistration\\trial2\\after_color_extraction\\points3D.bin": "06309a172cc896bc144d55c36f36a78b2f500a0e379035a609abc141ebdb6338",
+    "demo\\phase3_preregistration\\trial2\\after_color_extraction\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\trial2\\after_local_refinement\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\trial2\\after_local_refinement\\frames.bin": "485f73943437b470a9eb99f24650025a8087c2c38f42d9a656036d702ea75b22",
+    "demo\\phase3_preregistration\\trial2\\after_local_refinement\\images.bin": "8182a693a481f0f05a4bfdb265d9eca1ebf7c10bdd3268518bbaa4bdaefb2ce7",
+    "demo\\phase3_preregistration\\trial2\\after_local_refinement\\points3D.bin": "983633a44c183321872fac05a52012983b452bb57dc86e80a9bd71efe3dcc18e",
+    "demo\\phase3_preregistration\\trial2\\after_local_refinement\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\trial2\\after_triangulation\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\trial2\\after_triangulation\\frames.bin": "4c544073d76ecfc95e2bcab35bb8563d8c72fc25ce30a8ff743b3bb0a7b98c18",
+    "demo\\phase3_preregistration\\trial2\\after_triangulation\\images.bin": "f5c8daabe0b6b74693814801973bd7341873818177f256fb063524523852713a",
+    "demo\\phase3_preregistration\\trial2\\after_triangulation\\points3D.bin": "e46f17637d96faa76df6a67167286d9ea5a937d86ef9157b003666ab6cfa1e13",
+    "demo\\phase3_preregistration\\trial2\\after_triangulation\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\trial2\\before_registration\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "demo\\phase3_preregistration\\trial2\\before_registration\\frames.bin": "b91d65e818d501604833ee8971400525339cd6a4e1156da5c5cef737caebac82",
+    "demo\\phase3_preregistration\\trial2\\before_registration\\images.bin": "c0f3782f7c103533f36061288a4da215a152487b8be98aca5d57b16aa446ec4f",
+    "demo\\phase3_preregistration\\trial2\\before_registration\\points3D.bin": "bbb989598914e8a10c40e9fd379cc15ad2f3494990c5acb45dacf624351600b7",
+    "demo\\phase3_preregistration\\trial2\\before_registration\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "demo\\phase3_preregistration\\trial2\\experiment.json": "3e242736ea1f0a571e2e85a000237c09596ad03575515c777e5683a7360362c0",
+    "demo\\phase3_preregistration\\trial2\\features.db": "db479be82127c237e1b7422d891ac833ddc00a75886c82e04d8a2a9d13da7531",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "demo\\phase3_preregistration\\trial2\\images\\bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "demo\\phase3_preregistration\\trial2\\images\\frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040",
+    "demo\\phase3_preregistration\\trial2_native.log": "d97ecdf7d7585e873ca58893e1f7e9337064aae16fa075693d9638925d56d9b8",
+    "demo\\phase3_preregistration\\worktree_start.json": "644f9f7d191390b5c9f81b9bebad940e7670e57aa766e8b209103c0aa4211d83",
+    "docs\\fixes\\026_NATIVE_REGISTRATION_STAGE.md": "cc12e1d7541223e89654ec92c92df48d53f7b10ebfd4f0c3ea9e54e31b7deea5",
+    "scripts\\audit_registration_stage.py": "7df32f9d305fed0ecdb7835ab971608012793b11d2cf68e65b9f3d15c3c4c845",
+    "scripts\\experimental_registration_stage.py": "c51ffc3cae6599422806c143d4b8918665de7269094bfc419ff3843d23faf868",
+    "tests\\test_registration_stage.py": "29a9cfe875f680b3dd4715f141be1fd02ee4b077d45dd5aee5fb2cdd9f9f2a5b"
+  },
+  "dependency_sha256": {
+    "docs\\results\\phase3_transition_context_summary.json": "d8242d752874598ec708b8b67a1a05c3cb096b4a7a7b1326aecfa214dbeb98f0",
+    "docs\\results\\phase3_xfeat_context_summary.json": "e8df373445f5dc3ee7b3beb34e31f6df88b18b57e03f5ed2b453214c0ee22364",
+    "docs\\results\\phase3_transition_odometry_summary.json": "6728071139596bfdea6370e9a59674b07062796cfe1d067f9bae4e78a8291369",
+    "docs\\results\\phase3_fixed_intrinsics_summary.json": "8be3cd26e71ef0c335dfd6b4a3a6c6678e3cedfb658212037568516ca3c7de71",
+    "docs\\results\\phase3_mapping_only_summary.json": "400c174d910606e449d6cd34586b56153999258e8de2e2c6696cf0d49317f9cc",
+    "docs\\results\\phase3_late_landmarks_summary.json": "761f32d2d05bbc3a171672dbc0b77ffb071212babbce76893fae9c1d3d95960d",
+    "docs\\results\\phase3_registration_snapshots_summary.json": "918f5f0b3d08d4f1cd4f7ffcca4738f3dfc79b2da4c3848f1712cdf0b4d2d215"
+  },
+  "production_code_sha256": {
+    "floorplan\\acceptance.py": "7f52877d8561b5cdd393f6c1b28bab06760d481babdafd84dd5f4e9d28e7e91a",
+    "floorplan\\assessment_io.py": "17cbf941593ea4cdedc334d95da9b6548c3381edcab403eb6dfef4d1a938c849",
+    "floorplan\\benchmark_manifest.py": "e0ba8006168ef673f115618be0d6636762c77230f348bf9ff1dfa2a60e62fa48",
+    "floorplan\\calibration_records.py": "77e6b6e50c6cf649791c4967226b731d89bce2e133be353a3e0ced3969a761f6",
+    "floorplan\\consumer_comparison.py": "68e19b631a40d071d4e1db2ab56544f7de5bc6f745f89c5894f35b1a2eb30324",
+    "floorplan\\openings.py": "be5b6655e9d0caacb2b5956243658fd0fc39986e36f7c46115ca1aac6a38cd95",
+    "floorplan\\pose_graph.py": "5ccca2da6ddf56ddce5966d92babc495f68c619922f6f7391655b5eda87265be",
+    "floorplan\\rgb_metric.py": "ef5469e4c524f9b6ccf0b58d5e709122dd4d96e3265e0d0eb113c701a564c1ac",
+    "floorplan\\survey.py": "bcbfcc781c4adb19a7742235054926c38bfd79c3650908ab10c1db14da37549d",
+    "requirements\\windows-cpu.txt": "33b8e600a591035a981671ce58764e1351703b5458d14bdbd4338d571919d368",
+    "floorplan\\__init__.py": "902fa5d5912e34b6e650827ecad59c419d8b4b04482b766eee6f0bda24aee402",
+    "floorplan\\ablation.py": "405e51e3f9d83ac8e2835578ba0431479fe7f645dd3d20b28832486f7e28f660",
+    "floorplan\\assessment.py": "5e3a528bad5b716dd53e0fa19f31ca4b46d833ff5c87c2b1ca85af15ff936949",
+    "floorplan\\assignment_gates.py": "16510d915af1c3147ccdc30896540b91d9e745ba5fcc44d65a0e5a29c864e948",
+    "floorplan\\benchmark.py": "de98bdaa63b5065860216c31c46a31bd225943a74020238dd72c98f5ee6998e5",
+    "floorplan\\capture_sync.py": "9f192978af50c26c32a2992e45974ff1c561e8a64eb8e888ef4551af79435e26",
+    "floorplan\\cli.py": "bfee6a69dd1de88c168b25c490fe8b85b9b8019983622fce2d864c96dc44e2ac",
+    "floorplan\\contracts.py": "b202f48b06ed3ba7486eff8ad749b82a4a290d27a970a0ab86d90de3df35e610",
+    "floorplan\\damage.py": "5af1fb5501e1c577bbe8d8d58e4fbaf2d95306913d6286009830dd1f70b8f1e9",
+    "floorplan\\damage_evaluation.py": "48a2fe339b6a62f35a325b2164a9bf40080325a87b64a9bccc4ab45302db2712",
+    "floorplan\\demo.py": "def8fe532951db043c1683d212266edf889989d6b9c79edf1c7611edc1122113",
+    "floorplan\\dense.py": "7492eb82b8970c02d98293c869c7994340fe6add0bb59df9e2e640b3d16f033a",
+    "floorplan\\evaluation.py": "6e50a52feea0d2a1c50a26e769671afe80122f875254ed693be044cde3315250",
+    "floorplan\\geometry.py": "b7e0e09488d876634d9d3c109ce48ce4fb8fedf4e5fb8bbcf2659fa8a3495c91",
+    "floorplan\\icl_benchmark.py": "4577d69df0796183961c35cfa3829b5e3b94d0866c49db193eb4c374656a450e",
+    "floorplan\\ingest.py": "18d15134fb074fd04664d0d75568516ef81a9e7d32dbef6d16012bf9e75fbf94",
+    "floorplan\\layout.py": "a19a7c9fa23a3d61d177bc59e85143804fae3df6ae925c925e75ee7a1e8d3c1f",
+    "floorplan\\mapping.py": "60f139bbb7b5b1fc1dd060f824e0c9f4964fbf692e4c5257176b56dde848daf6",
+    "floorplan\\metric_depth.py": "17955bb8f79cd5f080b9b6cbbcdd8bd61980318de632d25a5cc97bf7fb036960",
+    "floorplan\\openmvs.py": "7e96a98f29efcab571ef6fc03b4326460eacc167611095f26401909e149d76cf",
+    "floorplan\\pipeline.py": "920fa9fa0dd6b04d5789cc4ec598a6cbdb876452d679e7f44d5a30ad97bce5b7",
+    "floorplan\\provenance.py": "bfe2e1476b02485729feeeafafdafd479b4f9891d1a035d6e5d788fdca83eaf0",
+    "floorplan\\repeatability.py": "2ab9277bf9b30ef55d671113b5a09116ec3e609f849c3d04e5a3e7b4a19d2810",
+    "floorplan\\rgbd.py": "dc340ba54d71c96ae828fcd339cb583dd601ba5cc9c521e361073258bc6fa980",
+    "floorplan\\schemas\\assessment.schema.json": "24531b70a31b6673ce05226ad665e9f0f8a87fac7ffc5660c83b47750f458008",
+    "floorplan\\sfm.py": "a939d6493330d7ebdbc45c9247ee47d04872d4a65fd06065facbcf74e7cbb939",
+    "floorplan\\stitching.py": "ded7e3ade62c3899b9dce0bf4ab4a428fa75006f3eb3184315efa4c152e3416e",
+    "floorplan\\supported_cells.py": "d6414dac09a1e52ba0ed8140a903e86dacab90718593f2cbe9213696bd92e722",
+    "floorplan\\uncertainty.py": "5f16d8f6f648b80b3f6f4752a806638d667756dd0a8e071ad5396ecad4febb6b",
+    "floorplan\\workflow.py": "38a05342edfdc5901a36cf8213e2555a64f75805d9271908706697e6d1a9bacc",
+    "pyproject.toml": "e88c2cbca460500e4948a012cf94ea640f64428efa82900e25e9d15911955c2d"
+  },
+  "prior_pinned_entries_verified": 1147,
+  "source_snapshot_index": 27,
+  "expected_snapshot_index": 28,
+  "controlled_trials": [
+    "demo/phase3_preregistration/trial1",
+    "demo/phase3_preregistration/trial2"
+  ],
+  "stages": [
+    {
+      "stage": "before_registration",
+      "registered_views": 30,
+      "sparse_points": 6055,
+      "reprojection": {
+        "observations": 22547,
+        "nonpositive_depth": 0,
+        "mean_observation_residual_px": 1.600498657637715,
+        "observation_residual_px": {
+          "min": 0.0011003263719494142,
+          "median": 1.5197877515628326,
+          "p95": 3.1810216288844035,
+          "max": 3.9990841209044823
+        },
+        "definition": "Euclidean per-observation reprojection recomputed read-only; distinct from final native per-point mean error"
+      },
+      "target_relative_motion": null
+    },
+    {
+      "stage": "accepted_registration",
+      "registered_views": 31,
+      "sparse_points": 6055,
+      "reprojection": {
+        "observations": 22584,
+        "nonpositive_depth": 0,
+        "mean_observation_residual_px": 1.608351270523381,
+        "observation_residual_px": {
+          "min": 0.0011003263719494142,
+          "median": 1.5215987763158894,
+          "p95": 3.189151907081999,
+          "max": 11.840311040475855
+        },
+        "definition": "Euclidean per-observation reprojection recomputed read-only; distinct from final native per-point mean error"
+      },
+      "target_relative_motion": {
+        "image_a": "frame_00031.png",
+        "image_b": "frame_00034.png",
+        "sensor_dt_s": 1.5168999169982271,
+        "candidate_relative_rotation": [
+          [
+            0.9940153926479834,
+            0.06141729536435636,
+            -0.09033999672903936
+          ],
+          [
+            -0.061474542780573585,
+            0.9981063332322364,
+            0.0021513139285884776
+          ],
+          [
+            0.0903010507624072,
+            0.003415170834281119,
+            0.9959086588836237
+          ]
+        ],
+        "sensor_relative_rotation": [
+          [
+            0.9905140154916915,
+            0.1334534447755256,
+            -0.03274390312823323
+          ],
+          [
+            -0.1292639776812934,
+            0.9857749384551862,
+            0.10741785134550172
+          ],
+          [
+            0.04661340138345922,
+            -0.1021662801085561,
+            0.9936746157672766
+          ]
+        ],
+        "candidate_local_translation_model_units": [
+          -4.839389196478827,
+          -0.6183921885898149,
+          8.089635530591504
+        ],
+        "sensor_local_translation_m": [
+          -0.38438351530745785,
+          -0.1638818484311517,
+          0.5731920302126615
+        ],
+        "candidate_rotation_deg": 6.271617495632322,
+        "sensor_rotation_deg": 9.942413495343864,
+        "relative_rotation_error_deg": 7.842072848343924,
+        "translation_direction_error_deg": 10.039021482791702,
+        "candidate_length_model_units": 9.446920117779836,
+        "sensor_length_m": 0.7093356402893078,
+        "candidate_length_over_reference": 0.6418606322786253,
+        "sensor_length_over_reference": 0.6841609178764875,
+        "relative_length_ratio": 0.9381720228493107,
+        "shared_native_landmarks": 37
+      }
+    },
+    {
+      "stage": "after_triangulation",
+      "registered_views": 31,
+      "sparse_points": 6159,
+      "reprojection": {
+        "observations": 22795,
+        "nonpositive_depth": 0,
+        "mean_observation_residual_px": 1.647007178896807,
+        "observation_residual_px": {
+          "min": 0.0011003263719494142,
+          "median": 1.5292267411012652,
+          "p95": 3.22674952437263,
+          "max": 64.7380948759797
+        },
+        "definition": "Euclidean per-observation reprojection recomputed read-only; distinct from final native per-point mean error"
+      },
+      "target_relative_motion": {
+        "image_a": "frame_00031.png",
+        "image_b": "frame_00034.png",
+        "sensor_dt_s": 1.5168999169982271,
+        "candidate_relative_rotation": [
+          [
+            0.9940153926479834,
+            0.06141729536435636,
+            -0.09033999672903936
+          ],
+          [
+            -0.061474542780573585,
+            0.9981063332322364,
+            0.0021513139285884776
+          ],
+          [
+            0.0903010507624072,
+            0.003415170834281119,
+            0.9959086588836237
+          ]
+        ],
+        "sensor_relative_rotation": [
+          [
+            0.9905140154916915,
+            0.1334534447755256,
+            -0.03274390312823323
+          ],
+          [
+            -0.1292639776812934,
+            0.9857749384551862,
+            0.10741785134550172
+          ],
+          [
+            0.04661340138345922,
+            -0.1021662801085561,
+            0.9936746157672766
+          ]
+        ],
+        "candidate_local_translation_model_units": [
+          -4.839389196478827,
+          -0.6183921885898149,
+          8.089635530591504
+        ],
+        "sensor_local_translation_m": [
+          -0.38438351530745785,
+          -0.1638818484311517,
+          0.5731920302126615
+        ],
+        "candidate_rotation_deg": 6.271617495632322,
+        "sensor_rotation_deg": 9.942413495343864,
+        "relative_rotation_error_deg": 7.842072848343924,
+        "translation_direction_error_deg": 10.039021482791702,
+        "candidate_length_model_units": 9.446920117779836,
+        "sensor_length_m": 0.7093356402893078,
+        "candidate_length_over_reference": 0.6418606322786253,
+        "sensor_length_over_reference": 0.6841609178764875,
+        "relative_length_ratio": 0.9381720228493107,
+        "shared_native_landmarks": 144
+      }
+    },
+    {
+      "stage": "after_local_refinement",
+      "registered_views": 31,
+      "sparse_points": 6151,
+      "reprojection": {
+        "observations": 22760,
+        "nonpositive_depth": 0,
+        "mean_observation_residual_px": 1.5966228265595175,
+        "observation_residual_px": {
+          "min": 0.0011003263719494142,
+          "median": 1.5147191086561949,
+          "p95": 3.180146045787671,
+          "max": 3.9990841209044823
+        },
+        "definition": "Euclidean per-observation reprojection recomputed read-only; distinct from final native per-point mean error"
+      },
+      "target_relative_motion": {
+        "image_a": "frame_00031.png",
+        "image_b": "frame_00034.png",
+        "sensor_dt_s": 1.5168999169982271,
+        "candidate_relative_rotation": [
+          [
+            0.9959018078866618,
+            0.07000360969942243,
+            -0.05726328384863242
+          ],
+          [
+            -0.06941656361476578,
+            0.9975134044754551,
+            0.012179843500780295
+          ],
+          [
+            0.05797352623392269,
+            -0.008154907776134736,
+            0.9982848129342483
+          ]
+        ],
+        "sensor_relative_rotation": [
+          [
+            0.9905140154916915,
+            0.1334534447755256,
+            -0.03274390312823323
+          ],
+          [
+            -0.1292639776812934,
+            0.9857749384551862,
+            0.10741785134550172
+          ],
+          [
+            0.04661340138345922,
+            -0.1021662801085561,
+            0.9936746157672766
+          ]
+        ],
+        "candidate_local_translation_model_units": [
+          -5.720993326397771,
+          -0.7585720525291613,
+          8.907826938168789
+        ],
+        "sensor_local_translation_m": [
+          -0.38438351530745785,
+          -0.1638818484311517,
+          0.5731920302126615
+        ],
+        "candidate_rotation_deg": 5.221692874464306,
+        "sensor_rotation_deg": 9.942413495343864,
+        "relative_rotation_error_deg": 6.5906964459488195,
+        "translation_direction_error_deg": 9.32726168405935,
+        "candidate_length_model_units": 10.613886044231474,
+        "sensor_length_m": 0.7093356402893078,
+        "candidate_length_over_reference": 0.7211488529962038,
+        "sensor_length_over_reference": 0.6841609178764875,
+        "relative_length_ratio": 1.0540632096240168,
+        "shared_native_landmarks": 127
+      }
+    },
+    {
+      "stage": "after_color_extraction",
+      "registered_views": 31,
+      "sparse_points": 6151,
+      "reprojection": {
+        "observations": 22760,
+        "nonpositive_depth": 0,
+        "mean_observation_residual_px": 1.5966228265595175,
+        "observation_residual_px": {
+          "min": 0.0011003263719494142,
+          "median": 1.5147191086561949,
+          "p95": 3.180146045787671,
+          "max": 3.9990841209044823
+        },
+        "definition": "Euclidean per-observation reprojection recomputed read-only; distinct from final native per-point mean error"
+      },
+      "target_relative_motion": {
+        "image_a": "frame_00031.png",
+        "image_b": "frame_00034.png",
+        "sensor_dt_s": 1.5168999169982271,
+        "candidate_relative_rotation": [
+          [
+            0.9959018078866618,
+            0.07000360969942243,
+            -0.05726328384863242
+          ],
+          [
+            -0.06941656361476578,
+            0.9975134044754551,
+            0.012179843500780295
+          ],
+          [
+            0.05797352623392269,
+            -0.008154907776134736,
+            0.9982848129342483
+          ]
+        ],
+        "sensor_relative_rotation": [
+          [
+            0.9905140154916915,
+            0.1334534447755256,
+            -0.03274390312823323
+          ],
+          [
+            -0.1292639776812934,
+            0.9857749384551862,
+            0.10741785134550172
+          ],
+          [
+            0.04661340138345922,
+            -0.1021662801085561,
+            0.9936746157672766
+          ]
+        ],
+        "candidate_local_translation_model_units": [
+          -5.720993326397771,
+          -0.7585720525291613,
+          8.907826938168789
+        ],
+        "sensor_local_translation_m": [
+          -0.38438351530745785,
+          -0.1638818484311517,
+          0.5731920302126615
+        ],
+        "candidate_rotation_deg": 5.221692874464306,
+        "sensor_rotation_deg": 9.942413495343864,
+        "relative_rotation_error_deg": 6.5906964459488195,
+        "translation_direction_error_deg": 9.32726168405935,
+        "candidate_length_model_units": 10.613886044231474,
+        "sensor_length_m": 0.7093356402893078,
+        "candidate_length_over_reference": 0.7211488529962038,
+        "sensor_length_over_reference": 0.6841609178764875,
+        "relative_length_ratio": 1.0540632096240168,
+        "shared_native_landmarks": 127
+      }
+    }
+  ],
+  "snapshot_reproduction": {
+    "model_state_exact": true,
+    "numeric_tolerance_used": false,
+    "raw_binary_equality": {
+      "cameras.bin": true,
+      "frames.bin": true,
+      "images.bin": false,
+      "points3D.bin": true,
+      "rigs.bin": true
+    },
+    "expected_sha256": {
+      "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+      "frames.bin": "485f73943437b470a9eb99f24650025a8087c2c38f42d9a656036d702ea75b22",
+      "images.bin": "994c15a37549ca023f79ce502b271bcca808f43a75e293fa83cdc7e96cf27817",
+      "points3D.bin": "06309a172cc896bc144d55c36f36a78b2f500a0e379035a609abc141ebdb6338",
+      "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+    },
+    "actual_sha256": {
+      "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+      "frames.bin": "485f73943437b470a9eb99f24650025a8087c2c38f42d9a656036d702ea75b22",
+      "images.bin": "8182a693a481f0f05a4bfdb265d9eca1ebf7c10bdd3268518bbaa4bdaefb2ce7",
+      "points3D.bin": "06309a172cc896bc144d55c36f36a78b2f500a0e379035a609abc141ebdb6338",
+      "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+    },
+    "image_records_exact": 31,
+    "expected_image_order": [
+      70,
+      16,
+      19,
+      72,
+      71,
+      74,
+      73,
+      20,
+      21,
+      69,
+      75,
+      22,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      23,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      24,
+      25,
+      13,
+      28,
+      31
+    ],
+    "actual_image_order": [
+      13,
+      16,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      28,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      31
+    ],
+    "image_record_sha256": {
+      "13": "2781bd44b8a714f738f48729cb69f220c0d586de4b6fb63f7420213228dd0db1",
+      "16": "0904dba0b14cfbb6df5dabfba8fc4cc8646ec56e37bac374830d186284ed2221",
+      "19": "301a23c7b6e7a6966c57b68e62bf860bd754483aeb9450825b5518e6c35a6ae4",
+      "20": "faa3ef6880a4c0ed785142f8927cf71a74fba8f4827dbf68379192ee467b8e65",
+      "21": "3db4c6ea739ccd833927eb638832698ffccc8c4820fae15d37a5f9f11c31cf24",
+      "22": "2d8439a21fa490091f45f31a5de9e34524805ff87d265a65c2e9bc0cbe4cb88a",
+      "23": "233c48a45d0ad63751c24786cb694c696109b6a238b68db677c2ea7e47d9c6e2",
+      "24": "684caaee0c552d08a3c6f5e1f6dbcdfd33e510937648a482818f48bf187c9fb1",
+      "25": "c38fb0f2a8371b8c7e3ceb0c620a24289a2dba01bd687fab112457fd6bf19552",
+      "28": "337c89c59e42bbb35da020013166d366a88b55e8744135c518de3ab3210f9cdf",
+      "31": "99750af58874a08cbfb9f0b9c852a67f62a0dd0fae34c41a4f40572a14f34f61",
+      "69": "0a012de2328e7cf722e51e63990884149c95b9579cd8cbfbe2930167c7ee7ad0",
+      "70": "833a397376bd26a4b88d3463ae1f2bda1d24b54197ede637aa379eecdde31f3c",
+      "71": "ff5889a0ad4d600b9ffd24946fb4eb93a462e95230ab6bf8e36952a114d12a46",
+      "72": "98259c85830d14a44e2cc9828d1b88c333f353646e5fa8397948aaef3d11cf8c",
+      "73": "ba72c8b4ecf0a408069daefbad5e22c072832fcfc33ebcbe217d3aa1cc555fb1",
+      "74": "b5758b9cd27167260eab98cc67700b0668108f89fbdbdb84a8189b8ca35b4fa7",
+      "75": "1d5c13e378f5c080a6fd2b57b4db02b3fda1ed6aa152c196b6df5ca3b8818b03",
+      "76": "8c594ab24be1def5cc3cd7811856bf318d46ca2575432216b6203b4f5f3bcfda",
+      "77": "51ffbf8652de922473fe4403bb1a6f54b1b981b9554598a8be4ddcde7286f99a",
+      "78": "5209ed43a751834a631799a0141cba7d644a4edd7c491bfe11cb5fd6cb242d4b",
+      "79": "87d36f72e85f95af13492b940682917bce93980277ddf481dde6e60306b0f361",
+      "80": "4af32c92c0ad72738ed945d05e4e5a343c28190ee60569bfde47d73e21439469",
+      "81": "a8316890b47b1956f3e4d5e40fe931971f56b82a36b9778ec03b35ce2c22b144",
+      "82": "fca919590da447df54f8d3ecb291fb0e3cf9dbdb56e92f0f5e639879d4b1a0f3",
+      "83": "de4a7e715dbc1012df2bfc7bf2a4cbde8ba8d00b445e4d2eeef5ba188ff0b131",
+      "84": "c59e1e1430ef00a9f056853682bcc12e5b1b9278abf3d29b0a9fa96f52cbd1bc",
+      "85": "fd6f3ed45914b772eb005cbbe6ef58357bd0590e9452425a8c5dcc8b0d2421ec",
+      "86": "a84efb283c86b90a26a2a11f5d3e7b885be465e72c4f3e708a74acc69afa68a3",
+      "87": "536bebd9b4f9eddc256474ce5d99ae41d6818e21604c38523c73378c08d4875f",
+      "88": "8053133ade24203c2f81c07facb02cba75f34f96c759e1c4b977e7e7acc4b0e9"
+    },
+    "order_only_difference": true
+  },
+  "repeatability": {
+    "all_five_stage_binaries_exact": true,
+    "all_stage_metrics_exact": true
+  },
+  "retained_final": {
+    "registered_views": 32,
+    "sparse_points": 6187,
+    "reprojection": {
+      "observations": 22911,
+      "nonpositive_depth": 0,
+      "mean_observation_residual_px": 1.5957388087369397,
+      "observation_residual_px": {
+        "min": 0.0002296965760846706,
+        "median": 1.5138956751147865,
+        "p95": 3.1740615856787837,
+        "max": 3.963635288024181
+      },
+      "definition": "Euclidean per-observation reprojection recomputed read-only; distinct from final native per-point mean error"
+    }
+  },
+  "retained_final_target": {
+    "image_a": "frame_00031.png",
+    "image_b": "frame_00034.png",
+    "sensor_dt_s": 1.5168999169982271,
+    "candidate_relative_rotation": [
+      [
+        0.9956530326363996,
+        0.07118347937372693,
+        -0.060066220675106814
+      ],
+      [
+        -0.07048748959603489,
+        0.9974195373153938,
+        0.013630128098987958
+      ],
+      [
+        0.06088146197644489,
+        -0.009336961272070154,
+        0.9981013319006315
+      ]
+    ],
+    "sensor_relative_rotation": [
+      [
+        0.9905140154916915,
+        0.1334534447755256,
+        -0.03274390312823323
+      ],
+      [
+        -0.1292639776812934,
+        0.9857749384551862,
+        0.10741785134550172
+      ],
+      [
+        0.04661340138345922,
+        -0.1021662801085561,
+        0.9936746157672766
+      ]
+    ],
+    "candidate_local_translation_model_units": [
+      -5.555127189874672,
+      -0.7775407713700251,
+      8.758771907445333
+    ],
+    "sensor_local_translation_m": [
+      -0.38438351530745785,
+      -0.1638818484311517,
+      0.5731920302126615
+    ],
+    "candidate_rotation_deg": 5.384766201622004,
+    "sensor_rotation_deg": 9.942413495343864,
+    "relative_rotation_error_deg": 6.520813755266534,
+    "translation_direction_error_deg": 9.184818740340187,
+    "candidate_length_model_units": 10.400965968287807,
+    "sensor_length_m": 0.7093356402893078,
+    "candidate_length_over_reference": 0.7201539143759185,
+    "sensor_length_over_reference": 0.6841609178764875,
+    "relative_length_ratio": 1.052608963123978,
+    "shared_native_landmarks": 97
+  },
+  "local_refinement_pose_changes": {
+    "frame_00031.png": {
+      "rotation_change_deg": 0.2848745763195359,
+      "center_change_model_units": 0.1854029413710298
+    },
+    "frame_00034.png": {
+      "rotation_change_deg": 1.7877778483262414,
+      "center_change_model_units": 1.083746961943453
+    }
+  },
+  "runtime_s": {
+    "native": [
+      0.5401646999998775,
+      0.4836952999994537
+    ],
+    "replay": [
+      4.782686699998521,
+      4.41773639999883
+    ],
+    "audit": [
+      4.543779100000393,
+      4.627633399999468
+    ]
+  },
+  "tests": {
+    "initial_targeted": "58 passed in 2.34s",
+    "targeted": "116 passed in 2.86s",
+    "full": "298 passed in 45.25s",
+    "failures": 0,
+    "new_cases": 17
+  },
+  "solver_warnings": [
+    0,
+    0
+  ],
+  "classification": "Earliest observed disagreement at accepted native absolute-pose registration; ambiguous support or inherited landmark/pose bias unresolved; no reproducible software defect established",
+  "production_changed": false,
+  "production_adoption": false,
+  "sensor_poses_used_in_inference": false,
+  "physical_accuracy_validated": false,
+  "assessment_acceptance": false,
+  "pose_acceptance_tolerance": null,
+  "requirement_status": {
+    "REQ-03": "PARTIALLY IMPLEMENTED / measured acceptance unproven",
+    "REQ-05": "PARTIALLY IMPLEMENTED / measured acceptance unproven",
+    "REQ-10": "PARTIALLY IMPLEMENTED / measured acceptance unproven",
+    "REQ-27": "PARTIALLY IMPLEMENTED / measured acceptance unproven",
+    "REQ-29": "PARTIALLY IMPLEMENTED / measured acceptance unproven"
+  },
+  "holds": {
+    "floor_covered_samples": 25,
+    "floor_camera_samples": 176,
+    "uncovered": 151,
+    "ceiling_boundary_shift_m": 0.702677,
+    "ceiling_shift_validated": false
+  },
+  "repository": {
+    "head": "8aaca9ff8e8d431911a0d1f453c350243bb39473",
+    "index_empty": true,
+    "new_commits": 0,
+    "pushed": false,
+    "preserved_existing_files": 270,
+    "status_notice_only_changes": [
+      "docs/engineering/alternative_approaches.md",
+      "docs/limitations.md",
+      "docs/architecture.md",
+      "docs/engineering/implementation_history.md",
+      "docs/reproducibility.md",
+      "docs/third_party.md"
+    ],
+    "historical_notice_bodies_exact": true
+  },
+  "next_step": "Audit83 visible frame34 registration candidates and37 accepted observations against saved30-view landmark geometry, with native solver/guards unchanged and sensors post-hoc only."
+}

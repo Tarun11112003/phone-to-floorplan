@@ -5,7 +5,7 @@ import numpy as np
 
 import floorplan.layout as layout
 from floorplan.provenance import producer,sha256
-from scripts.verify_layout_artifact import GEOMETRY_FILES,verify
+from scripts.evaluation.verify_layout_artifact import GEOMETRY_FILES,verify
 
 
 def recorded_run(tmp_path,monkeypatch):

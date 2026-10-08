@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from scripts.audit_transition_tracks import spatial_support, track_audit, triangle_audit
+from scripts.diagnostics.audit_transition_tracks import spatial_support, track_audit, triangle_audit
 
 
 def test_graph_connectivity_does_not_imply_endpoint_feature_track():

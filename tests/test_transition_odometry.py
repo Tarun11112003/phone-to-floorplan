@@ -7,7 +7,7 @@ from PIL import Image
 import pytest
 from scipy.spatial.transform import Rotation
 
-from scripts.audit_transition_odometry import (direction_error, motion, pixel_witness,
+from scripts.diagnostics.audit_transition_odometry import (direction_error, motion, pixel_witness,
     read_odometry, relative_comparison, run, timing_alignment, verify_retained_summaries)
 from floorplan.provenance import sha256
 
@@ -128,7 +128,7 @@ def test_pixel_witness_checks_content_in_both_decode_conventions(tmp_path, monke
         if wrong_pixel: decoded[0, 0, 0] += 1
         Image.fromarray(decoded).save(Path(command[-1].replace('%05d', '00001')))
         return SimpleNamespace(stderr='')
-    monkeypatch.setattr('scripts.audit_transition_odometry.subprocess.run', decoder)
+    monkeypatch.setattr('scripts.diagnostics.audit_transition_odometry.subprocess.run', decoder)
     alignment = dict(views=[dict(image='frame.png', playback_index=40, sensor_frame=41)])
     if wrong_pixel:
         with pytest.raises(ValueError, match='RGB identity disagrees'):

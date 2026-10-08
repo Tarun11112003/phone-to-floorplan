@@ -23,3 +23,9 @@ datasets/**/*.part
 
 runs/
 .venv-*/
+
+# Personal notes and planning are retained locally, outside the submission.
+.local/
+DESIGN_NOTES.md
+captures/
+benchmarks/raw/

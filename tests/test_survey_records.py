@@ -17,7 +17,7 @@ def write_table(path,records,fields=None):
 
 
 def test_blank_survey_template_is_not_accepted_as_measured_evidence():
-    directory=Path(__file__).parents[1]/'docs/benchmark/truth'
+    directory=Path(__file__).parents[1]/'benchmarks/templates/ground_truth'
     with pytest.raises(ValueError,match='populated'): load_survey(directory,'p')
 
 

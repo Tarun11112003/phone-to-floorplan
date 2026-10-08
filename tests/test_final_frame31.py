@@ -3,8 +3,8 @@ import struct
 
 import pytest
 
-from scripts.audit_final_frame31 import STAGES, logged_stages, native_interval, replay_gate
-from scripts.experimental_registration_stage import BINARIES
+from scripts.diagnostics.audit_final_frame31 import STAGES, logged_stages, native_interval, replay_gate
+from scripts.experiments.experimental_registration_stage import BINARIES
 
 
 def model(path, identities):

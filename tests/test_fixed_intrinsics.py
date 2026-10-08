@@ -7,7 +7,7 @@ import numpy as np
 from PIL import Image
 import pytest
 from floorplan.provenance import sha256
-from scripts.experimental_fixed_intrinsics import (apply_intrinsics, check_saved_intrinsics,
+from scripts.experiments.experimental_fixed_intrinsics import (apply_intrinsics, check_saved_intrinsics,
     export_calibration, fixed_options, option_diff, serialize, validate_calibration)
 
 
@@ -111,7 +111,7 @@ def test_native_model_intrinsics_must_remain_exact():
 
 
 def test_before_after_comparison_cannot_invent_a_missing_joint_span():
-    from scripts.evaluate_fixed_intrinsics import matched_pair_comparison
+    from scripts.evaluation.evaluate_fixed_intrinsics import matched_pair_comparison
     point = dict(image_a='frame_00024.png', image_b='frame_00027.png',
                  relative_rotation_error_deg=24.77, translation_direction_error_deg=34.6,
                  relative_length_ratio=1.496, candidate_length_model_units=6.78, sensor_length_m=.566)
@@ -126,7 +126,7 @@ def test_before_after_comparison_cannot_invent_a_missing_joint_span():
 
 @pytest.mark.parametrize('encoding', ['utf-8','utf-16'])
 def test_solver_warning_count_accepts_both_windows_and_native_logs(tmp_path, encoding):
-    from scripts.evaluate_fixed_intrinsics import solver_warning_count
+    from scripts.evaluation.evaluate_fixed_intrinsics import solver_warning_count
     path = tmp_path/'native.log'
     path.write_text('info\nLinear solver failure.\nmore info\nLinear solver failure.\n',encoding=encoding)
     assert solver_warning_count(path) == 2

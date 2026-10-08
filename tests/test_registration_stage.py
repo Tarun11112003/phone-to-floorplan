@@ -2,9 +2,9 @@ import struct
 from types import SimpleNamespace
 
 import pytest
-from scripts.experimental_registration_stage import (BINARIES,image_records,
+from scripts.experiments.experimental_registration_stage import (BINARIES,image_records,
     replay_registration,require_snapshot_reproduction)
-from scripts.audit_registration_stage import gate_saved_replay
+from scripts.diagnostics.audit_registration_stage import gate_saved_replay
 
 
 def image_record(identity,name='image.png',point_id=9):

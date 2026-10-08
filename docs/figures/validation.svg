@@ -39,7 +39,7 @@ Q 3.71424 9.518613 3.71424 9.984211
 L 3.71424 58.87201
 Q 3.71424 59.337608 6.570238 59.337608
 z
-" clip-path="url(#pbd25086e2f)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p09cc150ab1)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 6.570238 117.537368
@@ -52,7 +52,7 @@ Q 3.71424 67.718373 3.71424 68.183971
 L 3.71424 117.07177
 Q 3.71424 117.537368 6.570238 117.537368
 z
-" clip-path="url(#pbd25086e2f)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p09cc150ab1)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 281.460053 59.337608
@@ -65,7 +65,7 @@ Q 278.604055 9.518613 278.604055 9.984211
 L 278.604055 58.87201
 Q 278.604055 59.337608 281.460053 59.337608
 z
-" clip-path="url(#pbd25086e2f)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p09cc150ab1)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 524.21989 59.337608
@@ -78,7 +78,7 @@ Q 521.363892 9.518613 521.363892 9.984211
 L 521.363892 58.87201
 Q 521.363892 59.337608 524.21989 59.337608
 z
-" clip-path="url(#pbd25086e2f)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p09cc150ab1)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #183545" transform="translate(47.415181 31.705454)">Tests / sensors / trials</text>
@@ -120,7 +120,7 @@ L 517.02212 36.46811
   </g>
  </g>
  <defs>
-  <clipPath id="pbd25086e2f">
+  <clipPath id="p09cc150ab1">
    <rect x="3.00024" y="3.00024" width="713.99952" height="116.39952"/>
   </clipPath>
  </defs>

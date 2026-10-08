@@ -2,7 +2,7 @@ import sqlite3
 
 import numpy as np
 
-from scripts.experimental_video_bridge import bridge_diagnostics, shortest_bridge
+from scripts.experiments.experimental_video_bridge import bridge_diagnostics, shortest_bridge
 
 
 def test_intermediate_view_must_reach_both_original_groups():

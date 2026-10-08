@@ -5,7 +5,7 @@ import pytest
 from shapely.geometry import Polygon
 
 from floorplan import layout
-from scripts.trace_observed_ceiling import (fingerprint, horizontal_inventory,
+from scripts.diagnostics.trace_observed_ceiling import (fingerprint, horizontal_inventory,
     native_trace, plane_decisions)
 
 

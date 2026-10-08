@@ -16,6 +16,13 @@ import time
 import zipfile
 
 
+PRIVATE_NOTE_NAMES = {
+    'DESIGN_NOTES.md', 'PHASE3_DESIGN.md', 'IMPLEMENTATION_PLAN.md',
+    'PHASE3_IMPLEMENTATION_PLAN.md', 'ASSESSMENT_EXECUTION_ROADMAP.md',
+    'ASSIGNMENT_UPDATE_PLAN.md', 'PENDING_PLAN.md', 'ASSIGNMENT_BRIEF_MAP.md',
+}
+
+
 def digest(path: Path) -> str:
     h = hashlib.sha256()
     with path.open('rb') as stream:
@@ -32,8 +39,8 @@ def source_files(root: Path) -> list[Path]:
     if git(root, 'status', '--porcelain', '--untracked-files=no').strip():
         raise ValueError('Commit the intended tracked changes before packaging')
     names = git(root, 'ls-files', '--cached', '-z').split('\0')
-    directories = {'floorplan', 'scripts', 'tests', 'docs', 'examples', 'requirements', 'datasets'}
-    root_names = {'README.md', 'DESIGN_NOTES.md', 'pyproject.toml', 'requirements.txt', '.gitignore', '.gitattributes', 'LICENSE', 'LICENSE.md', 'LICENSE.txt'}
+    directories = {'floorplan', 'scripts', 'tests', 'docs', 'benchmarks', 'examples', 'requirements', 'datasets'}
+    root_names = {'README.md', 'pyproject.toml', 'requirements.txt', '.gitignore', '.gitattributes', 'LICENSE', 'LICENSE.md', 'LICENSE.txt'}
     files = []
     untracked = git(root, 'ls-files', '--others', '--exclude-standard', '-z').split('\0')
     if any(name and (PurePosixPath(name).parts[0] in directories or name in root_names)
@@ -42,7 +49,7 @@ def source_files(root: Path) -> list[Path]:
     for name in set(names):
         p = root/name
         parts = PurePosixPath(name.replace('\\', '/')).parts
-        if p.is_file() and (parts[0] in directories or name in root_names):
+        if p.is_file() and p.name not in PRIVATE_NOTE_NAMES and (parts[0] in directories or name in root_names):
             if not {'__pycache__', '.pytest_cache', '.venv', '.git', '.tools'}.intersection(parts):
                 files.append(p)
     if not (root/'floorplan/cli.py') in files:
@@ -54,7 +61,8 @@ def evidence_files(root: Path) -> tuple[list[Path], list[dict]]:
     files = set()
     unavailable = []
     allowed = {'.json', '.log', '.txt', '.md', '.png', '.jpg', '.jpeg', '.svg', '.csv', '.bin', '.npz', '.db', '.pdf', '.html', '.dxf'}
-    for directory in ('docs/results', 'docs/fixes', 'docs/evidence', 'docs/figures', 'demo/final_qa/live_ceiling'):
+    for directory in ('benchmarks/results', 'docs/engineering/investigations',
+                      'benchmarks/manifests', 'docs/figures', 'demo/final_qa/live_ceiling'):
         base = root/directory
         if base.exists():
             files.update(p for p in base.rglob('*') if p.is_file() and p.suffix.lower() in allowed)
@@ -84,6 +92,10 @@ def evidence_files(root: Path) -> tuple[list[Path], list[dict]]:
                         continue
                     # Do not export environments, external models, executables or arbitrary assets.
                     if relative.parts[0] == 'demo' and path.suffix.lower() in allowed:
+                        if path.name in PRIVATE_NOTE_NAMES:
+                            unavailable.append({'path':relative.as_posix(),
+                                                'reason':'Personal planning record retained locally; excluded from public evidence'})
+                            continue
                         if path.is_file():
                             if digest(path) == value:
                                 files.add(path)
@@ -95,11 +107,12 @@ def evidence_files(root: Path) -> tuple[list[Path], list[dict]]:
                     visit(value)
         elif isinstance(obj, list):
             for value in obj: visit(value)
-    for summary in sorted((root/'docs/results').glob('*.json')):
+    for summary in sorted((root/'benchmarks/results').glob('*.json')):
         visit(json.loads(summary.read_text(encoding='utf-8')))
     # Upstream notices only; downloaded source trees/binaries/weights are not distributed.
     notices = root/'docs/attribution'
     if notices.exists(): files.update(p for p in notices.rglob('*') if p.is_file())
+    files = {p for p in files if p.name not in PRIVATE_NOTE_NAMES}
     return sorted(files), sorted({json.dumps(item, sort_keys=True):item for item in unavailable}.values(), key=lambda x:x['path'])
 
 
@@ -184,11 +197,11 @@ def package(root: Path, output: Path) -> dict:
         'PHONE TO FLOORPLAN — frozen assessment handoff\n\n'
         'Verify: python scripts/package_assessment.py --verify <this directory>\n'
         'Extract source.zip, evidence.zip and supplied_raw_dataset.zip to the SAME fresh root.\n'
-        'Start with README.md, docs/INDEX.md and docs/TECHNICAL_REPORT.pdf.\n'
+        'Start with README.md, docs/README.md and docs/technical_report.pdf.\n'
         'Source is tracked and clean at the Git commit recorded in package_manifest.json.\n'
         'Offline Git history: git clone repository.bundle phone-to-floorplan\n'
         'Raw data is provided for assessment transfer, not public redistribution.\n'
-        'No model weights/environment are bundled. See docs/PHASE3_OPERATIONS.md.\n'
+        'No model weights/environment are bundled. See docs/reproducibility.md.\n'
         'Physical accuracy and full assessment acceptance are NOT DEMONSTRATED.\n',encoding='utf-8')
     return manifest
 

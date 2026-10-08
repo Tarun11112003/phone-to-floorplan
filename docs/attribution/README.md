@@ -13,5 +13,5 @@ Downloaded code, checkpoints and binaries are excluded from the handoff.
 Code and checkpoint rights remain separate; the original research/experiment
 provenance is retained. Other baseline dependency notices are distributed with
 their installed packages, which are not vendored here. See
-[external-component decisions](../OPEN_SOURCE_DECISIONS.md) for the optional
+[external-component decisions](../third_party.md) for the optional
 OpenMVS/MoGe/data disclosures and upstream links.

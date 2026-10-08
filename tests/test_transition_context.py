@@ -3,8 +3,8 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from scripts.experimental_transition_context import CONTEXT, context_window, copy_context_database, group_model_status
-from scripts.compare_transition_context import group_track_status, immutable_trial_files
+from scripts.experiments.experimental_transition_context import CONTEXT, context_window, copy_context_database, group_model_status
+from scripts.evaluation.compare_transition_context import group_track_status, immutable_trial_files
 
 
 def test_context_keeps_every_transition_view_and_adds_only_declared_anchors():

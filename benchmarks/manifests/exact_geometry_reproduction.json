@@ -1,0 +1,522 @@
+{
+  "description": "Current-source audited-input reconstruction and exact float64 artifact replay. Supplied/derived cases lack independent room/metric truth; expected assignment exits remain failures. Generated control is software-only. Video reuses only the validated, input-identical SfM stage, not downstream measurements.",
+  "artifacts": [
+    {
+      "id": "single",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/local_support_raw_replay/single/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 115
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "floor",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/local_support_raw_replay/floor/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 176
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "ceiling",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/local_support_raw_replay/ceiling/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 300
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "single_dense",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/geometry_correctness_final/single_dense/intake/capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "input_frames"
+          ],
+          "value": 286
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "photos4",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "photos",
+        "--source",
+        "demo/phase3_e2e/photos_input",
+        "--out",
+        "{output}",
+        "--experimental-rgb",
+        "--profile",
+        "assignment",
+        "--property-id",
+        "given_single_identity_unverified"
+      ],
+      "claims": [
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "assessment_status"
+          ],
+          "value": "written"
+        },
+        {
+          "path": "result/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "video_auto72",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "benchmarks/manifests/supplied_video_auto72_cache.capture.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "sparse_reconstruction",
+            "input_images"
+          ],
+          "value": 68
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "result",
+            "sparse_reconstruction",
+            "registered_images"
+          ],
+          "value": 10
+        },
+        {
+          "path": "assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "control",
+      "expected_exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "benchmark",
+        "examples/regression_suite.json",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "control/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "control/assignment_metrics.json",
+          "field": [
+            "topology",
+            "gate"
+          ],
+          "value": "pass"
+        },
+        {
+          "path": "control/assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "single_off",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "reconstruct",
+        "demo/phase3_sync_boundary/local_support_raw_replay/single/intake/capture.json",
+        "--pose-correction",
+        "off",
+        "--out",
+        "{output}"
+      ],
+      "claims": [
+        {
+          "path": "run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        },
+        {
+          "path": "run.json",
+          "field": [
+            "configuration",
+            "optimize_poses"
+          ],
+          "value": false
+        },
+        {
+          "path": "assessment.json",
+          "field": [
+            "contract_complete"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "drift_comparison",
+      "expected_exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "compare-pose-correction",
+        "{output}/../single_off",
+        "{output}/../single",
+        "--out",
+        "{output}/comparison.json"
+      ],
+      "claims": [
+        {
+          "path": "comparison.json",
+          "field": [
+            "identical_inputs"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison.json",
+          "field": [
+            "identical_code"
+          ],
+          "value": true
+        },
+        {
+          "path": "comparison.json",
+          "field": [
+            "accuracy_improvement"
+          ],
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "single_artifact",
+      "command": [
+        "python",
+        "scripts/evaluation/verify_layout_artifact.py",
+        "{output}/../single",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "points_dtype"
+          ],
+          "value": "float64"
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "floor_artifact",
+      "command": [
+        "python",
+        "scripts/evaluation/verify_layout_artifact.py",
+        "{output}/../floor",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "points_dtype"
+          ],
+          "value": "float64"
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "ceiling_artifact",
+      "command": [
+        "python",
+        "scripts/evaluation/verify_layout_artifact.py",
+        "{output}/../ceiling",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "points_dtype"
+          ],
+          "value": "float64"
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "dense_artifact",
+      "command": [
+        "python",
+        "scripts/evaluation/verify_layout_artifact.py",
+        "{output}/../single_dense",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "points_dtype"
+          ],
+          "value": "float64"
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "control_artifact",
+      "command": [
+        "python",
+        "scripts/evaluation/verify_layout_artifact.py",
+        "{output}/../control/control",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "points_dtype"
+          ],
+          "value": "float64"
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    }
+  ]
+}

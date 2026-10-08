@@ -76,3 +76,34 @@ def test_evidence_package_keeps_offline_review_and_plan_exports(tmp_path):
     files, unavailable = package.evidence_files(tmp_path)
     assert {p.name for p in files} == {'report.html', 'plan.dxf', 'assessment.json', 'plan.svg'}
     assert unavailable == []
+
+
+def test_source_inventory_excludes_personal_notes_and_keeps_benchmarks(tmp_path, monkeypatch):
+    names = ['floorplan/cli.py', 'benchmarks/report.md', '.local/notes/design_notes.md',
+             'DESIGN_NOTES.md', 'docs/PHASE3_DESIGN.md']
+    for name in names:
+        path = tmp_path/name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('')
+    monkeypatch.setattr(package, 'git', lambda root, *args:
+                        '\0'.join(names)+'\0' if '--cached' in args else '')
+    files = {p.relative_to(tmp_path).as_posix() for p in package.source_files(tmp_path)}
+    assert files == {'floorplan/cli.py', 'benchmarks/report.md'}
+
+
+def test_evidence_package_uses_current_documentation_layout(tmp_path):
+    names = ['benchmarks/results/result.json', 'benchmarks/manifests/final_state.json',
+             'docs/engineering/investigations/001_supported_cells.md',
+             '.local/notes/design_notes.md', 'demo/notices/PHASE3_DESIGN.md']
+    for name in names:
+        path = tmp_path/name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('{}')
+    pinned = 'demo/notices/PHASE3_DESIGN.md'
+    (tmp_path/'benchmarks/results/result.json').write_text(json.dumps({
+        'input_sha256': {pinned: package.digest(tmp_path/pinned)}}))
+    files, unavailable = package.evidence_files(tmp_path)
+    assert {p.relative_to(tmp_path).as_posix() for p in files} == set(names[:3])
+    assert len(unavailable) == 1
+    assert unavailable[0]['path'] == pinned
+    assert 'Personal planning record' in unavailable[0]['reason']

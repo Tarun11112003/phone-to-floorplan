@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from shapely.geometry import Polygon
 
-from scripts.audit_ceiling_boundary_shift import (associate,changed_edges,
+from scripts.diagnostics.audit_ceiling_boundary_shift import (associate,changed_edges,
     crossing_rays,finite_mask,support_profile)
 
 

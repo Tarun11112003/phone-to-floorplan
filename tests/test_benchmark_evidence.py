@@ -11,7 +11,7 @@ from floorplan.provenance import sha256
 
 def test_template_has_three_rooms_plus_separate_connector_but_is_not_evidence(tmp_path):
     from pathlib import Path
-    template=json.loads((Path(__file__).parents[1]/'docs/benchmark/benchmark_manifest.template.json').read_text())
+    template=json.loads((Path(__file__).parents[1]/'benchmarks/templates/capture_manifest.json').read_text())
     result=audit_manifest(template,tmp_path)
     assert not result['metadata_ready']
     assert not result['accuracy_validated']

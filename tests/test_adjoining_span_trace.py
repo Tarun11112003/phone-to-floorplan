@@ -1,6 +1,6 @@
 import numpy as np
 
-from scripts.trace_adjoining_span import crossing_rays, span_mask, traversals, x_profile
+from scripts.diagnostics.trace_adjoining_span import crossing_rays, span_mask, traversals, x_profile
 
 
 def test_measured_ray_needs_clearance_and_wall_height_on_both_sides():

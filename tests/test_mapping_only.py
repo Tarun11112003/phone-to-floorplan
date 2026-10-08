@@ -4,9 +4,9 @@ from types import SimpleNamespace
 
 import numpy as np
 import pytest
-from scripts.experimental_mapping_only import (apply_mapping_intrinsics,
+from scripts.experiments.experimental_mapping_only import (apply_mapping_intrinsics,
     map_without_frontend, require_pose_free_database, require_retained_tables, require_same_options)
-from scripts.experimental_video_bridge import baseline_digest
+from scripts.experiments.experimental_video_bridge import baseline_digest
 
 
 def database(tmp_path):
@@ -93,7 +93,7 @@ def test_mapping_only_native_entrypoint_never_calls_matching_or_verification():
 
 
 def test_adjacent_comparison_uses_identical_pairs_in_all_models():
-    from scripts.evaluate_mapping_only import common_adjacent_metrics
+    from scripts.evaluation.evaluate_mapping_only import common_adjacent_metrics
     def row(a,b,error):
         return dict(image_a=a,image_b=b,relative_rotation_error_deg=error,
                     translation_direction_error_deg=error*2,relative_length_ratio=1.)
@@ -106,7 +106,7 @@ def test_adjacent_comparison_uses_identical_pairs_in_all_models():
 
 
 def test_absent_reference_cannot_produce_pose_comparison():
-    from scripts.evaluate_mapping_only import pair_metrics, common_adjacent_metrics
+    from scripts.evaluation.evaluate_mapping_only import pair_metrics, common_adjacent_metrics
     absent = dict(unavailable_reason='No reference pair')
     assert pair_metrics(absent) == []
     assert common_adjacent_metrics(dict(candidate=absent)) == {}

@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from scripts.experimental_xfeat_context import original_pixels, indexed_matches, validate_snapshot, checkpoint_key_compatibility
+from scripts.experiments.experimental_xfeat_context import original_pixels, indexed_matches, validate_snapshot, checkpoint_key_compatibility
 
 
 def test_xfeat_coordinates_restore_original_resolution_without_feature_reordering():
@@ -42,7 +42,7 @@ def test_xfeat_loading_allows_only_documented_computed_buffer_and_training_extra
 
 
 def test_xfeat_comparison_rejects_different_inputs_or_weakened_downstream_guards():
-    from scripts.evaluate_xfeat_context import assert_matched_context
+    from scripts.evaluation.evaluate_xfeat_context import assert_matched_context
     import copy
     baseline=dict(image_sha256={str(i):str(i) for i in range(32)}, options={'minimum_inliers':15},
         production_code_sha256={'production':'hash'}, temporal_window=list(range(32)),
@@ -57,7 +57,7 @@ def test_xfeat_comparison_rejects_different_inputs_or_weakened_downstream_guards
 
 
 def test_xfeat_pair_support_requires_one_saved_landmark_not_only_two_associations():
-    from scripts.evaluate_xfeat_context import shared_native_point
+    from scripts.evaluation.evaluate_xfeat_context import shared_native_point
     class Point:
         def __init__(self,pid): self.point3D_id=pid
         def has_point3D(self): return self.point3D_id is not None
@@ -68,8 +68,8 @@ def test_xfeat_pair_support_requires_one_saved_landmark_not_only_two_association
 
 
 def test_xfeat_audit_cache_preserves_exact_spread_and_restores_shared_function(monkeypatch):
-    from scripts.evaluate_xfeat_context import cached_track_spreads
-    import scripts.audit_transition_tracks as module
+    from scripts.evaluation.evaluate_xfeat_context import cached_track_spreads
+    import scripts.diagnostics.audit_transition_tracks as module
     original=module.track_spread;calls=[]
     def counted(nodes,coords): calls.append(len(nodes));return original(nodes,coords)
     monkeypatch.setattr(module,'track_spread',counted)

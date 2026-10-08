@@ -4,7 +4,7 @@ import json
 import pytest
 
 from floorplan.provenance import sha256
-from scripts.fix_evidence import declare,verify
+from scripts.evaluation.fix_evidence import declare,verify
 
 
 def baseline_fixture(tmp_path):

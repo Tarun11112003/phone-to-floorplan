@@ -2,7 +2,7 @@ from types import SimpleNamespace
 
 import numpy as np
 import pytest
-from scripts.audit_late_landmarks import (acute_triangulation_angle,directed_matches,
+from scripts.diagnostics.audit_late_landmarks import (acute_triangulation_angle,directed_matches,
     fundamental,local_triangles,native_status,pose_condition,sampson_residuals,shape_diagnostics)
 
 

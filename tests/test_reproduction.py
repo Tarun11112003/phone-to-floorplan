@@ -1,6 +1,6 @@
 import json
 
-from scripts.reproduce_artifacts import reproduce
+from scripts.evaluation.reproduce_artifacts import reproduce
 
 
 def test_copied_or_unchecked_artifacts_are_not_regenerated(tmp_path):

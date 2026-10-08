@@ -1,6 +1,6 @@
 import json
 
-from scripts.render_phase3_report import snapshot
+from scripts.evaluation.render_checkpoint_report import snapshot
 
 
 def test_checkpoint_preserves_unregistered_source_rgb_views(tmp_path):

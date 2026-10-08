@@ -1,0 +1,741 @@
+{
+  "purpose": "Portable publication copies; measurements, tolerances, sensor timestamps and historical input/producer hashes are unchanged. Original private records are retained locally and excluded from public redistribution. Original producer hashes may refer to those original bytes, not the redacted publication copy.",
+  "transformations": [
+    "Workspace/user prefixes removed from published paths",
+    "Unnecessary report/development dates removed",
+    "Neutral labels for researched alternatives",
+    "Canonical LF publication newlines for Git/archive hash consistency; original hashes remain recorded",
+    "Descriptive submission paths; four engineering ledgers consolidated; personal planning records excluded. Original paths/hashes retained."
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "original_sha256": "2c4112957858a5cd24df3746c385d8c48e150b907fba8cb897a644ec0d118ed5",
+      "published_sha256": "3378cfd6ce62b29d9960d9c6f20e6717ae8b9e7e85f614a8a0a6f710e40d9b1f"
+    },
+    {
+      "path": "datasets/FLOORNET_SOURCE.md",
+      "original_sha256": "aa26c3e33f606c529918f15d648df899ccb84d527473b6f01f4e32bf8f94f3d9",
+      "published_sha256": "588e049e07ecbbe6c64075be793cff740a2cfaed0d8bfa374a6513741262a041"
+    },
+    {
+      "path": "datasets/icl_nuim/SOURCE.md",
+      "original_sha256": "4f132e77911d3f9361a2cdbdf279e593c6218161d92d96c467b3d573d70f7c8f",
+      "published_sha256": "93ad5edde1d368ec554fb532b3c0870f810456391cc6877c6bd5a8b59b2eb84a"
+    },
+    {
+      "path": "datasets/reference_acquisition.json",
+      "original_sha256": "f3f30a24cdfa3ef297c9cfa83c206bf360bf772527222eb87f996d6aa6850582",
+      "published_sha256": "6035d840f22e2dc8248c85a735c449c2d7fef10fd506672569cac6b515075532"
+    },
+    {
+      "path": "datasets/tum_freiburg1_room/SOURCE.md",
+      "original_sha256": "1db28024a706aab081c420828ea19ed18393ee9afa88d6e7e9383ab196c035c7",
+      "published_sha256": "4c666f4323e6d75fe25c96547acc1734b6b0fca05f04626d29ab1847aaceb6d6"
+    },
+    {
+      "path": "datasets/tum_freiburg1_room/groundtruth.txt",
+      "original_sha256": "66b6770d887a5a3b69c94c3b186c3f76fe092ca25399772177f41aed984bd1b0",
+      "published_sha256": "66b6770d887a5a3b69c94c3b186c3f76fe092ca25399772177f41aed984bd1b0"
+    },
+    {
+      "path": "docs/architecture.md",
+      "original_sha256": "1cc28b45855ed68ee136f147759153e0390be811dda5242c9aa94323cdb0cc1b",
+      "published_sha256": "d2057a5de41d4442cb81cb35f1dfd6d334176c49dfd41eed5e88035347456e3c",
+      "original_path": "docs/ARCHITECTURE.md"
+    },
+    {
+      "path": "docs/engineering/reference_depth_review.md",
+      "original_sha256": "3fc89ca9464494e7a480e676f580d6ad3ef1f6a74836f09f1c5ff934b3c3409e",
+      "published_sha256": "abb5192b3ff8850feea1b263655b40a1c555a04c5e5101549e655d18c7d77cc5",
+      "original_path": "docs/ARKIT_HELDOUT_REFERENCE_REVIEW.md"
+    },
+    {
+      "path": "docs/engineering/alternative_approaches.md",
+      "original_sha256": "273fa75c1c4d6214fb57566b7bdde0b829f5db65eca53ba50b9ee5fde9b9192a",
+      "published_sha256": "ec89e69c79f7d227712e7d831f610ad128f2c2757c3752e213847164b0bd2568",
+      "original_path": "docs/ASSESSMENT_COMPONENT_RESEARCH.md"
+    },
+    {
+      "path": "docs/compliance_matrix.md",
+      "original_sha256": "1ace7dea9319c026e501cd82c324a8132b7a300a6b02b1339448f2aefd8069fa",
+      "published_sha256": "59cf0a3f519a2965047011a11344c6010064d3382346491d23c16f95a99f8e50",
+      "original_path": "docs/ASSIGNMENT_COMPLIANCE.md"
+    },
+    {
+      "path": "docs/engineering/end_to_end_validation.md",
+      "original_sha256": "1bc4ffef6cf1e0144dd3b36101317a078be05181aa44bb660a38ff08e8725bd5",
+      "published_sha256": "493ea3a1bc470952572d1180e5bf75e4efc6411c3a96120566583be44027e206",
+      "original_path": "docs/ASSIGNMENT_E2E_STATUS.md"
+    },
+    {
+      "path": "docs/specification/applied_ai.html",
+      "original_sha256": "8a65e96e4580b24172c453ce50efd9d06ea9a326aff48f3c5b42bb85769daa99",
+      "published_sha256": "8a65e96e4580b24172c453ce50efd9d06ea9a326aff48f3c5b42bb85769daa99",
+      "original_path": "docs/Applied AI.html"
+    },
+    {
+      "path": "benchmarks/report.md",
+      "original_sha256": "fb65b26d1013af32725abdbc5fa22cbbded3c75716c87eb5ca0e64eac4b1d08d",
+      "published_sha256": "40e58a594fcfccee699aa07cb61c269491f2ebfd7625b17ad4192065d837c3b6",
+      "original_path": "docs/BENCHMARK_RESULTS.md"
+    },
+    {
+      "path": "docs/capture_protocol.md",
+      "original_sha256": "df2942af4a321c3735478f560fda5802d309f259d4a6227055ea15ef584960ec",
+      "published_sha256": "fe882bad2d12c6cb720e0e503d5001df6d8c4de626760a2ab3e42190b14790b3",
+      "original_path": "docs/CAPTURE_PROTOCOL.md"
+    },
+    {
+      "path": "docs/datasets.md",
+      "original_sha256": "d06e6c3401f3b1aa70d5841849591ab2a77289dde541c6f6646d5e440a0db5af",
+      "published_sha256": "d9645328147a54e830eb62271093b29e7c64d432a0bf67853914b9b7bb781dc4",
+      "original_path": "docs/DATASETS.md"
+    },
+    {
+      "path": "docs/engineering/dataset_readiness.md",
+      "original_sha256": "4717d6da9de63b5cc1bd9428c16aff386c6f20c80682b37320ced192557b48c3",
+      "published_sha256": "6f41be29c37719baee65980fa69a1297d595dde3eff1b13cb2c22b9496e694ad",
+      "original_path": "docs/DATASET_READINESS.md"
+    },
+    {
+      "path": "docs/demo.md",
+      "original_sha256": "c468f0e120bc3fb4e8824a1a90a3409b6eb57585ef048c7beaf5ed2dfb7903c2",
+      "published_sha256": "200f3dd26cafe6d35121c056082b96c2836fee5f3f2108a5806f01e04461c647",
+      "original_path": "docs/DEMO_GUIDE.md"
+    },
+    {
+      "path": "docs/device_matrix.md",
+      "original_sha256": "83fd75868522d88c13c9b79f30563ea0c28b6264788e47ca0542614c3313e2a7",
+      "published_sha256": "ac8e90b85cac99a39ba38f555330bdf415ee3b179a891b5ac2d59c482e30001d",
+      "original_path": "docs/DEVICE_MATRIX.md"
+    },
+    {
+      "path": "docs/fix_loop.md",
+      "original_sha256": "3ce3853e71272a7fbadf5caf7d52c1cc03d9a9964033649cbd65c80e694258f7",
+      "published_sha256": "cf0a76cdd7f3fd204315ac36e8356193e7bfcbab9c54bb571105765bc3cfc94b",
+      "original_path": "docs/FIX_LOOP.md"
+    },
+    {
+      "path": "docs/README.md",
+      "original_sha256": "9b5b66643cd3a9f33f16497f158c0093e97f328b943c85d2c9ca330bff4047fa",
+      "published_sha256": "811f4a530f64400d25f11687041341d8cf9e62cdff035b2a7031ef1602914a29",
+      "original_path": "docs/INDEX.md"
+    },
+    {
+      "path": "docs/limitations.md",
+      "original_sha256": "4a75d25bbd69968196b524702e4e339232a58338bafee23a39c64322d3f36305",
+      "published_sha256": "46ad4be7a87299e3bf6823fd1c2df7007051c5504e9fd8dcb17941542c6c98a9",
+      "original_path": "docs/LIMITATIONS.md"
+    },
+    {
+      "path": "docs/third_party.md",
+      "original_sha256": "ecfb28fa3e8a61e1ec014f3134ef9ff068f78e46426ad9821e93d7e99b3e7baa",
+      "published_sha256": "784715238f16ddaf6719bd39d17c248f5824678903d4529db6f9bcfa91ab11dc",
+      "original_path": "docs/OPEN_SOURCE_DECISIONS.md"
+    },
+    {
+      "path": "docs/engineering/implementation_history.md",
+      "original_sha256": "98ae5b98abfff430b461ecc9fa6e03281b874598f463ec967c6b9be257f6c09d",
+      "published_sha256": "b12652b7b46e0a3826980dc87a9062e2999b5e91b865b36a1f0d4bd1e0465b68",
+      "original_path": "docs/PHASE3_IMPLEMENTATION_STATUS.md",
+      "publication_transform": "Consolidated historical sections; this hash identifies the combined published file."
+    },
+    {
+      "path": "docs/reproducibility.md",
+      "original_sha256": "6f0f6b836346897da31530ff0443bdcdc6eb71439ddde4e3cfeea45a1340d958",
+      "published_sha256": "3fe67e46fb15b0c824a56092db14377d306167bbafa300a1c46ec68732ad1b91",
+      "original_path": "docs/PHASE3_OPERATIONS.md"
+    },
+    {
+      "path": "docs/engineering/implementation_history.md",
+      "original_sha256": "08e5b3ff6e04840bc6f8f079681cb55227d6a59ddb08925825fb5ef1f7e69313",
+      "published_sha256": "b12652b7b46e0a3826980dc87a9062e2999b5e91b865b36a1f0d4bd1e0465b68",
+      "original_path": "docs/PHASE3_REMAINING_PASS.md",
+      "publication_transform": "Consolidated historical sections; this hash identifies the combined published file."
+    },
+    {
+      "path": "docs/engineering/implementation_history.md",
+      "original_sha256": "93b6857530dee7cf2406f6eb2aa1469abce71450c405446a9d32a9e55e6abe3e",
+      "published_sha256": "b12652b7b46e0a3826980dc87a9062e2999b5e91b865b36a1f0d4bd1e0465b68",
+      "original_path": "docs/PHASE3_SUPPLIED_DATA_PASS.md",
+      "publication_transform": "Consolidated historical sections; this hash identifies the combined published file."
+    },
+    {
+      "path": "docs/engineering/implementation_history.md",
+      "original_sha256": "188f81fdd14cebdfdcab25caf67c670ea27454e3a3372b29d21ff79a02ba962c",
+      "published_sha256": "b12652b7b46e0a3826980dc87a9062e2999b5e91b865b36a1f0d4bd1e0465b68",
+      "original_path": "docs/PHASE3_SYNC_BOUNDARY_PASS.md",
+      "publication_transform": "Consolidated historical sections; this hash identifies the combined published file."
+    },
+    {
+      "path": "docs/pipeline.md",
+      "original_sha256": "6cbeeafc04d29ef37f72b4978a602b24da1569805ca0630d052f9792c1d2272b",
+      "published_sha256": "b8ba5a44cabf327224858d0a707780d105df78fc25a9dc873c3108886fcab7c7",
+      "original_path": "docs/RESTORATION_FLOW.md"
+    },
+    {
+      "path": "docs/technical_report.md",
+      "original_sha256": "69d2100308d0ac2c824a0db685ba81f2339b7b320e6430e7f17d43a26e1a4909",
+      "published_sha256": "f4f912263dbe350eea7a85346053c664a02bc06110d4a636717abf04869f02f2",
+      "original_path": "docs/TECHNICAL_REPORT.md"
+    },
+    {
+      "path": "docs/technical_report.pdf",
+      "original_sha256": "a8f005ee76e5eb84d7dff7c8064dc1e28322fbd2fc38be66a69099c6a98a895b",
+      "published_sha256": "3c84456e77f872e07d131d061861ca770e44cab2f4a885fb836a2a6b860e1159",
+      "original_path": "docs/TECHNICAL_REPORT.pdf"
+    },
+    {
+      "path": "docs/engineering/history/rgbd_baseline.md",
+      "original_sha256": "12adb968fab94ae41f41b958a04ef8559bec5dbe2ef08f2aae076dfcf42fec54",
+      "published_sha256": "960309db626a5fcc5cbc6dbddf422c932aa79824d945beb3771434e8cf4ad5f9",
+      "original_path": "docs/V2_IMPLEMENTATION.md"
+    },
+    {
+      "path": "benchmarks/reports/rgbd_component_report.md",
+      "original_sha256": "7643057aba4321453909160dd12feb896a16bd828d6c859d901d87f53f09edb6",
+      "published_sha256": "0fc0a7420a443856ab0b3bb9fe67849c5f1f17c46ae211d725cc64859b70bb46",
+      "original_path": "docs/V2_RESULTS.md"
+    },
+    {
+      "path": "docs/engineering/history/multiview_baseline.md",
+      "original_sha256": "7971d147489687bcb8d3d0e6ee12efaf1f8bb1e54bf0184f1e53c3cc992941e6",
+      "published_sha256": "ca31cc32fcf535022c7944ea6cec41ec701554efa1ec067f816c1b6eef455ff3",
+      "original_path": "docs/V3_IMPLEMENTATION.md"
+    },
+    {
+      "path": "benchmarks/reports/multiview_component_report.md",
+      "original_sha256": "ee6d733993def4b1e87dcaf35443f4221bbee4124249c9ce6fa8ab459c34b950",
+      "published_sha256": "994cdb77ac3c333ffa158ea4fcdc0386bdbd0937864a9fa83423849b28159778",
+      "original_path": "docs/V3_RESULTS.md"
+    },
+    {
+      "path": "docs/attribution/LightGlue-LICENSE.txt",
+      "original_sha256": "610b46052c892f43bb448c63b0d6609a3dd24d5c16fe59624f7d047b32a942bb",
+      "published_sha256": "0e6031ed3e62dc91dc8b1c8f240abd200b1083f60773362e64e339fe01d1bf18"
+    },
+    {
+      "path": "docs/attribution/README.md",
+      "original_sha256": "6b6470b4f068b5f27e3c530e42ace504794ac1c3880281ff982293355ddac95e",
+      "published_sha256": "fd58b993092ef518d8af1f0d772275dbf6352c26099228822900f31aafabf141"
+    },
+    {
+      "path": "docs/attribution/XFeat-LICENSE.txt",
+      "original_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "published_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "benchmarks/data_inventory.md",
+      "original_sha256": "d88e6a3c55eebb30ca17769edcfb3e84c1b6b83958e47049099df8ca1aca746a",
+      "published_sha256": "5a138cc4580e42a08ad77ce474899e3595f6ed578f889bc6f4f132caae9c1e9e",
+      "original_path": "docs/benchmark/PHASE0_INVENTORY.md"
+    },
+    {
+      "path": "benchmarks/templates/capture_manifest.json",
+      "original_sha256": "370049d054d93f7c674a77ed3b0483b09d72f18bf2adbae59a498b8a6d386ac6",
+      "published_sha256": "3af218ce4ccc10df6e3294f8b6132ba25aa689fb80330dd72c24f37ffd9d4cde",
+      "original_path": "docs/benchmark/benchmark_manifest.template.json"
+    },
+    {
+      "path": "benchmarks/manifests/artifact_reverification.json",
+      "original_sha256": "7a4fee80c6bb0f723ee17d607caa25a0bd78a2e750dd143e925c468dc9990181",
+      "published_sha256": "f135347c7d98ca5e8f888569d75c3bdaad55f329b8854a266788703e060af940",
+      "original_path": "docs/benchmark/phase3_artifact_reverification.json"
+    },
+    {
+      "path": "benchmarks/manifests/checkpoint_reproduction.json",
+      "original_sha256": "6b7134a48aec2bfc89cdbb7a14d90644015a5cf750de55df5656b0ee98bcf9dc",
+      "published_sha256": "b6bff13507ab821a78d16b197104efbdc6c5c0133d7c54abe20c105171bd4b1a",
+      "original_path": "docs/benchmark/phase3_checkpoint_reproduction.json"
+    },
+    {
+      "path": "benchmarks/manifests/exact_geometry_reproduction.json",
+      "original_sha256": "a35d031be8bac9aa1ac6cd522bd8c6d91a86c7904e7631c724ba78d014995147",
+      "published_sha256": "5240053a024eaf396de6b023a36a54b2a984d39f9923f92a223c22050a61ea91",
+      "original_path": "docs/benchmark/phase3_exact_geometry_reproduction.json"
+    },
+    {
+      "path": "benchmarks/manifests/exterior_seed_reproduction.json",
+      "original_sha256": "c4211ec4e8372d9af26b302764cee5df1564f1538918719d2b5c49e247655788",
+      "published_sha256": "49c49da5e947ef040e0559f92899232a8b1ef0b1a557452922f0bf251cdf3ed2",
+      "original_path": "docs/benchmark/phase3_exterior_seed_reproduction.json"
+    },
+    {
+      "path": "benchmarks/manifests/geometry_correctness_reproduction.json",
+      "original_sha256": "298c8b1928eab329b34c5acf77c0319917e83078b0034a3f92f55bed7a7bec3a",
+      "published_sha256": "0a308a1a60012c45a046fee9a3dc15c7a14478a83cb4e4ff8a6b255380d4607b",
+      "original_path": "docs/benchmark/phase3_geometry_correctness_reproduction.json"
+    },
+    {
+      "path": "benchmarks/manifests/partial_cells_controlled.json",
+      "original_sha256": "d641b391c1a64e6ceef7a4417834db3d6ba791d97b6ea231d2d1e81a06b9f954",
+      "published_sha256": "d3f5bdcf6ab59f9d8c3451e47f73750c87352f9209cafad50680b72c96d3b449",
+      "original_path": "docs/benchmark/phase3_partial_cells_controlled.json"
+    },
+    {
+      "path": "benchmarks/manifests/partial_cells_reproduction.json",
+      "original_sha256": "b484740c9a87a133f5eb334297b57c5dd54191dff101703bdfc52da9358a27db",
+      "published_sha256": "0eb0ea80969eeb501489fba7d8ec29a2176e4179e9dd8fee19594f68066ae3f9",
+      "original_path": "docs/benchmark/phase3_partial_cells_reproduction.json"
+    },
+    {
+      "path": "benchmarks/manifests/residual_wall_reproduction.json",
+      "original_sha256": "d2cd73ddc3b10ac6f2d42c668b88368a45bafd5b5d91fa147e64fb7fcf2d9d76",
+      "published_sha256": "99a1c1df8220f0a7620f6094ecef02b9a3a6af32c20d0cfe4ddc1bfce2defcff",
+      "original_path": "docs/benchmark/phase3_residual_wall_reproduction.json"
+    },
+    {
+      "path": "benchmarks/manifests/supplied_geometry_reproduction.json",
+      "original_sha256": "f8c29622fd8b48fdf0fd4032dbb422827ce0df5aea4decf3261519fcda5c140d",
+      "published_sha256": "164081b5d5e47ed98346dadfb5ebd972bd7f58a5d30ed74b7324192e766a33b8",
+      "original_path": "docs/benchmark/supplied_geometry_reproduction.json"
+    },
+    {
+      "path": "benchmarks/manifests/supplied_video_auto72_cache.capture.json",
+      "original_sha256": "8ab470798b58058856feb13540084c5a7d11f65a1c078f6cef9b01b89446bc7f",
+      "published_sha256": "8ab470798b58058856feb13540084c5a7d11f65a1c078f6cef9b01b89446bc7f",
+      "original_path": "docs/benchmark/supplied_video_auto72_cache.capture.json"
+    },
+    {
+      "path": "benchmarks/manifests/supplied_video_sampling_reproduction.json",
+      "original_sha256": "0e91927b7f8bd212acaa4e32afc95514cabfd57fb0c044680e6b5d8c9e0484f9",
+      "published_sha256": "5612ad7498a4af3a636cde07957f7b9c0ef5c05891e9b4e7540368a31984a9d6",
+      "original_path": "docs/benchmark/supplied_video_sampling_reproduction.json"
+    },
+    {
+      "path": "benchmarks/manifests/supplied_video_shared72.capture.json",
+      "original_sha256": "0d308648a8be2edc33fc66507b4a334f5cc8389708ff8e1596d4140314601caa",
+      "published_sha256": "0d308648a8be2edc33fc66507b4a334f5cc8389708ff8e1596d4140314601caa",
+      "original_path": "docs/benchmark/supplied_video_shared72.capture.json"
+    },
+    {
+      "path": "benchmarks/manifests/supplied_video_shared72_reproduction.json",
+      "original_sha256": "514bd5316f72f97a3e45090a3867528fab168dbd1154715c5361f8512be111bd",
+      "published_sha256": "10025879179eadb9ccfc35e87f98e61d1c0ad3fca41b21f4866cc901a0f53a3c",
+      "original_path": "docs/benchmark/supplied_video_shared72_reproduction.json"
+    },
+    {
+      "path": "benchmarks/manifests/synchronized_supplied_reproduction.json",
+      "original_sha256": "001b86b682d0e9eecba002fb9d1003f3744681b335314b5a11aadb3d7f0554cf",
+      "published_sha256": "807307a701850d4af7ed4a7d4c880371e8e2cd6ec7af61db635cf7557198241f",
+      "original_path": "docs/benchmark/synchronized_supplied_reproduction.json"
+    },
+    {
+      "path": "benchmarks/manifests/final_state.json",
+      "original_sha256": "edf5ed11347786509fc728ad83bbdfa424cb1c0eba12b308cf61ceed1c9e4485",
+      "published_sha256": "a15405cd471a0fefe0fb172be48734e2be6b84459bec2ad67f6f94289afa9b1e",
+      "original_path": "docs/evidence/final_state.json"
+    },
+    {
+      "path": "docs/figures/architecture.svg",
+      "original_sha256": "0f859b684ee7a1a1f59f30ab9a76b218444b76180d5a79413169f583b19f0599",
+      "published_sha256": "89d53677232e27522eaf483373d8c070249b33835dc76fe3c70c7a1caa9d9e0e"
+    },
+    {
+      "path": "docs/figures/fix_loop.svg",
+      "original_sha256": "bd3e99bdfc25d8be0edfe6bac8f39d12130eb9eb0ff533b3cdb4453c8603abc6",
+      "published_sha256": "27b5918975a9391064df73447dcf0410acdb90064aee394a879c120801c81973"
+    },
+    {
+      "path": "docs/figures/rgbd_component_results.svg",
+      "original_sha256": "0c2402605f4ce7981f0d48c29233eacf42cdba720c2a692a1bea8a55b7396f41",
+      "published_sha256": "94b396500f7171bd3a3b3630733dd461960c572dba3742e662866da4c8057a80",
+      "original_path": "docs/figures/v2_results.svg"
+    },
+    {
+      "path": "docs/figures/validation.svg",
+      "original_sha256": "d22f750bf45ba347ccf990cea13258e10148a5e9ec85c687fbe914e96b40c62f",
+      "published_sha256": "63b9cc9e9e1c4664c0e48bc4e94ceeb3db33c8074ec93974779b4f6e9f253283"
+    },
+    {
+      "path": "docs/engineering/investigations/001_supported_cells.md",
+      "original_sha256": "0f221c302752f88dc6ba4fadacb509248898b23192a51508886c6116c314dbf7",
+      "published_sha256": "d402773dc136e30e8e4a4f2c99b9e3d586f0d9be5c156f38cbac70643add6f68",
+      "original_path": "docs/fixes/001_SUPPORTED_CELLS.md"
+    },
+    {
+      "path": "docs/engineering/investigations/002_sparse_photo_entry.md",
+      "original_sha256": "a31e0ae2a5ef842f6612d484793c3e1eef0bd173c00337e76dee43edc69bd040",
+      "published_sha256": "4955749b395c209c4408e3ae51a66f684800e1c566d743bfe5cee7482e582f80",
+      "original_path": "docs/fixes/002_SPARSE_PHOTO_ENTRY.md"
+    },
+    {
+      "path": "docs/engineering/investigations/003_sparse_overlap_trial.md",
+      "original_sha256": "5da3e39b4b12b3b8e176160987bd3f7bc72b6ddf8317d6984668b8502905e0ef",
+      "published_sha256": "5da3e39b4b12b3b8e176160987bd3f7bc72b6ddf8317d6984668b8502905e0ef",
+      "original_path": "docs/fixes/003_SPARSE_OVERLAP_TRIAL.md"
+    },
+    {
+      "path": "docs/engineering/investigations/004_matching_diagnostics.md",
+      "original_sha256": "1816363cdede4d9fb162103959ea73a6e8100ae0837729c6ccbfb9e7e99862fa",
+      "published_sha256": "1816363cdede4d9fb162103959ea73a6e8100ae0837729c6ccbfb9e7e99862fa",
+      "original_path": "docs/fixes/004_MATCHING_DIAGNOSTICS.md"
+    },
+    {
+      "path": "docs/engineering/investigations/005_repeatable_sfm.md",
+      "original_sha256": "d582bec2a29a1f2d0ae3c4c03f43874d3078bb4bcda2f988be348c3e7a24fed3",
+      "published_sha256": "d582bec2a29a1f2d0ae3c4c03f43874d3078bb4bcda2f988be348c3e7a24fed3",
+      "original_path": "docs/fixes/005_REPEATABLE_SFM.md"
+    },
+    {
+      "path": "docs/engineering/investigations/006_moge_metric_rgb_eval.md",
+      "original_sha256": "7722b7c6cae1806e9767e21cf52b0906a2934a3d1d9352e56a7e8a83ae086866",
+      "published_sha256": "6abaf2f72a3d04247ac993832d6ad7cc644765303ebd6c63e84e0fa8fa443f36",
+      "original_path": "docs/fixes/006_MOGE_METRIC_RGB_EVAL.md"
+    },
+    {
+      "path": "docs/engineering/investigations/007_walkin_output_coverage.md",
+      "original_sha256": "7a67fe5c88178a43ea8bcb056d069a00bcb46f9448b5ff76d12f3d2d53fc8537",
+      "published_sha256": "633343eab27fe9f771ca943448cfc2c513aa53a4de1ca3c40bdb7b804dda7f22",
+      "original_path": "docs/fixes/007_WALKIN_OUTPUT_COVERAGE.md"
+    },
+    {
+      "path": "docs/engineering/investigations/008_lightglue_photo_matching.md",
+      "original_sha256": "c18f750c4bb88730b3b934e85cf07ca8d681ac44475e566871e1d1ceefad98e7",
+      "published_sha256": "1fa71c382a9966568850c90f647987294e64652eeaec13f102bec7dc3931b371",
+      "original_path": "docs/fixes/008_LIGHTGLUE_PHOTO_MATCHING.md"
+    },
+    {
+      "path": "docs/engineering/investigations/009_two_view_geometry_classification.md",
+      "original_sha256": "6aab9614bb924095b310b6674da55e0c7631dbaed291c5f39d5039b5c3e2b49b",
+      "published_sha256": "7aac6dcfd4cdbaa213791596e84a4da8d2b8b591409d301065e50b12222fbb05",
+      "original_path": "docs/fixes/009_TWO_VIEW_GEOMETRY_CLASSIFICATION.md"
+    },
+    {
+      "path": "docs/engineering/investigations/010_three_room_stitch_chain.md",
+      "original_sha256": "08259bfbedf4410f56b9f7fabf0846f253fe120e722d5c76df83b538baf4d1e0",
+      "published_sha256": "79871b242fcb8d1da3bca59b5dab9c4f4b9e27ec9f7268adbab48f21c8e7c250",
+      "original_path": "docs/fixes/010_THREE_ROOM_STITCH_CHAIN.md"
+    },
+    {
+      "path": "docs/engineering/investigations/011_local_wall_support.md",
+      "original_sha256": "ab33e4dafa55dbe63c06018d95deacb7164cb1a7081950b7c3781dc7a7c87f7a",
+      "published_sha256": "16ea56097da5092be645d5bc7ba725ece38cbece6a62d3528d0a9688b2b886bf",
+      "original_path": "docs/fixes/011_LOCAL_WALL_SUPPORT.md"
+    },
+    {
+      "path": "docs/engineering/investigations/012_partial_cell_completeness.md",
+      "original_sha256": "f73fb69ea4b6d8bfa49fbcae99ec93b53189c4e429ce483063bd8b0e4f461d06",
+      "published_sha256": "f86cb1c1a819af678bb324fdc7d6caf134f083f06c1759ebbd494d1956ca54a8",
+      "original_path": "docs/fixes/012_PARTIAL_CELL_COMPLETENESS.md"
+    },
+    {
+      "path": "docs/engineering/investigations/013_floor_sample_wall_audit.md",
+      "original_sha256": "80cfdb0f445e71b7bc32177e3ad69a96efe0df89aaa6a38f459ef1a174da69a3",
+      "published_sha256": "eb122e228cefd30fc63e7dbaa2762bbb2d8ca902211052137aa2d2a4218dd1ce",
+      "original_path": "docs/fixes/013_FLOOR_SAMPLE_WALL_AUDIT.md"
+    },
+    {
+      "path": "docs/engineering/investigations/014_exterior_strip_sensor_trace.md",
+      "original_sha256": "10ab414868d36f29f7caf32784ed53a6208bb8b16c36e155d14f288ecbcd987e",
+      "published_sha256": "78374120e95b385882fe5640c1cb7df93eba107ee0091bc8461f1cce46bc774a",
+      "original_path": "docs/fixes/014_EXTERIOR_STRIP_SENSOR_TRACE.md"
+    },
+    {
+      "path": "docs/engineering/investigations/015_lower_adjoining_span_trace.md",
+      "original_sha256": "cbf5be6c8606242abefab0fa7bdd31bceae7dfba8ceeea8f192af42a46a5c7ee",
+      "published_sha256": "1956638368e5512acd600f788a1a122ceb2028f9d8ef215d76b1356f0f286b9f",
+      "original_path": "docs/fixes/015_LOWER_ADJOINING_SPAN_TRACE.md"
+    },
+    {
+      "path": "docs/engineering/investigations/016_rgb_video_bridge_trial.md",
+      "original_sha256": "fb4a739f1fe6e20d51d53814bef4e07d55b51179a61548064edfc471f4ec9128",
+      "published_sha256": "8b2ad1968e40bb26b958be35bcc56a9ac16575050343a192c1a629e412571a48",
+      "original_path": "docs/fixes/016_RGB_VIDEO_BRIDGE_TRIAL.md"
+    },
+    {
+      "path": "docs/engineering/investigations/017_disk_lightglue_transition.md",
+      "original_sha256": "92eaff47ef98ebf82c118818d019f464507614096953dbfb549b64dee02ed213",
+      "published_sha256": "971ec2851f80ed9b7109fedf20ec33ea160edde3ac4ca43dd46b05b90465805f",
+      "original_path": "docs/fixes/017_DISK_LIGHTGLUE_TRANSITION.md"
+    },
+    {
+      "path": "docs/engineering/investigations/018_transition_track_safety.md",
+      "original_sha256": "6769dbd4fda0c21ee8725b1d697693f1a53484822903b3f5b8671d26a21bd880",
+      "published_sha256": "1781d5fe02e2b14f0720c3cead46f254dba470f0d5b8e9ed885d18625d1f9172",
+      "original_path": "docs/fixes/018_TRANSITION_TRACK_SAFETY.md"
+    },
+    {
+      "path": "docs/engineering/investigations/019_rgb_transition_context.md",
+      "original_sha256": "1e33a282dcd3ace5de61d190df5e1336f393a7d64ca39fb1878539a51dea6176",
+      "published_sha256": "ce7deccca38b451323bc752dc9709c3057ed77d5ef4c6dfa577a006574269094",
+      "original_path": "docs/fixes/019_RGB_TRANSITION_CONTEXT.md"
+    },
+    {
+      "path": "docs/engineering/investigations/020_xfeat_lighterglue_context.md",
+      "original_sha256": "1dbd5997ed9d9adeb85fd0b0d69cf3d38c30bfbf83c5350287a90164c1fd8105",
+      "published_sha256": "f6baeaed8c86e51c12d71bc1abbafef6ddb07c8a61f89478e5f97dd984911ed9",
+      "original_path": "docs/fixes/020_XFEAT_LIGHTERGLUE_CONTEXT.md"
+    },
+    {
+      "path": "docs/engineering/investigations/021_transition_odometry_audit.md",
+      "original_sha256": "9b3be82d8be4d905694bd040978eaa66282a8ba1f4247a79a7e83e77d76f44ae",
+      "published_sha256": "420d1fc782dbff06a1fdc8bf12c592309c5910eab444acd95c7aafaa951f6072",
+      "original_path": "docs/fixes/021_TRANSITION_ODOMETRY_AUDIT.md"
+    },
+    {
+      "path": "docs/engineering/investigations/022_fixed_intrinsics_control.md",
+      "original_sha256": "0c7ea869a908a7143b467e0a2018bdb0c2aaf0bb23d91915aa799449a026e4ed",
+      "published_sha256": "ca4e4edc22ef33b8c33edf814a5e8d90b7427aec60053124eea89781467a2297",
+      "original_path": "docs/fixes/022_FIXED_INTRINSICS_CONTROL.md"
+    },
+    {
+      "path": "docs/engineering/investigations/023_mapping_only_fixed_intrinsics.md",
+      "original_sha256": "f8fa982e63e2a743838861283236569c8795ef5a536b4af578f15fb90ec5ef35",
+      "published_sha256": "1c8d8634ffba0e8236f6b16ae177a19c1845cce7cbb4225437e45e926e566f9f",
+      "original_path": "docs/fixes/023_MAPPING_ONLY_FIXED_INTRINSICS.md"
+    },
+    {
+      "path": "docs/engineering/investigations/024_late_landmark_support_audit.md",
+      "original_sha256": "cd0049d27411bdaede671260607c4fdc3a5517297c48c40388797f79263200ec",
+      "published_sha256": "26ebd288e33ce82dcdecce3e9ee4aa7e3576fbc93bf64cc9e747e39030bb2a51",
+      "original_path": "docs/fixes/024_LATE_LANDMARK_SUPPORT_AUDIT.md"
+    },
+    {
+      "path": "docs/engineering/investigations/025_native_registration_snapshots.md",
+      "original_sha256": "03df243a93af54d7dbd0e18f55b181392a520c4931af81aaa89bc48334866bec",
+      "published_sha256": "25d9939f36e105d080ceafb7b5f2981765e0d728becddc1583b4205608992b8b",
+      "original_path": "docs/fixes/025_NATIVE_REGISTRATION_SNAPSHOTS.md"
+    },
+    {
+      "path": "docs/engineering/investigations/026_native_registration_stage.md",
+      "original_sha256": "cc12e1d7541223e89654ec92c92df48d53f7b10ebfd4f0c3ea9e54e31b7deea5",
+      "published_sha256": "2092e294c22a2ad72362e42f575921760048b72af1ba4cca3409321620e208db",
+      "original_path": "docs/fixes/026_NATIVE_REGISTRATION_STAGE.md"
+    },
+    {
+      "path": "docs/engineering/investigations/027_registration_support_audit.md",
+      "original_sha256": "97f2c5d97ddcbb3b42bc0c6173934a952a2ad043a67bd7d7d027a18ef49a0655",
+      "published_sha256": "9314c184deaebbf9f7b7a17bd5968d353271b97636bc433f3a66ee9009f8eff1",
+      "original_path": "docs/fixes/027_REGISTRATION_SUPPORT_AUDIT.md"
+    },
+    {
+      "path": "docs/engineering/investigations/028_final_frame31_replay.md",
+      "original_sha256": "85465739babae379dc556ffbec46a3ba53689f90db394c27c66efe46c1eccb52",
+      "published_sha256": "e459b97caecbee8479c470cb23d540bf7efa9210dee4fccd26be304cc5275045",
+      "original_path": "docs/fixes/028_FINAL_FRAME31_REPLAY.md"
+    },
+    {
+      "path": "docs/engineering/investigations/029_lidar_floor_sampling_control.md",
+      "original_sha256": "e0d0ef3ebb29f8cad6f86044ae65d6dea1a32465d59ad2ffee4a8fb9a0adc2a2",
+      "published_sha256": "813a4fc6e70e63f43d329f4b98d42dfbb2ac0baa8c6973d04173823e1c105f13",
+      "original_path": "docs/fixes/029_LIDAR_FLOOR_SAMPLING_CONTROL.md"
+    },
+    {
+      "path": "docs/engineering/investigations/030_ceiling_boundary_sensor_audit.md",
+      "original_sha256": "85fb974fb576f262bc3ac27c95f2fd20e32212ead0aa7e7c4b5607d81f85cfd7",
+      "published_sha256": "42962c0f8501705ea2ae9872094abc7f52e4fb1ba31eaeb278a6b2d7edefa94a",
+      "original_path": "docs/fixes/030_CEILING_BOUNDARY_SENSOR_AUDIT.md"
+    },
+    {
+      "path": "docs/engineering/investigations/031_observed_ceiling_decision_trace.md",
+      "original_sha256": "c1cc0e8c2866f7b729d8b189a7d30308f033b3512bcf9800beed4a008fb62c0a",
+      "published_sha256": "f992890576ce5b7cc16d7e8828740dbfa51e510b296edcc13e6258fbbef24fda",
+      "original_path": "docs/fixes/031_OBSERVED_CEILING_DECISION_TRACE.md"
+    },
+    {
+      "path": "docs/engineering/investigations/032_room_floor_source_support_audit.md",
+      "original_sha256": "e3142b9c331ca9d85e6aa7dbfd1f75c1835777e8e7c0d52abeea4e2ffec9318e",
+      "published_sha256": "e93244792b3f4c48a87a34d0d219d0901204e8e71d0fa905ca68fe33a0b2ac0c",
+      "original_path": "docs/fixes/032_ROOM_FLOOR_SOURCE_SUPPORT_AUDIT.md"
+    },
+    {
+      "path": "benchmarks/results/arkit_development_reference_evaluation.json",
+      "original_sha256": "3636a62eb658dab1e18f3b53bd5f67b46b4efbf31d18a23a872df8169e80227b",
+      "published_sha256": "ee1c51b82e2269bbb90d2773eb1b0bf4cb9d6fa91340da0a58abe64a4a01dee0",
+      "original_path": "docs/results/arkit_development_reference_evaluation.json"
+    },
+    {
+      "path": "benchmarks/results/benchmark_summary.json",
+      "original_sha256": "0ab1d58952b38ea2e5c2115de62b0f33a8f7d42044072935a8783be2b439d1dd",
+      "published_sha256": "4c1cded217f51f405804badacdf17837b0cd71f1814ba4ca96fdd9638ab60a6c",
+      "original_path": "docs/results/benchmark_summary.json"
+    },
+    {
+      "path": "benchmarks/results/supplied_metric_depth_small.json",
+      "original_sha256": "f98f16ec5964dda0d27c2f637e9517e5b423e89f4fbe21f9ff825307eb6921af",
+      "published_sha256": "b66d21a1e27badd05816f30a063bdb24b9498bb08cf004a554de92e7f9537440",
+      "original_path": "docs/results/given_metric_depth_small.json"
+    },
+    {
+      "path": "benchmarks/results/supplied_pose_ablation.json",
+      "original_sha256": "65d12c05168737795d3ff5a635af40802cea1fd8d80b617349037318dbd2012f",
+      "published_sha256": "246f3690dda1e5ee1e1ff3a0b27cd12d979724466872586ba95f6cb60d5dc9f6",
+      "original_path": "docs/results/given_pose_ablation.json"
+    },
+    {
+      "path": "benchmarks/results/adjoining_span_summary.json",
+      "original_sha256": "be63a8e2ac3e19cf633dfbcfa5d5e57e00c53159cb06a982eb6f15e086a685f1",
+      "published_sha256": "e485026efbe9171252c47071d0d1c0daae403345f05e9bd89b63b62a7e012f5b",
+      "original_path": "docs/results/phase3_adjoining_span_summary.json"
+    },
+    {
+      "path": "benchmarks/results/ceiling_boundary_summary.json",
+      "original_sha256": "4141ea185a6285a03a5a9ef76a7a7ab7c36c35922fad64eb1a8cb498694d5fd5",
+      "published_sha256": "6a52f66a60e31ecd9337c8648542b9ddedc9f7fe72c17a521fb556503499970e",
+      "original_path": "docs/results/phase3_ceiling_boundary_summary.json"
+    },
+    {
+      "path": "benchmarks/results/exterior_strip_summary.json",
+      "original_sha256": "36f7834ea598e56747bca8e6f3ba2f986dc2f028c6ffc057fd8cffde02c8b3c7",
+      "published_sha256": "2c8fa8360a8df9fdb2b783d46645c2a5f6652d79baf0d895b7998879d9c43585",
+      "original_path": "docs/results/phase3_exterior_strip_summary.json"
+    },
+    {
+      "path": "benchmarks/results/fixed_intrinsics_summary.json",
+      "original_sha256": "8be3cd26e71ef0c335dfd6b4a3a6c6678e3cedfb658212037568516ca3c7de71",
+      "published_sha256": "a943f81f21c780ac0a8449009d065cd2893f2e1f08180f0b11fc1cd2d5e37e13",
+      "original_path": "docs/results/phase3_fixed_intrinsics_summary.json"
+    },
+    {
+      "path": "benchmarks/results/floor_wall_audit_summary.json",
+      "original_sha256": "f50e6ce9d66e54b5fd61c1651ddcc3a31c1f0c93acae6603830475683ec5a789",
+      "published_sha256": "0d30305e4794561b32bf2b4617b0883fb2dd9a8b85eb392bd2b915da0d5dee58",
+      "original_path": "docs/results/phase3_floor_wall_audit_summary.json"
+    },
+    {
+      "path": "benchmarks/results/frame31_final_summary.json",
+      "original_sha256": "e435986160ef359100210eb0b9352bedc54277daa65b1b2da82bf470e106be77",
+      "published_sha256": "c4dfde7cdc4aa3bfc41c9e2f96b8e3de767fcca71a7bd354a4fe203e06fa5652",
+      "original_path": "docs/results/phase3_frame31_final_summary.json"
+    },
+    {
+      "path": "benchmarks/results/late_landmarks_summary.json",
+      "original_sha256": "761f32d2d05bbc3a171672dbc0b77ffb071212babbce76893fae9c1d3d95960d",
+      "published_sha256": "01c9091a9e8c5cc1954ea466389d790064ff392305db50d413ac3135de25cd86",
+      "original_path": "docs/results/phase3_late_landmarks_summary.json"
+    },
+    {
+      "path": "benchmarks/results/lidar_sampling_summary.json",
+      "original_sha256": "4b3cfc3e712579406beddd9619aaf5ed70fbf60cd0483d7f4f7d342c797454d2",
+      "published_sha256": "a3fe1940868b50159641b077e5152614d515cb91267f72a3d42d7ad9e1c1a9b0",
+      "original_path": "docs/results/phase3_lidar_sampling_summary.json"
+    },
+    {
+      "path": "benchmarks/results/mapping_only_summary.json",
+      "original_sha256": "400c174d910606e449d6cd34586b56153999258e8de2e2c6696cf0d49317f9cc",
+      "published_sha256": "4b55b784a5d03a4c6b5602129c69024fff2518905741dcdad24874a226e22594",
+      "original_path": "docs/results/phase3_mapping_only_summary.json"
+    },
+    {
+      "path": "benchmarks/results/observed_ceiling_summary.json",
+      "original_sha256": "bee7b83b50c1e18b3932da7b1ba6d44d6183f052486b4df342c29b60b0e23f1e",
+      "published_sha256": "d1cd59044239acb5c3da94d89bfbf46a887d16d9a25e1394cda297b52dc8e98d",
+      "original_path": "docs/results/phase3_observed_ceiling_summary.json"
+    },
+    {
+      "path": "benchmarks/results/partial_cells_summary.json",
+      "original_sha256": "f05bde08fc389c5549d31b67d6be74d92d46901584cfc6d4fa574d33aae456a0",
+      "published_sha256": "36d50405fe47f8fb89b458664b5961ea29cd4c6d3e29d4ead67675c0f91ca9c3",
+      "original_path": "docs/results/phase3_partial_cells_summary.json"
+    },
+    {
+      "path": "benchmarks/results/registration_snapshots_summary.json",
+      "original_sha256": "918f5f0b3d08d4f1cd4f7ffcca4738f3dfc79b2da4c3848f1712cdf0b4d2d215",
+      "published_sha256": "602cccae008299425381c8899fd38020baebce86f5d9d03cdd97f7c9bc92dea4",
+      "original_path": "docs/results/phase3_registration_snapshots_summary.json"
+    },
+    {
+      "path": "benchmarks/results/registration_stage_summary.json",
+      "original_sha256": "911b219190e026cbde95caeae693de9365a677e888f52eb0a9f6654a69e68742",
+      "published_sha256": "9da10be8f61bb417cc433555eb3d28d7428bf757806d0aee82889c5cbdcbcf8e",
+      "original_path": "docs/results/phase3_registration_stage_summary.json"
+    },
+    {
+      "path": "benchmarks/results/registration_support_summary.json",
+      "original_sha256": "f894c8f1fe3c70544165f0c5a8599318ed123c0aaece64d6f25b24e30dd80226",
+      "published_sha256": "6b13a685ad423f923cf2253ec871d82879384a940bb140448c7f66e8b4c96d8e",
+      "original_path": "docs/results/phase3_registration_support_summary.json"
+    },
+    {
+      "path": "benchmarks/results/room_floor_support_summary.json",
+      "original_sha256": "6d3855b782ce7bb23d72db516608ce15e4b7d0d69f12b94c1e308f68997b0c32",
+      "published_sha256": "78bd856f48aed7c59052dbcc481856c50ff8328bc6fb4c49afb2010520bba08b",
+      "original_path": "docs/results/phase3_room_floor_support_summary.json"
+    },
+    {
+      "path": "benchmarks/results/transition_context_summary.json",
+      "original_sha256": "d8242d752874598ec708b8b67a1a05c3cb096b4a7a7b1326aecfa214dbeb98f0",
+      "published_sha256": "2151dc4a947cd7b8891fde841258144bbfff10d32d7cde27cc4d31daa6314fb6",
+      "original_path": "docs/results/phase3_transition_context_summary.json"
+    },
+    {
+      "path": "benchmarks/results/transition_matcher_summary.json",
+      "original_sha256": "33480a1426c9a98d6f1134a540466f56797d491b629747eef79584bb967d020d",
+      "published_sha256": "de9967f732f542910d91d46937560a6e0cd595e4d6c218e1a38d1f3029069f02",
+      "original_path": "docs/results/phase3_transition_matcher_summary.json"
+    },
+    {
+      "path": "benchmarks/results/transition_odometry_summary.json",
+      "original_sha256": "6728071139596bfdea6370e9a59674b07062796cfe1d067f9bae4e78a8291369",
+      "published_sha256": "85d6022f61810966bc0af5e48954e645feae850aa8877b5820423d3089e8e765",
+      "original_path": "docs/results/phase3_transition_odometry_summary.json"
+    },
+    {
+      "path": "benchmarks/results/transition_track_safety_summary.json",
+      "original_sha256": "57ec0b1e3e081ed64be98922571f79ed5e704565019e72349fa49373a1d210a3",
+      "published_sha256": "8c3ba76c50f5d6dbac668b0c28280ad7c8a15571493c7b56bd16c59e61228251",
+      "original_path": "docs/results/phase3_transition_track_safety_summary.json"
+    },
+    {
+      "path": "benchmarks/results/video_bridge_summary.json",
+      "original_sha256": "5686b0feb3831ab75d5087895517c0dab0f3284e93880947c16b96c99278651a",
+      "published_sha256": "ddb164ad7d2070e16762346c000f3cda46e68576742565cc92c954c6d381f270",
+      "original_path": "docs/results/phase3_video_bridge_summary.json"
+    },
+    {
+      "path": "benchmarks/results/xfeat_context_summary.json",
+      "original_sha256": "e8df373445f5dc3ee7b3beb34e31f6df88b18b57e03f5ed2b453214c0ee22364",
+      "published_sha256": "a9f532729edf12cd41ee783afc3d72b9b78aaf63c1a902137ba555683235099d",
+      "original_path": "docs/results/phase3_xfeat_context_summary.json"
+    },
+    {
+      "path": "benchmarks/results/restoration_regression.json",
+      "original_sha256": "594449e6b5b262e045539fdec9e909c5ed2a43c1c60c6d78ad73bdc382c3388d",
+      "published_sha256": "eeafaf18827b225b6e41a276b8d31ba9b842c6ef43b741271e3dac7213f35489",
+      "original_path": "docs/results/restoration_v3_regression.json"
+    },
+    {
+      "path": "benchmarks/results/stitch_evaluation.json",
+      "original_sha256": "3025e3cc1ef4224c033ed75355bd77911db50350025af19accd00ecc79b6fca9",
+      "published_sha256": "3258edd68a184346b21f3980bd326abaab564d24fa798c35fbd9d32d6c0aacc4",
+      "original_path": "docs/results/stitch_evaluation.json"
+    },
+    {
+      "path": "benchmarks/results/rgbd_component_results.json",
+      "original_sha256": "5d118cc61523184b314eb67bbbd2baf1758e122a6621376c5a2b7e315504536b",
+      "published_sha256": "6a9b4492c007ab1f6e195588f1209cbbae3c06b1f2c65522b26dbd27d5687ce4",
+      "original_path": "docs/results/v2_results.json"
+    },
+    {
+      "path": "benchmarks/results/rgb_multiview_fixed_intrinsics_trajectory.json",
+      "original_sha256": "6a13740cd486acb219eca9da917c99542421e45f65aeb3850db15f9bca9d6de0",
+      "published_sha256": "4934b896a70e8276ae05049aba2691a61c04b2eb04a1020e6c5d52f42bd9ccb4",
+      "original_path": "docs/results/v3_fixed_trajectory.json"
+    },
+    {
+      "path": "benchmarks/results/rgb_multiview_original_trajectory.json",
+      "original_sha256": "ce351fc7039b93dea8003494c27bed16c6f88ed0afbea7ca0779eb54c9ca3df8",
+      "published_sha256": "e42813ed91aaf970ba06f477482e80eebd472ac87869bded2a8d154234f45aa7",
+      "original_path": "docs/results/v3_original_trajectory.json"
+    },
+    {
+      "path": "benchmarks/results/multiview_component_results.json",
+      "original_sha256": "3b4d99cc7e65ad5af8be2ca38f37a4850338b2472baf9359ef819eb88e8a37e8",
+      "published_sha256": "de14eafa4066787016fa334ae06745467c457e4debcd0969a7c1f42405ebd728",
+      "original_path": "docs/results/v3_results.json"
+    },
+    {
+      "path": "benchmarks/results/rgb_multiview_unique_texture_trajectory.json",
+      "original_sha256": "79bb37deefac19521bb61c802d059a52c8062783b54ef575af7191b8fafe6cd2",
+      "published_sha256": "7cc328e2dcecc1837b4a4b76d4f42997558c07cfc2371af5800041abb72ef2ab",
+      "original_path": "docs/results/v3_unique_texture_trajectory.json"
+    },
+    {
+      "path": "requirements.txt",
+      "original_sha256": "8efcd43a0a09632d89efc4e4761defa9e13d5405db70338b4431cdf27470c0e0",
+      "published_sha256": "203df3589b92af5f7d24c0c7c1a5cc5a93ccdd35942c476c95c7434b7f98e29b"
+    }
+  ]
+}

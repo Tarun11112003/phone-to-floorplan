@@ -39,7 +39,7 @@ Q 3.71424 23.372797 3.71424 23.83581
 L 3.71424 97.917835
 Q 3.71424 98.380848 6.570238 98.380848
 z
-" clip-path="url(#p49777317a2)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p6a024e1d1c)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 149.370142 98.380848
@@ -52,7 +52,7 @@ Q 146.514144 23.372797 146.514144 23.83581
 L 146.514144 97.917835
 Q 146.514144 98.380848 149.370142 98.380848
 z
-" clip-path="url(#p49777317a2)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p6a024e1d1c)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 292.170046 98.380848
@@ -65,7 +65,7 @@ Q 289.314048 23.372797 289.314048 23.83581
 L 289.314048 97.917835
 Q 289.314048 98.380848 292.170046 98.380848
 z
-" clip-path="url(#p49777317a2)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p6a024e1d1c)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 434.96995 98.380848
@@ -78,7 +78,7 @@ Q 432.113952 23.372797 432.113952 23.83581
 L 432.113952 97.917835
 Q 432.113952 98.380848 434.96995 98.380848
 z
-" clip-path="url(#p49777317a2)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p6a024e1d1c)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 577.769854 98.380848
@@ -91,7 +91,7 @@ Q 574.913856 23.372797 574.913856 23.83581
 L 574.913856 97.917835
 Q 574.913856 98.380848 577.769854 98.380848
 z
-" clip-path="url(#p49777317a2)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p6a024e1d1c)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #183545" transform="translate(49.644819 58.154166)">Failed gate</text>
@@ -155,7 +155,7 @@ L 570.567047 62.916822
   </g>
  </g>
  <defs>
-  <clipPath id="p49777317a2">
+  <clipPath id="p6a024e1d1c">
    <rect x="3.00024" y="3.00024" width="713.99952" height="115.753165"/>
   </clipPath>
  </defs>

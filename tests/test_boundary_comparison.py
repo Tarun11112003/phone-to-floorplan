@@ -3,7 +3,7 @@ import json
 import pytest
 
 from floorplan.provenance import sha256
-from scripts.compare_boundary_runs import compare
+from scripts.evaluation.compare_boundary_runs import compare
 
 
 def runs(tmp_path):

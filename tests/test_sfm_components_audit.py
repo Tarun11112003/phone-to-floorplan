@@ -1,6 +1,6 @@
 import pytest
 
-from scripts.audit_sfm_components import connected_components
+from scripts.diagnostics.audit_sfm_components import connected_components
 
 
 def test_pair_graph_keeps_isolated_images_and_transitive_components():

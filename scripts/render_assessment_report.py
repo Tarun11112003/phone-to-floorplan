@@ -14,7 +14,7 @@ import textwrap
 
 
 def validate_evidence(root: Path) -> None:
-    manifest = json.loads((root / 'docs/evidence/final_state.json').read_text(encoding='utf-8'))
+    manifest = json.loads((root / 'benchmarks/manifests/final_state.json').read_text(encoding='utf-8'))
     for record in manifest['evidence'].values():
         raw = (root / record['source']).read_bytes()
         if hashlib.sha256(raw).hexdigest() != record['sha256']:
@@ -39,7 +39,7 @@ def render(root: Path, out: Path) -> dict:
     if out.exists() and any(out.iterdir()):
         raise FileExistsError('Report output must be fresh')
     validate_evidence(root)
-    parts = re.split(r'<!-- PAGE \d+ -->', (root / 'docs/TECHNICAL_REPORT.md').read_text(encoding='utf-8'))[1:]
+    parts = re.split(r'<!-- PAGE \d+ -->', (root / 'docs/technical_report.md').read_text(encoding='utf-8'))[1:]
     if len(parts) != 5:
         raise ValueError('The canonical report must contain exactly five declared pages')
     out.mkdir(parents=True, exist_ok=True)
@@ -143,7 +143,7 @@ def render(root: Path, out: Path) -> dict:
             fig.text(.075, .957, 'PHONE TO FLOORPLAN', fontsize=10, color=blue, weight='bold')
             fig.text(.075, .932, 'Final development state · Physical acceptance not demonstrated',
                      fontsize=8.3, color=muted)
-            fig.text(.075, .035, 'Source fields and SHA-256: docs/evidence/final_state.json · Details: docs/INDEX.md',
+            fig.text(.075, .035, 'Evidence: benchmarks/manifests/final_state.json · Documentation: docs/README.md',
                      fontsize=7.2, color=muted)
             fig.text(.925, .035, f'{number} / 5', fontsize=8.5, ha='right', color=muted)
             blocks = re.split(r'\n\s*\n', part.strip())

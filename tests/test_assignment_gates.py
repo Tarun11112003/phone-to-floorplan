@@ -65,8 +65,8 @@ def test_assignment_photo_and_video_relative_wall_gates_diverge():
 
 def test_old_v3_artifact_fails_full_assignment_contract():
     root=Path(__file__).resolve().parents[1]
-    plan=json.loads((root/'tests/fixtures/legacy_v3_plan.json').read_text(encoding='utf-8'))
-    truth=json.loads((root/'tests/fixtures/legacy_v3_reference.json').read_text(encoding='utf-8'))
+    plan=json.loads((root/'tests/fixtures/legacy_multiview_plan.json').read_text(encoding='utf-8'))
+    truth=json.loads((root/'tests/fixtures/legacy_multiview_reference.json').read_text(encoding='utf-8'))
     result=evaluate_assignment(plan,truth,'photos')
     assert result['ceiling']['gate']=='fail'
     assert result['intervals']['gate']=='fail'

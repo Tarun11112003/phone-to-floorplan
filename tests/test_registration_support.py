@@ -2,7 +2,7 @@ from types import SimpleNamespace
 
 import numpy as np
 import pytest
-from scripts.audit_registration_support import (accepted_associations,collect_candidates,
+from scripts.diagnostics.audit_registration_support import (accepted_associations,collect_candidates,
     fixed_sensor_motion_projection,projection,sensor_ray_point,track_identity_conflicts)
 
 

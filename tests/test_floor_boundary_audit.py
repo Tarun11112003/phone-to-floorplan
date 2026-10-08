@@ -1,5 +1,5 @@
 from shapely.geometry import LineString
-from scripts.audit_floor_boundary import enclosure
+from scripts.diagnostics.audit_floor_boundary import enclosure
 
 
 def walls(left_end=3.,width=2.,height=3.):

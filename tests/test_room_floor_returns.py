@@ -4,7 +4,7 @@ import pytest
 from shapely.geometry import Point, Polygon
 
 from floorplan import layout
-from scripts.audit_room_floor_returns import (aggregate_into, cell_keys, clipped_coverage,
+from scripts.diagnostics.audit_room_floor_returns import (aggregate_into, cell_keys, clipped_coverage,
     finish_aggregate, fusion_lineage, pixel_masks, raw_calibration, summarize_frame, support_mask)
 
 

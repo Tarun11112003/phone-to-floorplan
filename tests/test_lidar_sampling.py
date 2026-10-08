@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from scripts.experimental_lidar_sampling import compare_rooms, rooms_in_source_frame, sample_depth
+from scripts.experiments.experimental_lidar_sampling import compare_rooms, rooms_in_source_frame, sample_depth
 
 
 def test_stride4_adds_valid_pixels_without_removing_stride8_evidence():
