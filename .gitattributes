@@ -7,3 +7,7 @@ docs/specification/applied_ai.html -text
 *.jpg -text
 README.md text eol=lf
 datasets/reference_acquisition.json text eol=lf
+
+# Public dataset evidence must hash identically across platforms.
+datasets/**/*.md text eol=lf
+datasets/tum_freiburg1_room/groundtruth.txt text eol=lf

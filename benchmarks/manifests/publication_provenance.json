@@ -5,7 +5,8 @@
     "Unnecessary report/development dates removed",
     "Neutral labels for researched alternatives",
     "Canonical LF publication newlines for Git/archive hash consistency; original hashes remain recorded",
-    "Descriptive submission paths; four engineering ledgers consolidated; personal planning records excluded. Original paths/hashes retained."
+    "Descriptive submission paths; four engineering ledgers consolidated; personal planning records excluded. Original paths/hashes retained.",
+    "Explicit LF checkouts for tracked dataset text evidence; sensor values/timestamps unchanged."
   ],
   "files": [
     {
@@ -16,12 +17,12 @@
     {
       "path": "datasets/FLOORNET_SOURCE.md",
       "original_sha256": "aa26c3e33f606c529918f15d648df899ccb84d527473b6f01f4e32bf8f94f3d9",
-      "published_sha256": "588e049e07ecbbe6c64075be793cff740a2cfaed0d8bfa374a6513741262a041"
+      "published_sha256": "aa26c3e33f606c529918f15d648df899ccb84d527473b6f01f4e32bf8f94f3d9"
     },
     {
       "path": "datasets/icl_nuim/SOURCE.md",
       "original_sha256": "4f132e77911d3f9361a2cdbdf279e593c6218161d92d96c467b3d573d70f7c8f",
-      "published_sha256": "93ad5edde1d368ec554fb532b3c0870f810456391cc6877c6bd5a8b59b2eb84a"
+      "published_sha256": "4f132e77911d3f9361a2cdbdf279e593c6218161d92d96c467b3d573d70f7c8f"
     },
     {
       "path": "datasets/reference_acquisition.json",
@@ -31,7 +32,7 @@
     {
       "path": "datasets/tum_freiburg1_room/SOURCE.md",
       "original_sha256": "1db28024a706aab081c420828ea19ed18393ee9afa88d6e7e9383ab196c035c7",
-      "published_sha256": "4c666f4323e6d75fe25c96547acc1734b6b0fca05f04626d29ab1847aaceb6d6"
+      "published_sha256": "1db28024a706aab081c420828ea19ed18393ee9afa88d6e7e9383ab196c035c7"
     },
     {
       "path": "datasets/tum_freiburg1_room/groundtruth.txt",
@@ -218,7 +219,7 @@
     {
       "path": "docs/attribution/README.md",
       "original_sha256": "6b6470b4f068b5f27e3c530e42ace504794ac1c3880281ff982293355ddac95e",
-      "published_sha256": "fd58b993092ef518d8af1f0d772275dbf6352c26099228822900f31aafabf141"
+      "published_sha256": "54bcd724320b20d7f01dbd18c0e3b991486948ceeb25686cf09b6c336416169d"
     },
     {
       "path": "docs/attribution/XFeat-LICENSE.txt",
