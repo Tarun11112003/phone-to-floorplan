@@ -1,0 +1,16 @@
+# Versions observed in the existing Python 3.12 CPU environment.
+# Reproducible setup is tested separately; these pins alone do not prove <15min.
+numpy==2.5.3
+Pillow==12.3.0
+pillow-heif==1.8.0
+Shapely==2.1.2
+ezdxf==1.4.4
+imageio-ffmpeg==0.6.0
+jsonschema==4.26.0
+pytest==9.1.1
+pycolmap==4.2.1
+opencv-python-headless==5.0.0.93
+open3d==0.19.0
+scipy==1.18.1
+psutil==7.2.2
+matplotlib==3.11.2

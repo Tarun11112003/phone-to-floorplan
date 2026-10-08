@@ -109,6 +109,11 @@ separate requirements.
 & .\.venv\Scripts\python.exe -m pytest -q
 ```
 
+In an activated Python 3.12 virtual environment, dependencies can also be
+installed using `python -m pip install -r requirements.txt`. The root file reuses
+the [observed Windows CPU pins](requirements/windows-cpu.txt); experimental
+models and OpenMVS remain separate prerequisites.
+
 Supplied sensor-case review, using a **fresh output directory**:
 
 ```powershell

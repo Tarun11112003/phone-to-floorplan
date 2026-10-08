@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="720pt" height="122.4pt" viewBox="0 0 720 122.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-08T06:11:11.551470</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 122.4 
+L 720 122.4 
+L 720 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 6.570238 59.337608 
+L 174.360125 59.337608 
+Q 177.216123 59.337608 177.216123 58.87201 
+L 177.216123 9.984211 
+Q 177.216123 9.518613 174.360125 9.518613 
+L 6.570238 9.518613 
+Q 3.71424 9.518613 3.71424 9.984211 
+L 3.71424 58.87201 
+Q 3.71424 59.337608 6.570238 59.337608 
+z
+" clip-path="url(#pa8774cdfe8)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 6.570238 117.537368 
+L 174.360125 117.537368 
+Q 177.216123 117.537368 177.216123 117.07177 
+L 177.216123 68.183971 
+Q 177.216123 67.718373 174.360125 67.718373 
+L 6.570238 67.718373 
+Q 3.71424 67.718373 3.71424 68.183971 
+L 3.71424 117.07177 
+Q 3.71424 117.537368 6.570238 117.537368 
+z
+" clip-path="url(#pa8774cdfe8)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 281.460053 59.337608 
+L 449.24994 59.337608 
+Q 452.105938 59.337608 452.105938 58.87201 
+L 452.105938 9.984211 
+Q 452.105938 9.518613 449.24994 9.518613 
+L 281.460053 9.518613 
+Q 278.604055 9.518613 278.604055 9.984211 
+L 278.604055 58.87201 
+Q 278.604055 59.337608 281.460053 59.337608 
+z
+" clip-path="url(#pa8774cdfe8)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 524.21989 59.337608 
+L 713.429762 59.337608 
+Q 716.28576 59.337608 716.28576 58.87201 
+L 716.28576 9.984211 
+Q 716.28576 9.518613 713.429762 9.518613 
+L 524.21989 9.518613 
+Q 521.363892 9.518613 521.363892 9.984211 
+L 521.363892 58.87201 
+Q 521.363892 59.337608 524.21989 59.337608 
+z
+" clip-path="url(#pa8774cdfe8)" style="fill: #eef4f7; stroke: #9badb6; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #183545" transform="translate(47.415181 31.705454)">Tests / sensors / trials</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #183545" transform="translate(40.650181 41.307642)">Separate evidence types</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #183545" transform="translate(46.763306 89.905214)">Software claim ledger</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #183545" transform="translate(45.992681 99.507402)">Scoped passes / limits</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #183545" transform="translate(332.428746 31.705454)">Survey / repeats</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #183545" transform="translate(348.373121 41.307017)">MISSING</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #183545" transform="translate(578.216701 31.705767)">Physical acceptance</text>
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; fill: #183545" transform="translate(575.692951 41.307329)">NOT DEMONSTRATED</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 90.465181 60.868079 
+Q 90.465181 63.527592 90.465181 65.06907 
+" style="fill: none; stroke: #246783; stroke-linecap: round"/>
+    <path d="M 92.505181 60.98907 
+L 90.465181 65.06907 
+L 88.425181 60.98907 
+" style="fill: none; stroke: #246783; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 451.249566 34.42811 
+Q 486.73486 34.42811 521.10212 34.42811 
+" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #246783; stroke-linecap: round"/>
+    <path d="M 517.02212 32.38811 
+L 521.10212 34.42811 
+L 517.02212 36.46811 
+" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #246783; stroke-linecap: round"/>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #556873" x="445.679942" y="100.775837" transform="rotate(-0 445.679942 100.775837)">Software consistency does not establish physical accuracy.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa8774cdfe8">
+   <rect x="3.00024" y="3.00024" width="713.99952" height="116.39952"/>
+  </clipPath>
+ </defs>
+</svg>

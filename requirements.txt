@@ -1,0 +1,4 @@
+# Windows CPU assessment baseline. Create/activate a Python 3.12 environment first.
+# Reuse the observed pins; optional learned models/OpenMVS have separate setup.
+-r requirements/windows-cpu.txt
+-e .[capture]
