@@ -1,5 +1,11 @@
 # One-page stock-phone capture protocol (Route 2 candidate)
 
+**Final handoff:** [operations](PHASE3_OPERATIONS.md) describes strict
+assignment flags and the unpromoted RGB experiment. Transfer photos as per-room folders; record one
+consistent physical property ID outside inference media. Calibration/truth/consumer
+exports remain separate assets. Current replay outcomes are in
+[validation ledger](BENCHMARK_RESULTS.md).
+
 **Status:** operational draft. A nonengineer has not yet completed an unseen-room
 rehearsal, so this is not a validated assignment capture route. Use an iPhone 15 or
 newer for photos/video; use a Pro-class model with LiDAR for depth. Capture the same
@@ -25,7 +31,7 @@ floor-plan app's processed model as input.
    normal lighting. Transfer the original MOV/MP4 file.
 4. **LiDAR:** on a LiDAR iPhone, install [Stray Scanner](https://github.com/strayrobots/scanner)
    if available in your region. Record the same slow walkthrough; export the **raw**
-   `odometry.csv`, `rgb.mp4`, `depth/`, and `confidence/` files together. Preserve
+   `odometry.csv`, `camera_matrix.csv`, `imu.csv`, `rgb.mp4`, `depth/`, and `confidence/` files together. Preserve
    their names and frame numbers. The importer resizes RGB to depth resolution and
    scales per-frame intrinsics when their aspect ratios match; it rejects unsupported
    distortion tables or aspect-ratio mismatches. Inspect the diagnostic if an app
@@ -35,14 +41,16 @@ floor-plan app's processed model as input.
    root. Choose the matching command, using a new output directory each time:
 
    ```powershell
-   & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier photos --source captures\property_photos --out runs\photos_01
-   & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier video --source captures\walkthrough.mov --out runs\video_01
-   & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier lidar --source captures\stray_export --out runs\lidar_01
+   & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier photos --source captures\property_photos --out runs\photos_01 --profile assignment --property-id property_01
+   & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier video --source captures\walkthrough.mov --out runs\video_01 --profile assignment --property-id property_01
+   & .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier lidar --source captures\stray_export --out runs\lidar_01 --profile assignment --property-id property_01
    ```
 
 Check `runs/<name>/result/run.json` for status and `plan.svg`/`plan.json` if
 produced. A nonzero exit or absent plan is a **failed/incomplete capture**; retain
-the raw data and error log. The code accepts 2–8 photos and attempts matching, but
-current supplied 2/4/8-photo trials form no verified sparse model. RGB scale and
+the raw data and error log. The code accepts 2–8 photos and attempts matching.
+Sparse registration is overlap-sensitive: some contiguous supplied RGB subsets
+register, while widely spaced subsets fail; the tested public low-resolution
+iPhone RGB segment registers only 2/8 views. RGB scale and
 separate-room placement remain unresolved for arbitrary unposed media. No result
 from this draft workflow is certified to centimeter accuracy.

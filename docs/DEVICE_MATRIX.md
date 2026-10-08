@@ -1,14 +1,17 @@
-# Assignment device and tier matrix
+# Device and capture matrix
 
-| Tier | Eligible phone | Source and retained evidence | Current route | Metric accuracy evidence |
+Route2 candidate: Native Camera for photos/video; Stray Scanner raw export
+for LiDAR. This is a software/hardware-availability matrix, **not measured accuracy**.
+
+| Tier | Hardware assumption | Delivered input path | Independently demonstrated accuracy | Status |
 |---|---|---|---|---|
-| 2–8 stills per room | iPhone 15+ including non-Pro | Original HEIC/JPEG, room folders, EXIF; no depth or poses | Camera → importer → SfM. Code accepts 2–8 photos, but tested supplied 2/4/8 RGB subsets form no sparse model. Arbitrary monocular scale and separate-room stitch remain unresolved. | No assignment-compliant physical test; 8% wall and footprint gates unproven. |
-| Walkthrough video | iPhone 15+ including non-Pro | Original MOV/MP4/HEVC, duration and source hash | Camera → importer → frame selection/SfM. Requires scale evidence for metric plan. | Synthetic dense-video result only; 3% wall gate unproven on native phone clip. |
-| RGB-D / LiDAR | Pro-class iPhone with LiDAR | Stray Scanner RGB, depth (mm), odometry, intrinsics, confidence if exported | Raw export → strict synchronisation and coordinate conversion → RGB-D reconstruction. Registration and coordinate conventions need device verification. | ARKitScenes public-data provisional single-room result; no on-device Stray Scanner test or required multiroom survey. |
+| Photos | iPhone15 or newer, including base models | Original HEIC/JPEG;2–8 stills per room, no depth/poses | None on a qualifying phone/property benchmark | PARTIAL: intake and SfM; strict metric property result incomplete |
+| Video | iPhone15 or newer, including base models | Original MOV/MP4 walkthrough | None against required±3% wall gate | PARTIAL: decoding/timing/SfM; difficult transitions unresolved |
+| LiDAR | Compatible Pro-class iPhone with LiDAR | Stray Scanner RGB/depth/confidence/odometry/per-frame intrinsics | None against independent physical ceiling/opening/wall/repeat gates | PARTIAL: supplied raw sensor export exercised, device/cold capture unverified |
 
-The [Stray Scanner export format](https://github.com/strayrobots/scanner/blob/main/docs/format.md)
-defines odometry, depth, confidence and RGB files. The
-[app listing](https://apps.apple.com/ca/app/stray-scanner/id1557051662) lists
-LiDAR availability and exports. App availability, exact frame registration and
-operator steps are pending a physical trial. No phone variant can be marked as
-meeting the brief's centimeter-level gates on the current evidence.
+LiDAR availability is not assumed for a base iPhone16. Current app version,
+availability, export behavior and installation time must be recorded in a
+physical rehearsal; none has been fabricated. Follow the [protocol](CAPTURE_PROTOCOL.md).
+The [upstream export format](https://github.com/strayrobots/scanner/blob/main/docs/format.md)
+is the recorded adapter reference. Learned RGB and research-scale outputs do
+not create a per-device centimetre-accuracy guarantee.
