@@ -221,11 +221,29 @@ has not been validated. No custom app is included.
 
 ## What happens inside the system
 
-Capture -> input/calibration checks -> supported reconstruction and stitching ->
-surfaces/openings -> damage candidates -> confidence/readiness -> report and
-conditional plans. [Architecture](docs/architecture.md) shows the tier branches,
-modules and guards. Production SIFT and calibrated depth processing are retained;
-learned-model alternatives are experimental and unnecessary for this demo.
+```mermaid
+flowchart TB
+    P["Photos<br/>Per-room stills"] --> I["Input checks and preprocessing"]
+    V["Video<br/>Walkthrough"] --> I
+    L["LiDAR<br/>Depth, poses and intrinsics"] --> I
+    I -->|Photos / video| S["Production SIFT reconstruction"]
+    I -->|LiDAR| D["Calibrated depth reconstruction"]
+    S -->|When supported| G["Room and surface geometry"]
+    D --> G
+    G --> A["Opening and damage candidates"]
+    A --> C["Confidence and readiness checks"]
+    C --> O["Browser report and JSON<br/>Plans when supported"]
+
+    classDef input fill:#edf5ff,stroke:#4778a8,color:#17354c;
+    classDef output fill:#edf7ed,stroke:#528252,color:#17354c;
+    class P,V,L input;
+    class O output;
+```
+
+Unsupported geometry or metric scale stays unavailable. Whole-property stitching
+is a separate explicit operation with verification checks. [Architecture](docs/architecture.md)
+details the modules and guards; learned-model alternatives remain experimental
+and are unnecessary for this demo.
 
 ## Validation and current limits
 
