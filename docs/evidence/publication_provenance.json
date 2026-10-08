@@ -15,7 +15,7 @@
     {
       "path": "README.md",
       "original_sha256": "2c4112957858a5cd24df3746c385d8c48e150b907fba8cb897a644ec0d118ed5",
-      "published_sha256": "7c727067dd3d7da108af60f050b46879f8fb1efb1ebd7d3faac0247cc899a0ba"
+      "published_sha256": "a0ae8d9474302aee85c5fdf753dd68b295c93019f6c9215a308556d37e5a724d"
     },
     {
       "path": "datasets/FLOORNET_SOURCE.md",
@@ -90,7 +90,7 @@
     {
       "path": "docs/BENCHMARK_RESULTS.md",
       "original_sha256": "fb65b26d1013af32725abdbc5fa22cbbded3c75716c87eb5ca0e64eac4b1d08d",
-      "published_sha256": "a8104c16613c63979276b4d3736c8ed911f939e31c27d283716a5a155d94f9be"
+      "published_sha256": "69e6c6a99e46c92066b844c50dadb5dedcc66f29a12b750a4af2ca1bbf6cc856"
     },
     {
       "path": "docs/CAPTURE_PROTOCOL.md",

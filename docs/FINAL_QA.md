@@ -30,7 +30,7 @@ Experimental tools remain experimental even though they are tracked.
 | Existing baseline regression | 390 passed, 50.17 s | Developer dependency environment |
 | Fresh Windows Python 3.12 bootstrap | PASS, 244.436 s | Network and pre-existing wheel cache; not independent cold machine |
 | Fresh dependency consistency | PASS, pip check | No broken requirements |
-| Fresh full regression | 396 passed, 48.01 s | Includes six new packaging checks; no experimental weights needed |
+| Fresh full regression | 397 passed, 46.03 s | Includes seven new packaging checks; no experimental weights needed |
 | Production supplied capture | Exit 1, partial; internal schema valid | 300 frames, 202,477 points; not assessment pass |
 | Capture runtime | 221.196 s total command / 69.057 s reconstruction ledger | Existing environment; excludes physical capture/transfer/setup |
 | Written geometry | 12 room/cell hypotheses, zero accepted heights, zero adjacency | Not independently established physical room count |

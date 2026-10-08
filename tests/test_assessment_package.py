@@ -67,3 +67,12 @@ def test_verify_rejects_changed_process_bundle(tmp_path):
     bundle.write_bytes(b'altered history')
     with pytest.raises(ValueError,match='Git bundle hash/size mismatch'):
         package.verify(tmp_path)
+
+
+def test_evidence_package_keeps_offline_review_and_plan_exports(tmp_path):
+    output = tmp_path/'demo/final_qa/live_ceiling/result'; output.mkdir(parents=True)
+    for name in ['report.html', 'plan.dxf', 'assessment.json', 'plan.svg']:
+        (output/name).write_text('{}')
+    files, unavailable = package.evidence_files(tmp_path)
+    assert {p.name for p in files} == {'report.html', 'plan.dxf', 'assessment.json', 'plan.svg'}
+    assert unavailable == []

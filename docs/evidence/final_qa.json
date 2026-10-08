@@ -94,16 +94,22 @@
     "scope": "Fresh Python 3.12 virtual environment on existing Windows machine with network and pre-existing wheel cache; not a no-cache cold-machine demonstration",
     "initial_attempt": "FAIL: pip stderr update notice terminated logged PowerShell bootstrap after dependencies installed; fixed with --disable-pip-version-check and rerun in a different fresh environment",
     "full_regression": {
-      "passed": 396,
+      "passed": 397,
       "failed": 0,
-      "runtime_s": 48.01,
-      "additional_package_integrity_tests": 6
+      "runtime_s": 46.03,
+      "additional_package_integrity_tests": 7
     },
     "previous_regression": {
       "passed": 395,
       "failed": 0,
       "runtime_s": 64.97,
       "additional_package_integrity_tests": 5
+    },
+    "final_regression_before_export_check": {
+      "passed": 396,
+      "failed": 0,
+      "runtime_s": 48.01,
+      "additional_package_integrity_tests": 6
     }
   },
   "initial_repository": {

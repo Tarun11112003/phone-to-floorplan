@@ -53,7 +53,7 @@ def source_files(root: Path) -> list[Path]:
 def evidence_files(root: Path) -> tuple[list[Path], list[dict]]:
     files = set()
     unavailable = []
-    allowed = {'.json', '.log', '.txt', '.md', '.png', '.jpg', '.jpeg', '.svg', '.csv', '.bin', '.npz', '.db', '.pdf'}
+    allowed = {'.json', '.log', '.txt', '.md', '.png', '.jpg', '.jpeg', '.svg', '.csv', '.bin', '.npz', '.db', '.pdf', '.html', '.dxf'}
     for directory in ('docs/results', 'docs/fixes', 'docs/evidence', 'docs/figures', 'demo/final_qa/live_ceiling'):
         base = root/directory
         if base.exists():

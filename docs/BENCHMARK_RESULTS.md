@@ -16,7 +16,7 @@ was violated; **NOT DEMONSTRATED** means required evidence is absent;
 | Metric | Result | Evidence | Status | Limitation |
 |---|---|---|---|---|
 | Existing frozen-source regression | 390 passed, 50.17 s | [QA receipt](evidence/final_qa.json) | PASS | Software only |
-| Fresh-environment regression | 396 passed, 48.01 s | QA receipt | PASS | 390 existing + 6 packaging checks; no field accuracy claim |
+| Fresh-environment regression | 397 passed, 46.03 s | QA receipt | PASS | 390 existing + 7 packaging checks; no field accuracy claim |
 | Documented supplied LiDAR command | Exit 1; partial; 300 frames, 202,477 points | QA receipt and separately packaged run | PARTIAL | Not acceptance-ready |
 | End-to-end command runtime | 221.196 s; reconstruction ledger 69.057 s | QA receipt | PASS | Existing dependency environment; excludes install/capture/transfer |
 | Committed-checkout capture | Exit 1, same guarded metrics; 211.239 s command | QA receipt | PARTIAL | Fresh dependencies, floating-point output differences; no field truth |

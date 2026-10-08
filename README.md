@@ -13,7 +13,7 @@ completeness, strict RGB metric reconstruction and independently measured
 centimetre accuracy have **not been demonstrated**. Unsupported measurements
 remain unavailable; a plausible drawing is not a passed assessment gate.
 
-**Verified in final QA:** 396 tests passed in a fresh environment (390 existing + 6 packaging checks);
+**Verified in final QA:** 397 tests passed in a fresh environment (390 existing + 7 packaging checks);
 the documented supplied-scan
 command processed 300 frames into 202,477 points and exited **1 (`partial`)**.
 It wrote 12 room/cell hypotheses, with **0 accepted ceiling heights and 0
