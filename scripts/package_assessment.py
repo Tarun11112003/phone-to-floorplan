@@ -1,6 +1,6 @@
 """Package the current source and saved evidence without executing inference.
 
-The source archive includes uncommitted work; it is not a Git checkout.
+The source archive includes tracked, clean sources from the submitted Git tree.
 Raw assessment data is separate and must not be publicly redistributed by this tool.
 Outputs must be fresh. Verification checks every file and archive SHA-256/CRC.
 """
@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path, PurePosixPath
 import subprocess
 import time
@@ -28,10 +29,16 @@ def git(root: Path, *args: str) -> str:
 
 
 def source_files(root: Path) -> list[Path]:
-    names = git(root, 'ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0')
-    directories = {'floorplan', 'scripts', 'tests', 'docs', 'examples', 'requirements'}
-    root_names = {'README.md', 'pyproject.toml', 'requirements.txt', '.gitignore', 'LICENSE', 'LICENSE.md', 'LICENSE.txt'}
+    if git(root, 'status', '--porcelain', '--untracked-files=no').strip():
+        raise ValueError('Commit the intended tracked changes before packaging')
+    names = git(root, 'ls-files', '--cached', '-z').split('\0')
+    directories = {'floorplan', 'scripts', 'tests', 'docs', 'examples', 'requirements', 'datasets'}
+    root_names = {'README.md', 'DESIGN_NOTES.md', 'pyproject.toml', 'requirements.txt', '.gitignore', 'LICENSE', 'LICENSE.md', 'LICENSE.txt'}
     files = []
+    untracked = git(root, 'ls-files', '--others', '--exclude-standard', '-z').split('\0')
+    if any(name and (PurePosixPath(name).parts[0] in directories or name in root_names)
+           for name in untracked):
+        raise ValueError('Untracked submission source must be committed or deliberately excluded')
     for name in set(names):
         p = root/name
         parts = PurePosixPath(name.replace('\\', '/')).parts
@@ -47,8 +54,7 @@ def evidence_files(root: Path) -> tuple[list[Path], list[dict]]:
     files = set()
     unavailable = []
     allowed = {'.json', '.log', '.txt', '.md', '.png', '.jpg', '.jpeg', '.svg', '.csv', '.bin', '.npz', '.db', '.pdf'}
-    for directory in ('docs/results', 'docs/fixes', 'docs/evidence', 'demo/assessment_handoff/prior_documents',
-                      'demo/assessment_handoff/report_delivery'):
+    for directory in ('docs/results', 'docs/fixes', 'docs/evidence', 'docs/figures', 'demo/final_qa/live_ceiling'):
         base = root/directory
         if base.exists():
             files.update(p for p in base.rglob('*') if p.is_file() and p.suffix.lower() in allowed)
@@ -91,27 +97,48 @@ def evidence_files(root: Path) -> tuple[list[Path], list[dict]]:
             for value in obj: visit(value)
     for summary in sorted((root/'docs/results').glob('*.json')):
         visit(json.loads(summary.read_text(encoding='utf-8')))
-    for name in ('initial_state.json', 'final_quality.json', 'full_regression.log', 'snapshot_regression.log',
-                 'snapshot_validation.json', 'documentation_checks.json'):
-        p = root/'demo/assessment_handoff'/name
-        if p.is_file(): files.add(p)
     # Upstream notices only; downloaded source trees/binaries/weights are not distributed.
     notices = root/'docs/attribution'
     if notices.exists(): files.update(p for p in notices.rglob('*') if p.is_file())
     return sorted(files), sorted({json.dumps(item, sort_keys=True):item for item in unavailable}.values(), key=lambda x:x['path'])
 
 
-def archive(root: Path, paths: list[Path], output: Path, stored=False) -> dict:
+def portable_evidence(raw: bytes, path: Path, root: Path) -> bytes:
+    """Publish portable paths while preserving original-byte provenance.
+
+    Numeric evidence, sensor timestamps and historical hashes are not rewritten.
+    Binary artifacts are unchanged. Original private records remain local.
+    """
+    if path.suffix.lower() not in {'.json', '.log', '.txt', '.md', '.svg', '.csv', '.html'}:
+        return raw
+    encoding = 'utf-16' if raw.startswith((b'\xff\xfe', b'\xfe\xff')) else 'utf-8-sig'
+    try:
+        text = raw.decode(encoding)
+    except UnicodeDecodeError:
+        raise ValueError(f'Cannot safely publish text evidence: {path.name}')
+    parts = re.split(r'[\\/]+', str(root.resolve()))
+    pattern = r'[\\/]+'.join(re.escape(part) for part in parts) + r'[\\/]*'
+    text = re.sub(pattern, '', text, flags=re.IGNORECASE)
+    text = re.sub(r'[A-Za-z]:[\\/]+Users[\\/]+[^\\/\s"<>]+[\\/]*',
+                  '[local-user]/', text, flags=re.IGNORECASE)
+    return text.encode('utf-8')
+
+
+def archive(root: Path, paths: list[Path], output: Path, stored=False, portable=False) -> dict:
     inventory = {}
     with zipfile.ZipFile(output, 'x', compression=zipfile.ZIP_STORED if stored else zipfile.ZIP_DEFLATED,
                          compresslevel=None if stored else 1, allowZip64=True) as z:
         for number, p in enumerate(paths, 1):
             relative = p.resolve().relative_to(root.resolve()).as_posix()
             before = digest(p)
-            z.write(p, relative)
+            raw = p.read_bytes()
+            published = portable_evidence(raw, p, root) if portable else raw
+            z.writestr(relative, published)
             if digest(p) != before:
                 raise ValueError(f'File changed during packaging: {relative}')
-            inventory[relative] = {'sha256':before, 'bytes':p.stat().st_size}
+            inventory[relative] = {'sha256':hashlib.sha256(published).hexdigest(), 'bytes':len(published)}
+            if published != raw:
+                inventory[relative]['original_sha256'] = before
             if number % 5000 == 0:
                 print(f'{output.name}: {number}/{len(paths)} files', flush=True)
     return {'sha256':digest(output), 'bytes':output.stat().st_size, 'files':inventory}
@@ -129,20 +156,20 @@ def package(root: Path, output: Path) -> dict:
     before_head = git(root, 'rev-parse', 'HEAD').strip()
     started = time.perf_counter()
     archives = {}
-    for name, files, stored in [('source_snapshot.zip',sources,False), ('evidence.zip',evidence,False),
+    for name, files, stored in [('source.zip',sources,False), ('evidence.zip',evidence,False),
                                  ('supplied_raw_dataset.zip',raw,True)]:
         print(f'Packaging {name}: {len(files)} files', flush=True)
-        archives[name] = archive(root, files, output/name, stored)
+        archives[name] = archive(root, files, output/name, stored, portable=name=='evidence.zip')
     if git(root, 'rev-parse', 'HEAD').strip() != before_head:
         raise ValueError('Git HEAD changed during packaging')
     manifest = {'format_version':1, 'git_base_at_packaging':before_head,
         'git_status_at_packaging':git(root,'status','--porcelain'),
-        'source_kind':'Current worktree snapshot, including pre-existing uncommitted source; not Git HEAD',
+        'source_kind':'Clean tracked source from the submitted Git tree; no untracked implementation',
         'archives':archives,'historical_assets_not_selected':unavailable,
         'runtime_s':time.perf_counter()-started,'reconstruction_run':False,
         'physical_accuracy':'NOT DEMONSTRATED','assessment_acceptance':'NOT DEMONSTRATED',
         'excluded':['.git','virtual environments','external model weights/source trees/binaries','caches'],
-        'limitations':['Historical absolute paths remain as provenance',
+        'limitations':['Published evidence paths are portable copies; original-byte hashes are recorded separately',
                       'Not every native experimental asset is included',
                       'No independent physical survey/repeat/consumer benchmark is available',
                       'Clean-machine installation and live every-number regeneration are not demonstrated']}
@@ -150,9 +177,9 @@ def package(root: Path, output: Path) -> dict:
     (output/'HANDOFF.txt').write_text(
         'PHONE TO FLOORPLAN — frozen assessment handoff\n\n'
         'Verify: python scripts/package_assessment.py --verify <this directory>\n'
-        'Extract source_snapshot.zip, evidence.zip and supplied_raw_dataset.zip to the SAME fresh root.\n'
+        'Extract source.zip, evidence.zip and supplied_raw_dataset.zip to the SAME fresh root.\n'
         'Start with README.md, docs/INDEX.md and docs/TECHNICAL_REPORT.pdf.\n'
-        'Source snapshot includes uncommitted implementation; it is not a Git checkout.\n'
+        'Source is tracked and clean at the Git commit recorded in package_manifest.json.\n'
         'Raw data is provided for assessment transfer, not public redistribution.\n'
         'No model weights/environment are bundled. See docs/PHASE3_OPERATIONS.md.\n'
         'Physical accuracy and full assessment acceptance are NOT DEMONSTRATED.\n',encoding='utf-8')

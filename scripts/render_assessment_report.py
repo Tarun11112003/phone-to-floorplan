@@ -92,7 +92,9 @@ def render(root: Path, out: Path) -> dict:
     for kind in ('architecture', 'validation', 'fix_loop'):
         fig, ax = plt.subplots(figsize=(10, 1.7), layout='constrained')
         diagram(kind, ax)
-        fig.savefig(out/f'{kind}.svg')
+        fig.savefig(out/f'{kind}.svg', metadata={'Date': None})
+        svg = out/f'{kind}.svg'
+        svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf-8').splitlines())+'\n', encoding='utf-8')
         plt.close(fig)
 
     def wrap(fig, text, size, fraction=.85, weight='normal'):
@@ -134,11 +136,12 @@ def render(root: Path, out: Path) -> dict:
     min_y = []
     with PdfPages(out/'technical_report.pdf') as pdf:
         pdf.infodict().update(Title='Phone to Floorplan — final technical report',
-            Subject='Frozen implementation, existing evidence and explicit assessment limitations')
+            Subject='Frozen implementation, existing evidence and explicit assessment limitations',
+            CreationDate=None, ModDate=None)
         for number, part in enumerate(parts, 1):
             fig = plt.figure(figsize=(8.27, 11.69), facecolor='white')
             fig.text(.075, .957, 'PHONE TO FLOORPLAN', fontsize=10, color=blue, weight='bold')
-            fig.text(.075, .932, 'Final development state · 8 October 2026 · Physical acceptance not demonstrated',
+            fig.text(.075, .932, 'Final development state · Physical acceptance not demonstrated',
                      fontsize=8.3, color=muted)
             fig.text(.075, .035, 'Source fields and SHA-256: docs/evidence/final_state.json · Details: docs/INDEX.md',
                      fontsize=7.2, color=muted)

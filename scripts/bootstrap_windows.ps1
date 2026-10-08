@@ -20,9 +20,11 @@ $pipOptions = @()
 if ($Wheelhouse) { $pipOptions = @('--no-index', '--find-links', $Wheelhouse) }
 Push-Location $projectRoot
 try {
-    & $pythonExecutable -m pip install @pipOptions -r requirements/windows-cpu.txt
+    # Suppress pip's stderr-only update notice: Windows PowerShell can treat it
+    # as a terminating native-command error when output is redirected to a log.
+    & $pythonExecutable -m pip --disable-pip-version-check install @pipOptions -r requirements/windows-cpu.txt
     if ($LASTEXITCODE -ne 0) { throw 'Pinned CPU dependencies failed to install.' }
-    & $pythonExecutable -m pip install @pipOptions -e '.[capture]'
+    & $pythonExecutable -m pip --disable-pip-version-check install @pipOptions -e '.[capture]'
     if ($LASTEXITCODE -ne 0) { throw 'Project/capture dependencies failed to install.' }
     if ($WithOpenMVS) {
         & $pythonExecutable scripts/install_openmvs.py
