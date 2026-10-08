@@ -150,6 +150,21 @@ def run_suite(suite_path: Path,output: Path):
                 record['evaluation_limitation'] = 'Rectangle dimensions only; full topology/corner targets unevaluated'
             else:
                 record['evaluation_limitation'] = 'No evaluable metric plan or reference'
+            if 'reference' in case and ledger['tier'] in {'photos','video','lidar'}:
+                from .assignment_gates import evaluate_assignment
+                from .assessment_io import load_document
+                truth=json.loads((suite_path.parent/case['reference']).read_text(encoding='utf-8'))
+                assignment=evaluate_assignment(load_document(output/name),truth,ledger['tier'])
+                record['assignment_metrics']=assignment
+                (output/name/'assignment_metrics.json').write_text(json.dumps(assignment,indent=2),encoding='utf-8')
+                record['calibrated_known_gates_pass']=assignment['calibrated_known_gates_pass']
+                record['assignment_complete']=False
+            if 'damage_annotations' in case:
+                from .damage_evaluation import evaluate_damage
+                from .assessment_io import load_document
+                annotations=json.loads((suite_path.parent/case['damage_annotations']).read_text(encoding='utf-8'))
+                record['damage_metrics']=evaluate_damage(load_document(output/name),annotations)
+                (output/name/'damage_metrics.json').write_text(json.dumps(record['damage_metrics'],indent=2),encoding='utf-8')
         except Exception as exc:
             record.update(status='failed',reason=str(exc))
         cases.append(record)

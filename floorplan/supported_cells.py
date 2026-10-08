@@ -4,7 +4,8 @@ from __future__ import annotations
 from itertools import combinations
 
 import numpy as np
-from shapely.geometry import Point, Polygon
+from shapely import covers, points as geometry_points
+from shapely.geometry import Polygon
 
 
 def _groups(segments, axis, tolerance=.18):
@@ -46,15 +47,31 @@ def _edge_evidence(group, lo, hi):
                 opening_classification='unresolved; gaps may be occlusion or openings')
 
 
-def propose_supported_cells(segments, camera_path, minimum_support=.60, max_gap_m=1.20):
+def propose_supported_cells(segments, camera_path, minimum_support=.60, max_gap_m=1.20,
+                            *, occupied_cells=()):
     """Infer only cells bounded on all four sides by observed wall groups.
 
     This is a rectangular fallback, not a complete-property reconstruction.
     Missing spans are explicitly inferred, and never emitted as detected doors.
+    Existing observed cells are immutable exclusions. Only camera samples not
+    already covered by them can support an additional hypothesis.
     """
     xgroups,zgroups=_groups(segments,0),_groups(segments,1)
     if len(xgroups)>20 or len(zgroups)>20:
         return [],[]  # Bound runtime; complex scenes need a different room solver.
+    cameras=geometry_points(np.asarray(camera_path,float).reshape(-1,2))
+    available=np.ones(len(cameras),dtype=bool)
+    for cell in occupied_cells:
+        available &= ~covers(cell.buffer(.10),cameras)
+    cameras=cameras[available]
+    if len(cameras)<2:
+        return [],[]
+    edge_cache={}
+    def edge(group,lo,hi):
+        key=(id(group),lo,hi)
+        if key not in edge_cache:
+            edge_cache[key]=_edge_evidence(group,lo,hi)
+        return edge_cache[key]
     candidates=[]
     for left,right in combinations(xgroups,2):
         x0,x1=left['location'],right['location']
@@ -62,14 +79,17 @@ def propose_supported_cells(segments, camera_path, minimum_support=.60, max_gap_
         for bottom,top in combinations(zgroups,2):
             z0,z1=bottom['location'],top['location']
             if not .8<=z1-z0<=15: continue
-            polygon=Polygon([(x0,z0),(x1,z0),(x1,z1),(x0,z1)])
-            occupancy=sum(polygon.buffer(.05).covers(Point(p)) for p in camera_path)
-            if occupancy<2: continue
             # Match polygon edge order: bottom, right, top, left.
-            evidence=[_edge_evidence(bottom,x0,x1),_edge_evidence(right,z0,z1),
-                      _edge_evidence(top,x0,x1),_edge_evidence(left,z0,z1)]
+            evidence=[edge(bottom,x0,x1),edge(right,z0,z1),
+                      edge(top,x0,x1),edge(left,z0,z1)]
             if any(e['supported_fraction']<minimum_support or e['max_gap_m']>max_gap_m for e in evidence):
                 continue
+            polygon=Polygon([(x0,z0),(x1,z0),(x1,z1),(x0,z1)])
+            if any(polygon.intersection(cell).area>.01 for cell in occupied_cells):
+                continue
+            # Evaluate the same rounded 5 cm buffer as before, once per cell.
+            occupancy=int(np.count_nonzero(covers(polygon.buffer(.05),cameras)))
+            if occupancy<2: continue
             candidates.append((occupancy,float(np.mean([e['supported_fraction'] for e in evidence])),
                                polygon,evidence))
     selected=[]; evidence=[]

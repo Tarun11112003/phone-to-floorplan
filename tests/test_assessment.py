@@ -1,7 +1,8 @@
 import numpy as np
 import pytest
+import json
 
-from floorplan.assessment import build_assessment
+from floorplan.assessment import build_assessment, write_assessment
 from floorplan.damage import segment_wall_candidates,merge_surface_regions,inspection_scope
 from floorplan.uncertainty import fit_calibration,calibrated_interval
 
@@ -15,6 +16,39 @@ def test_missing_height_stays_unavailable_and_all_walls_have_intervals():
     height=next(m for m in result['measurements'] if m['kind']=='ceiling_height')
     assert height['value'] is None and height['interval'] is None
     assert result['damage_assessment_status']=='not_evaluated'
+
+
+def test_capture_report_exposes_photo_matching_guidance(tmp_path):
+    diagnostics={
+        'candidate_image_pairs':1,
+        'geometrically_verified_pair_count':0,
+        'max_verified_inliers':0,
+        'median_verified_inliers':0.0,
+        'images_without_verified_pairs':['room__00.png','room__01.png'],
+        'strongest_verified_pairs':[],
+    }
+    ledger=dict(configuration={},manifest_sha256='a'*64,run_id='one',tier='photos',result={
+        'status':'no_model',
+        'matching_diagnostics':diagnostics,
+        'reconstruction_guidance':'No image pair passed geometric verification.',
+    })
+    output=tmp_path/'result'; output.mkdir()
+
+    write_assessment(output,ledger,assessment=build_assessment(None,ledger))
+
+    report=(output/'report.html').read_text(encoding='utf-8')
+    assert 'Photo-matching diagnostics' in report
+    assert 'No image pair passed geometric verification.' in report
+    assert '0 of 1' in report
+    assert 'room__00.png' in report
+    assert 'Assignment output coverage' in report
+    assert 'contract_coverage.json' in report
+    coverage=json.loads((output/'contract_coverage.json').read_text(encoding='utf-8'))
+    states={item['key']:item['status'] for item in coverage['items']}
+    assert states['dimensioned_room_plans']=='not_produced'
+    assert states['published_json_schema']=='pending_external_spec'
+    assert states['measurement_intervals']=='incomplete'
+    assert coverage['accuracy_validated'] is False
 
 
 def test_experimental_detector_staged_marks_and_clean_control():

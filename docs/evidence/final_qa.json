@@ -1,0 +1,569 @@
+{
+  "purpose": "Final evaluator workflow QA, not a reconstruction experiment or accuracy benchmark",
+  "command": "python -m floorplan.cli run-capture --tier lidar --source datasets/Given_dataset/single_scan_with_ceiling/c7d28f72c6 --out runs/ceiling_review --profile assignment --property-id supplied_ceiling",
+  "actual_output": "demo/final_qa/live_ceiling",
+  "exit_code": 1,
+  "schema": "internal-assessment-v2",
+  "schema_validation": "PASS",
+  "published_schema_verified": false,
+  "result": {
+    "status": "partial",
+    "method": "SIFT + depth-supported PnP RANSAC + 3D metric refinement + plane fitting",
+    "input_frames": 300,
+    "tracked_frames": 300,
+    "point_count": 202477,
+    "floor_plan_ready": false,
+    "metric_scale_source": "input depth units",
+    "accuracy_validated": false
+  },
+  "contract_complete": false,
+  "code_changed_during_run": false,
+  "runtime_s": 69.05739249999897,
+  "capture_runtime_s": 221.19552639999893,
+  "assessment_runtime_s": 0.7783377999985532,
+  "peak_process_tree_rss_bytes": 231415808,
+  "rooms_or_cell_hypotheses": 12,
+  "available_ceiling_height_estimates": 0,
+  "connections": 0,
+  "blockers": [
+    "complete geometry not ready",
+    "unresolved room boundary or metric scale",
+    "disconnected property adjacency",
+    "floor plane not observed",
+    "unavailable measurement or calibrated interval",
+    "damage assessment not validated/evaluated"
+  ],
+  "software_regression": {
+    "existing_tests": 390,
+    "result": "PASS",
+    "runtime_s": 50.17
+  },
+  "production_source_unchanged": true,
+  "artifacts": {
+    "assessment.json": {
+      "sha256": "3f78fae80421a271fe55bb9c572e7c066fa48b5d225fad8bb0420acb46114550",
+      "bytes": 547636
+    },
+    "contract_coverage.json": {
+      "sha256": "55a9cfab9309ea3529086d230a3f0ca58b01dd9ec2e6e8aefdea595c0279b86c",
+      "bytes": 3555
+    },
+    "layout_diagnostic.svg": {
+      "sha256": "915b0380bcdbfbff7df3373068b40d3d2fb8bd8adaa19fb1763e63cf79ce98f9",
+      "bytes": 19758
+    },
+    "normalized_sequence.json": {
+      "sha256": "b4f9acfb1dda4a912dcdabfe7ec839532766be7c9ca0aad56847c371323bffe2",
+      "bytes": 397775
+    },
+    "plan.dxf": {
+      "sha256": "d1906255d5f28497ad267d7a22ee5606a13546d3f77dc52580a5d12a6a76e882",
+      "bytes": 175609
+    },
+    "plan.json": {
+      "sha256": "38d86d63af2306ff0f62d5848815b5a2566cfc4fe926e204e956a894597e2a9c",
+      "bytes": 301049
+    },
+    "plan.svg": {
+      "sha256": "625b6671723a5ea15f738a3a00f1e97098e054b71ae9fb1d6a245cc419e05f65",
+      "bytes": 12609
+    },
+    "quantities.csv": {
+      "sha256": "1b9c4781cf87075afc2a9c58b07e4e56f75cd4e48a21b5b73ebaedaebd3f0d8f",
+      "bytes": 723
+    },
+    "report.html": {
+      "sha256": "c62f00cd8a33525994701c155e2e380c92647d05d59f2e4e9537a93e0cf1e66d",
+      "bytes": 32064
+    },
+    "run.json": {
+      "sha256": "f2ac4b5bd4ca2089cdf49cc9df3a369c55d4f23fa0946ab5a2d20e1e58015e11",
+      "bytes": 496062
+    }
+  },
+  "limitations": [
+    "Existing dependency environment; fresh install is a separate check",
+    "No independent physical survey",
+    "Cell hypotheses are not independently established rooms",
+    "Output generation is not full contract readiness"
+  ],
+  "fresh_environment": {
+    "bootstrap_exit_code": 0,
+    "elapsed_s": 244.4358935,
+    "pip_check": "PASS",
+    "scope": "Fresh Python 3.12 virtual environment on existing Windows machine with network and pre-existing wheel cache; not a no-cache cold-machine demonstration",
+    "initial_attempt": "FAIL: pip stderr update notice terminated logged PowerShell bootstrap after dependencies installed; fixed with --disable-pip-version-check and rerun in a different fresh environment",
+    "full_regression": {
+      "passed": 397,
+      "failed": 0,
+      "runtime_s": 46.03,
+      "additional_package_integrity_tests": 7
+    },
+    "previous_regression": {
+      "passed": 395,
+      "failed": 0,
+      "runtime_s": 64.97,
+      "additional_package_integrity_tests": 5
+    },
+    "final_regression_before_export_check": {
+      "passed": 396,
+      "failed": 0,
+      "runtime_s": 48.01,
+      "additional_package_integrity_tests": 6
+    }
+  },
+  "initial_repository": {
+    "head": "53db62ac635d2ace89778b2dde9697abf7c95874",
+    "modified_tracked_files": 24,
+    "untracked_files": 141,
+    "recent_documentation_commits_changed_production": false,
+    "prior_head_cli_assignment_profile_supported": false,
+    "frozen_implementation_commit": "1c57676b402b0ef0b195a12eeb076b6bb07b64f9",
+    "previous_pass_summary": "Partially accurate: documentation commits did not edit production, but required implementation remained outside Git. Final QA corrected that submission defect."
+  },
+  "production_source_integrity": {
+    "unchanged_from_initial_qa": true,
+    "changed_python_or_setup_files": [
+      "scripts/bootstrap_windows.ps1",
+      "scripts/package_assessment.py",
+      "scripts/render_assessment_report.py",
+      "tests/test_assessment_package.py"
+    ],
+    "reconstruction_algorithms_or_guards_changed": false
+  },
+  "resolved_packages": [
+    {
+      "name": "annotated-types",
+      "version": "0.8.0"
+    },
+    {
+      "name": "asttokens",
+      "version": "3.0.2"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0"
+    },
+    {
+      "name": "blinker",
+      "version": "1.9.0"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6"
+    },
+    {
+      "name": "comm",
+      "version": "0.2.3"
+    },
+    {
+      "name": "ConfigArgParse",
+      "version": "1.8.0"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.4.0"
+    },
+    {
+      "name": "cozmo-floorplan-demo",
+      "version": "0.1.0",
+      "editable_project_location": "."
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1"
+    },
+    {
+      "name": "dash",
+      "version": "4.4.1"
+    },
+    {
+      "name": "executing",
+      "version": "2.2.1"
+    },
+    {
+      "name": "ezdxf",
+      "version": "1.4.4"
+    },
+    {
+      "name": "fastjsonschema",
+      "version": "2.22.2"
+    },
+    {
+      "name": "Flask",
+      "version": "3.1.3"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.66.1"
+    },
+    {
+      "name": "idna",
+      "version": "3.20"
+    },
+    {
+      "name": "imageio-ffmpeg",
+      "version": "0.6.0"
+    },
+    {
+      "name": "importlib_metadata",
+      "version": "9.0.1"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1"
+    },
+    {
+      "name": "ipython",
+      "version": "9.17.1"
+    },
+    {
+      "name": "ipython_pygments_lexers",
+      "version": "1.1.1"
+    },
+    {
+      "name": "ipywidgets",
+      "version": "8.1.9"
+    },
+    {
+      "name": "itsdangerous",
+      "version": "2.2.0"
+    },
+    {
+      "name": "janus",
+      "version": "2.0.0"
+    },
+    {
+      "name": "jedi",
+      "version": "0.20.0"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1"
+    },
+    {
+      "name": "jupyter_core",
+      "version": "5.9.1"
+    },
+    {
+      "name": "jupyterlab_widgets",
+      "version": "3.0.17"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.4"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.11.2"
+    },
+    {
+      "name": "matplotlib-inline",
+      "version": "0.2.2"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.26.0"
+    },
+    {
+      "name": "nbformat",
+      "version": "5.11.1"
+    },
+    {
+      "name": "nest-asyncio",
+      "version": "1.6.0"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.3"
+    },
+    {
+      "name": "open3d",
+      "version": "0.19.0"
+    },
+    {
+      "name": "opencv-python-headless",
+      "version": "5.0.0.93"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "parso",
+      "version": "0.8.7"
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0"
+    },
+    {
+      "name": "pillow_heif",
+      "version": "1.8.0"
+    },
+    {
+      "name": "pip",
+      "version": "24.3.1"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.12.4"
+    },
+    {
+      "name": "plotly",
+      "version": "7.1.0"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0"
+    },
+    {
+      "name": "prompt_toolkit",
+      "version": "3.0.53"
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2"
+    },
+    {
+      "name": "pure_eval",
+      "version": "0.2.4"
+    },
+    {
+      "name": "pycolmap",
+      "version": "4.2.1"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.13.5"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.46.5"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2"
+    },
+    {
+      "name": "retrying",
+      "version": "1.4.2"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.0.0"
+    },
+    {
+      "name": "shapely",
+      "version": "2.1.2"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0"
+    },
+    {
+      "name": "stack-data",
+      "version": "0.6.3"
+    },
+    {
+      "name": "traitlets",
+      "version": "5.16.1"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0"
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.9.2"
+    },
+    {
+      "name": "Werkzeug",
+      "version": "3.1.9"
+    },
+    {
+      "name": "widgetsnbextension",
+      "version": "4.0.16"
+    },
+    {
+      "name": "zipp",
+      "version": "4.1.1"
+    }
+  ],
+  "clean_checkout_capture": {
+    "git_commit_tested": "1c57676b402b0ef0b195a12eeb076b6bb07b64f9",
+    "source": "git archive, no untracked runtime modules",
+    "environment": "Fresh baseline virtual environment; installed project remained editable at original root, but -m source resolution checked in extracted checkout",
+    "command": "python -m floorplan.cli run-capture --tier lidar --source datasets/Given_dataset/single_scan_with_ceiling/c7d28f72c6 --out runs/ceiling_review --profile assignment --property-id supplied_ceiling",
+    "data_placement": "Original supplied dataset junction-mounted at its documented relative path; no data preprocessing",
+    "exit_code": 1,
+    "metrics": {
+      "status": "partial",
+      "frames": 300,
+      "points": 202477,
+      "camera_coverage": 0.9833333333333333,
+      "contract_complete": false,
+      "floor_plan_ready": false,
+      "code_changed_during_run": false
+    },
+    "runtime_s": 70.94864880000023,
+    "capture_runtime_s": 211.2394846999996,
+    "internal_schema_validation": "PASS",
+    "room_corner_arrays_exact": false,
+    "fused_cloud_points_exact": false,
+    "baseline_metrics_equal": true,
+    "artifacts": {
+      "assessment.json": {
+        "sha256": "623ebae00cb486badb1899a119b09257691ffac3d9eb3e5e731bb936bd895745",
+        "bytes": 547519
+      },
+      "contract_coverage.json": {
+        "sha256": "8e98d4161f11c351c80f828024eeac2f420192c72bb2b27c691a6a281dd473a0",
+        "bytes": 3555
+      },
+      "layout_diagnostic.svg": {
+        "sha256": "915b0380bcdbfbff7df3373068b40d3d2fb8bd8adaa19fb1763e63cf79ce98f9",
+        "bytes": 19758
+      },
+      "normalized_sequence.json": {
+        "sha256": "50e952055c958e97d89bc4c9aaac537258bdeaef441bd4c8cbf8aa773e893ade",
+        "bytes": 422075
+      },
+      "plan.dxf": {
+        "sha256": "be65ba120a86b39a029d8033e7edc616cc0aa00700d6d900e01f6c7c7e4a4199",
+        "bytes": 175588
+      },
+      "plan.json": {
+        "sha256": "73a81d9ae2e9c1a404bdd5e42895245677c954ee5da5e5266b19a4efdbddcc3a",
+        "bytes": 300940
+      },
+      "plan.svg": {
+        "sha256": "625b6671723a5ea15f738a3a00f1e97098e054b71ae9fb1d6a245cc419e05f65",
+        "bytes": 12609
+      },
+      "quantities.csv": {
+        "sha256": "7ae0ff82f311f9987804565c4b1f15981bb511230c0df2e16813f23c1312bfe2",
+        "bytes": 721
+      },
+      "report.html": {
+        "sha256": "ec29a65debf6abda528e51202c0ce5bc21da725cbe76ae7df9fd87044cab64e9",
+        "bytes": 32064
+      },
+      "run.json": {
+        "sha256": "35bb00a3eb642421a005636414a50130d8bff0399fb3590587b78e4baa553f3d",
+        "bytes": 520340
+      }
+    },
+    "production_algorithm_or_guard_change": false,
+    "physical_accuracy": "NOT DEMONSTRATED",
+    "assessment_acceptance": "NOT DEMONSTRATED",
+    "module_origin": ".tmp_final_qa/submitted_checkout/floorplan/workflow.py",
+    "fresh_output_differences": {
+      "nearest_cloud_distance_m": {
+        "median": 2.6190911799634735e-14,
+        "p95": 5.354563176888775e-14,
+        "max": 1.2149923889870913e-13
+      },
+      "same_room_id_order": true,
+      "room_corner_index_delta_m": {
+        "room_0": 0.0,
+        "room_1": 0.0,
+        "room_10": 1.7189465169453216e-14,
+        "room_11": 1.7189465169453216e-14,
+        "room_2": 0.0,
+        "room_3": 0.0,
+        "room_4": 0.0,
+        "room_5": 0.0,
+        "room_6": 0.0,
+        "room_7": 0.0,
+        "room_8": 3.2583107080322355e-14,
+        "room_9": 7.944109290391274e-15
+      },
+      "interpretation": "Fresh end-to-end output is not byte-identical. Nearest-cloud proximity and indexed corner deltas are internal rerun diagnostics, not physical accuracy or independent repeat capture. No reconstruction change made."
+    }
+  },
+  "root_requirements_install": {
+    "command": "python -m pip --disable-pip-version-check install -r requirements.txt",
+    "result": "PASS",
+    "scope": "Same freshly bootstrapped environment; editable install and pinned requirements resolved successfully"
+  },
+  "capture_protocol": {
+    "artifact": "docs/CAPTURE_PROTOCOL.pdf",
+    "pages": 1,
+    "live_novice_validation": "NOT DEMONSTRATED"
+  },
+  "publication_checks": {
+    "numeric_result_files_compared": 32,
+    "numeric_values_changed": 0,
+    "standard_json_validation": "PASS",
+    "broken_markdown_links": 0,
+    "secret_candidates": 0,
+    "production_source_files_changed": 0
+  },
+  "final_handoff": {
+    "directory": "demo/final_qa/handoff",
+    "includes": "clean tracked source, public evidence, raw supplied dataset, real Git process bundle",
+    "verification_receipt": "demo/final_qa/handoff/verification_receipt.json",
+    "scope": "Archive SHA256/CRC, original versus published hashes and offline Git history; not every-number field acceptance"
+  }
+}

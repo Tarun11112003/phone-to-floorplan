@@ -1,0 +1,99 @@
+{
+  "description": "RGB-only supplied-video sampling trials. No depth, confidence, IMU, odometry or sensor intrinsics are supplied to reconstruction. Registration/internal consistency only; extracted video is not a native photo benchmark or physical accuracy evidence.",
+  "artifacts": [
+    {
+      "id": "video48",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "video",
+        "--source",
+        "datasets/Given_dataset/single_room/c00a170fe1/rgb.mp4",
+        "--out",
+        "{output}",
+        "--max-frames",
+        "48",
+        "--profile",
+        "assignment",
+        "--experimental-rgb",
+        "--property-id",
+        "given_single_identity_unverified"
+      ],
+      "claims": [
+        {
+          "path": "result/run.json",
+          "field": [
+            "configuration",
+            "tier"
+          ],
+          "value": "video"
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "video72",
+      "expected_exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "floorplan.cli",
+        "run-capture",
+        "--tier",
+        "video",
+        "--source",
+        "datasets/Given_dataset/single_room/c00a170fe1/rgb.mp4",
+        "--out",
+        "{output}",
+        "--max-frames",
+        "72",
+        "--profile",
+        "assignment",
+        "--experimental-rgb",
+        "--property-id",
+        "given_single_identity_unverified"
+      ],
+      "claims": [
+        {
+          "path": "result/run.json",
+          "field": [
+            "configuration",
+            "tier"
+          ],
+          "value": "video"
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        },
+        {
+          "path": "result/run.json",
+          "field": [
+            "code_changed_during_run"
+          ],
+          "value": false
+        }
+      ]
+    }
+  ]
+}

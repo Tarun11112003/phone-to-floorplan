@@ -1,0 +1,170 @@
+{
+  "description": "Reverify the five unchanged current-source geometry artifacts after correcting tuple/list JSON comparison. The initial combined run and its failed verifier outcomes are retained separately; no physical acceptance is inferred.",
+  "artifacts": [
+    {
+      "id": "single_artifact",
+      "command": [
+        "python",
+        "scripts/verify_layout_artifact.py",
+        "demo/phase3_sync_boundary/exact_geometry_current/single",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "points_dtype"
+          ],
+          "value": "float64"
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "floor_artifact",
+      "command": [
+        "python",
+        "scripts/verify_layout_artifact.py",
+        "demo/phase3_sync_boundary/exact_geometry_current/floor",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "points_dtype"
+          ],
+          "value": "float64"
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "ceiling_artifact",
+      "command": [
+        "python",
+        "scripts/verify_layout_artifact.py",
+        "demo/phase3_sync_boundary/exact_geometry_current/ceiling",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "points_dtype"
+          ],
+          "value": "float64"
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "dense_artifact",
+      "command": [
+        "python",
+        "scripts/verify_layout_artifact.py",
+        "demo/phase3_sync_boundary/exact_geometry_current/single_dense",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "points_dtype"
+          ],
+          "value": "float64"
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "control_artifact",
+      "command": [
+        "python",
+        "scripts/verify_layout_artifact.py",
+        "demo/phase3_sync_boundary/exact_geometry_current/control/control",
+        "--out",
+        "{output}/verification"
+      ],
+      "claims": [
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "reproducible"
+          ],
+          "value": true
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "points_dtype"
+          ],
+          "value": "float64"
+        },
+        {
+          "path": "verification/verification.json",
+          "field": [
+            "accuracy_validated"
+          ],
+          "value": false
+        }
+      ]
+    }
+  ]
+}

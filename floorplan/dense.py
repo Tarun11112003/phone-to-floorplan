@@ -88,7 +88,9 @@ def _undistort(image, camera, cv2, max_width=640):
     k = np.array([[focal,0,(width-1)/2],[0,camera.focal_length_y*ratio,(height-1)/2],[0,0,1.]])
     yy, xx = np.mgrid[:height,:width]
     rays = np.column_stack([(xx.ravel()-k[0,2])/k[0,0],(yy.ravel()-k[1,2])/k[1,1],np.ones(width*height)])
-    uv = camera.img_from_cam(rays).reshape(height,width,2).astype(np.float32)
+    # COLMAP places the first pixel center at (.5,.5); OpenCV remap addresses
+    # array centers at (0,0). Convert the source samples, not the target K.
+    uv = (camera.img_from_cam(rays).reshape(height,width,2)-.5).astype(np.float32)
     return cv2.remap(image,uv[:,:,0],uv[:,:,1],cv2.INTER_LINEAR), k
 
 
@@ -209,7 +211,9 @@ def reconstruct_dense(model_path: Path, images_path: Path, output: Path, control
         labels = np.concatenate([np.full(len(c),i) for i,c in enumerate(clouds)])
         unique = np.unique(np.column_stack([inverse,labels]),axis=0)
         support = np.bincount(unique[:,0],minlength=inverse.max()+1)
-        good = support[inverse] >= 2
+        required_pairs=1 if len(images)==2 else 2
+        good = support[inverse] >= required_pairs
+        result['dense_support_policy']='left/right consistency for exactly two views; >=2 independent pairs otherwise'
         sparse_xyz,sparse_rgb=supported_sparse(model,scale)
         points,rgb,_ = weighted_voxels(np.concatenate([raw[good],sparse_xyz]),np.concatenate([np.concatenate(colors)[good],sparse_rgb]))
         result['supplementary_supported_sparse_points']=len(sparse_xyz)

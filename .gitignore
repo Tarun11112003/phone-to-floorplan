@@ -20,3 +20,6 @@ datasets/**/*.ply
 datasets/**/*.part
 .tmp_*
 *.log
+
+runs/
+.venv-*/

@@ -9,7 +9,7 @@
   "gate_definitions": {
     "status": "partially_present_in_brief",
     "earlier_round_1_reference": "not_supplied",
-    "evaluator_version": "assignment-aug2026-provisional-v1"
+    "evaluator_version": "assignment-aug2026-provisional-v2"
   },
   "units": "m",
   "coordinate_convention": "per-room surveyed floor plane; x right, y up, z forward; document each property's transform",
@@ -23,13 +23,43 @@
     {
       "property_id": "property_a",
       "rooms": [
-        {"room_id": "room_1", "label": "", "is_connector": false},
-        {"room_id": "room_2", "label": "hall/connector", "is_connector": true},
-        {"room_id": "room_3", "label": "", "is_connector": false}
+        {
+          "room_id": "room_1",
+          "label": "",
+          "is_connector": false
+        },
+        {
+          "room_id": "room_2",
+          "label": "",
+          "is_connector": false
+        },
+        {
+          "room_id": "room_3",
+          "label": "",
+          "is_connector": false
+        },
+        {
+          "room_id": "connector",
+          "label": "hall/connector",
+          "is_connector": true
+        }
       ],
       "adjacencies": [
-        {"room_id_a": "room_1", "room_id_b": "room_2", "opening_ids": []},
-        {"room_id_a": "room_2", "room_id_b": "room_3", "opening_ids": []}
+        {
+          "room_id_a": "room_1",
+          "room_id_b": "connector",
+          "opening_ids": []
+        },
+        {
+          "room_id_a": "room_2",
+          "room_id_b": "connector",
+          "opening_ids": []
+        },
+        {
+          "room_id_a": "room_3",
+          "room_id_b": "connector",
+          "opening_ids": []
+        }
       ],
       "captures": [
         {
@@ -41,9 +71,26 @@
           "capture_app_version": "",
           "started_independently": true,
           "room_photo_folders": [
-            {"room_id": "room_1", "relative_path": "raw/property_a/photos/room_1", "image_count": 0},
-            {"room_id": "room_2", "relative_path": "raw/property_a/photos/room_2", "image_count": 0},
-        {"room_id": "room_3", "relative_path": "raw/property_a/photos/room_3", "image_count": 0}
+            {
+              "room_id": "room_1",
+              "relative_path": "raw/property_a/photos/room_1",
+              "image_count": 0
+            },
+            {
+              "room_id": "room_2",
+              "relative_path": "raw/property_a/photos/room_2",
+              "image_count": 0
+            },
+            {
+              "room_id": "room_3",
+              "relative_path": "raw/property_a/photos/room_3",
+              "image_count": 0
+            },
+            {
+              "room_id": "connector",
+              "relative_path": "raw/property_a/photos/connector",
+              "image_count": 0
+            }
           ],
           "depth_or_pose_inputs": false,
           "raw_files_sha256": {}
@@ -68,13 +115,20 @@
           "capture_app_version": "",
           "started_independently": true,
           "relative_path": "raw/property_a/lidar/export",
-          "required_streams": ["rgb", "depth", "poses", "intrinsics"],
+          "required_streams": [
+            "rgb",
+            "depth",
+            "poses",
+            "intrinsics"
+          ],
           "raw_files_sha256": {}
         },
         {
           "capture_id": "repeat_room_1_lidar",
           "tier": "lidar",
-          "room_ids": ["room_1"],
+          "room_ids": [
+            "room_1"
+          ],
           "independent_repeat_of": "property_a_lidar",
           "started_independently": true,
           "relative_path": "raw/property_a/repeat_room_1/export",
@@ -84,15 +138,28 @@
       "damage_room": {
         "room_id": "room_2",
         "furnished": true,
-        "staged_classes": ["water_staining", "cracking"],
-        "undamaged_controls": ["paint discoloration", "fixture seams / linear trim"],
-        "same_room_capture_ids": ["property_a_photos", "property_a_video", "property_a_lidar"]
+        "staged_classes": [
+          "water_staining",
+          "cracking"
+        ],
+        "undamaged_controls": [
+          "paint discoloration",
+          "fixture seams / linear trim"
+        ],
+        "same_room_capture_ids": [
+          "property_a_photos",
+          "property_a_video",
+          "property_a_lidar"
+        ]
       },
       "consumer_comparison": {
         "app_name": "",
         "app_version": "",
         "device_model": "",
-        "room_ids": ["room_1", "room_2"],
+        "room_ids": [
+          "room_1",
+          "room_2"
+        ],
         "export_relative_path": "raw/property_a/consumer/export",
         "raw_files_sha256": {}
       },

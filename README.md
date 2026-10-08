@@ -1,146 +1,183 @@
-# Cozmo floor-plan take-home demo
+# Phone to Floorplan
 
-**Latest implementation:** [restoration flow and diagrams](docs/RESTORATION_FLOW.md)
-and [open-source experiments and decisions](docs/OPEN_SOURCE_DECISIONS.md).
-Phase 0's [benchmark inventory, manifest and truth templates](docs/benchmark/PHASE0_INVENTORY.md)
-show exactly which physical captures and external definitions remain outstanding.
-Fresh runs emit `assessment.json` and an offline `report.html` alongside geometry
-and provenance. The supplied single-room scan now yields one **partial** room;
-its missing boundaries, unknown ceiling and experimental inspection candidates
-remain explicit. Open `demo/given_restoration_on/report.html` for the local demo.
-These outputs do not establish assignment accuracy or damage-detection acceptance.
-Use the [demo walkthrough](docs/DEMO_GUIDE.md) for commands and presentation notes.
+## Overview
 
-**Exact-brief audit (2026-10-06):** the supplied assignment is broader than the V3
-prototype. Read the [requirement-by-requirement compliance audit](docs/ASSIGNMENT_COMPLIANCE.md)
-and [updated implementation / incremental E2E plan](docs/ASSIGNMENT_UPDATE_PLAN.md).
-V3's controlled passes use an earlier custom evaluator and do not establish
-assignment compliance, especially for 2–8 photos per room, ceiling height,
-calibrated intervals, damage/scope outputs and the required physical benchmark.
+A Python command-line prototype that turns phone photos, video and LiDAR/depth
+captures into floor-plan and property-restoration review artifacts. It preserves
+capture provenance, reconstructs supported geometry, proposes surfaces/openings
+and damage regions, and reports missing measurements and acceptance blockers.
 
-The assignment-specific work now includes a [stock capture protocol](docs/CAPTURE_PROTOCOL.md),
-[device matrix](docs/DEVICE_MATRIX.md), a raw-media intake command and a provisional
-gate evaluator. [Incremental E2E results](docs/ASSIGNMENT_E2E_STATUS.md) record
-the actual success and failure statuses. These additions make failures inspectable; they do not make the
-three-tier accuracy claim valid.
+**Current assessment status: partial, not acceptance-ready.** The supplied
+LiDAR scan runs end to end and writes plans, JSON and HTML. Whole-property
+completeness, strict RGB metric reconstruction and independently measured
+centimetre accuracy have **not been demonstrated**. Unsupported measurements
+remain unavailable; a plausible drawing is not a passed assessment gate.
 
-```powershell
-& .\.venv\Scripts\python.exe -m pip install -e ".[sfm,rgbd,mapping,capture,test]"
-& .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier photos --source captures\property_photos --out runs\photos_01
-& .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier video --source captures\walkthrough.mov --out runs\video_01
-& .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier lidar --source captures\stray_export --out runs\lidar_01
-& .\.venv\Scripts\python.exe -m floorplan.cli evaluate-assignment runs\lidar_01\result\plan.json truth\property.json --tier lidar --out runs\lidar_01\gates.json
-& .\.venv\Scripts\python.exe -m floorplan.cli evaluate-repeatability runs\repeat_a\result\plan.json runs\repeat_b\result\plan.json truth\property.json --out runs\repeatability.json
+**Verified in final QA:** 397 tests passed in a fresh environment (390 existing + 7 packaging checks);
+the documented supplied-scan
+command processed 300 frames into 202,477 points and exited **1 (`partial`)**.
+It wrote 12 room/cell hypotheses, with **0 accepted ceiling heights and 0
+adjacency connections**. The retained ceiling layout also has 15/15 exact saved
+artifact checks. These are software/internal-consistency results, not physical
+accuracy or a verified 12-room property. See [QA evidence](docs/FINAL_QA.md).
+
+## Input tiers and hardware
+
+| Tier | Required capture | Production path and current limitation |
+|---|---|---|
+| Photos | 2?8 original stills **per room**, any iPhone 15+, no depth or poses | Per-room folders, HEIC/EXIF intake, SIFT/COLMAP. Strict RGB metric scale and whole-property stitching remain unresolved. |
+| Video | Original handheld walkthrough, any iPhone 15+ | Timestamped sampling and the same SIFT baseline. Difficult RGB transitions remain incomplete. |
+| LiDAR | iPhone 15+ with LiDAR (Pro); depth, confidence, poses, intrinsics and RGB | Supported Stray Scanner raw export, calibrated backprojection, verified pose constraints and weighted fusion. Supplied plans remain partial. |
+
+Every tier is required to produce the **same whole-property output contract**:
+recognizable, connected, correctly placed and dimensioned rooms with adjacency.
+A single-room result does not satisfy that requirement. Intervals may be wider
+for photos; the accuracy gates still require independent evidence.
+
+Route 2 uses stock tools; there is no custom app. See the
+[capture protocol](docs/CAPTURE_PROTOCOL.md) and [device matrix](docs/DEVICE_MATRIX.md).
+The novice/cold-device capture route remains unverified.
+
+## End-to-end pipeline
+
+```mermaid
+flowchart LR
+  A[Photos / video / LiDAR] --> B[Intake: identity, timing, calibration]
+  B --> C[SIFT RGB or calibrated RGB-D]
+  C --> D[Supported geometry and explicit verified stitching]
+  D --> E[Rooms, surfaces and openings]
+  E --> F[Damage candidates and inspection scope]
+  F --> G[Uncertainty, contracts and readiness guards]
+  G --> H[JSON / HTML / conditional SVG, DXF and CSV]
 ```
 
-`run-capture` creates `intake/capture.json`, `intake/intake.json` and
-`result/run.json` even when reconstruction fails after intake. It exits nonzero
-unless a ready plan exists. The published JSON schema and earlier Round 1 rules
-referenced in the brief were not included in the supplied HTML, so the evaluator
-is versioned as provisional. The exact benchmark still requires a surveyed
-three-room property, repeated independent captures and consumer-app exports.
-On LiDAR runs where walls are observed but a room stays open,
-`result/layout_diagnostic.svg` shows the supported segments and camera path.
-The supplied `datasets/Given_dataset/` has been exercised as a real raw-input
-checkpoint; one scan now yields a reviewable partial room and the remaining scans
-remain diagnostic failures. Results and causes are in the incremental E2E report.
+[Architecture](docs/ARCHITECTURE.md) explains the actual branches. Insufficient
+support can terminate reconstruction; a report is not an accepted plan.
 
-This repository is a **CPU, code-only research prototype** for restoration floor plans. It includes calibrated RGB-D mapping, actual phone LiDAR ingestion, concave multiroom layouts, verified capture stitching, measured-scale RGB multi-view stereo, and auditable SVG/DXF/JSON/CSV outputs.
+## Install
 
-The full three-tier field-accuracy requirement is **not yet satisfied**. On the controlled two-room fixture, photos, video, and simulated LiDAR now pass wall, corner, opening, coverage, and topology targets; RGB wall P95 error is **0.57–0.87 cm**. One real-phone room measures about **2.0 cm P95** against a provisional laser-derived reference. These results do not establish accuracy across arbitrary properties.
+Run from the repository root in PowerShell. The tested platform is **Windows,
+Python 3.12, CPU**; `py -3.12` must be available. Network/package-index access and
+native Python wheels are needed unless an offline wheelhouse is supplied.
 
-## Current workflow
-
-See the [V3 implementation guide and diagrams](docs/V3_IMPLEMENTATION.md), [measured results](docs/V3_RESULTS.md), and [accepted roadmap](docs/IMPLEMENTATION_PLAN.md). V2 remains as a historical baseline.
+Obtain the final Git checkout or extract the supplied `source.zip` into a fresh
+`phone-to-floorplan` directory. For offline Git/process review, clone the provided
+`repository.bundle`. This QA pass does not upload/push the repository;
+use the submitted commit recorded in `package_manifest.json`, not an older remote.
 
 ```powershell
-& .\.venv\Scripts\python.exe -m pip install -e ".[sfm,rgbd,mapping,evaluation,test]"
-& .\.venv\Scripts\python.exe scripts\install_openmvs.py
-& .\.venv\Scripts\python.exe -m floorplan.cli reconstruct examples\icl_rgbd.json --out demo\my_run
-& .\.venv\Scripts\python.exe -m floorplan.cli benchmark examples\public_benchmark.json --out demo\my_benchmark
+cd phone-to-floorplan
+& .\scripts\bootstrap_windows.ps1
+& .\.venv\Scripts\python.exe -m floorplan.cli --help
+```
+
+The root **[requirements.txt](requirements.txt)** installs the project and the
+[Windows CPU pins](requirements/windows-cpu.txt). In an activated Python 3.12
+environment, the equivalent install is `python -m pip install -r requirements.txt`.
+The bootstrap preserves existing environments. See [operations](docs/PHASE3_OPERATIONS.md)
+for alternate environments/offline wheels and actual setup-test limitations.
+
+**No model checkpoint, API key or environment variable is required for the
+production SIFT/LiDAR baseline.** OpenMVS and learned-model assets are separate,
+optional research prerequisites. `--experimental-rgb` is not an accepted default.
+
+## Place inputs and run one capture
+
+Raw assessment data is excluded from Git. Obtain it through the assessment
+handoff, then preserve this directory structure:
+
+```text
+datasets/Given_dataset/
+  single_scan_with_ceiling/c7d28f72c6/
+    rgb.mp4
+    camera_matrix.csv
+    imu.csv
+    odometry.csv
+    depth/       # original frame files
+    confidence/  # matching original frame files
+captures/
+  property_photos/room_01/*.HEIC   # 2?8 originals per room
+  property_photos/hall/*.JPG
+  walkthrough.mov
+```
+
+**Supplied-data evaluator command** (fresh output directory):
+
+```powershell
+& .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier lidar --source datasets\Given_dataset\single_scan_with_ceiling\c7d28f72c6 --out runs\ceiling_review --profile assignment --property-id supplied_ceiling
+```
+
+Other supported intake paths use the same command contract:
+
+```powershell
+& .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier photos --source captures\property_photos --out runs\photos_review --profile assignment --property-id property_01
+& .\.venv\Scripts\python.exe -m floorplan.cli run-capture --tier video --source captures\walkthrough.mov --out runs\video_review --profile assignment --property-id property_01
+```
+
+**Expect a nonzero readiness exit for the supplied scan.** Final QA recorded exit
+1 and `partial`; keep that status visible. Strict RGB may return
+`scale_unresolved` or incomplete reconstruction. Neither condition is success.
+Existing outputs must not be reused as fresh capture directories.
+
+## Outputs and inspection
+
+Open `runs/ceiling_review/result/report.html` and `plan.svg` locally; inspect
+`run.json`, `assessment.json` and `contract_coverage.json` for blockers.
+
+| Artifact under `result/` | Meaning |
+|---|---|
+| `assessment.json`, `report.html` | Rooms/surfaces, measurements, opening and damage candidates, concealed-rule flags, surface-keyed inspection scope and unavailable intervals |
+| `plan.json`, `plan.svg`, `plan.dxf`, `quantities.csv` | Conditional dimensioned geometry/quantities; may be absent or partial |
+| `layout_diagnostic.svg`, `artifacts/` | Supported fragments, cloud, trajectory and intermediate evidence |
+| `run.json`, `contract_coverage.json` | Input/producer hashes, runtime, readiness and required-output inventory |
+
+`intake/` preserves normalization/source identity. Preflight failures may instead
+write `capture_attempt.json`. Internal JSON schema validation is available; the
+published assessment schema was not supplied, so official compliance is unverified.
+
+## Validation and reproducibility
+
+```powershell
 & .\.venv\Scripts\python.exe -m pytest -q
+& .\.venv\Scripts\python.exe scripts/render_assessment_report.py --out demo\report_review
+& .\.venv\Scripts\python.exe scripts/package_assessment.py --verify demo\final_qa\handoff
 ```
 
-Output directories must be fresh. Download/preparation steps and the controlled multiroom demo are documented in the implementation guide and dataset notes. The sections below preserve the original baseline commands; use `reconstruct` above for the new common workflow.
+The report command reads saved evidence and produces a five-page PDF/editable
+SVGs; it does not run reconstruction. The package verification command requires
+the separately delivered package at that path. Package generation and benchmark
+commands are in [operations](docs/PHASE3_OPERATIONS.md).
+The **submitted Git tree contains the frozen implementation**; an uncommitted
+source snapshot is no longer required to obtain the code that was tested.
 
-Read the [architecture and flow charts](docs/ARCHITECTURE.md), [dataset research](docs/DATASETS.md), [measured benchmark results](docs/BENCHMARK_RESULTS.md), and [personal decisions](DESIGN_NOTES.md).
+## Status and known limitations
 
-![Architecture](docs/figures/architecture.png)
+- **Production:** SIFT, calibrated RGB-D intake/fusion, conservative geometry,
+  explicit stitching, internal contracts and evaluation tools.
+- **Experimental:** MoGe metric RGB, DISK/LightGlue, XFeat/LightGlue,
+  fixed-intrinsics/mapping controls and denser sampling. None was promoted.
+- **Diagnostic:** RGB registration investigation is **closed as inconclusive**.
+  room_2 has no accepted local floor or ceiling. The **0.703 m footprint notch**
+  remains unvalidated; it is not a measured ceiling-height change.
+- **Acceptance missing:** complete property/adjacency, physical wall/opening/
+  ceiling accuracy, field damage labels, calibrated intervals, same-property
+  three-tier benchmark, repeats, consumer exports, prospective measured Fix Loop
+  and an unseen-phone walk-in. Installation/runnability does not close these gates.
 
-## Legacy rectangular RGB-D benchmark
+See [results](docs/BENCHMARK_RESULTS.md), [compliance](docs/ASSIGNMENT_COMPLIANCE.md),
+[fix loops](docs/FIX_LOOP.md) and [limitations](docs/LIMITATIONS.md).
 
-The ICL-NUIM archives and 177-frame subset are already downloaded locally. On a fresh checkout, follow [dataset acquisition](docs/DATASETS.md) first. This path estimates camera poses and walls without supplied corners or reference poses. Use a fresh output directory:
+## Repository and documentation
 
-```powershell
-py -3.12 -m venv .venv
-& .\.venv\Scripts\python.exe -m pip install -e ".[rgbd,evaluation,test]"
-& .\.venv\Scripts\python.exe -m floorplan.cli reconstruct-rgbd datasets\icl_nuim\trajectory2\sequence.json demo\my_rgbd_run
-& .\.venv\Scripts\python.exe scripts\evaluate_icl.py demo\my_rgbd_run\plan.json datasets\icl_nuim\living_room_obj_mtl.tar.gz demo\my_rgbd_run\evaluation.json
-```
+| Path | Role |
+|---|---|
+| `floorplan/` | Production modules; `rgb_metric.py` is opt-in experimental |
+| `scripts/` | Setup, packaging, evaluation and explicitly catalogued diagnostic/experimental tools |
+| `tests/`, `examples/` | Regression tests and controlled fixtures, not physical benchmark truth |
+| `docs/` | Canonical handoff, report, evidence and historical engineering records |
+| `datasets/`, `demo/`, `runs/` | Local input/generated assets; excluded from Git |
 
-The current output is [demo/icl_rgbd_refined/plan.svg](demo/icl_rgbd_refined/plan.svg). The calibrated depth supplies metric scale. This baseline assumes a single rectangular room and an approximately level starting camera. It is tested on synthetic RGB-D; it is not yet a native iPhone LiDAR importer.
-
-## Assisted two-room quick start
-
-This separate baseline uses marked floor corners in a JSON manifest, camera calibration, measured scale, and doorway anchors. It demonstrates multi-room projection/stitching/export and does not infer corners from arbitrary RGB images.
-
-Use Python 3.10 or newer. On Windows PowerShell:
-
-```powershell
-py -3.12 -m venv .venv
-& .\.venv\Scripts\python.exe -m pip install -e .
-& .\.venv\Scripts\python.exe -m floorplan.cli make-demo demo
-& .\.venv\Scripts\python.exe -m floorplan.cli run demo\project.json demo\output
-& .\.venv\Scripts\python.exe -m floorplan.cli evaluate demo\output\plan.json demo\ground_truth.json
-```
-
-The generated `demo/output/plan.svg` opens in a browser. `plan.dxf` opens in CAD software. `REPORT.md` links to overlays of the marked source images.
-
-This is a synthetic geometry test: the camera views and corner annotations are generated from the same known room geometry. Its near-zero error verifies transforms and export, **not** accuracy on real properties.
-
-## Assisted workflow on your own media
-
-1. Put photos or videos in a project directory, and copy `demo/project.json` as a starting manifest.
-2. For each room, set `source.type` to `image` or `video` and provide the relative media path. For video, set `frame_time_s` to the desired time in seconds. The program extracts that frame with FFmpeg supplied by `imageio-ffmpeg`.
-3. Enter the image width, height, focal lengths `fx`/`fy`, principal point `cx`/`cy`, and camera `yaw_deg`/`pitch_deg` if the camera was not level. These must describe the **same frame orientation and resolution** that the program reads. Record the centre of each visible wall-floor junction in `floor_corners_px`, walking around the room boundary in order. The numbered overlay lets you check these selections.
-4. Supply `camera.height_m` if measured, or `reference_edge: {"edge_index": 0, "length_m": 4.0}` for a known edge. A reference edge uses the boundary segment from corner `edge_index` to the following corner. Without either, lengths and quantities are withheld from metric output.
-5. If two rooms are observed at a shared doorway, provide at least two corresponding points in each room's local floor coordinates under `stitches`. Example: `source_points` `[[0,1],[0,2]]` in room B and `target_points` `[[4,1],[4,2]]` in room A. Both rooms need metric scale. Disconnected rooms remain independent.
-6. Run `python -m floorplan.cli run path\to\project.json path\to\output`.
-
-The manifest camera is at local floor position `(0,0)` and its local `+Y` axis points forward when yaw and pitch are zero. Positive pitch points upward. Corners must be below the horizon so their viewing rays hit the floor. `height_m` is the lens centre above the floor, not ceiling height. `ceiling_height_m` is optional and used only for wall area. Openings are described by `edge_index`, fractions along that edge, and `height_m`; they are deducted from net wall area.
-
-The output `metric_status` is `reference_scaled` when a measured camera height or edge length is provided, and `unscaled` otherwise. `reference_scaled` describes where the scale came from; it is **not** a validation certificate. Source geometry, camera data, and reference measurements all need independent checks before estimating quantities on a real job.
-
-When rooms have no stitching evidence, the SVG displays them as separate panels marked “placement unknown,” and the export writes one DXF per room. A combined `plan.dxf` is produced only when all rooms have a shared placement.
-
-## Included real video dataset
-
-`datasets/tum_freiburg1_room/rgb.avi` is the 13.8 MB RGB movie from the [TUM RGB-D `freiburg1_room` sequence](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download). The matching ground-truth trajectory is also included. They are useful for checking video decoding, frame extraction, tracking experiments, and capture quality. Its [dataset page](https://cvg.cit.tum.de/data/datasets/rgbd-dataset) states CC BY 4.0 for data unless otherwise noted. The movie has no floor-corner annotations or certified room dimensions, so it is not used to claim floor-plan measurement accuracy. Attribution and provenance are in `datasets/tum_freiburg1_room/SOURCE.md`.
-
-To inspect a real frame, run:
-
-```powershell
-& .\.venv\Scripts\python.exe -m floorplan.cli sample-video datasets\tum_freiburg1_room\rgb.avi demo\tum_frame.png --time 5
-```
-
-An optional RGB reconstruction experiment uses [PyCOLMAP](https://colmap.github.io/pycolmap/index.html):
-
-```powershell
-& .\.venv\Scripts\python.exe -m pip install -e ".[sfm]"
-& .\.venv\Scripts\python.exe -m floorplan.cli reconstruct-rgb datasets\tum_freiburg1_room\rgb.avi demo\tum_sfm --fps 2 --max-frames 100
-```
-
-This writes a COLMAP sparse model, `sparse.ply`, and `sfm_summary.json`. It estimates camera poses and sparse 3D structure from RGB only. The model has **unknown metric scale**, and sparse points are not a floor plan. `partial` now means fewer than 90% of selected frames entered the largest model. Keep the SfM experiment separate from the measured-corner plan until camera poses, scale, and structural geometry can be aligned and validated. `--matching exhaustive` compares every pair and improved the short ICL video experiment from 55/89 to 89/89 registered frames; it has quadratic matching cost.
-
-In the local TUM experiment, the largest model registered 10 of 91 extracted frames. This is partial coverage and does not provide a complete room plan. The experiment is recorded in `DESIGN_NOTES.md`.
-
-For a camera with known intrinsics, pass `--camera-model` and `--camera-params` in [COLMAP's parameter order](https://colmap.github.io/cameras.html). For example, the [TUM Freiburg 1 RGB calibration](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/file_formats) can be approximated with `--camera-model OPENCV --camera-params '517.3,516.5,318.6,255.3,0.2624,-0.9531,-0.0054,0.0026'`. This eight-parameter model omits TUM's reported `k3` term. In the local test it registered 10 of 91 frames, so calibration alone did not resolve the coverage gap.
-
-## Test
-
-```powershell
-& .\.venv\Scripts\python.exe -m pip install -e ".[test]"
-& .\.venv\Scripts\python.exe -m pytest -q
-```
-
-The synthetic test covers image and video ingestion, ground projection, room alignment, metric quantities, and export. The TUM video is a separate real-media decoding test.
+Start with the [documentation index](docs/INDEX.md), [technical report](docs/TECHNICAL_REPORT.pdf)
+and [final QA](docs/FINAL_QA.md). The [original brief](docs/Applied%20AI.html) defines
+success. Older plans are historical; their next-step suggestions are superseded.
+No further algorithm investigation belongs to this final handoff.

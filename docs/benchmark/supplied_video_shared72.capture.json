@@ -1,0 +1,13 @@
+{
+  "schema_version": 2,
+  "tier": "video",
+  "source": "../../datasets/Given_dataset/single_room/c00a170fe1/rgb.mp4",
+  "fps": 2,
+  "max_frames": 72,
+  "dense_backend": "openmvs",
+  "profile": "assignment",
+  "metric_backend": "moge2_experimental",
+  "property_id": "given_single_identity_unverified",
+  "camera_grouping": "shared",
+  "experiment_description": "Shared-camera assumption for RGB-only supplied video; source camera/lens constancy is not independently verified. No sensor poses/intrinsics/depth supplied. Development comparison only."
+}

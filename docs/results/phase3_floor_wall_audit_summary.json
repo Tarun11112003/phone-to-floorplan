@@ -1,0 +1,583 @@
+{
+  "version": "floor-uncovered-wall-audit-checkpoint-v1",
+  "audit": {
+    "before": {
+      "path": "demo/phase3_floor_audit/unchanged_baseline_verified/audit.json",
+      "sha256": "16fb2531a25f9e9e14c8ec1250b6627e7c5e24a5bd3dc843b26a1577be50d052",
+      "experiment": "frozen_floor_boundary_audit",
+      "run": "demo\\phase3_partial_cells\\current\\floor",
+      "input_sha256": {
+        "run.json": "5f69b5ccdea28a17e1aae54548db33f3196c0b3d8db532ded52ba840ab105475",
+        "plan.json": "b64d24d4023f43f5f6989399efe37ff30c9959b5b0e111a38badaab2af90014f",
+        "artifacts/cloud.npz": "4d2db10bdd0b0f125f711ebaf5cd0944554bb0e0b1301cb32a914bfcd119969a",
+        "artifacts/trajectory.json": "5366575bb18bff5357802b77f898b32ef841cfb0149536fd6c749da242d0f5b6",
+        "artifacts/rgbd_summary.json": "04503ebc84ce48639dacb135bde3106d5f4f7ea78f58be88bf2365e9632b45c5",
+        "artifacts/layout_evidence.json": "71b53c01c75183857503191bc78c611e7c0a475c6e50ec60c9aac1551f92afb5"
+      },
+      "script_sha256": "fd4ace6c218ffa9464f20ca6c46863664690cea674c7bac886a56fe0f2eb7ba0",
+      "layout_sha256": "8f9bdf67e55ca593ed484038a6ecfa51c21cd15f37d25010a2985b0855ab8a6b",
+      "reconstruction_logic_unchanged": true,
+      "camera_samples": 176,
+      "covered_samples": 25,
+      "uncovered_samples": 151,
+      "sample_classifications": {
+        "incomplete_extracted_directional_support": 95,
+        "bounded_enclosure_below_existing_area_guard": 2,
+        "degenerate_directional_hits": 2,
+        "finite_extents_do_not_support_bounded_enclosure": 52
+      },
+      "seed_search": [
+        {
+          "axis": 0,
+          "eligible_seed_modes": 29,
+          "attempted_seed_modes": 13,
+          "accepted_proposals": 12
+        },
+        {
+          "axis": 2,
+          "eligible_seed_modes": 39,
+          "attempted_seed_modes": 12,
+          "accepted_proposals": 12
+        }
+      ],
+      "omitted_seeds_passing_all_existing_guards": 40,
+      "accuracy_validated": false,
+      "limitations": [
+        "No extracted directional wall hit does not prove the raw capture lacked observations",
+        "Directional enclosures can cross different rooms and are diagnostic only",
+        "Passing plane guards is observed surface support, not semantic wall or room ground truth",
+        "No independent survey or centimetre-accuracy evidence"
+      ]
+    },
+    "after": {
+      "path": "demo/phase3_floor_audit/postfix_verified/audit.json",
+      "sha256": "79ff11e4562afc1666e707b6ed1b2b551c6193cfbf6cb62024d70c147b59741b",
+      "experiment": "frozen_floor_boundary_audit",
+      "run": "demo\\phase3_floor_audit\\current_residual\\floor",
+      "input_sha256": {
+        "run.json": "127dd3a3dc3f12fd07a23eb1135d792473a695195230e708a344260b804397ee",
+        "plan.json": "4eb7423789031ec5dc0181bfe9069db68f9ac99f5e84c7510b24b7e2310f1804",
+        "artifacts/cloud.npz": "e93405dc0c71d82d6ca51f8c5dbca9299a5249d4fc7820db06449697a1941bfc",
+        "artifacts/trajectory.json": "c783e9886101adc3fb4cbd21bd691ccea48fadb96312ed22f283340b248a6b83",
+        "artifacts/rgbd_summary.json": "bd5703fc87c33224efff0857a9f7f41946de4767f825d9f9ccdb5b73153f0fd6",
+        "artifacts/layout_evidence.json": "dc7b471d0cb5fb487ac2bcdb8ecfec608c582166ae764b3dca1783cbb08c8ebd"
+      },
+      "script_sha256": "8556fd295e639c69f460144506e32c15fa8c6ac017219b9f1c956642cd7a2ac1",
+      "layout_sha256": "588782263e0c1cf7f8f796ace20a16654998dc0d45e7aed4395e74da397edf3b",
+      "reconstruction_logic_unchanged": true,
+      "camera_samples": 176,
+      "covered_samples": 25,
+      "uncovered_samples": 151,
+      "sample_classifications": {
+        "incomplete_extracted_directional_support": 94,
+        "bounded_enclosure_below_existing_area_guard": 2,
+        "degenerate_directional_hits": 2,
+        "finite_extents_do_not_support_bounded_enclosure": 53
+      },
+      "seed_search": [
+        {
+          "axis": 0,
+          "eligible_seed_modes": 29,
+          "attempted_seed_modes": 13,
+          "accepted_proposals": 12
+        },
+        {
+          "axis": 2,
+          "eligible_seed_modes": 39,
+          "attempted_seed_modes": 12,
+          "accepted_proposals": 12
+        }
+      ],
+      "omitted_seeds_passing_all_existing_guards": 37,
+      "accuracy_validated": false,
+      "limitations": [
+        "No extracted directional wall hit does not prove the raw capture lacked observations",
+        "Directional enclosures can cross different rooms and are diagnostic only",
+        "Passing plane guards is observed surface support, not semantic wall or room ground truth",
+        "No independent survey or centimetre-accuracy evidence"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "case": "single",
+      "before": {
+        "camera_samples": 115,
+        "camera_center_coverage_fraction": 0.34782608695652173,
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "retained_wall_segments": 37,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 25.401118000037968,
+        "maximum_pairwise_cell_overlap_m2": 0,
+        "valid_cell_polygons": true
+      },
+      "after": {
+        "camera_samples": 115,
+        "camera_center_coverage_fraction": 0.34782608695652173,
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "retained_wall_segments": 37,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 13.779092500102706,
+        "maximum_pairwise_cell_overlap_m2": 0,
+        "valid_cell_polygons": true
+      },
+      "changed_reconstruction_modules": [
+        "layout.py"
+      ],
+      "producer_unchanged_during_run": true,
+      "controlled_checks": {
+        "wall_segments": true,
+        "wall_plane_proposals": true,
+        "camera_path_2d": true,
+        "connections": true,
+        "boundary_stages": true,
+        "polygonization_diagnostics": true,
+        "initial_only_corners_exact": true,
+        "initial_proposals_retained_exactly": true,
+        "residual_support_guards_retained": true,
+        "identical_inputs": true,
+        "identical_configuration": true,
+        "source_artifacts_intact": true,
+        "candidate_artifacts_intact": true,
+        "original_producers_frozen": true,
+        "candidate_producer_matches": true,
+        "layout_unchanged_during_comparison": true,
+        "inference_remains_partial": true
+      },
+      "additional_plane_proposals": 1,
+      "observed_cell_shape_changes": [],
+      "raw_camera_path_exact": false,
+      "raw_camera_path_max_absolute_change_m": 1.7319479184152442e-14,
+      "comparison_path": "demo/phase3_floor_audit/current_residual/single_controlled/comparison/comparison.json",
+      "comparison_sha256": "d057394cd447996e855ab6ee1c8c91d65c9d6791f71c16738ff02d690852e6ea",
+      "evidence_sha256": {
+        "demo\\phase3_partial_cells\\current\\single\\run.json": "c546713735bac5b552b3614c5f947ee6d1916ccc35a80c24c06debe1377befa5",
+        "demo\\phase3_partial_cells\\current\\single\\plan.json": "6dbcd3b648bd4755089fefead8b17b325a778d73deba4669f849a6fef8d02dfd",
+        "demo\\phase3_partial_cells\\current\\single\\artifacts\\cloud.npz": "68c42d27a978692a9e0e096c06672676a4ccb4c11795af80ea508a507669ce40",
+        "demo\\phase3_partial_cells\\current\\single\\artifacts\\layout_evidence.json": "7b719eb08e2da1b67ecb7eed5d952a1f8512746f0d1b60d3f64ab7c80da2b535",
+        "demo\\phase3_floor_audit\\current_residual\\single\\run.json": "415ca91f97f772681654cb22e5486a33bf641aa2ea82cf2f56067c6a482caa69",
+        "demo\\phase3_floor_audit\\current_residual\\single\\plan.json": "95668592dc4ed4c348c9a1e3d4b0a18f9c01b2ef1e677687dd96eb7276faf039",
+        "demo\\phase3_floor_audit\\current_residual\\single\\artifacts\\cloud.npz": "de0953497c259e09aaf3d8b29f8814128825f41453d88e709747ebc0fd2811d9",
+        "demo\\phase3_floor_audit\\current_residual\\single\\artifacts\\layout_evidence.json": "e20c3207fab60f361947da37d5cfbf51f6579e595ecf1b32b10ea9e3dce07a23"
+      },
+      "accuracy_improvement": null
+    },
+    {
+      "case": "floor",
+      "before": {
+        "camera_samples": 176,
+        "camera_center_coverage_fraction": 0.14204545454545456,
+        "observed_cells": 1,
+        "inferred_cells": 1,
+        "retained_wall_segments": 63,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 36.56126780004706,
+        "maximum_pairwise_cell_overlap_m2": 0.0,
+        "valid_cell_polygons": true
+      },
+      "after": {
+        "camera_samples": 176,
+        "camera_center_coverage_fraction": 0.14204545454545456,
+        "observed_cells": 1,
+        "inferred_cells": 1,
+        "retained_wall_segments": 67,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 17.385613000020385,
+        "maximum_pairwise_cell_overlap_m2": 0.0,
+        "valid_cell_polygons": true
+      },
+      "changed_reconstruction_modules": [
+        "layout.py"
+      ],
+      "producer_unchanged_during_run": true,
+      "controlled_checks": {
+        "wall_segments": true,
+        "wall_plane_proposals": true,
+        "camera_path_2d": true,
+        "connections": true,
+        "boundary_stages": true,
+        "polygonization_diagnostics": true,
+        "initial_only_corners_exact": true,
+        "initial_proposals_retained_exactly": true,
+        "residual_support_guards_retained": true,
+        "identical_inputs": true,
+        "identical_configuration": true,
+        "source_artifacts_intact": true,
+        "candidate_artifacts_intact": true,
+        "original_producers_frozen": true,
+        "candidate_producer_matches": true,
+        "layout_unchanged_during_comparison": true,
+        "inference_remains_partial": true
+      },
+      "additional_plane_proposals": 4,
+      "observed_cell_shape_changes": [
+        {
+          "source_room_id": "room_0",
+          "candidate_cell_id": "room_0",
+          "exact_corners_retained": true,
+          "before_area_m2": 2.880916391509594,
+          "after_area_m2": 2.880916391509594,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        }
+      ],
+      "raw_camera_path_exact": false,
+      "raw_camera_path_max_absolute_change_m": 5.329070518200751e-15,
+      "comparison_path": "demo/phase3_floor_audit/current_residual/floor_controlled/comparison/comparison.json",
+      "comparison_sha256": "bbbdc0e1ba7bcd5c32656d165c841e7b50e68837cf335424a0b079e7a85a09e2",
+      "evidence_sha256": {
+        "demo\\phase3_partial_cells\\current\\floor\\run.json": "5f69b5ccdea28a17e1aae54548db33f3196c0b3d8db532ded52ba840ab105475",
+        "demo\\phase3_partial_cells\\current\\floor\\plan.json": "b64d24d4023f43f5f6989399efe37ff30c9959b5b0e111a38badaab2af90014f",
+        "demo\\phase3_partial_cells\\current\\floor\\artifacts\\cloud.npz": "4d2db10bdd0b0f125f711ebaf5cd0944554bb0e0b1301cb32a914bfcd119969a",
+        "demo\\phase3_partial_cells\\current\\floor\\artifacts\\layout_evidence.json": "71b53c01c75183857503191bc78c611e7c0a475c6e50ec60c9aac1551f92afb5",
+        "demo\\phase3_floor_audit\\current_residual\\floor\\run.json": "127dd3a3dc3f12fd07a23eb1135d792473a695195230e708a344260b804397ee",
+        "demo\\phase3_floor_audit\\current_residual\\floor\\plan.json": "4eb7423789031ec5dc0181bfe9069db68f9ac99f5e84c7510b24b7e2310f1804",
+        "demo\\phase3_floor_audit\\current_residual\\floor\\artifacts\\cloud.npz": "e93405dc0c71d82d6ca51f8c5dbca9299a5249d4fc7820db06449697a1941bfc",
+        "demo\\phase3_floor_audit\\current_residual\\floor\\artifacts\\layout_evidence.json": "dc7b471d0cb5fb487ac2bcdb8ecfec608c582166ae764b3dca1783cbb08c8ebd"
+      },
+      "accuracy_improvement": null
+    },
+    {
+      "case": "ceiling",
+      "before": {
+        "camera_samples": 300,
+        "camera_center_coverage_fraction": 0.49333333333333335,
+        "observed_cells": 3,
+        "inferred_cells": 3,
+        "retained_wall_segments": 59,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 111.62945090001449,
+        "maximum_pairwise_cell_overlap_m2": 0.0,
+        "valid_cell_polygons": true
+      },
+      "after": {
+        "camera_samples": 300,
+        "camera_center_coverage_fraction": 0.9833333333333333,
+        "observed_cells": 8,
+        "inferred_cells": 4,
+        "retained_wall_segments": 81,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 69.59468949993607,
+        "maximum_pairwise_cell_overlap_m2": 0.0,
+        "valid_cell_polygons": true
+      },
+      "changed_reconstruction_modules": [
+        "layout.py"
+      ],
+      "producer_unchanged_during_run": true,
+      "controlled_checks": {
+        "wall_segments": true,
+        "wall_plane_proposals": true,
+        "camera_path_2d": true,
+        "connections": true,
+        "boundary_stages": true,
+        "polygonization_diagnostics": true,
+        "initial_only_corners_exact": true,
+        "initial_proposals_retained_exactly": true,
+        "residual_support_guards_retained": true,
+        "identical_inputs": true,
+        "identical_configuration": true,
+        "source_artifacts_intact": true,
+        "candidate_artifacts_intact": true,
+        "original_producers_frozen": true,
+        "candidate_producer_matches": true,
+        "layout_unchanged_during_comparison": true,
+        "inference_remains_partial": true
+      },
+      "additional_plane_proposals": 16,
+      "observed_cell_shape_changes": [
+        {
+          "source_room_id": "room_0",
+          "candidate_cell_id": "room_0",
+          "exact_corners_retained": true,
+          "before_area_m2": 3.6796545788738686,
+          "after_area_m2": 3.6796545788738686,
+          "retained_area_fraction": 1.0000000000000002,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_1",
+          "candidate_cell_id": "room_2",
+          "exact_corners_retained": false,
+          "before_area_m2": 10.477367265935424,
+          "after_area_m2": 9.945719534889562,
+          "retained_area_fraction": 0.9492575073917295,
+          "boundary_hausdorff_change_m": 0.7026770276005543,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_2",
+          "candidate_cell_id": "room_6",
+          "exact_corners_retained": true,
+          "before_area_m2": 1.5829328698160836,
+          "after_area_m2": 1.5829328698160836,
+          "retained_area_fraction": 1.0000000000000002,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        }
+      ],
+      "raw_camera_path_exact": false,
+      "raw_camera_path_max_absolute_change_m": 6.838973831690964e-14,
+      "comparison_path": "demo/phase3_floor_audit/current_residual/ceiling_controlled/comparison/comparison.json",
+      "comparison_sha256": "19d23369a5df20bca8f842b59b7e2896b0844dc927419865531cd756a9a9b0ec",
+      "evidence_sha256": {
+        "demo\\phase3_partial_cells\\current\\ceiling\\run.json": "ac3825f7a6f65b86c242acf2f8b827a1d60bbad87ee0f13e40876614843a7b74",
+        "demo\\phase3_partial_cells\\current\\ceiling\\plan.json": "d01efd623dfb98f1d4a266ff947d76a0a03e8efdc97f0eee48c2db63ee0ca510",
+        "demo\\phase3_partial_cells\\current\\ceiling\\artifacts\\cloud.npz": "4f51252a3361bb591ec1e40be40b41593fe94c8766aebd93b275ad38b07f224d",
+        "demo\\phase3_partial_cells\\current\\ceiling\\artifacts\\layout_evidence.json": "a823424e01710d6abd0eb2b35f6338d2ca9bc91eea150ba6754049108ad7fc80",
+        "demo\\phase3_floor_audit\\current_residual\\ceiling\\run.json": "5a3b298264dde323e481841e12e55f04516aff754e0381d303e2b43cfacbf683",
+        "demo\\phase3_floor_audit\\current_residual\\ceiling\\plan.json": "92a957fc94316434d758a488474d14e2c649217fd645f8b121aaa17b53092a64",
+        "demo\\phase3_floor_audit\\current_residual\\ceiling\\artifacts\\cloud.npz": "023a297f9278b3367bec42b2db40d27996aeaca38238a997fc0ad65246eef557",
+        "demo\\phase3_floor_audit\\current_residual\\ceiling\\artifacts\\layout_evidence.json": "7736b13487bb91e8240c74b2ff62addfc30c9b2497a643001ca0a1502d09f6ab"
+      },
+      "accuracy_improvement": null
+    },
+    {
+      "case": "single_dense",
+      "before": {
+        "camera_samples": 286,
+        "camera_center_coverage_fraction": 0.36713286713286714,
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "retained_wall_segments": 43,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 47.72194550000131,
+        "maximum_pairwise_cell_overlap_m2": 0,
+        "valid_cell_polygons": true
+      },
+      "after": {
+        "camera_samples": 286,
+        "camera_center_coverage_fraction": 0.36713286713286714,
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "retained_wall_segments": 44,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 18.735509700025432,
+        "maximum_pairwise_cell_overlap_m2": 0,
+        "valid_cell_polygons": true
+      },
+      "changed_reconstruction_modules": [
+        "layout.py"
+      ],
+      "producer_unchanged_during_run": true,
+      "controlled_checks": {
+        "wall_segments": true,
+        "wall_plane_proposals": true,
+        "camera_path_2d": true,
+        "connections": true,
+        "boundary_stages": true,
+        "polygonization_diagnostics": true,
+        "initial_only_corners_exact": true,
+        "initial_proposals_retained_exactly": true,
+        "residual_support_guards_retained": true,
+        "identical_inputs": true,
+        "identical_configuration": true,
+        "source_artifacts_intact": true,
+        "candidate_artifacts_intact": true,
+        "original_producers_frozen": true,
+        "candidate_producer_matches": true,
+        "layout_unchanged_during_comparison": true,
+        "inference_remains_partial": true
+      },
+      "additional_plane_proposals": 5,
+      "observed_cell_shape_changes": [],
+      "raw_camera_path_exact": false,
+      "raw_camera_path_max_absolute_change_m": 2.7533531010703882e-14,
+      "comparison_path": "demo/phase3_floor_audit/current_residual/single_dense_controlled/comparison/comparison.json",
+      "comparison_sha256": "da3e466d2fedec453ddcbbce5dd3380ed4d759eaa0f636800fe0b11ad7cdffd4",
+      "evidence_sha256": {
+        "demo\\phase3_partial_cells\\current\\single_dense\\run.json": "512d70dbdeb5ecef4e902a22b9faddbcf35eee32f3979c6356044874ff38a696",
+        "demo\\phase3_partial_cells\\current\\single_dense\\plan.json": "2bb94f8bb7bc9c93584d7c7429ce6cd730d2488f0b11c325f93b7d9bbb64121d",
+        "demo\\phase3_partial_cells\\current\\single_dense\\artifacts\\cloud.npz": "ecf8475f2cedbcede2f6e96b43f2dd0dc876a26726d5c0fee7d52ca017f9a35c",
+        "demo\\phase3_partial_cells\\current\\single_dense\\artifacts\\layout_evidence.json": "eff3de9530451da2e4137ddbe802eacc4431170be4ea5a094391954e56604bee",
+        "demo\\phase3_floor_audit\\current_residual\\single_dense\\run.json": "30c37d7f2ab70cdc8e70b0c4a88be73563d2eb01a34dd9e4619c2867187bb0a3",
+        "demo\\phase3_floor_audit\\current_residual\\single_dense\\plan.json": "22a2d2b573b3640e14df1111fe5a6818f8625f133e4fa0a88cde6d73f25a840f",
+        "demo\\phase3_floor_audit\\current_residual\\single_dense\\artifacts\\cloud.npz": "c6d2a1b2b983c9b81d94b7b71c5835e0d0a79aab9b65ad18d4300527b82f7e8c",
+        "demo\\phase3_floor_audit\\current_residual\\single_dense\\artifacts\\layout_evidence.json": "5a092ef816fa57eec26f211b5e30234c8995a79e639eb643a0499d1b32669175"
+      },
+      "accuracy_improvement": null
+    },
+    {
+      "case": "control",
+      "before": {
+        "camera_samples": 97,
+        "camera_center_coverage_fraction": 1.0,
+        "observed_cells": 2,
+        "inferred_cells": 0,
+        "retained_wall_segments": 8,
+        "connections": 1,
+        "status": "proposal_requires_review",
+        "contract_complete": false,
+        "runtime_s": 25.254727899911813,
+        "maximum_pairwise_cell_overlap_m2": 0.0,
+        "valid_cell_polygons": true
+      },
+      "after": {
+        "camera_samples": 97,
+        "camera_center_coverage_fraction": 1.0,
+        "observed_cells": 2,
+        "inferred_cells": 0,
+        "retained_wall_segments": 8,
+        "connections": 1,
+        "status": "proposal_requires_review",
+        "contract_complete": false,
+        "runtime_s": 10.33711530000437,
+        "maximum_pairwise_cell_overlap_m2": 0.0,
+        "valid_cell_polygons": true
+      },
+      "changed_reconstruction_modules": [
+        "layout.py"
+      ],
+      "producer_unchanged_during_run": true,
+      "controlled_checks": {
+        "wall_segments": true,
+        "wall_plane_proposals": true,
+        "camera_path_2d": true,
+        "connections": true,
+        "boundary_stages": true,
+        "polygonization_diagnostics": true,
+        "initial_only_corners_exact": true,
+        "initial_proposals_retained_exactly": true,
+        "residual_support_guards_retained": true,
+        "identical_inputs": true,
+        "identical_configuration": true,
+        "source_artifacts_intact": true,
+        "candidate_artifacts_intact": true,
+        "original_producers_frozen": true,
+        "candidate_producer_matches": true,
+        "layout_unchanged_during_comparison": true,
+        "inference_remains_partial": true
+      },
+      "additional_plane_proposals": 0,
+      "observed_cell_shape_changes": [
+        {
+          "source_room_id": "room_0",
+          "candidate_cell_id": "room_0",
+          "exact_corners_retained": true,
+          "before_area_m2": 5.9992653471617565,
+          "after_area_m2": 5.9992653471617565,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_1",
+          "candidate_cell_id": "room_1",
+          "exact_corners_retained": true,
+          "before_area_m2": 14.000753714183436,
+          "after_area_m2": 14.000753714183436,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        }
+      ],
+      "raw_camera_path_exact": true,
+      "raw_camera_path_max_absolute_change_m": 0.0,
+      "comparison_path": "demo/phase3_floor_audit/current_residual/control_controlled/comparison/comparison.json",
+      "comparison_sha256": "99e585b393689be98ab9b9eda05d10050348823820f80105e43df4e9b1401159",
+      "evidence_sha256": {
+        "demo\\phase3_partial_cells\\current\\control\\control\\run.json": "49f7f28a212a3020700f008977b01290830713239dea8a7dabde14246d0e3036",
+        "demo\\phase3_partial_cells\\current\\control\\control\\plan.json": "b367af874581e89bd9a6abb32b2edfe27454c9c4ac5923541340b494750913c9",
+        "demo\\phase3_partial_cells\\current\\control\\control\\artifacts\\cloud.npz": "4ac1f2561d4c136f77cb453dc5b55445b38a43fed7d7b386256cf53c90c4d8af",
+        "demo\\phase3_partial_cells\\current\\control\\control\\artifacts\\layout_evidence.json": "136b7ce6a48360a4a8948e159d85d1cb92ae38257226153024bb2400f2265fbd",
+        "demo\\phase3_floor_audit\\current_residual\\control\\control\\run.json": "0e46f747200fa856a957b090366ce45dd21a908698df49f7e10bd4b0afb76db2",
+        "demo\\phase3_floor_audit\\current_residual\\control\\control\\plan.json": "daf13ea9a17227ff774d432795a88b0b8d614e0c139496c0afee3cddeabce470",
+        "demo\\phase3_floor_audit\\current_residual\\control\\control\\artifacts\\cloud.npz": "4ac1f2561d4c136f77cb453dc5b55445b38a43fed7d7b386256cf53c90c4d8af",
+        "demo\\phase3_floor_audit\\current_residual\\control\\control\\artifacts\\layout_evidence.json": "63487397ad08b6f7fa9ad31dae41727b1359cba5fb4bb75e9e3499812ba58589"
+      },
+      "accuracy_improvement": null
+    }
+  ],
+  "reproduction": {
+    "path": "demo/phase3_floor_audit/current_residual/reproduction.json",
+    "sha256": "9e6cd844fde1e9e6738c249677cf40b187efef552c084ddf589b12c716940e1c",
+    "cases": 15,
+    "regenerated_cases": 15,
+    "checks": 45,
+    "passed_checks": 45,
+    "all_claims_regenerated": true,
+    "raw_outcomes": [
+      {
+        "case": "single",
+        "exit_code": 1
+      },
+      {
+        "case": "floor",
+        "exit_code": 1
+      },
+      {
+        "case": "ceiling",
+        "exit_code": 1
+      },
+      {
+        "case": "single_dense",
+        "exit_code": 1
+      },
+      {
+        "case": "control",
+        "exit_code": 0
+      }
+    ]
+  },
+  "tests": {
+    "pre_fix_quota_regression": {
+      "passed": 0,
+      "failed": 1,
+      "seconds": 3.69
+    },
+    "unchanged_source_relevant": {
+      "passed": 21,
+      "seconds": 69.76
+    },
+    "post_fix_relevant": {
+      "passed": 22,
+      "seconds": 73.88
+    },
+    "audit_classification": {
+      "passed": 3,
+      "seconds": 2.14
+    },
+    "full_serial_regression": {
+      "passed": 171,
+      "failed": 0,
+      "seconds": 145.59
+    },
+    "final_audit_and_new_regressions": {
+      "passed": 5,
+      "failed": 0,
+      "seconds": 2.05
+    }
+  },
+  "accuracy_validated": false,
+  "whole_requirements_closed": [],
+  "limitations": [
+    "Camera-centre coverage and plane support are development proxies; no independently surveyed ground truth",
+    "Floor coverage is unchanged: 151 samples remain uncovered",
+    "Ceiling prior observed cell has 0.702677 m Hausdorff boundary change and unknown accuracy impact",
+    "All supplied outputs remain partial with zero adjacency; all five assignment contracts remain incomplete",
+    "Raw camera paths differ at native numerical precision; no bitwise-repeatability or physical-repeatability claim",
+    "Runtimes are recorded but were not controlled as a performance comparison",
+    "Historical audit source is retained; current diagnostic was extended for the new producer",
+    "Local frozen intake/baseline paths are continuation dependencies, not a portable final evidence bundle"
+  ]
+}

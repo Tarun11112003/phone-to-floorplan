@@ -1,6 +1,6 @@
 # Prospective fix: permit the stated 2–8-photo input count
 
-Declared 2026-10-06 before changing `sfm.py`.
+Declared before changing `sfm.py`.
 
 The importer accepts two photos, but SfM currently rejects fewer than five before
 attempting image matching. COLMAP's default minimum model size is also ten and

@@ -1,0 +1,1645 @@
+{
+  "batch": 19,
+  "experiment": "matched_32_view_RGB_context",
+  "artifacts": {
+    "demo\\phase3_transition_context\\comparison2\\evaluation.json": "589ab9f4d76bc0975f173deb96f6c6b1787c72851d73cf372d4b7d5691516a10",
+    "demo\\phase3_transition_context\\comparison2\\repeats\\comparison.json": "f028ca14301fab54bc3b95aa1a3e8fe428f7fa5174d9ae0bdea636cfe1b8012a",
+    "scripts\\experimental_transition_context.py": "2eda96c16f33fa7c081cff05ee30497f2d78362754b2c251131bfb0686179f13",
+    "scripts\\compare_transition_context.py": "41bd599f2270b1d9711c405a2c224158843740fd14624fae6bb665c94f0595dd",
+    "tests\\test_transition_context.py": "9bc59e53efd89b4e2f81782558f7450c50842d83f499f8a8a36def98aee184a2",
+    "docs\\fixes\\019_RGB_TRANSITION_CONTEXT.md": "1e33a282dcd3ace5de61d190df5e1336f393a7d64ca39fb1878539a51dea6176",
+    "demo\\phase3_transition_context\\sift1\\experiment.json": "260cfaf5e12947bc523b7b3d02c925d829c73e6853fafe907d2fe4b867ce6fb1",
+    "demo\\phase3_transition_context\\sift2\\experiment.json": "288972ae88a21905f2164303d8a0996388bd521d08f42d190f15ade59f8d515d",
+    "demo\\phase3_transition_context\\lightglue1\\experiment.json": "ba4925b8bfa0c1f6a6acaa75c1f9fb1e494dfa819b9aa47acdb21c46cad9e6b0",
+    "demo\\phase3_transition_context\\lightglue2\\experiment.json": "9369fa858bd42a19d3782c70585707da008d3bca670fee9128ab3f3ad0bdd660",
+    "demo\\phase3_transition_context\\comparison2\\lightglue\\group_frame_00037.png_frame_00023.png.jpg": "fa8c453a826abfbc16a6c956d69fb1683271a3e4a5dbb0b7c55bb1c86516395e",
+    "demo\\phase3_transition_context\\comparison2\\lightglue\\lightglue_bridge_00002.png_frame_00025.png.jpg": "ae70feb77c03032c02bd8aedd6ec2f4e2f27bfacf2870220308db8ac800ed969",
+    "demo\\phase3_transition_context\\comparison2\\lightglue\\lightglue_frame_00024.png_bridge_00002.png.jpg": "7783e32010a8677a14faf2c1f0a5c9f230a018290ffc5323ca863bb5ab5172f6",
+    "demo\\phase3_transition_context\\comparison2\\lightglue\\lightglue_frame_00025.png_frame_00027.png.jpg": "db13a45b7f7f3a44256c32fa8556ff03a3fa10a889bfac19ed7ad431e16f67f8"
+  },
+  "image_sha256": {
+    "frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040"
+  },
+  "temporal_window": [
+    {
+      "image": "frame_00016.png",
+      "source_timestamp_s": 7.516667,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00019.png",
+      "source_timestamp_s": 9.033333,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00022.png",
+      "source_timestamp_s": 10.55,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00023.png",
+      "source_timestamp_s": 11.05,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00024.png",
+      "source_timestamp_s": 11.55
+    },
+    {
+      "image": "bridge_00002.png",
+      "source_timestamp_s": 11.616667,
+      "sharpness": 285.88697493472625,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00003.png",
+      "source_timestamp_s": 11.683333,
+      "sharpness": 263.6703776026408,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00004.png",
+      "source_timestamp_s": 11.75,
+      "sharpness": 192.91752423078748,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00005.png",
+      "source_timestamp_s": 11.816667,
+      "sharpness": 172.9054030149672,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00006.png",
+      "source_timestamp_s": 11.883333,
+      "sharpness": 109.75379570244682,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00007.png",
+      "source_timestamp_s": 11.95,
+      "sharpness": 88.00385164320204,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00008.png",
+      "source_timestamp_s": 12.016667,
+      "sharpness": 57.29717352549235,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "frame_00025.png",
+      "source_timestamp_s": 12.066667
+    },
+    {
+      "image": "bridge_00009.png",
+      "source_timestamp_s": 12.083333,
+      "sharpness": 32.42592264539931,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00010.png",
+      "source_timestamp_s": 12.166667,
+      "sharpness": 24.891253336419,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00011.png",
+      "source_timestamp_s": 12.233333,
+      "sharpness": 18.68442472262912,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00012.png",
+      "source_timestamp_s": 12.3,
+      "sharpness": 17.678306833224827,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00013.png",
+      "source_timestamp_s": 12.366667,
+      "sharpness": 22.617343472629123,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00014.png",
+      "source_timestamp_s": 12.433333,
+      "sharpness": 26.505859341769746,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00015.png",
+      "source_timestamp_s": 12.5,
+      "sharpness": 26.185140319654675,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "frame_00026.png",
+      "source_timestamp_s": 12.566667
+    },
+    {
+      "image": "bridge_00017.png",
+      "source_timestamp_s": 12.633333,
+      "sharpness": 23.066651776631677,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00018.png",
+      "source_timestamp_s": 12.7,
+      "sharpness": 24.427757280815975,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00019.png",
+      "source_timestamp_s": 12.766667,
+      "sharpness": 28.44941811455621,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00020.png",
+      "source_timestamp_s": 12.833333,
+      "sharpness": 30.300770173984105,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00021.png",
+      "source_timestamp_s": 12.916667,
+      "sharpness": 40.883230101013176,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "bridge_00022.png",
+      "source_timestamp_s": 12.983333,
+      "sharpness": 53.74002329084609,
+      "accepted": true,
+      "reason": "selected"
+    },
+    {
+      "image": "frame_00027.png",
+      "source_timestamp_s": 13.066667
+    },
+    {
+      "image": "frame_00028.png",
+      "source_timestamp_s": 13.583333,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00031.png",
+      "source_timestamp_s": 15.116667,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00034.png",
+      "source_timestamp_s": 16.633333,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    },
+    {
+      "image": "frame_00037.png",
+      "source_timestamp_s": 18.15,
+      "source": "datasets\\Given_dataset\\single_room\\c00a170fe1\\rgb.mp4"
+    }
+  ],
+  "context_anchors": [
+    "frame_00016.png",
+    "frame_00019.png",
+    "frame_00022.png",
+    "frame_00023.png",
+    "frame_00028.png",
+    "frame_00031.png",
+    "frame_00034.png",
+    "frame_00037.png"
+  ],
+  "target_groups": [
+    [
+      "frame_00027.png",
+      "frame_00028.png",
+      "frame_00029.png",
+      "frame_00030.png",
+      "frame_00031.png",
+      "frame_00032.png",
+      "frame_00033.png",
+      "frame_00034.png",
+      "frame_00035.png",
+      "frame_00036.png",
+      "frame_00037.png",
+      "frame_00038.png",
+      "frame_00039.png",
+      "frame_00040.png",
+      "frame_00041.png",
+      "frame_00042.png"
+    ],
+    [
+      "frame_00013.png",
+      "frame_00014.png",
+      "frame_00015.png",
+      "frame_00016.png",
+      "frame_00017.png",
+      "frame_00018.png",
+      "frame_00019.png",
+      "frame_00020.png",
+      "frame_00021.png",
+      "frame_00022.png",
+      "frame_00023.png",
+      "frame_00024.png"
+    ]
+  ],
+  "identity": {
+    "code_revision": "eb42fee2d71449efb0aa5c10549752b5d75384d8",
+    "checkpoint_sha256": {
+      "depth-save.pth": "9c2ee4ded238892dfa51569941372601e35e4a74aa6f84ea80053d2ab1c07abe",
+      "disk_lightglue_v0-1_arxiv.pth": "b5b21d47ea24f2c5e501aec9c91b9716e4c8c3429a4dc1e615c133c4c9378335"
+    },
+    "package_python_sha256": {
+      "__init__.py": "9bab3ce1136e210b3f48b06fe86e047418519d84f95a0e291d3cd6ade1ec755f",
+      "aliked.py": "c7bbdbf98ecba0df5c9b8d9a814a8a89d9111392ed2720ae32899d0007cd481d",
+      "disk.py": "7be57759f5fd5714c917f99d3f591dd16512aeb26811f0de1d59a4bdaa5041aa",
+      "dog_hardnet.py": "a1f7208adb80831cc12df731b8ba2da6ecde7dbbfb0c8e3f7f735e5b429c1982",
+      "lightglue.py": "77891cc7ff79aea7b03f310288d12549db6704f4a1ec42b0b3364527e31f6546",
+      "sift.py": "7eaaf587225e6c392e660e2580992f8e45451041b58c2dcc84b040cd027849c9",
+      "superpoint.py": "a06c9adf6222046e4dfb03e47abb9d665730236c96ed9f9ae8ea71d8174aff5d",
+      "utils.py": "f172b3b1399748ed91433d27bd2d2881633f4624e8397bda07c842283ed224aa",
+      "viz2d.py": "313160339e5a7dd1222ebfa18088b7d81a218639b8e59308cd3e69a6e8acf237"
+    },
+    "versions": {
+      "torch": "2.6.0+cpu",
+      "torchvision": "0.21.0+cpu",
+      "kornia": "0.8.1",
+      "pycolmap": "4.2.1"
+    },
+    "keypoint_counts": {
+      "frame_00016.png": 2048,
+      "frame_00019.png": 2048,
+      "frame_00022.png": 2048,
+      "frame_00023.png": 2048,
+      "frame_00024.png": 2048,
+      "bridge_00002.png": 2048,
+      "bridge_00003.png": 2048,
+      "bridge_00004.png": 2048,
+      "bridge_00005.png": 2048,
+      "bridge_00006.png": 2048,
+      "bridge_00007.png": 2048,
+      "bridge_00008.png": 2048,
+      "frame_00025.png": 2048,
+      "bridge_00009.png": 2048,
+      "bridge_00010.png": 2048,
+      "bridge_00011.png": 2048,
+      "bridge_00012.png": 2048,
+      "bridge_00013.png": 2048,
+      "bridge_00014.png": 2048,
+      "bridge_00015.png": 2048,
+      "frame_00026.png": 2048,
+      "bridge_00017.png": 2048,
+      "bridge_00018.png": 2048,
+      "bridge_00019.png": 2048,
+      "bridge_00020.png": 2048,
+      "bridge_00021.png": 2048,
+      "bridge_00022.png": 2048,
+      "frame_00027.png": 2048,
+      "frame_00028.png": 2048,
+      "frame_00031.png": 2048,
+      "frame_00034.png": 2048,
+      "frame_00037.png": 2048
+    },
+    "feature_sha256": {
+      "frame_00016.png": {
+        "keypoints": "8b55d02c9e64eac35f95450841bfe845ead8da5c64df7dd6e0922e440accb5f7",
+        "keypoint_scores": "b323624db65c22e1ff8d3b676c6e5168c4afb846080d5f4b959d93cea8a0b6f0",
+        "descriptors": "262b31a626129f3bce4537c4278c8edf36edc15e6333719a65f100d2ad93d197",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00019.png": {
+        "keypoints": "ee6faa5a57d768058ffca20af6683ad3999e3f543dcaf68e77d7e1e0b09524ac",
+        "keypoint_scores": "0d42ff912680ad66335c1231ca893668164b62d02e488ed957789fdb0e6e7b60",
+        "descriptors": "5ca6e1f3447308baa41b93bf85476d3ad288e3cbb33cf1b235ec0b140bb0573c",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00022.png": {
+        "keypoints": "bd4e36ff68b5f9127eaae6c9ee5dfedbcd6d85a4b1683dbc0ca602d84f0b2493",
+        "keypoint_scores": "de4da1e752d0ed9c4899103e799747ca8e416138aec1f4cde6a7b7d84ceaff00",
+        "descriptors": "eb9eee8686038f1ca09fa2b59926560962625751eaa8fc5529e9e17784b36516",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00023.png": {
+        "keypoints": "b3fd47cd42e73d49200477414aaf169d29dfb5c24d7ed5eae9e447a080c598ba",
+        "keypoint_scores": "4b50353ee2ae51e2894dc88a2d076eb05859bb5bf2adebcb194ec44a04437325",
+        "descriptors": "59928cfd99db99cdea02304becc5c3a916560789e80a9d0f649e21c918d90a16",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00024.png": {
+        "keypoints": "6cb0a455c2a7f5618e4946cc3562dbc12ce4125dec4fb02730bb29946e923901",
+        "keypoint_scores": "777b66eb8d760da42699d711471eaeecbae6c12b806ed904f0b2c003d9f5c3c5",
+        "descriptors": "58a891d4584c90d86b615c63d7f8d6f2d9f223ea0a709bbf774593990e782097",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00002.png": {
+        "keypoints": "5550c95be56a0d8c24d0910f431d9590158e1ab2ee3ee5ebdb1ff5f2b6e3284c",
+        "keypoint_scores": "fb6b66f29a03292a217c33624f0ff3bd6551512ceeae6514644935c8db75ab33",
+        "descriptors": "da2dfa36759d19f47be0c6729a44118f4a2225992d696e07619fb46ea1ded813",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00003.png": {
+        "keypoints": "80a85a87fc1aba160f7b28ba2af395b8cb6528452b697b688969331c06740fb4",
+        "keypoint_scores": "818e4f8329b33a816ab2137e617444cc6b6beb514e23cbc224fadb7efa80bc3f",
+        "descriptors": "eb11be4726cd4dcdfa1a425a7db60fd57aa499b7aacc10e9bfe1d7fa9c3f2f8d",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00004.png": {
+        "keypoints": "491447dd2452143a344a112e4be77ee70b59046fe9d825b56322720fc88bd108",
+        "keypoint_scores": "c3058368da7642520edd6d3f894838e2089722f79b9e7bd5de0858601bb431b0",
+        "descriptors": "f63cd4f4285f450d8e300b093f91e14c711fde5357d7e99996c8513afc946e61",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00005.png": {
+        "keypoints": "e67dafc0a8d2335dffaea1afc0ad401af14392e2829fd71ac0943052ba9599d5",
+        "keypoint_scores": "556ccb46aebed9d8ad5fff88ba108610ff864a6fdf401af0c004af11c50ff65b",
+        "descriptors": "066eaa260eb85778a46a9f717cc531dd84825aff62ecae092f582df0b93fdbf7",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00006.png": {
+        "keypoints": "fc8b65bebb320536d47bcf58bfe9b843c12f13b10fcab1e4e99bebb20a6b2f5e",
+        "keypoint_scores": "ebeb5116fcf0501ccdff9c1b7d2812d6a0c946f16c8c7edde6eb329ff8e80b5e",
+        "descriptors": "e3975ace7262ced7acbdcf14387198f11aaa005554691d2f011f673b3fbbd4c6",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00007.png": {
+        "keypoints": "3edfb430101c8eb2c8b62740abcda4b65d364f8809a61e851d8f02766df8895c",
+        "keypoint_scores": "48a158a2bec3192fc8e494c8d12c4d6079183382cd8430be0fbb690c9ba54c17",
+        "descriptors": "d6a676fe799cb3994ae9e057368c23ceddde80085ea69402c126f75037d29047",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00008.png": {
+        "keypoints": "6caaa6ee81727952bea11aa722f8de3916ad1ef6fffae5bc84d7093102f3cf63",
+        "keypoint_scores": "d3b77ff18c4af866c3489a944235b30b8ed70fafaf962727e2aa4581abb67020",
+        "descriptors": "832d354a3f59c5a80059cf44c5a204e5ac9278df25f2215cc406a4e67919ea67",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00025.png": {
+        "keypoints": "a35a686675bb1100c79db83fff10e679da749c6d6364fc8c7be0c8d4588b8131",
+        "keypoint_scores": "ca551d46827825e5f525da26fea54ffce0f8240f0924001151b1ab50cdc6883e",
+        "descriptors": "beb03b86b6cfc3cde23756ed342aa4b970262a7c14ec70ca6521d32fc0268bd6",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00009.png": {
+        "keypoints": "5494abdd35a0af934d36e4d4aab0955a8b3de6df5eda9f90926d11ac4286e807",
+        "keypoint_scores": "40fb377b5b7aed7a441812f3eaf2d5fb6478cba1b4eb380f1ba73cf6e1e688f0",
+        "descriptors": "6f71a3f2da38c27e79006a49f16c142cc46b9a3605671c29a914a559e8fbadbe",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00010.png": {
+        "keypoints": "9530424443067b6c16a45a6f35926c7643dc944f783799b8234a8545fd18c121",
+        "keypoint_scores": "fabfee556c7c8bead87ffbbfff75da58687e00347c19660ecea149af65e336f2",
+        "descriptors": "cc3c426afcb647b665be2c86a0d4e270f3455825df8c75d90845245c8d157c8c",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00011.png": {
+        "keypoints": "59604519c8746ae3b433caff382b4c11d4c062f2e24d540275aac8dacf444910",
+        "keypoint_scores": "bc806fc0432d7656285a640496bba4312b9a5d6426d1c63f5624922461b81138",
+        "descriptors": "74821ca6cef1be5edd32680de4de62b32b7f05ce9d69cc9df93c36d302110ab3",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00012.png": {
+        "keypoints": "713afb20fa09962453c30bbafb28103878b7293cf3875d781fdc9d5f3c747543",
+        "keypoint_scores": "ad013bfa08de88b956997bdb3ebdb7b2f6124b657c78906357a7cb633706b64e",
+        "descriptors": "32641213f5ab723d29c1d35d0f0615ce4060454d90eed4ddee6d92c29c817bbb",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00013.png": {
+        "keypoints": "b0f389bcb3434d9931cafaa4741b826c1c66e202e0dc9d76cc29362bce2df5bb",
+        "keypoint_scores": "b52fe8b9f316bbb369edf6720fb1a757817a4215f0bed259e13f4bd227831f6f",
+        "descriptors": "93bce01528fb60f37cda75df2b6cfde3979a0c1eb2f67979cd1d06e43500c213",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00014.png": {
+        "keypoints": "9059a37c063c67bacf6927421237e27380a8776e580a6021c12176d535e98e41",
+        "keypoint_scores": "8173a7e8ede1b7abb645f103995618400c349c78c3e91fa9a39e10e512d476ed",
+        "descriptors": "10061c42245e41d54bbfc7a0073fda6e173d2ab565cce0f74fede35123fa8329",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00015.png": {
+        "keypoints": "6f5c0995346b0f63b2566df06da1fa450bc4a21a509ae26e7edb09da7fb76069",
+        "keypoint_scores": "62441b231217a2ed512be24c15caa75e82d654aa2580e8070397cc878ada7d34",
+        "descriptors": "093c4394349e5cbc4a8f3a12e7df99d9ca47e5761cc9bfced41e9d25caf51b91",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00026.png": {
+        "keypoints": "6514b110b37d6ed02bd69b1dede70e772bdd35affa8309e79e42ccf2c5cd6a92",
+        "keypoint_scores": "ef380344572a75148e5458666a136fc431d9b7b04a18c28115f6caf20bf1bd05",
+        "descriptors": "42175ea95da465327b6a5846509e82c1b0563304743d033f808bad1e0b72a95d",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00017.png": {
+        "keypoints": "209d6b51358642a0435627450c5d6679411d107aaa8600ec79281ad07b4a5963",
+        "keypoint_scores": "a19a9c7bf38e26a7251864668f6625261b1b15bb918b422cccc6654341feffd4",
+        "descriptors": "a98c8ddf36cf6410bd5d2e5ddc450ef932e9f67b857994f6570ae0905154269d",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00018.png": {
+        "keypoints": "0f99b167bf75c11a8a4265337a6b8e932b8e48c3cd07ff359303b7c11fd7c776",
+        "keypoint_scores": "8c76b8d17cf6356eda20dde3cc32c92c92dc9b08bd44017439158900cf5a87b1",
+        "descriptors": "ca37398d4ba688ac01fe45e27c2910b8926a5e8afc80988c8d1c9523949ae288",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00019.png": {
+        "keypoints": "e07990fee855381b5c5f71a9e71a2a5f11f0a5de7ab8ce176196bd98208bd0df",
+        "keypoint_scores": "c97bd59e7398aa590c6508a9b8716ff0d42f9e98a1beb3e0b837160b6946a4a4",
+        "descriptors": "5ba90de0dfaaee8c0a8336da228dbaa2d4790d228b729aa4b2b0b00d8e7f140d",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00020.png": {
+        "keypoints": "0a1a0b8997d66b58e89bb03604689dbaf79c6fd963d6a3f07754174561d9d6b1",
+        "keypoint_scores": "d8e5fa1f08652762b1c117db492f8d1c660cf951eb8914ae7705c790475444d8",
+        "descriptors": "14902a73a3f7369c3c70415479ab27d221efa297d7fbda890f67463a8d5bbb1f",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00021.png": {
+        "keypoints": "7f35eca7af3bd12d39649e479eed29086271a1667b87f96239ae029cb53dd3e1",
+        "keypoint_scores": "522b474cbd3e86123c9232617e2873cd4754193da7ffe6d64a0ee27bb296d925",
+        "descriptors": "1e63af0e1387f3c86a3b76a9b7645c8f46070df946b423291ce1c4cbb42f61ef",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "bridge_00022.png": {
+        "keypoints": "42c69ef47d2a685802ef1cb128e8447f06f7be871ae888585eb3cb3730ac0df8",
+        "keypoint_scores": "fe83b2ce5c28abbc855216612eaf3c23f9ced766329bc2cfd319358d08ad86c6",
+        "descriptors": "472271caac8b82062d82744571a5ff1f158e4fcd572c1d99b92c6b583cf7b5d0",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00027.png": {
+        "keypoints": "da831a6824f14712d5779e14a7b36ed855e3840fb23bd5a257d296b3031689b4",
+        "keypoint_scores": "e11c6a69b1fb19a1cdf99df795d785b420a32e3a20971c116c3b711928385683",
+        "descriptors": "7ef6474b2143126a819f71dff3298df316f20fa4a26c0b8830f97f5708c70f21",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00028.png": {
+        "keypoints": "51bc04ef31d2dbab2797b906cf05852014cea7d352a874e9cd8c516de4992381",
+        "keypoint_scores": "3e328e55c6865f70c0d522d23a2fd6e00c5efd8272e7e9d76b32b127b8540017",
+        "descriptors": "fc046ab8c8e6433baaf64341e7f614c9744761cde946e4a48fa965c207952eb1",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00031.png": {
+        "keypoints": "c194480bce51f01f29e47ab526ed7b0c03b92596f9205c701872ec01ae2c5297",
+        "keypoint_scores": "19ec43a3326cbffb4887dba135bffbea0cb3a22c070e6b986d51aa160bc22beb",
+        "descriptors": "d20d44bf5e5d88fa197e226f5e23af80ddf047d4b041a82db3fe764cb3a4e256",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00034.png": {
+        "keypoints": "a571a80fc51fe6e97bb2bd0d61c2524666ded05c90a2b3959e6765426654da8d",
+        "keypoint_scores": "e4ae8a3a5b43e1fb778c657457ea74ad16b03c513fc65104cd6fd8fa2d1d0c03",
+        "descriptors": "b91c33581ec5129abfd7ed361f271d9d1b7fa54025e7bfb2a8252efc56390dac",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      },
+      "frame_00037.png": {
+        "keypoints": "b76f7fce11e6c52b1504f00d269142b79a6e064e904e80024ba638348ddf70ea",
+        "keypoint_scores": "9cb3c45a39da33dbdace62c12fbf4cf536c8b74fe36dd9afe83e45d1a1594546",
+        "descriptors": "19540390a686e3341a735b348a1e61d4c2f431d6f24d992d6ae38950b697ded0",
+        "image_size": "e29f6f45837e7ecde5da9314c40c7aeece3e89753ed7f7596addc759419583f7"
+      }
+    },
+    "extractor": {
+      "weights": "depth",
+      "max_num_keypoints": 2048,
+      "desc_dim": 128,
+      "nms_window_size": 5,
+      "detection_threshold": 0.0,
+      "pad_if_not_divisible": true
+    },
+    "matcher": {
+      "name": "lightglue",
+      "input_dim": 128,
+      "descriptor_dim": 256,
+      "add_scale_ori": false,
+      "n_layers": 9,
+      "num_heads": 4,
+      "flash": false,
+      "mp": false,
+      "depth_confidence": 0.95,
+      "width_confidence": 0.99,
+      "filter_threshold": 0.1,
+      "weights": "disk_lightglue"
+    },
+    "torch_threads": 4,
+    "deterministic_algorithms": true,
+    "seed": 7,
+    "pixel_coordinate_conversion": "original-image keypoints +0.5 for COLMAP"
+  },
+  "options": {
+    "features": {
+      "type": "FeatureExtractorType.SIFT",
+      "max_image_size": -1,
+      "num_threads": 1,
+      "use_gpu": false,
+      "gpu_index": "-1",
+      "sift": {
+        "max_num_features": 8192,
+        "first_octave": -1,
+        "num_octaves": 4,
+        "octave_resolution": 3,
+        "peak_threshold": 0.006666666666666667,
+        "edge_threshold": 10.0,
+        "estimate_affine_shape": false,
+        "max_num_orientations": 2,
+        "upright": false,
+        "darkness_adaptivity": false,
+        "domain_size_pooling": false,
+        "dsp_min_scale": 0.16666666666666666,
+        "dsp_max_scale": 3.0,
+        "dsp_num_scales": 10,
+        "normalization": "Normalization.L1_ROOT"
+      }
+    },
+    "matching": {
+      "type": "FeatureMatcherType.SIFT_BRUTEFORCE",
+      "num_threads": 1,
+      "use_gpu": false,
+      "gpu_index": "-1",
+      "max_num_matches": 32768,
+      "guided_matching": false,
+      "skip_geometric_verification": false,
+      "rig_verification": false,
+      "skip_image_pairs_in_same_frame": false,
+      "sift": {
+        "max_ratio": 0.8,
+        "max_distance": 0.7,
+        "cross_check": true,
+        "cpu_brute_force_matcher": false
+      }
+    },
+    "verification": {
+      "min_num_inliers": 15,
+      "min_inlier_ratio": 0.0,
+      "min_E_F_inlier_ratio": 0.95,
+      "max_H_inlier_ratio": 0.8,
+      "watermark_min_inlier_ratio": 0.7,
+      "watermark_border_size": 0.1,
+      "detect_watermark": true,
+      "multiple_ignore_watermark": true,
+      "watermark_detection_max_error": 4.0,
+      "filter_stationary_matches": false,
+      "stationary_matches_max_error": 4.0,
+      "force_H_use": false,
+      "use_degensac": false,
+      "use_sampson_refinement": true,
+      "compute_relative_pose": false,
+      "multiple_models": false,
+      "ransac": {
+        "max_error": 4.0,
+        "min_inlier_ratio": 0.25,
+        "confidence": 0.999,
+        "dyn_num_trials_multiplier": 3.0,
+        "min_num_trials": 100,
+        "max_num_trials": 10000,
+        "random_seed": 7,
+        "num_threads": 1
+      }
+    },
+    "mapping": {
+      "min_num_matches": 15,
+      "ignore_watermarks": false,
+      "multiple_models": true,
+      "max_num_models": 50,
+      "max_model_overlap": 20,
+      "min_model_size": 10,
+      "init_image_id1": -1,
+      "init_image_id2": -1,
+      "init_num_trials": 200,
+      "structure_less_registration_fallback": true,
+      "structure_less_registration_only": false,
+      "extract_colors": true,
+      "num_threads": 1,
+      "random_seed": 7,
+      "min_focal_length_ratio": 0.1,
+      "max_focal_length_ratio": 10.0,
+      "max_extra_param": 1.0,
+      "ba_refine_focal_length": true,
+      "ba_refine_principal_point": false,
+      "ba_refine_extra_params": true,
+      "ba_refine_sensor_from_rig": true,
+      "ba_min_num_residuals_for_cpu_multi_threading": 50000,
+      "ba_local_function_tolerance": 0.0,
+      "ba_local_max_num_iterations": -1,
+      "ba_global_frames_ratio": 1.1,
+      "ba_global_points_ratio": 1.1,
+      "ba_global_frames_freq": 500,
+      "ba_global_points_freq": 250000,
+      "ba_global_function_tolerance": 0.0,
+      "ba_global_max_num_iterations": -1,
+      "ba_local_max_refinements": 2,
+      "ba_local_max_refinement_change": 0.001,
+      "ba_global_max_refinements": 5,
+      "ba_global_max_refinement_change": 0.0005,
+      "ba_use_gpu": false,
+      "ba_gpu_index": "-1",
+      "ba_local_backend": "BundleAdjustmentBackend.CERES",
+      "ba_global_backend": "BundleAdjustmentBackend.CERES",
+      "use_prior_position": false,
+      "use_robust_loss_on_prior_position": false,
+      "prior_position_loss_scale": 7.815,
+      "snapshot_path": ".",
+      "snapshot_frames_freq": 0,
+      "image_path": ".",
+      "image_names": [],
+      "load_all_images": false,
+      "fix_existing_frames": false,
+      "constant_rigs": "set()",
+      "constant_cameras": "set()",
+      "max_runtime_seconds": -1,
+      "mapper": {
+        "init_min_num_inliers": 100,
+        "init_max_error": 4.0,
+        "init_max_forward_motion": 0.95,
+        "init_min_tri_angle": 16.0,
+        "init_max_reg_trials": 2,
+        "abs_pose_max_error": 12.0,
+        "abs_pose_min_num_inliers": 30,
+        "abs_pose_min_inlier_ratio": 0.25,
+        "abs_pose_refine_focal_length": true,
+        "abs_pose_refine_extra_params": true,
+        "ba_local_num_images": 6,
+        "ba_local_min_tri_angle": 6.0,
+        "ba_global_ignore_redundant_points3D": false,
+        "ba_global_prune_points_min_coverage_gain": 0.05,
+        "min_focal_length_ratio": 0.1,
+        "max_focal_length_ratio": 10.0,
+        "max_extra_param": 1.0,
+        "filter_max_reproj_error": 4.0,
+        "filter_min_tri_angle": 1.5,
+        "max_reg_trials": 3,
+        "fix_existing_frames": false,
+        "constant_rigs": "set()",
+        "constant_cameras": "set()",
+        "num_threads": 1,
+        "random_seed": 7,
+        "image_selection_method": "ImageSelectionMethod.MIN_UNCERTAINTY"
+      },
+      "triangulation": {
+        "max_transitivity": 1,
+        "create_max_angle_error": 2.0,
+        "continue_max_angle_error": 2.0,
+        "merge_max_reproj_error": 4.0,
+        "complete_max_reproj_error": 4.0,
+        "complete_max_transitivity": 5,
+        "re_max_angle_error": 5.0,
+        "re_min_ratio": 0.2,
+        "re_max_trials": 1,
+        "min_angle": 1.5,
+        "ignore_two_view_tracks": true,
+        "min_focal_length_ratio": 0.1,
+        "max_focal_length_ratio": 10.0,
+        "max_extra_param": 1.0,
+        "random_seed": 7
+      }
+    }
+  },
+  "input_sha256": {
+    "demo\\phase3_video_bridge\\dense_trial1\\experiment.json": "7b0f3ae5204ac7773092d137c28da15868e5c74e5de10303c5723b79cd4fd669",
+    "demo\\phase3_video_bridge\\dense_trial1\\features.db": "5562082a314b9a5255f7b8f95bfd7ba6f4780c1ec031183b7cbce26ae622eb9b",
+    "demo\\phase3_sync_boundary\\video_sampling_verified_input\\video72\\result\\sfm\\video_frame_mapping.json": "5a44a8ed1122d7afef1274981a783a9dd89c41f4eef95515cf0ec31c90fdc5da",
+    "demo\\phase3_transition_matchers\\sift4\\experiment.json": "6eb7057119e71f0638fe15053cf23f279fec301f43e1ec41aa41d33e372da8ed",
+    "demo\\phase3_transition_matchers\\lightglue_thread4_1\\experiment.json": "a1f4000a6a28ff016cc3d8e6b0988e636bfc209152cb38f8711570c91e9f5bfd",
+    "demo\\phase3_transition_matchers\\comparison\\comparison.json": "58dceeb9a328b075c84af619ea5c668fc40a503b1619ccf895d6d5365b77a064",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "demo\\phase3_video_bridge\\dense_trial1\\images\\frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040"
+  },
+  "production_code_sha256": {
+    "floorplan\\ablation.py": "405e51e3f9d83ac8e2835578ba0431479fe7f645dd3d20b28832486f7e28f660",
+    "floorplan\\acceptance.py": "7f52877d8561b5cdd393f6c1b28bab06760d481babdafd84dd5f4e9d28e7e91a",
+    "floorplan\\assessment.py": "5e3a528bad5b716dd53e0fa19f31ca4b46d833ff5c87c2b1ca85af15ff936949",
+    "floorplan\\assessment_io.py": "17cbf941593ea4cdedc334d95da9b6548c3381edcab403eb6dfef4d1a938c849",
+    "floorplan\\assignment_gates.py": "16510d915af1c3147ccdc30896540b91d9e745ba5fcc44d65a0e5a29c864e948",
+    "floorplan\\benchmark.py": "de98bdaa63b5065860216c31c46a31bd225943a74020238dd72c98f5ee6998e5",
+    "floorplan\\benchmark_manifest.py": "e0ba8006168ef673f115618be0d6636762c77230f348bf9ff1dfa2a60e62fa48",
+    "floorplan\\calibration_records.py": "77e6b6e50c6cf649791c4967226b731d89bce2e133be353a3e0ced3969a761f6",
+    "floorplan\\capture_sync.py": "9f192978af50c26c32a2992e45974ff1c561e8a64eb8e888ef4551af79435e26",
+    "floorplan\\cli.py": "bfee6a69dd1de88c168b25c490fe8b85b9b8019983622fce2d864c96dc44e2ac",
+    "floorplan\\consumer_comparison.py": "68e19b631a40d071d4e1db2ab56544f7de5bc6f745f89c5894f35b1a2eb30324",
+    "floorplan\\contracts.py": "b202f48b06ed3ba7486eff8ad749b82a4a290d27a970a0ab86d90de3df35e610",
+    "floorplan\\damage.py": "5af1fb5501e1c577bbe8d8d58e4fbaf2d95306913d6286009830dd1f70b8f1e9",
+    "floorplan\\damage_evaluation.py": "48a2fe339b6a62f35a325b2164a9bf40080325a87b64a9bccc4ab45302db2712",
+    "floorplan\\demo.py": "def8fe532951db043c1683d212266edf889989d6b9c79edf1c7611edc1122113",
+    "floorplan\\dense.py": "7492eb82b8970c02d98293c869c7994340fe6add0bb59df9e2e640b3d16f033a",
+    "floorplan\\evaluation.py": "6e50a52feea0d2a1c50a26e769671afe80122f875254ed693be044cde3315250",
+    "floorplan\\geometry.py": "b7e0e09488d876634d9d3c109ce48ce4fb8fedf4e5fb8bbcf2659fa8a3495c91",
+    "floorplan\\icl_benchmark.py": "4577d69df0796183961c35cfa3829b5e3b94d0866c49db193eb4c374656a450e",
+    "floorplan\\ingest.py": "18d15134fb074fd04664d0d75568516ef81a9e7d32dbef6d16012bf9e75fbf94",
+    "floorplan\\layout.py": "a19a7c9fa23a3d61d177bc59e85143804fae3df6ae925c925e75ee7a1e8d3c1f",
+    "floorplan\\mapping.py": "60f139bbb7b5b1fc1dd060f824e0c9f4964fbf692e4c5257176b56dde848daf6",
+    "floorplan\\metric_depth.py": "17955bb8f79cd5f080b9b6cbbcdd8bd61980318de632d25a5cc97bf7fb036960",
+    "floorplan\\openings.py": "be5b6655e9d0caacb2b5956243658fd0fc39986e36f7c46115ca1aac6a38cd95",
+    "floorplan\\openmvs.py": "7e96a98f29efcab571ef6fc03b4326460eacc167611095f26401909e149d76cf",
+    "floorplan\\pipeline.py": "920fa9fa0dd6b04d5789cc4ec598a6cbdb876452d679e7f44d5a30ad97bce5b7",
+    "floorplan\\pose_graph.py": "5ccca2da6ddf56ddce5966d92babc495f68c619922f6f7391655b5eda87265be",
+    "floorplan\\provenance.py": "bfe2e1476b02485729feeeafafdafd479b4f9891d1a035d6e5d788fdca83eaf0",
+    "floorplan\\repeatability.py": "2ab9277bf9b30ef55d671113b5a09116ec3e609f849c3d04e5a3e7b4a19d2810",
+    "floorplan\\rgbd.py": "dc340ba54d71c96ae828fcd339cb583dd601ba5cc9c521e361073258bc6fa980",
+    "floorplan\\rgb_metric.py": "ef5469e4c524f9b6ccf0b58d5e709122dd4d96e3265e0d0eb113c701a564c1ac",
+    "floorplan\\sfm.py": "a939d6493330d7ebdbc45c9247ee47d04872d4a65fd06065facbcf74e7cbb939",
+    "floorplan\\stitching.py": "ded7e3ade62c3899b9dce0bf4ab4a428fa75006f3eb3184315efa4c152e3416e",
+    "floorplan\\supported_cells.py": "d6414dac09a1e52ba0ed8140a903e86dacab90718593f2cbe9213696bd92e722",
+    "floorplan\\survey.py": "bcbfcc781c4adb19a7742235054926c38bfd79c3650908ab10c1db14da37549d",
+    "floorplan\\uncertainty.py": "5f16d8f6f648b80b3f6f4752a806638d667756dd0a8e071ad5396ecad4febb6b",
+    "floorplan\\workflow.py": "38a05342edfdc5901a36cf8213e2555a64f75805d9271908706697e6d1a9bacc",
+    "floorplan\\__init__.py": "902fa5d5912e34b6e650827ecad59c419d8b4b04482b766eee6f0bda24aee402"
+  },
+  "source_trial_sha256": {
+    "demo\\phase3_transition_context\\sift1\\experiment.json": "260cfaf5e12947bc523b7b3d02c925d829c73e6853fafe907d2fe4b867ce6fb1",
+    "demo\\phase3_transition_context\\sift1\\features.db": "af96403751d30a9c8d05c70ec5aa185a53076237f3259dc5e4f53cfbc74a9ec1",
+    "demo\\phase3_transition_context\\sift1\\features.db-wal": "b6ce6c63aa35ab2507cb23c15d551a35b1c30c08c8a00812f9901c5ee5ca99bb",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "demo\\phase3_transition_context\\sift1\\images\\bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "demo\\phase3_transition_context\\sift1\\images\\frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040",
+    "demo\\phase3_transition_context\\sift1\\sparse\\0\\cameras.bin": "13a4d9d85703555979736f1e8474334676afc0202c93821d0f2bb1f72d03f9e6",
+    "demo\\phase3_transition_context\\sift1\\sparse\\0\\frames.bin": "1efa2e00214e67c4f7ba93b2560f5c215a2d443cf5243ce3233350f17cd7328e",
+    "demo\\phase3_transition_context\\sift1\\sparse\\0\\images.bin": "dee673306705b040f15756f5c1c5b4318ff5829293322b587bd1596e1a5f2578",
+    "demo\\phase3_transition_context\\sift1\\sparse\\0\\points3D.bin": "6625f987de921fb363f1ecef87fc4d7f245b059a3e32551d520ab3d1a1a4c43c",
+    "demo\\phase3_transition_context\\sift1\\sparse\\0\\rigs.bin": "afeeea87421231439afaecbc8456e4fdff53ac3ce2b8e78c578be86fa0d456e6",
+    "demo\\phase3_transition_context\\sift2\\experiment.json": "288972ae88a21905f2164303d8a0996388bd521d08f42d190f15ade59f8d515d",
+    "demo\\phase3_transition_context\\sift2\\features.db": "af96403751d30a9c8d05c70ec5aa185a53076237f3259dc5e4f53cfbc74a9ec1",
+    "demo\\phase3_transition_context\\sift2\\features.db-wal": "e2bee1b59a12bb557d2a7775a989fcc0560c625bd1365fa16169d799c5f8db60",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "demo\\phase3_transition_context\\sift2\\images\\bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "demo\\phase3_transition_context\\sift2\\images\\frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040",
+    "demo\\phase3_transition_context\\sift2\\sparse\\0\\cameras.bin": "13a4d9d85703555979736f1e8474334676afc0202c93821d0f2bb1f72d03f9e6",
+    "demo\\phase3_transition_context\\sift2\\sparse\\0\\frames.bin": "1efa2e00214e67c4f7ba93b2560f5c215a2d443cf5243ce3233350f17cd7328e",
+    "demo\\phase3_transition_context\\sift2\\sparse\\0\\images.bin": "dee673306705b040f15756f5c1c5b4318ff5829293322b587bd1596e1a5f2578",
+    "demo\\phase3_transition_context\\sift2\\sparse\\0\\points3D.bin": "6625f987de921fb363f1ecef87fc4d7f245b059a3e32551d520ab3d1a1a4c43c",
+    "demo\\phase3_transition_context\\sift2\\sparse\\0\\rigs.bin": "afeeea87421231439afaecbc8456e4fdff53ac3ce2b8e78c578be86fa0d456e6",
+    "demo\\phase3_transition_context\\lightglue1\\experiment.json": "ba4925b8bfa0c1f6a6acaa75c1f9fb1e494dfa819b9aa47acdb21c46cad9e6b0",
+    "demo\\phase3_transition_context\\lightglue1\\features.db": "1cf69c01348fcb872180b530d5bbf4129ce1de39f4a6b78ae6fa2f4baffc6658",
+    "demo\\phase3_transition_context\\lightglue1\\features.db-wal": "51bac0cf9f3accd4ab47a171df9d425abb429537477c3a3024a773079e108f97",
+    "demo\\phase3_transition_context\\lightglue1\\pairs.txt": "79d675aa74cba13951360bfbba027b62f5e43412debb10619455d54a2cf801b9",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "demo\\phase3_transition_context\\lightglue1\\images\\bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "demo\\phase3_transition_context\\lightglue1\\images\\frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040",
+    "demo\\phase3_transition_context\\lightglue1\\sparse\\0\\cameras.bin": "2dda29cac769b45da06e2623df4362511f33b7b8267b767849efa273fa7a156d",
+    "demo\\phase3_transition_context\\lightglue1\\sparse\\0\\frames.bin": "6f7d14995481889813b9000d4f47ebfa32c71e874d5a66864ed1514e4dad9b2b",
+    "demo\\phase3_transition_context\\lightglue1\\sparse\\0\\images.bin": "ad08708f4ec4f7498a31606d08b1c9b598d654cd1e27adf820a1843a1ab5b60b",
+    "demo\\phase3_transition_context\\lightglue1\\sparse\\0\\points3D.bin": "47583c149a91fb5be088a601fd24462ff651abd9836f86371febb07954e9c96e",
+    "demo\\phase3_transition_context\\lightglue1\\sparse\\0\\rigs.bin": "68db6ffe9695b5c8a7c864e41565624fccd29e44814f860060bb3a147d45ed02",
+    "demo\\phase3_transition_context\\lightglue1\\sparse\\1\\cameras.bin": "18674116205aff630b0b3361ef8e78b1e0efec0b36b9ce006988c9547931a4a3",
+    "demo\\phase3_transition_context\\lightglue1\\sparse\\1\\frames.bin": "66d1589a90c94850a036755e41a968aece2c1958d96f9e803473961b294336a9",
+    "demo\\phase3_transition_context\\lightglue1\\sparse\\1\\images.bin": "b7835e9ac75918453bb583d50c035f4407ba20a3e4597b27220436cf890224b0",
+    "demo\\phase3_transition_context\\lightglue1\\sparse\\1\\points3D.bin": "e62c07dd7c8632abdef63c39493b77f909633ac061ae71b961b2cf41013eca4e",
+    "demo\\phase3_transition_context\\lightglue1\\sparse\\1\\rigs.bin": "a70383b71a4a21f387b18f736e9e9456725604dcbfe68d7df1c51fe4b15e12ba",
+    "demo\\phase3_transition_context\\lightglue2\\experiment.json": "9369fa858bd42a19d3782c70585707da008d3bca670fee9128ab3f3ad0bdd660",
+    "demo\\phase3_transition_context\\lightglue2\\features.db": "1cf69c01348fcb872180b530d5bbf4129ce1de39f4a6b78ae6fa2f4baffc6658",
+    "demo\\phase3_transition_context\\lightglue2\\features.db-wal": "245b8d96f5a45b881e60b5d71bd9f252f2597d3982f83fbee801862a62601e85",
+    "demo\\phase3_transition_context\\lightglue2\\pairs.txt": "79d675aa74cba13951360bfbba027b62f5e43412debb10619455d54a2cf801b9",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00002.png": "c44f434c354a23a1a89e64c9a5875cf94aed567b53d44d8be08b5857c5cd3980",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00003.png": "767781be918c692d53ad32c73e262e2c5dfbbc5bb3097c6ed7dce49053ef5820",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00004.png": "5f96c95cdab8b873c51d69d54db6bead2783eaabf5ed1720dd5ed5006ecbb636",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00005.png": "6a407a61d7699c26439f14cf40d1714d85d7ae008baf650a86105664ef9d0385",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00006.png": "a2aa47649e49d1b5f56b9e6180962c47eba4b9c2b2b1ece492c55adf1ecda483",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00007.png": "19445a978e864083a7d339a81c55ab187c734423ac5b612a1e974867a9e3c8ac",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00008.png": "8e0ed229d2fb2d592c2bb63b06e13a73cd1f9d2d6010e49a0c6ce347e5714d67",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00009.png": "e03d191edc3546e8da76b07b304442601854ce12f3c3d676925b53d96aec5135",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00010.png": "cb3decb46957bbe365c1a9058a99a25218233d91b4c8d320274b9bdfbd6a1bb1",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00011.png": "b7b078eb61dd34eb64cfd4cda7f324498a5c3cb1227f0542054eda855750d865",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00012.png": "48ae4377c1534ab2d29105333c72dd5696d26ba546475ad6c6c7ab9a3f57cf05",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00013.png": "49c7d25524d3aca372ad6de717fabb960699afdf22cf53bc41904eebf0f35587",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00014.png": "f3d65b5bd6f921a644ac23ec243d4c376034d973fe3f6d36de4b498331dbd794",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00015.png": "dace6743cf0f808d9bcfb7281785e423a57dbf50281b2476b1180ecd9116c8b5",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00017.png": "1970341c0b20398f59cfa8b90db382b9636ea8b20fe6c559a1078e3077a6876f",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00018.png": "4b39e69bf17419eefc0a3e7d00c7ddda297ae49894c41e553be2253218389425",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00019.png": "b98052bdbbd044269a6094089426d9e038c97eb94a6b87bf18c84b7ae8ae47f8",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00020.png": "29bdf5e91c1bcf16ffa4d49192425af965e2535a083c53a1d3f3f914879847eb",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00021.png": "2c9d7acf6132847d26c3fa02f9265f46659c566e659613c05f65d523f6b0495d",
+    "demo\\phase3_transition_context\\lightglue2\\images\\bridge_00022.png": "e6b39870465bc0033912930948c131cc61b3c4f94b9596bc46ded57f73838c2f",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00016.png": "a185b22b613d42f1ae078eabc515e262e349ed8e7f9015fe1e41e605c03f2c53",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00019.png": "4bda084de788d977cd7bd380fc3742020beda36ba63815a8e9a5e164707fae27",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00022.png": "f95ce837cd8bf3b6cde15169128116e7cf9aa9177f2dd13dbd221d99b3bef06a",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00023.png": "14a9c3f00d0eb339fc87cb7ae41f3cc4a364c1496fa3a24c30f07dc7211edcc3",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00024.png": "54fb16bd707b712bc1baa1861b4a521648223e48c51962750a8e906742f7ebc7",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00025.png": "33220e60383ad2002c03ca871b016b8ddfbfa8af149d59175f3ca03d37c1dc6e",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00026.png": "b563a58a53c6db9fcfec9b8db997b8facfdda04074fd2135c70229ee307dfaad",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00027.png": "939fd04a16e085ec46d93dc91eccade64466931cdf514aedb3e51c02e9d87c18",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00028.png": "75157a6372fce6e344a1da9c7c1971b3515ce78df03c86dd20598e79d92e0ce2",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00031.png": "580afec4a552457dabcf811f9f850ee53193f97ea72fe714327fc1bb7b4d8172",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00034.png": "aca6ac1090785b3bc926d942c3f350d99881e0b7fe7acdb8da98c66fe51dee5e",
+    "demo\\phase3_transition_context\\lightglue2\\images\\frame_00037.png": "4d0b4b4b75f06719eab3a965c32b4d71381ab36809e0b3f81dc2ba462b645040",
+    "demo\\phase3_transition_context\\lightglue2\\sparse\\0\\cameras.bin": "2dda29cac769b45da06e2623df4362511f33b7b8267b767849efa273fa7a156d",
+    "demo\\phase3_transition_context\\lightglue2\\sparse\\0\\frames.bin": "6f7d14995481889813b9000d4f47ebfa32c71e874d5a66864ed1514e4dad9b2b",
+    "demo\\phase3_transition_context\\lightglue2\\sparse\\0\\images.bin": "ad08708f4ec4f7498a31606d08b1c9b598d654cd1e27adf820a1843a1ab5b60b",
+    "demo\\phase3_transition_context\\lightglue2\\sparse\\0\\points3D.bin": "47583c149a91fb5be088a601fd24462ff651abd9836f86371febb07954e9c96e",
+    "demo\\phase3_transition_context\\lightglue2\\sparse\\0\\rigs.bin": "68db6ffe9695b5c8a7c864e41565624fccd29e44814f860060bb3a147d45ed02",
+    "demo\\phase3_transition_context\\lightglue2\\sparse\\1\\cameras.bin": "18674116205aff630b0b3361ef8e78b1e0efec0b36b9ce006988c9547931a4a3",
+    "demo\\phase3_transition_context\\lightglue2\\sparse\\1\\frames.bin": "66d1589a90c94850a036755e41a968aece2c1958d96f9e803473961b294336a9",
+    "demo\\phase3_transition_context\\lightglue2\\sparse\\1\\images.bin": "b7835e9ac75918453bb583d50c035f4407ba20a3e4597b27220436cf890224b0",
+    "demo\\phase3_transition_context\\lightglue2\\sparse\\1\\points3D.bin": "e62c07dd7c8632abdef63c39493b77f909633ac061ae71b961b2cf41013eca4e",
+    "demo\\phase3_transition_context\\lightglue2\\sparse\\1\\rigs.bin": "a70383b71a4a21f387b18f736e9e9456725604dcbfe68d7df1c51fe4b15e12ba"
+  },
+  "runs": [
+    {
+      "mode": "sift",
+      "candidates": {
+        "minimum": 0,
+        "median": 3.0,
+        "maximum": 986,
+        "below_15": 420,
+        "total": 15299,
+        "pairs": 496
+      },
+      "verified_pairs": 68,
+      "components": [
+        15,
+        4,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "isolates": 8,
+      "geometry_configurations": {
+        "PLANAR_OR_PANORAMIC": 9,
+        "UNCALIBRATED": 59
+      },
+      "maximum_sampson_px": 3.9767089761834735,
+      "endpoint_path": [],
+      "target_group_path": [],
+      "target_group_path_pairs": [],
+      "maximum_registered_images": 11,
+      "total_registered_images": 11,
+      "joint_endpoint_model": false,
+      "joint_target_group_model": false,
+      "models": [
+        {
+          "model_id": 0,
+          "image_names": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "bridge_00005.png",
+            "bridge_00006.png",
+            "bridge_00007.png",
+            "bridge_00008.png",
+            "frame_00019.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png"
+          ],
+          "registered_images": 11,
+          "sparse_points": 1012,
+          "mean_reprojection_error_px": 0.6362013911819889,
+          "point_mean_error_quantiles_px": [
+            0.048516811543698225,
+            0.5261563337376245,
+            1.4910922957210795,
+            3.307980407179002
+          ],
+          "both_endpoints_registered": false,
+          "target_group_registered_members": [
+            [],
+            [
+              "frame_00019.png",
+              "frame_00022.png",
+              "frame_00023.png",
+              "frame_00024.png"
+            ]
+          ],
+          "both_target_groups_registered": false,
+          "binary_sha256": {
+            "cameras.bin": "13a4d9d85703555979736f1e8474334676afc0202c93821d0f2bb1f72d03f9e6",
+            "frames.bin": "1efa2e00214e67c4f7ba93b2560f5c215a2d443cf5243ce3233350f17cd7328e",
+            "images.bin": "dee673306705b040f15756f5c1c5b4318ff5829293322b587bd1596e1a5f2578",
+            "points3D.bin": "6625f987de921fb363f1ecef87fc4d7f245b059a3e32551d520ab3d1a1a4c43c",
+            "rigs.bin": "afeeea87421231439afaecbc8456e4fdff53ac3ce2b8e78c578be86fa0d456e6"
+          }
+        }
+      ],
+      "native_point_track_histograms": [
+        {
+          "4": 168,
+          "3": 233,
+          "2": 26,
+          "8": 95,
+          "6": 127,
+          "10": 34,
+          "5": 173,
+          "14": 2,
+          "9": 48,
+          "11": 12,
+          "7": 93,
+          "13": 1
+        }
+      ],
+      "tracks": {
+        "tracks": 2078,
+        "observations": 8076,
+        "conflicting_tracks": 59,
+        "observations_in_conflicting_tracks": 506,
+        "clean_tracks_at_least_three_views": 1166,
+        "endpoint_spanning_tracks": 0,
+        "clean_endpoint_spanning_tracks": 0,
+        "maximum_views": 13,
+        "conflicting_tracks_separated_over_4px": 29,
+        "conflicting_tracks_separated_over_12px": 15,
+        "maximum_same_image_separation_lower_bound_px": 753.5870971679688,
+        "endpoint_track_conflict_details": []
+      },
+      "group_tracks": {
+        "group_spanning_tracks": 0,
+        "clean_group_spanning_tracks": 0
+      },
+      "cycles": {
+        "triangles": 161,
+        "directly_testable": 14370,
+        "agreeing": 14324,
+        "conflicting": 46,
+        "triangles_with_conflicts": 32
+      },
+      "native_model_safety": [
+        {
+          "model_id": 0,
+          "registered_views": 11,
+          "point_tracks_spanning_original_groups": 0,
+          "duplicate_image_point_tracks": 35,
+          "same_image_duplicate_separation_lower_bound_max_px": 4.7568359375,
+          "observations": 5406,
+          "nonpositive_depth_observations": 0,
+          "reprojection_observations": 5406,
+          "observation_reprojection_quantiles_px": [
+            0.009333579066231272,
+            0.49463506283845204,
+            1.8638245485015803,
+            3.9250190230200808
+          ],
+          "registered_image_observations": {
+            "frame_00024.png": 811,
+            "bridge_00002.png": 806,
+            "bridge_00003.png": 671,
+            "bridge_00005.png": 397,
+            "frame_00022.png": 665,
+            "bridge_00007.png": 143,
+            "bridge_00008.png": 56,
+            "frame_00023.png": 811,
+            "bridge_00004.png": 423,
+            "frame_00019.png": 408,
+            "bridge_00006.png": 215
+          }
+        }
+      ],
+      "model_overlap_safety": [],
+      "retained_24_row_comparison": {
+        "cameras": {
+          "original_rows": 24,
+          "changed_or_missing": 0
+        },
+        "images": {
+          "original_rows": 24,
+          "changed_or_missing": 0
+        },
+        "keypoints": {
+          "original_rows": 24,
+          "changed_or_missing": 0
+        },
+        "descriptors": {
+          "original_rows": 24,
+          "changed_or_missing": 0
+        },
+        "matches": {
+          "original_rows": 276,
+          "changed_or_missing": 0
+        },
+        "two_view_geometries": {
+          "original_rows": 276,
+          "changed_or_missing": 0
+        }
+      }
+    },
+    {
+      "mode": "lightglue",
+      "candidates": {
+        "minimum": 0,
+        "median": 14.0,
+        "maximum": 1321,
+        "below_15": 253,
+        "total": 63059,
+        "pairs": 496
+      },
+      "verified_pairs": 167,
+      "components": [
+        32
+      ],
+      "isolates": 0,
+      "geometry_configurations": {
+        "UNCALIBRATED": 167
+      },
+      "maximum_sampson_px": 3.9999048677648283,
+      "endpoint_path": [
+        "frame_00024.png",
+        "bridge_00002.png",
+        "frame_00025.png",
+        "frame_00027.png"
+      ],
+      "target_group_path": [
+        "frame_00037.png",
+        "frame_00023.png"
+      ],
+      "target_group_path_pairs": [
+        {
+          "image_a": "frame_00023.png",
+          "image_b": "frame_00037.png",
+          "candidate_matches": 39,
+          "verified_inliers": 20,
+          "geometry_config": 3,
+          "visualization": "group_frame_00037.png_frame_00023.png.jpg"
+        }
+      ],
+      "maximum_registered_images": 15,
+      "total_registered_images": 25,
+      "joint_endpoint_model": false,
+      "joint_target_group_model": false,
+      "models": [
+        {
+          "model_id": 0,
+          "image_names": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "bridge_00005.png",
+            "bridge_00006.png",
+            "bridge_00007.png",
+            "bridge_00008.png",
+            "bridge_00009.png",
+            "bridge_00017.png",
+            "frame_00016.png",
+            "frame_00019.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png",
+            "frame_00025.png"
+          ],
+          "registered_images": 15,
+          "sparse_points": 1931,
+          "mean_reprojection_error_px": 1.4491901319093776,
+          "point_mean_error_quantiles_px": [
+            0.000943304533249373,
+            1.4562275448913564,
+            2.386001613167859,
+            3.67392190549155
+          ],
+          "both_endpoints_registered": false,
+          "target_group_registered_members": [
+            [],
+            [
+              "frame_00016.png",
+              "frame_00019.png",
+              "frame_00022.png",
+              "frame_00023.png",
+              "frame_00024.png"
+            ]
+          ],
+          "both_target_groups_registered": false,
+          "binary_sha256": {
+            "cameras.bin": "2dda29cac769b45da06e2623df4362511f33b7b8267b767849efa273fa7a156d",
+            "frames.bin": "6f7d14995481889813b9000d4f47ebfa32c71e874d5a66864ed1514e4dad9b2b",
+            "images.bin": "ad08708f4ec4f7498a31606d08b1c9b598d654cd1e27adf820a1843a1ab5b60b",
+            "points3D.bin": "47583c149a91fb5be088a601fd24462ff651abd9836f86371febb07954e9c96e",
+            "rigs.bin": "68db6ffe9695b5c8a7c864e41565624fccd29e44814f860060bb3a147d45ed02"
+          }
+        },
+        {
+          "model_id": 1,
+          "image_names": [
+            "bridge_00014.png",
+            "bridge_00015.png",
+            "bridge_00017.png",
+            "bridge_00018.png",
+            "bridge_00019.png",
+            "bridge_00020.png",
+            "bridge_00021.png",
+            "bridge_00022.png",
+            "frame_00026.png",
+            "frame_00027.png",
+            "frame_00028.png"
+          ],
+          "registered_images": 11,
+          "sparse_points": 1404,
+          "mean_reprojection_error_px": 1.3378050787166982,
+          "point_mean_error_quantiles_px": [
+            0.0009355054970208229,
+            1.3552083039665737,
+            2.510134766565947,
+            3.408582756069366
+          ],
+          "both_endpoints_registered": false,
+          "target_group_registered_members": [
+            [
+              "frame_00027.png",
+              "frame_00028.png"
+            ],
+            []
+          ],
+          "both_target_groups_registered": false,
+          "binary_sha256": {
+            "cameras.bin": "18674116205aff630b0b3361ef8e78b1e0efec0b36b9ce006988c9547931a4a3",
+            "frames.bin": "66d1589a90c94850a036755e41a968aece2c1958d96f9e803473961b294336a9",
+            "images.bin": "b7835e9ac75918453bb583d50c035f4407ba20a3e4597b27220436cf890224b0",
+            "points3D.bin": "e62c07dd7c8632abdef63c39493b77f909633ac061ae71b961b2cf41013eca4e",
+            "rigs.bin": "a70383b71a4a21f387b18f736e9e9456725604dcbfe68d7df1c51fe4b15e12ba"
+          }
+        }
+      ],
+      "native_point_track_histograms": [
+        {
+          "4": 301,
+          "2": 362,
+          "5": 245,
+          "7": 103,
+          "8": 105,
+          "9": 93,
+          "3": 463,
+          "10": 74,
+          "6": 152,
+          "11": 32,
+          "12": 1
+        },
+        {
+          "4": 163,
+          "2": 698,
+          "3": 482,
+          "5": 53,
+          "6": 6,
+          "7": 2
+        }
+      ],
+      "tracks": {
+        "tracks": 6090,
+        "observations": 33643,
+        "conflicting_tracks": 960,
+        "observations_in_conflicting_tracks": 19621,
+        "clean_tracks_at_least_three_views": 1946,
+        "endpoint_spanning_tracks": 4,
+        "clean_endpoint_spanning_tracks": 0,
+        "maximum_views": 31,
+        "conflicting_tracks_separated_over_4px": 960,
+        "conflicting_tracks_separated_over_12px": 776,
+        "maximum_same_image_separation_lower_bound_px": 1379.9998779296875,
+        "endpoint_track_conflict_details": [
+          {
+            "views": 30,
+            "observations": 4445,
+            "conflicting": true,
+            "same_image_separation_lower_bound_px": 1379.9998779296875
+          },
+          {
+            "views": 31,
+            "observations": 410,
+            "conflicting": true,
+            "same_image_separation_lower_bound_px": 1258.1248779296875
+          },
+          {
+            "views": 14,
+            "observations": 40,
+            "conflicting": true,
+            "same_image_separation_lower_bound_px": 665.625
+          },
+          {
+            "views": 7,
+            "observations": 8,
+            "conflicting": true,
+            "same_image_separation_lower_bound_px": 18.75
+          }
+        ]
+      },
+      "group_tracks": {
+        "group_spanning_tracks": 15,
+        "clean_group_spanning_tracks": 5
+      },
+      "cycles": {
+        "triangles": 356,
+        "directly_testable": 48799,
+        "agreeing": 42039,
+        "conflicting": 6760,
+        "triangles_with_conflicts": 297
+      },
+      "native_model_safety": [
+        {
+          "model_id": 0,
+          "registered_views": 15,
+          "point_tracks_spanning_original_groups": 0,
+          "duplicate_image_point_tracks": 16,
+          "same_image_duplicate_separation_lower_bound_max_px": 5.625,
+          "observations": 8956,
+          "nonpositive_depth_observations": 0,
+          "reprojection_observations": 8956,
+          "observation_reprojection_quantiles_px": [
+            0.0009423832734013873,
+            1.325753281125339,
+            3.0823524391554695,
+            3.9757208397113444
+          ],
+          "registered_image_observations": {
+            "frame_00022.png": 1095,
+            "frame_00023.png": 1269,
+            "bridge_00003.png": 1048,
+            "frame_00024.png": 1056,
+            "bridge_00002.png": 1118,
+            "bridge_00004.png": 851,
+            "frame_00019.png": 412,
+            "bridge_00005.png": 777,
+            "bridge_00006.png": 528,
+            "bridge_00007.png": 426,
+            "frame_00016.png": 68,
+            "bridge_00017.png": 14,
+            "frame_00025.png": 54,
+            "bridge_00008.png": 163,
+            "bridge_00009.png": 77
+          }
+        },
+        {
+          "model_id": 1,
+          "registered_views": 11,
+          "point_tracks_spanning_original_groups": 0,
+          "duplicate_image_point_tracks": 7,
+          "same_image_duplicate_separation_lower_bound_max_px": 5.625,
+          "observations": 3809,
+          "nonpositive_depth_observations": 0,
+          "reprojection_observations": 3809,
+          "observation_reprojection_quantiles_px": [
+            0.0009173647052893634,
+            1.3227158562922086,
+            2.9632700838290544,
+            3.8863329563085443
+          ],
+          "registered_image_observations": {
+            "bridge_00018.png": 291,
+            "bridge_00019.png": 522,
+            "bridge_00021.png": 599,
+            "bridge_00020.png": 700,
+            "bridge_00022.png": 647,
+            "frame_00027.png": 483,
+            "frame_00028.png": 365,
+            "bridge_00017.png": 51,
+            "frame_00026.png": 90,
+            "bridge_00015.png": 43,
+            "bridge_00014.png": 18
+          }
+        }
+      ],
+      "model_overlap_safety": [
+        {
+          "model_ids": [
+            0,
+            1
+          ],
+          "shared_registered_images": [
+            "bridge_00017.png"
+          ],
+          "overlap": [
+            {
+              "image": "bridge_00017.png",
+              "common_reconstructed_keypoint_indices": 1,
+              "common_indices_with_opposite_original_group_3D_support": 0,
+              "positive_depth_ratio_quantiles": [
+                0.18223878108167638,
+                0.18223878108167638,
+                0.18223878108167638,
+                0.18223878108167638
+              ],
+              "valid_positive_depth_ratios": 1
+            }
+          ],
+          "alignment_or_merge_attempted": false
+        }
+      ],
+      "retained_24_row_comparison": {
+        "cameras": {
+          "original_rows": 24,
+          "changed_or_missing": 0
+        },
+        "images": {
+          "original_rows": 24,
+          "changed_or_missing": 0
+        },
+        "keypoints": {
+          "original_rows": 24,
+          "changed_or_missing": 0
+        },
+        "descriptors": {
+          "original_rows": 0,
+          "changed_or_missing": 0
+        },
+        "matches": {
+          "original_rows": 276,
+          "changed_or_missing": 0
+        },
+        "two_view_geometries": {
+          "original_rows": 276,
+          "changed_or_missing": 0
+        }
+      }
+    }
+  ],
+  "repeat_checks": [
+    {
+      "mode": "sift",
+      "database_tables_exact": {
+        "cameras": true,
+        "images": true,
+        "keypoints": true,
+        "descriptors": true,
+        "matches": true,
+        "two_view_geometries": true
+      },
+      "matcher_identity_exact": true,
+      "feature_outputs_exact": true,
+      "full_diagnostics_exact": true,
+      "verified_components_exact": true,
+      "verified_pair_rows_exact": true,
+      "actual_or_replayed_candidate_counts_exact": true,
+      "models": [
+        {
+          "images": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "bridge_00005.png",
+            "bridge_00006.png",
+            "bridge_00007.png",
+            "bridge_00008.png",
+            "frame_00019.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png"
+          ],
+          "repeat_model_found": true,
+          "binary_exact": true,
+          "max_camera_center_difference": 0.0
+        }
+      ],
+      "all_model_memberships_reproduced": true
+    },
+    {
+      "mode": "lightglue",
+      "database_tables_exact": {
+        "cameras": true,
+        "images": true,
+        "keypoints": true,
+        "descriptors": true,
+        "matches": true,
+        "two_view_geometries": true
+      },
+      "matcher_identity_exact": true,
+      "feature_outputs_exact": true,
+      "full_diagnostics_exact": true,
+      "verified_components_exact": true,
+      "verified_pair_rows_exact": true,
+      "actual_or_replayed_candidate_counts_exact": true,
+      "models": [
+        {
+          "images": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "bridge_00005.png",
+            "bridge_00006.png",
+            "bridge_00007.png",
+            "bridge_00008.png",
+            "bridge_00009.png",
+            "bridge_00017.png",
+            "frame_00016.png",
+            "frame_00019.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png",
+            "frame_00025.png"
+          ],
+          "repeat_model_found": true,
+          "binary_exact": true,
+          "max_camera_center_difference": 0.0
+        },
+        {
+          "images": [
+            "bridge_00014.png",
+            "bridge_00015.png",
+            "bridge_00017.png",
+            "bridge_00018.png",
+            "bridge_00019.png",
+            "bridge_00020.png",
+            "bridge_00021.png",
+            "bridge_00022.png",
+            "frame_00026.png",
+            "frame_00027.png",
+            "frame_00028.png"
+          ],
+          "repeat_model_found": true,
+          "binary_exact": true,
+          "max_camera_center_difference": 0.0
+        }
+      ],
+      "all_model_memberships_reproduced": true
+    }
+  ],
+  "runtime_s": [
+    {
+      "mode": "sift",
+      "runtime_s": 32.87404939997941
+    },
+    {
+      "mode": "sift",
+      "runtime_s": 30.828083600034006
+    },
+    {
+      "mode": "lightglue",
+      "runtime_s": 1449.7571888000239
+    },
+    {
+      "mode": "lightglue",
+      "runtime_s": 1506.607183800079
+    }
+  ],
+  "production_unchanged": true,
+  "guards_unchanged": true,
+  "previous_optimized_poses_used": false,
+  "models_aligned_or_merged": false,
+  "production_adoption": false,
+  "decision": "Local registration improves but no joint original-group or endpoint model; retain production SIFT",
+  "validation": {
+    "targeted": "33 passed in 2.28 s",
+    "full": "205 passed in 54.96 s",
+    "remaining_test_failures": 0,
+    "initial_comparison_failure": "False alarm from SQLite shared-memory read marks; corrected evaluator hashes DB/WAL and excludes only SHM; comparison2 passed"
+  },
+  "sqlite_database_and_wal_hashed": true,
+  "sqlite_shared_memory_excluded": true,
+  "physical_accuracy_validated": false,
+  "assessment_acceptance": false,
+  "floor_covered_samples": 25,
+  "floor_total_samples": 176,
+  "ceiling_boundary_shift_m": 0.702677,
+  "ceiling_shift_independently_validated": false,
+  "commit_created": false,
+  "next_step": "Pinned XFeat+LighterGlue comparison on the same 32 RGBs with verified code/checkpoint rights, unchanged downstream guards and joint-group/track/runtime evaluation"
+}

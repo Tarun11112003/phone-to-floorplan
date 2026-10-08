@@ -1,0 +1,11 @@
+{
+  "description": "Generated two-room software regression only; not strict photos or surveyed field acceptance.",
+  "cases": [
+    {
+      "id": "control",
+      "capture": "../datasets/controlled_multimodal_v3/lidar.json",
+      "reference": "../datasets/controlled_multimodal_v3/reference.json",
+      "category": "synthetic_simulated_sensor_regression"
+    }
+  ]
+}

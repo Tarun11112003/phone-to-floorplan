@@ -1,6 +1,6 @@
 # Dataset research and acquisition
 
-Research checked 2026-10-05. A suitable benchmark must pair captured/rendered room observations with metric geometry. A dataset of floor-plan drawings alone cannot evaluate capture-to-plan reconstruction.
+Research checked . A suitable benchmark must pair captured/rendered room observations with metric geometry. A dataset of floor-plan drawings alone cannot evaluate capture-to-plan reconstruction.
 
 ## Selected and downloaded
 

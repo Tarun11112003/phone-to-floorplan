@@ -1,8 +1,10 @@
 # Personal design notes — Cozmo take-home
 
-## 2026-10-05 V3 decision record
+**Historical engineering record. Development is closed. Current requirements/status and evaluator commands are in [docs/ASSIGNMENT_COMPLIANCE.md](docs/ASSIGNMENT_COMPLIANCE.md) and [README](README.md).
 
-Updated context, 2026-10-06: the exact brief supersedes the earlier assumed scope.
+## V3 decision record
+
+Updated context  the exact brief supersedes the earlier assumed scope.
 See [compliance audit](docs/ASSIGNMENT_COMPLIANCE.md) and
 [implementation/test plan](docs/ASSIGNMENT_UPDATE_PLAN.md). In particular, mandatory
 manual scale references are not confirmed as acceptable for the examiner's RGB path;
@@ -35,7 +37,7 @@ and an evaluator that penalizes missing rooms. RGB completeness and broad field
 validation remain unresolved. The paragraphs below retain the original research
 and baseline reasoning for interview reference.
 
-**Benchmark update, 2026-10-05:** the project now includes an automatic RGB-D branch, not only the original marked-corner demo. The public ICL-NUIM sequence produced a rectangular room plan from 177 RGB/depth pairs without supplied poses or corners. Maximum side-length error was 5.07 cm; this fails the proposed 3 cm target. Photo/video SfM experiments registered 43/45 and 89/89 views respectively, but metric RGB plan extraction and automatic multi-room stitching remain missing. See the [visual architecture](docs/ARCHITECTURE.md), [dataset research](docs/DATASETS.md), and [benchmark report](docs/BENCHMARK_RESULTS.md) for the current state. The original assisted baseline described below remains available for comparison.
+**Benchmark update ** the project now includes an automatic RGB-D branch, not only the original marked-corner demo. The public ICL-NUIM sequence produced a rectangular room plan from 177 RGB/depth pairs without supplied poses or corners. Maximum side-length error was 5.07 cm; this fails the proposed 3 cm target. Photo/video SfM experiments registered 43/45 and 89/89 views respectively, but metric RGB plan extraction and automatic multi-room stitching remain missing. See the [visual architecture](docs/ARCHITECTURE.md), [dataset research](docs/DATASETS.md), and [benchmark report](docs/BENCHMARK_RESULTS.md) for the current state. The original assisted baseline described below remains available for comparison.
 
 Restoration teams in property and casualty insurance need plans and quantities they can explain and correct. A useful result includes room boundaries, openings, dimensions, floor area, perimeter, wall area when height is known, and links from geometry to source frames. The original baseline is a **measurement-guided demonstration**; the new RGB-D branch adds a constrained automatic path. Together they provide inspectable reconstruction, stitching, quantity, and export components. They do not prove the full three-tier requirement or centimetre accuracy on arbitrary phone media.
 
@@ -129,9 +131,7 @@ Use an explicit review gate: flag inconsistent reference measurements, large doo
 
 Collect the same properties as photos, ordinary phone videos, and LiDAR recordings. Measure withheld wall lengths and corner locations independently with a laser distance meter or survey-grade reference. Evaluate per-tier median, P95, and maximum dimension error, global corner error after rigid alignment, missing/false openings, and the percentage of dimensions accepted or withheld. The candidate target is P95 absolute room-dimension error at most 3 cm and stitched corner error at most 5 cm, across diverse rooms. These are targets, not reported results.
 
-### Local experiment, 2026-10-05
-
-- The synthetic two-room photo/video run recovered 8 known corners to floating-point precision, with 12 m² and 9 m² floor areas. This validates code geometry, stitching, and exports only.
+### Local experiment - The synthetic two-room photo/video run recovered 8 known corners to floating-point precision, with 12 m² and 9 m² floor areas. This validates code geometry, stitching, and exports only.
 - A 640×480 frame at five seconds was decoded from the real TUM `freiburg1_room` RGB video.
 - An optional PyCOLMAP 4.2.1 CPU run at 2 frames per second extracted 91 frames from that video. The largest reconstructed model registered 10 of them and contained 602 sparse 3D points. It is a **partial reconstruction**. Its scale is unknown, and the data did not support an automatic floor-plan claim. The early subset of 30 frames registered only 4. This supports the decision to report reconstruction coverage explicitly.
 - A second run used [TUM Freiburg 1 RGB intrinsics](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/file_formats) with PyCOLMAP's eight-parameter `OPENCV` model. Its largest model still registered 10 of 91 frames, with 641 sparse points. Correcting this calibration approximation alone did not recover room coverage. The published TUM calibration has an additional radial term omitted from this model.

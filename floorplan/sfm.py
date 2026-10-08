@@ -7,13 +7,94 @@ from the measured-corner plan until a sound alignment is supplied.
 from __future__ import annotations
 
 import json
+import sqlite3
+import statistics
 import subprocess
+import re
 from pathlib import Path
 
 import imageio_ffmpeg
 
+SFM_RANDOM_SEED = 7
 
-def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: int = 40, camera_model: str = "SIMPLE_RADIAL", camera_params: str = "", matching_mode: str = "auto", quality_selection: bool = False, required_images: list[str] | None = None) -> dict:
+_TWO_VIEW_CONFIG_NAMES = {
+    0: "UNDEFINED",
+    1: "DEGENERATE",
+    2: "CALIBRATED",
+    3: "UNCALIBRATED",
+    4: "PLANAR",
+    5: "PANORAMIC",
+    6: "PLANAR_OR_PANORAMIC",
+    7: "WATERMARK",
+    8: "MULTIPLE",
+    9: "CALIBRATED_RIG",
+}
+
+
+def _matching_diagnostics(database: Path, image_count: int) -> dict:
+    """Summarize verified pair support without changing COLMAP decisions."""
+    max_image_id = 2_147_483_647
+    with sqlite3.connect(database) as connection:
+        image_names = dict(connection.execute("SELECT image_id, name FROM images"))
+        geometries = connection.execute(
+            "SELECT pair_id, rows, config FROM two_view_geometries WHERE rows > 0"
+        ).fetchall()
+
+    pairs = []
+    paired_image_ids = set()
+    config_counts = {}
+    for pair_id, inliers, config in geometries:
+        image_a = pair_id // max_image_id
+        image_b = pair_id % max_image_id
+        if image_a not in image_names or image_b not in image_names:
+            continue
+        config = int(config)
+        config_name = _TWO_VIEW_CONFIG_NAMES.get(config, f"UNKNOWN_{config}")
+        config_counts[config_name] = config_counts.get(config_name, 0) + 1
+        paired_image_ids.update((image_a, image_b))
+        pairs.append({
+            "image_a": image_names[image_a],
+            "image_b": image_names[image_b],
+            "verified_inliers": int(inliers),
+            "geometry_configuration": config_name,
+        })
+    pairs.sort(key=lambda item: (-item["verified_inliers"], item["image_a"], item["image_b"]))
+    inliers = [item["verified_inliers"] for item in pairs]
+    return {
+        "candidate_image_pairs": image_count * (image_count - 1) // 2,
+        "geometrically_verified_pair_count": len(pairs),
+        "verified_pair_fraction": len(pairs) / max(1, image_count * (image_count - 1) // 2),
+        "max_verified_inliers": max(inliers, default=0),
+        "median_verified_inliers": float(statistics.median(inliers)) if inliers else 0.0,
+        "verified_geometry_configurations": dict(sorted(config_counts.items())),
+        "images_without_verified_pairs": sorted(
+            name for image_id, name in image_names.items() if image_id not in paired_image_ids
+        ),
+        "strongest_verified_pairs": pairs[:10],
+    }
+
+
+def _reconstruction_guidance(result: dict, diagnostics: dict, image_count: int) -> str:
+    if result["registered_images"] == 0:
+        if diagnostics["geometrically_verified_pair_count"] == 0:
+            return (
+                "No image pair passed geometric verification. Check sharpness, "
+                "texture, overlap, and camera metadata; no 3D model was produced."
+            )
+        return (
+            "Some image pairs passed geometric verification, but COLMAP could "
+            "not initialize a stable 3D model. Increase viewpoint baseline and "
+            "check camera calibration; verified matches alone do not prove usable parallax."
+        )
+    if result["registered_images"] < image_count:
+        return (
+            "A partial sparse model was produced. Review unregistered views and "
+            "coverage; this model remains unscaled and is not a floor plan."
+        )
+    return "All selected images registered; the sparse model remains unscaled and is not a floor plan."
+
+
+def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: int = 40, camera_model: str = "SIMPLE_RADIAL", camera_params: str = "", matching_mode: str = "auto", quality_selection: bool = False, required_images: list[str] | None = None, camera_grouping: str = 'auto') -> dict:
     try:
         import pycolmap
     except ImportError as exc:
@@ -26,6 +107,8 @@ def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: in
         raise ValueError("fps must be positive and max_frames must be at least 2")
     if matching_mode not in {"auto", "sequential", "exhaustive"}:
         raise ValueError("matching_mode must be auto, sequential or exhaustive")
+    if camera_grouping not in {'auto','shared','per_image'}:
+        raise ValueError('camera_grouping must be auto, shared or per_image')
     output.mkdir(parents=True, exist_ok=True)
     database = output / "features.db"
     if database.exists():
@@ -40,8 +123,18 @@ def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: in
         if quality_selection:
             _, duration = imageio_ffmpeg.count_frames_and_secs(str(source))
             fps = min(fps, candidate_count/max(duration,1))
-        command = [imageio_ffmpeg.get_ffmpeg_exe(), "-loglevel", "error", "-y", "-i", str(source), "-vf", f"fps={fps}", "-frames:v", str(candidate_count), str(images / "frame_%05d.png")]
-        subprocess.run(command, check=True, capture_output=True, text=True)
+        # Select real input frames and retain their presentation times. An fps
+        # filter synthesizes a regular output timeline and loses the original
+        # timing needed for variable-rate captures and pose association.
+        filter_graph=f"select='isnan(prev_selected_t)+gte(t-prev_selected_t,{1/fps})',showinfo"
+        command = [imageio_ffmpeg.get_ffmpeg_exe(), "-loglevel", "info", "-y", "-i", str(source), "-vf", filter_graph,
+                   '-vsync','0',"-frames:v", str(candidate_count), str(images / "frame_%05d.png")]
+        decoded=subprocess.run(command, check=True, capture_output=True, text=True,timeout=120)
+        times=[float(t) for t in re.findall(r'\bpts_time:([-+\d.eE]+)',decoded.stderr)]
+        files=sorted(images.glob('frame_*.png'))
+        if len(times)<len(files): raise ValueError('FFmpeg did not report source presentation times')
+        records=[dict(image=p.name,source_timestamp_s=t,source=str(source)) for p,t in zip(files,times)]
+        (output/'video_frame_mapping.json').write_text(json.dumps(records,indent=2),encoding='utf-8')
         sequential = True
     if quality_selection:
         import cv2
@@ -63,14 +156,18 @@ def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: in
                     scored.append((score,path,image.copy()))
             if scored:
                 score,path,image = max(scored,key=lambda row:row[0])
-                quality.append({'image':path.name,'sharpness':score,'accepted':score>=10})
-                if score >= 10: image.save(selected/path.name)
+                quality.extend(dict(image=p.name,sharpness=s,accepted=(p==path and score>=10),
+                                    reason='selected' if p==path and score>=10 else
+                                           ('blurred' if s<10 else 'temporal_bin_budget'))
+                               for s,p,_ in scored)
+                if score >= 10: image.save(selected/path.name,exif=image.getexif())
         for name in required_images or []:
             path=images/name
             if not path.is_file():
                 raise ValueError(f'Measured control view is missing: {name}')
             with Image.open(path) as image:
-                ImageOps.exif_transpose(image).convert('RGB').save(selected/path.name)
+                normalized=ImageOps.exif_transpose(image).convert('RGB')
+                normalized.save(selected/path.name,exif=normalized.getexif())
         (output/'selection.json').write_text(json.dumps(quality,indent=2),encoding='utf-8')
         images = selected
     image_count = sum(1 for item in images.iterdir() if item.suffix.lower() in {".jpg", ".jpeg", ".png"})
@@ -78,18 +175,37 @@ def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: in
         sequential = matching_mode == "sequential"
     if image_count < 2:
         raise ValueError("At least two usable overlapping images are required after quality selection")
-    extraction = pycolmap.FeatureExtractionOptions(num_threads=4)
-    matching = pycolmap.FeatureMatchingOptions(num_threads=4)
+    extraction = pycolmap.FeatureExtractionOptions(num_threads=1)
+    matching = pycolmap.FeatureMatchingOptions(num_threads=1)
+    verification = pycolmap.TwoViewGeometryOptions()
+    verification.ransac.random_seed = SFM_RANDOM_SEED
     reader = pycolmap.ImageReaderOptions(camera_model=camera_model, camera_params=camera_params)
-    mode = pycolmap.CameraMode.SINGLE if camera_params or not quality_selection else pycolmap.CameraMode.AUTO
-    pycolmap.extract_features(database, images, camera_mode=mode, reader_options=reader, extraction_options=extraction, device=pycolmap.Device.cpu)
+    if camera_grouping=='per_image' and camera_params:
+        raise ValueError('Explicit shared camera parameters conflict with per_image grouping')
+    mode = (pycolmap.CameraMode.SINGLE if camera_params or camera_grouping=='shared'
+            or (camera_grouping=='auto' and not quality_selection)
+            else pycolmap.CameraMode.PER_IMAGE if camera_grouping=='per_image'
+            else pycolmap.CameraMode.AUTO)
+    image_names = sorted(
+        item.name for item in images.iterdir()
+        if item.suffix.lower() in {".jpg", ".jpeg", ".png"}
+    )
+    pycolmap.extract_features(database, images, image_names=image_names, camera_mode=mode,
+                              reader_options=reader, extraction_options=extraction,
+                              device=pycolmap.Device.cpu)
     if sequential:
-        pycolmap.match_sequential(database, matching_options=matching, device=pycolmap.Device.cpu)
+        pycolmap.match_sequential(database, matching_options=matching, verification_options=verification,
+                                  device=pycolmap.Device.cpu)
     else:
-        pycolmap.match_exhaustive(database, matching_options=matching, device=pycolmap.Device.cpu)
+        pycolmap.match_exhaustive(database, matching_options=matching, verification_options=verification,
+                                 device=pycolmap.Device.cpu)
+    matching_diagnostics = _matching_diagnostics(database, image_count)
     sparse = output / "sparse"
     sparse.mkdir(exist_ok=True)
-    options = pycolmap.IncrementalPipelineOptions(num_threads=4, random_seed=7)
+    options = pycolmap.IncrementalPipelineOptions(num_threads=1, random_seed=SFM_RANDOM_SEED)
+    options.mapper.num_threads = 1
+    options.mapper.random_seed = SFM_RANDOM_SEED
+    options.triangulation.random_seed = SFM_RANDOM_SEED
     options.min_model_size = min(options.min_model_size,image_count)
     if image_count == 2:
         options.triangulation.ignore_two_view_tracks = False
@@ -108,8 +224,18 @@ def reconstruct_rgb(source: Path, output: Path, fps: float = 2.0, max_frames: in
         fraction = best.num_reg_images() / image_count
         result = {"status": "reconstructed" if fraction >= 0.9 else "partial", "input_images": image_count, "registered_images": best.num_reg_images(), "registered_fraction": fraction, "sparse_points": best.num_points3D(), "metric_scale": False, "floor_plan_ready": False, "camera_model": camera_model, "camera_params": camera_params, "model_directory": str(sparse / str(model_id)), "point_cloud": str(output / "sparse.ply")}
     result["matching_method"] = "sequential" if sequential else "exhaustive"
+    result["feature_extraction_threads"] = 1
+    result["mapping_threads"] = 1
+    result['matching_threads']=1
+    result["feature_extraction_order"] = image_names
+    result["random_seed"] = SFM_RANDOM_SEED
+    result["seeded_stages"] = ["two_view_ransac", "incremental_mapper", "triangulator"]
+    result["matching_diagnostics"] = matching_diagnostics
+    result["reconstruction_guidance"] = _reconstruction_guidance(result, matching_diagnostics, image_count)
     result['images_directory'] = str(images)
     result['calibration_fixed'] = bool(camera_params)
+    result['camera_grouping']=camera_grouping
+    result['camera_mode']=mode.name
     result['minimum_model_size'] = options.min_model_size
     result['two_view_tracks_enabled'] = not options.triangulation.ignore_two_view_tracks
     (output / "sfm_summary.json").write_text(json.dumps(result, indent=2), encoding="utf-8")

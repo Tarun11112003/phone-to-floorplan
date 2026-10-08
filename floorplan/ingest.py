@@ -13,7 +13,6 @@ from pathlib import Path
 import imageio_ffmpeg
 import numpy as np
 from PIL import Image, ImageOps
-from scipy.spatial.transform import Rotation
 
 
 PHOTO_EXTENSIONS = {'.jpg','.jpeg','.png','.heic','.heif'}
@@ -106,6 +105,8 @@ def prepare_video(source, output, max_frames=300):
 
 
 def prepare_stray_scanner(source, output, max_frames=300):
+    from scipy.spatial.transform import Rotation
+    from .capture_sync import decoded_timing, validate_sensor_video
     source=Path(source).resolve(); output=_fresh(output)
     required=[source/'odometry.csv',source/'rgb.mp4',source/'depth']
     if any(not p.exists() for p in required):
@@ -118,7 +119,7 @@ def prepare_stray_scanner(source, output, max_frames=300):
     if max_frames<2:
         raise ValueError('max_frames must be at least two')
     if any(int(row['frame'])!=index for index,row in enumerate(rows)):
-        raise ValueError('Odometry frame numbers must match video indices; no silent synchronization')
+        raise ValueError('Odometry frame IDs must be contiguous encoded-frame indices')
     confidence_dir=source/'confidence'
     eligible=[row for row in rows if (source/'depth'/f"{int(row['frame']):06d}.png").is_file()
               and (not confidence_dir.exists() or (confidence_dir/f"{int(row['frame']):06d}.png").is_file())]
@@ -128,15 +129,26 @@ def prepare_stray_scanner(source, output, max_frames=300):
     selected_rows=eligible[::stride]
     frames_dir=output/'frames'; frames_dir.mkdir()
     selection='+'.join(f"eq(n\\,{int(row['frame'])})" for row in selected_rows)
-    command=[imageio_ffmpeg.get_ffmpeg_exe(),'-loglevel','error','-noautorotate','-i',str(source/'rgb.mp4'),
-             '-vf',f'select={selection}','-vsync','0','-start_number','0',
+    # Raw scanner sidecars index encoded frames. Applying the MP4 playback edit
+    # list drops the initial HEVC frame in the supplied exports and shifts every
+    # subsequent RGB/depth association. Audit every decoded PTS in the same pass
+    # as sampling; ordinary phone-video playback keeps its existing semantics.
+    command=[imageio_ffmpeg.get_ffmpeg_exe(),'-nostdin','-loglevel','info','-threads','2',
+             '-ignore_editlist','1','-noautorotate','-i',str(source/'rgb.mp4'),
+             '-map','0:v:0','-vf',f'showinfo=checksum=0,select={selection}','-vsync','0','-start_number','0',
              str(frames_dir/'rgb_%06d.png')]
-    subprocess.run(command,capture_output=True,text=True,check=True)
+    decoded=subprocess.run(command,capture_output=True,text=True,check=True,timeout=600)
+    timing=decoded_timing(decoded.stderr)
+    synchronization=validate_sensor_video(timing,[float(row['timestamp']) for row in rows])
+    (output/'sync_audit.json').write_text(json.dumps(dict(synchronization=synchronization,
+        decoded_frames=timing['frames']),indent=2),encoding='utf-8')
+    available_rgb=len(timing['frames'])
+    paired_rows=[row for row in selected_rows if int(row['frame'])<available_rgb]
     decoded_count=sum(1 for _ in frames_dir.glob('rgb_*.png'))
-    if decoded_count<2 or decoded_count>len(selected_rows):
+    if decoded_count<2 or decoded_count!=len(paired_rows):
         raise ValueError('Video decoding produced an invalid RGB/depth selection')
     omitted_video_tail=len(selected_rows)-decoded_count
-    selected_rows=selected_rows[:decoded_count]
+    selected_rows=paired_rows
     import cv2
     records=[]
     origin_time=None
@@ -197,6 +209,8 @@ def prepare_stray_scanner(source, output, max_frames=300):
         timestamp=float(row['timestamp'])
         if origin_time is None: origin_time=timestamp
         record=dict(id=number,timestamp_s=timestamp-origin_time,
+                    source_rgb_pts_s=timing['frames'][number]['timestamp_s'],
+                    source_sensor_timestamp_s=timestamp,
                     rgb=str(rgb.relative_to(output)),depth=str(local_depth.relative_to(output)),
                     intrinsics=camera,camera_to_world=pose.tolist())
         if local_confidence is not None: record['confidence']=str(local_confidence.relative_to(output))
@@ -216,7 +230,12 @@ def prepare_stray_scanner(source, output, max_frames=300):
                        omitted_unpaired_frames=len(rows)-len(eligible),
                        omitted_video_tail_frames=omitted_video_tail,sampling_stride=stride,
                        selected_frame_ids=[int(row['frame']) for row in selected_rows],
-                       note='RGB resampled to depth resolution with scaled per-frame intrinsics; unmatched tail video frames are disclosed; optical registration and sensor coordinates require physical verification'))
+                       synchronization=synchronization,
+                       selected_frame_mapping=[dict(sensor_frame_id=int(row['frame']),
+                           decoded_rgb_index=int(row['frame']),
+                           rgb_pts_s=timing['frames'][int(row['frame'])]['timestamp_s'],
+                           sensor_timestamp_s=float(row['timestamp'])) for row in selected_rows],
+                       note='Encoded RGB timeline audited against sensor cadence; RGB resampled with per-frame intrinsics; optical registration and physical accuracy remain unverified'))
 
 
 def prepare_capture(tier, source, output, max_frames=300):

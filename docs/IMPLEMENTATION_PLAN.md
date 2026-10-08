@@ -1,6 +1,8 @@
 # Implementation roadmap
 
-**Historical roadmap:** the exact assignment received on 2026-10-06 supersedes
+**Historical engineering record. Development is closed. Current requirements/status and evaluator commands are in [compliance](ASSIGNMENT_COMPLIANCE.md) and [README](../README.md).
+
+**Historical roadmap:** the exact assignment received on supersedes
 this scope. Use the [assignment update plan](ASSIGNMENT_UPDATE_PLAN.md) and
 [compliance audit](ASSIGNMENT_COMPLIANCE.md) for remaining implementation and tests.
 

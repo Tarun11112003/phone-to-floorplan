@@ -1,10 +1,12 @@
 # Assignment update and incremental test plan
 
+**Historical engineering record. Development is closed. Current requirements/status and evaluator commands are in [compliance](ASSIGNMENT_COMPLIANCE.md) and [README](../README.md).
+
 Authority: [exact brief](<Applied AI.html>) and [current compliance audit](ASSIGNMENT_COMPLIANCE.md).
 This is the implementation plan following the audit, not a claim that these changes
 have already shipped. Preserve V3 artifacts as regression evidence.
 
-## Implementation checkpoint, 2026-10-06
+## Implementation checkpoint
 
 The plan below remains the acceptance roadmap. Completed software increments now
 include raw intake, assignment and repeatability evaluators, observed-ceiling
@@ -32,8 +34,7 @@ Use Route 2, a stock capture protocol, to retain the code-only desktop deliverab
 Native Camera is the proposed photo/video capture route. Stray Scanner is the
 proposed raw LiDAR logger: its [official repository](https://github.com/strayrobots/scanner)
 documents RGB-D collection and its [App Store listing](https://apps.apple.com/ca/app/stray-scanner/id1557051662)
-lists depth, camera positions, intrinsics and IMU exports. The listing inspected on
-2026-10-06 shows version 1.4. This is a candidate until installation, recording,
+lists depth, camera positions, intrinsics and IMU exports. The recorded listing showed version 1.4. This is a candidate until installation, recording,
 export and Windows transfer are tested on the actual device and region.
 
 Choose the consumer comparator separately, preferably Polycam or magicplan, after
@@ -278,7 +279,7 @@ No expensive full reconstruction is needed merely for a documentation change.
 baseline and this staged plan. All E2E checkpoints numbered 0–7 above are future
 assignment-specific work unless subsequently accompanied by their own run evidence.
 
-**Progress update, 2026-10-06:** [E2E status](ASSIGNMENT_E2E_STATUS.md) now records
+**Progress update ** [E2E status](ASSIGNMENT_E2E_STATUS.md) now records
 the Phase 0 frozen-plan gate audit, Phase 1 capture-intake experiments and a
 preparatory Phase 4 repeatability scorer. The stock capture protocol and device
 matrix are written but untested with an operator. The sparse-photo, physical

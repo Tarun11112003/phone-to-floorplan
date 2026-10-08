@@ -1,0 +1,266 @@
+{
+  "version": "partial-cell-development-checkpoint-v1",
+  "cases": [
+    {
+      "case": "single",
+      "before": {
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "camera_samples": 115,
+        "camera_center_coverage_fraction": 0.34782608695652173,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "reconstruction_runtime_s": 19.920556399971247
+      },
+      "after_raw": {
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "camera_samples": 115,
+        "camera_center_coverage_fraction": 0.34782608695652173,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "reconstruction_runtime_s": 25.401118000037968
+      },
+      "after_frozen": {
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "camera_center_coverage_fraction": 0.34782608695652173,
+        "connections": 0,
+        "unclosed_geometry": true
+      },
+      "controlled_invariants_preserved": true,
+      "strict_raw_invariants_preserved": false,
+      "raw_failed_checks": [
+        "identical_camera_path",
+        "identical_observed_walls"
+      ],
+      "camera_path_max_absolute_change_m": 1.687538997430238e-14,
+      "wall_location_max_absolute_change_m": 2.0872192862952943e-14,
+      "comparison_sha256": "4f75191e879f9bc5227a2829ea6c6812c646f57702ce183f3a9830b7a46c719e",
+      "source_evidence_sha256": {
+        "demo\\phase3_sync_boundary\\exact_geometry_current\\single\\run.json": "92db5d22b463735982a1b668b799be85c85ca92b8100bf80e6530c9927759f06",
+        "demo\\phase3_sync_boundary\\exact_geometry_current\\single\\plan.json": "4637d041960b9641f197cd27c713c8577d275a843d430fcdd1cc558b484496a2",
+        "demo\\phase3_partial_cells\\current\\single\\run.json": "c546713735bac5b552b3614c5f947ee6d1916ccc35a80c24c06debe1377befa5",
+        "demo\\phase3_partial_cells\\current\\single\\plan.json": "6dbcd3b648bd4755089fefead8b17b325a778d73deba4669f849a6fef8d02dfd"
+      }
+    },
+    {
+      "case": "floor",
+      "before": {
+        "observed_cells": 1,
+        "inferred_cells": 0,
+        "camera_samples": 176,
+        "camera_center_coverage_fraction": 0.05113636363636364,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "reconstruction_runtime_s": 15.751915800035931
+      },
+      "after_raw": {
+        "observed_cells": 1,
+        "inferred_cells": 1,
+        "camera_samples": 176,
+        "camera_center_coverage_fraction": 0.14204545454545456,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "reconstruction_runtime_s": 36.56126780004706
+      },
+      "after_frozen": {
+        "observed_cells": 1,
+        "inferred_cells": 1,
+        "camera_center_coverage_fraction": 0.14204545454545456,
+        "connections": 0,
+        "unclosed_geometry": true
+      },
+      "controlled_invariants_preserved": true,
+      "strict_raw_invariants_preserved": false,
+      "raw_failed_checks": [
+        "identical_camera_path",
+        "identical_observed_walls"
+      ],
+      "camera_path_max_absolute_change_m": 1.2434497875801753e-14,
+      "wall_location_max_absolute_change_m": 1.1546319456101628e-14,
+      "comparison_sha256": "3a231e9aac1fc4f2c2efe2afd354846e3fdbc83c3dbe35ef7c59d125671d0ea8",
+      "source_evidence_sha256": {
+        "demo\\phase3_sync_boundary\\exact_geometry_current\\floor\\run.json": "e18d352ab78946bcad5de1dfccba80d89a9d8c9ebc76fdaac87c2bd932425d30",
+        "demo\\phase3_sync_boundary\\exact_geometry_current\\floor\\plan.json": "4e25726247ed4896eb2935317aabb782acffeb72c9f774ed441ca9fe3b1fa1a6",
+        "demo\\phase3_partial_cells\\current\\floor\\run.json": "5f69b5ccdea28a17e1aae54548db33f3196c0b3d8db532ded52ba840ab105475",
+        "demo\\phase3_partial_cells\\current\\floor\\plan.json": "b64d24d4023f43f5f6989399efe37ff30c9959b5b0e111a38badaab2af90014f"
+      }
+    },
+    {
+      "case": "ceiling",
+      "before": {
+        "observed_cells": 3,
+        "inferred_cells": 0,
+        "camera_samples": 300,
+        "camera_center_coverage_fraction": 0.29,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "reconstruction_runtime_s": 30.675330199999735
+      },
+      "after_raw": {
+        "observed_cells": 3,
+        "inferred_cells": 3,
+        "camera_samples": 300,
+        "camera_center_coverage_fraction": 0.49333333333333335,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "reconstruction_runtime_s": 111.62945090001449
+      },
+      "after_frozen": {
+        "observed_cells": 3,
+        "inferred_cells": 3,
+        "camera_center_coverage_fraction": 0.49333333333333335,
+        "connections": 0,
+        "unclosed_geometry": true
+      },
+      "controlled_invariants_preserved": true,
+      "strict_raw_invariants_preserved": false,
+      "raw_failed_checks": [
+        "identical_camera_path",
+        "identical_observed_walls"
+      ],
+      "camera_path_max_absolute_change_m": 7.016609515630989e-14,
+      "wall_location_max_absolute_change_m": 5.906386491005833e-14,
+      "comparison_sha256": "54078783aad1a0a8d66f5cf81c5001633e918d610aa8e92c8cb413e571e9e1dd",
+      "source_evidence_sha256": {
+        "demo\\phase3_sync_boundary\\exact_geometry_current\\ceiling\\run.json": "498ed3bbbf6b2a93791988325594720b5283fe0853110875084dcafede61e469",
+        "demo\\phase3_sync_boundary\\exact_geometry_current\\ceiling\\plan.json": "1d62016eff14d3ac04e2d638911cd2645f7c7533f6aa1b794e359b220bdc1232",
+        "demo\\phase3_partial_cells\\current\\ceiling\\run.json": "ac3825f7a6f65b86c242acf2f8b827a1d60bbad87ee0f13e40876614843a7b74",
+        "demo\\phase3_partial_cells\\current\\ceiling\\plan.json": "d01efd623dfb98f1d4a266ff947d76a0a03e8efdc97f0eee48c2db63ee0ca510"
+      }
+    },
+    {
+      "case": "single_dense",
+      "before": {
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "camera_samples": 286,
+        "camera_center_coverage_fraction": 0.36713286713286714,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "reconstruction_runtime_s": 54.56117520004045
+      },
+      "after_raw": {
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "camera_samples": 286,
+        "camera_center_coverage_fraction": 0.36713286713286714,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "reconstruction_runtime_s": 47.72194550000131
+      },
+      "after_frozen": {
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "camera_center_coverage_fraction": 0.36713286713286714,
+        "connections": 0,
+        "unclosed_geometry": true
+      },
+      "controlled_invariants_preserved": true,
+      "strict_raw_invariants_preserved": false,
+      "raw_failed_checks": [
+        "identical_camera_path",
+        "identical_observed_walls"
+      ],
+      "camera_path_max_absolute_change_m": 3.597122599785507e-14,
+      "wall_location_max_absolute_change_m": 3.2862601528904634e-14,
+      "comparison_sha256": "411d0639822214d28ef8ad3f4a426b5bd807b9cab31b6fd6d3d5db2c112c13b3",
+      "source_evidence_sha256": {
+        "demo\\phase3_sync_boundary\\exact_geometry_current\\single_dense\\run.json": "4fbc8e91f9f0458106e97274102ed13577c9393c9329501f5082a843ac4b4d3d",
+        "demo\\phase3_sync_boundary\\exact_geometry_current\\single_dense\\plan.json": "b8df4b66608b70cbfd7ff236277825fd0eb6b2e8bc749346721d13d32cff23e3",
+        "demo\\phase3_partial_cells\\current\\single_dense\\run.json": "512d70dbdeb5ecef4e902a22b9faddbcf35eee32f3979c6356044874ff38a696",
+        "demo\\phase3_partial_cells\\current\\single_dense\\plan.json": "2bb94f8bb7bc9c93584d7c7429ce6cd730d2488f0b11c325f93b7d9bbb64121d"
+      }
+    },
+    {
+      "case": "control",
+      "before": {
+        "observed_cells": 2,
+        "inferred_cells": 0,
+        "camera_samples": 97,
+        "camera_center_coverage_fraction": 1.0,
+        "connections": 1,
+        "status": "proposal_requires_review",
+        "contract_complete": false,
+        "reconstruction_runtime_s": 11.276739599998109
+      },
+      "after_raw": {
+        "observed_cells": 2,
+        "inferred_cells": 0,
+        "camera_samples": 97,
+        "camera_center_coverage_fraction": 1.0,
+        "connections": 1,
+        "status": "proposal_requires_review",
+        "contract_complete": false,
+        "reconstruction_runtime_s": 25.254727899911813
+      },
+      "after_frozen": {
+        "observed_cells": 2,
+        "inferred_cells": 0,
+        "camera_center_coverage_fraction": 1.0,
+        "connections": 1,
+        "unclosed_geometry": false
+      },
+      "controlled_invariants_preserved": true,
+      "strict_raw_invariants_preserved": true,
+      "raw_failed_checks": [],
+      "camera_path_max_absolute_change_m": 0.0,
+      "wall_location_max_absolute_change_m": 0.0,
+      "comparison_sha256": "cee79ec84e6dc4712967939601969a9e804811a8b023f6a230c0b75ce956c3d1",
+      "source_evidence_sha256": {
+        "demo\\phase3_sync_boundary\\exact_geometry_current\\control\\control\\run.json": "6a376fee56ebdd28329652fdcc339794a6b8bdfaf4fd27dae7fbf85ac8ee23cf",
+        "demo\\phase3_sync_boundary\\exact_geometry_current\\control\\control\\plan.json": "0a7f5178d41269469a6914983a5a6b134a15d99c48f1ecb494cbf8af5eab55a8",
+        "demo\\phase3_partial_cells\\current\\control\\control\\run.json": "49f7f28a212a3020700f008977b01290830713239dea8a7dabde14246d0e3036",
+        "demo\\phase3_partial_cells\\current\\control\\control\\plan.json": "b367af874581e89bd9a6abb32b2edfe27454c9c4ac5923541340b494750913c9"
+      }
+    }
+  ],
+  "tests": {
+    "targeted_passed": 21,
+    "targeted_elapsed_s": 71.01,
+    "comparator_passed": 5,
+    "comparator_elapsed_s": 1.25,
+    "regression_passed": 166,
+    "regression_elapsed_s": 115.7
+  },
+  "inventories": [
+    {
+      "path": "demo\\phase3_partial_cells\\current\\reproduction.json",
+      "sha256": "817ac9961d3936a16d8e340583c96ee6a15a587a4098cdf36a533a2eeed7b66a",
+      "version": "artifact-reproduction-v1",
+      "regenerated_verified": 11,
+      "skipped_or_historical": 0,
+      "all_claims_regenerated": false
+    },
+    {
+      "path": "demo\\phase3_partial_cells\\frozen_controlled\\reproduction.json",
+      "sha256": "1d5e4442bc86530425450df6480380bac639e44866b044028638d2e5d734a9ba",
+      "version": "artifact-reproduction-v1",
+      "regenerated_verified": 5,
+      "skipped_or_historical": 0,
+      "all_claims_regenerated": true
+    }
+  ],
+  "manifests": {
+    "docs\\benchmark\\phase3_partial_cells_reproduction.json": "b484740c9a87a133f5eb334297b57c5dd54191dff101703bdfc52da9358a27db",
+    "docs\\benchmark\\phase3_partial_cells_controlled.json": "d641b391c1a64e6ceef7a4417834db3d6ba791d97b6ea231d2d1e81a06b9f954"
+  },
+  "independent_ground_truth_available": false,
+  "accuracy_improvement": null,
+  "assessment_accepted": false,
+  "limitations": [
+    "Coverage is an internal camera-in-cell proxy",
+    "Additional cells are inferred hypotheses",
+    "Four fresh-native exact comparisons failed; frozen control and artifact replay are separate proofs",
+    "Raw source artifacts are retained locally and are still required for reproduction"
+  ]
+}
