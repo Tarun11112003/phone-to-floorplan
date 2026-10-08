@@ -13,15 +13,33 @@ from shapely.geometry import Polygon
 from shapely.ops import unary_union
 
 from .benchmark import evaluate_polygons
-
-
-VERSION = 'assignment-aug2026-provisional-v1'
-WALL_RELATIVE_TOLERANCE = {'photos': .08, 'video': .03}
+from .assessment_io import to_evaluation_plan
+from .acceptance import (VERSION, WALL_RELATIVE_TOLERANCE, EXTERNAL_SPECIFICATIONS,
+                         PROVISIONAL_INTERPRETATIONS)
 
 
 def _edge_lengths(corners):
     points = np.asarray(corners, float)
     return np.linalg.norm(np.roll(points, -1, axis=0) - points, axis=1)
+
+
+def _without_redundant_corners(corners):
+    """Remove only straight, forward vertices; never simplify a real corner.
+
+    A wall split into two collinear export segments still represents one surveyed
+    wall. This normalization is independent of truth and preserves metric scale.
+    """
+    points = np.asarray(corners, float)
+    while len(points) > 3:
+        left = points - np.roll(points, 1, axis=0)
+        right = np.roll(points, -1, axis=0) - points
+        lengths = np.linalg.norm(left, axis=1) * np.linalg.norm(right, axis=1)
+        cross = left[:, 0] * right[:, 1] - left[:, 1] * right[:, 0]
+        redundant = (lengths > 0) & (np.abs(cross) <= 1e-8 * lengths) & ((left * right).sum(axis=1) > 0)
+        if not redundant.any():
+            break
+        points = np.delete(points, np.flatnonzero(redundant)[0], axis=0)
+    return points
 
 
 def _matched_wall_errors(plan, truth, base):
@@ -33,13 +51,18 @@ def _matched_wall_errors(plan, truth, base):
         prediction, reference = pred[match['prediction']], refs[match['reference']]
         a, b = np.asarray(prediction['corners'], float), np.asarray(reference['corners'], float)
         if len(a) != len(b):
+            a = _without_redundant_corners(a)
+        if len(a) != len(b):
             continue
         rot = np.asarray(base['alignment']['rotation']); trans = np.asarray(base['alignment']['translation_m'])
         a = a @ rot + trans
         variants = [np.roll(order, offset, axis=0)
                     for order in (a, a[::-1]) for offset in range(len(a))]
         aligned = min(variants, key=lambda candidate: np.sum((candidate-b)**2))
-        actual, expected = _edge_lengths(aligned), _edge_lengths(b)
+        actual = _edge_lengths(aligned)
+        expected=np.asarray(reference.get('wall_lengths_m',_edge_lengths(b)),float)
+        if expected.shape!=(len(b),) or not np.isfinite(expected).all() or np.any(expected<=0):
+            raise ValueError('Independent surveyed wall lengths must be finite, positive and cover every edge')
         for edge, (observed, measured) in enumerate(zip(actual, expected)):
             if {'room_id': reference['id'], 'edge_index': edge} in truth.get('excluded_evaluation_edges', []):
                 continue
@@ -134,15 +157,25 @@ def _height_score(plan, truth, matched_ids):
 
 def _interval_score(plan):
     missing = []
+    uncalibrated=[]
+    malformed=[]
+    def inspect(key,value):
+        if not isinstance(value,dict): return
+        if value.get('calibrated') is not True: uncalibrated.append(key)
+        if not all(k in value for k in ('lower','upper','confidence')): malformed.append(key); return
+        if not np.isfinite([value['lower'],value['upper'],value['confidence']]).all() or value['lower']>value['upper'] or not 0<value['confidence']<1:
+            malformed.append(key)
     for room in plan.get('rooms', []):
         intervals = room.get('measurement_intervals', {})
         for name in ('floor_area_m2', 'ceiling_height_m'):
             value = intervals.get(name)
             if not isinstance(value, dict) or not all(k in value for k in ('lower','upper','confidence')):
                 missing.append(f"{room['id']}:{name}")
+            inspect(f"{room['id']}:{name}",value)
         walls = intervals.get('walls_m', [])
         if len(walls) != len(room['corners']) or any(not isinstance(v, dict) or not all(k in v for k in ('lower','upper','confidence')) for v in walls):
             missing.append(f"{room['id']}:walls_m")
+        for index,value in enumerate(walls): inspect(f"{room['id']}:wall:{index}",value)
     for opening in _opening_records(plan):
         if 'openings' in plan:
             source = next((o for o in plan['openings'] if str(o.get('id'))==opening['id']), None)
@@ -150,7 +183,10 @@ def _interval_score(plan):
             source = None
         if source is None or not isinstance(source.get('width_interval_m'),dict):
             missing.append(f"{opening['id']}:width_m")
-    return dict(gate='pass' if not missing and plan.get('rooms') else 'fail', missing=missing,
+        else: inspect(f"{opening['id']}:width_m",source['width_interval_m'])
+    return dict(gate='pass' if not missing and not malformed and plan.get('rooms') else 'fail', missing=missing,
+                malformed=malformed,uncalibrated=uncalibrated,
+                calibration_gate='pass' if plan.get('rooms') and not missing and not malformed and not uncalibrated else 'fail',
                 caveat='Presence gate only; empirical interval coverage requires independent held-out captures')
 
 
@@ -170,6 +206,11 @@ def _property_score(plan, truth, actual, expected):
 def evaluate_assignment(plan, truth, tier):
     if tier not in {'photos','video','lidar'}:
         raise ValueError('tier must be photos, video or lidar')
+    source_document=plan
+    if source_document.get('schema_version') in {'internal-assessment-v1','internal-assessment-v2'} and source_document['tier']!=tier:
+        raise ValueError('Assessment tier differs from requested evaluation tier')
+    plan=to_evaluation_plan(plan)
+    truth=to_evaluation_plan(truth)
     base = evaluate_polygons(plan, truth)
     matched_ids = {m['prediction']:m['reference'] for m in base['room_matches']}
     walls, absolute, relative = _matched_wall_errors(plan, truth, base)
@@ -192,7 +233,13 @@ def evaluate_assignment(plan, truth, tier):
                                 missing_rooms=base['missing_rooms'],extra_rooms=base['extra_rooms'],
                                 missing_connections=base['missing_connections'],extra_connections=base['extra_connections']))
     result['known_gates_pass'] = all(result[k]['gate']=='pass' for k in ('walls','openings','ceiling','intervals','property','topology'))
+    result['calibrated_known_gates_pass']=result['known_gates_pass'] and result['intervals']['calibration_gate']=='pass'
+    result['provisional_interpretations']=PROVISIONAL_INTERPRETATIONS
+    if source_document.get('schema_version') in {'internal-assessment-v1','internal-assessment-v2'}:
+        uncalibrated=[m['id'] for m in source_document['measurements'] if m['value'] is None or not m.get('interval') or m['interval'].get('calibrated') is not True]
+        result['intervals']['all_measurement_calibration_missing']=uncalibrated
+        result['calibrated_known_gates_pass'] &= not bool(uncalibrated)
     result['assignment_complete'] = False
-    result['pending_specifications'] = ['published JSON schema','earlier Round 1 gates','LiDAR wall tolerance','interval coverage rule']
+    result['pending_specifications'] = EXTERNAL_SPECIFICATIONS
     result['not_evaluated_here'] = ['damage and scope','repeatability','drift ablation','consumer-app head-to-head']
     return result

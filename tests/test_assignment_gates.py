@@ -65,9 +65,21 @@ def test_assignment_photo_and_video_relative_wall_gates_diverge():
 
 def test_old_v3_artifact_fails_full_assignment_contract():
     root=Path(__file__).resolve().parents[1]
-    plan=json.loads((root/'demo/v3_verified/photos/plan.json').read_text(encoding='utf-8'))
-    truth=json.loads((root/'datasets/controlled_multimodal_v3/reference.json').read_text(encoding='utf-8'))
+    plan=json.loads((root/'tests/fixtures/legacy_v3_plan.json').read_text(encoding='utf-8'))
+    truth=json.loads((root/'tests/fixtures/legacy_v3_reference.json').read_text(encoding='utf-8'))
     result=evaluate_assignment(plan,truth,'photos')
     assert result['ceiling']['gate']=='fail'
     assert result['intervals']['gate']=='fail'
     assert not result['known_gates_pass']
+
+
+def test_collinear_export_vertex_does_not_hide_a_surveyed_wall():
+    plan,truth=scene()
+    plan['rooms'][0]['corners'].insert(1,[2,0])
+    result=evaluate_assignment(plan,truth,'photos')
+    assert result['walls']['count']==8
+    assert result['walls']['gate']=='pass'
+    # A real extra corner must still fail full wall correspondence.
+    plan['rooms'][0]['corners'][1]=[2,.1]
+    result=evaluate_assignment(plan,truth,'photos')
+    assert result['walls']['gate']=='fail'

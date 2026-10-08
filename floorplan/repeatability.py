@@ -4,6 +4,7 @@ from __future__ import annotations
 import numpy as np
 
 from .benchmark import evaluate_polygons
+from .assessment_io import to_evaluation_plan
 
 
 def _wall_lengths_by_reference(plan, truth):
@@ -16,6 +17,9 @@ def _wall_lengths_by_reference(plan, truth):
         reference=references[match['reference']]
         a=np.asarray(actual['corners'],dtype=float)
         b=np.asarray(reference['corners'],dtype=float)
+        if len(a)!=len(b):
+            from .assignment_gates import _without_redundant_corners
+            a=_without_redundant_corners(a)
         if len(a)!=len(b):
             continue
         rotation=np.asarray(evaluation['alignment']['rotation'])
@@ -35,12 +39,16 @@ def evaluate_repeatability(first,second,truth):
     Callers must supply two *independent physical captures*. This function cannot
     prove capture independence from plans alone; retain raw input hashes externally.
     """
+    first,second,truth=map(to_evaluation_plan,(first,second,truth))
     a,eval_a=_wall_lengths_by_reference(first,truth)
     b,eval_b=_wall_lengths_by_reference(second,truth)
     refs={}
     for room in truth['rooms']:
         corners=np.asarray(room['corners'],dtype=float)
-        for edge,length in enumerate(np.linalg.norm(np.roll(corners,-1,axis=0)-corners,axis=1)):
+        lengths=np.asarray(room.get('wall_lengths_m',np.linalg.norm(np.roll(corners,-1,axis=0)-corners,axis=1)),float)
+        if lengths.shape!=(len(corners),) or not np.isfinite(lengths).all() or np.any(lengths<=0):
+            raise ValueError('Invalid independently surveyed wall lengths')
+        for edge,length in enumerate(lengths):
             refs[(room['id'],edge)]=float(length)
     walls=[]
     for room_id,edge in sorted(refs):

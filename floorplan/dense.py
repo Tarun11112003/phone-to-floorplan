@@ -211,7 +211,9 @@ def reconstruct_dense(model_path: Path, images_path: Path, output: Path, control
         labels = np.concatenate([np.full(len(c),i) for i,c in enumerate(clouds)])
         unique = np.unique(np.column_stack([inverse,labels]),axis=0)
         support = np.bincount(unique[:,0],minlength=inverse.max()+1)
-        good = support[inverse] >= 2
+        required_pairs=1 if len(images)==2 else 2
+        good = support[inverse] >= required_pairs
+        result['dense_support_policy']='left/right consistency for exactly two views; >=2 independent pairs otherwise'
         sparse_xyz,sparse_rgb=supported_sparse(model,scale)
         points,rgb,_ = weighted_voxels(np.concatenate([raw[good],sparse_xyz]),np.concatenate([np.concatenate(colors)[good],sparse_rgb]))
         result['supplementary_supported_sparse_points']=len(sparse_xyz)

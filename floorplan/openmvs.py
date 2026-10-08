@@ -10,7 +10,7 @@ from pathlib import Path
 import numpy as np
 
 
-def reconstruct_openmvs(model_path, images_path, output, references, *, ordered_capture=False, binary_dir=None):
+def reconstruct_openmvs(model_path, images_path, output, references, *, ordered_capture=False, binary_dir=None,runtime_budget_s=600):
     import pycolmap
     import open3d as o3d
     from .dense import measured_scale, camera_path_quality
@@ -18,12 +18,19 @@ def reconstruct_openmvs(model_path, images_path, output, references, *, ordered_
     from .rgbd import _fit_planes
 
     output = Path(output).resolve()
+    deadline=time.perf_counter()+runtime_budget_s
+    if runtime_budget_s<=0: raise ValueError('Runtime budget must be positive')
     output.mkdir(parents=True, exist_ok=True)
+    model = pycolmap.Reconstruction(str(model_path))
+    registered=model.num_reg_images()
+    if registered<3:
+        # Three-view OpenMVS fusion cannot run on a two-photo room.
+        from .dense import reconstruct_dense
+        return reconstruct_dense(Path(model_path),Path(images_path),output,references,ordered_capture=ordered_capture)
     binary_dir = Path(binary_dir or Path(__file__).resolve().parents[1]/'.tools/openmvs/vc17/x64/Release').resolve()
     for name in ('InterfaceCOLMAP', 'DensifyPointCloud'):
         if not (binary_dir/f'{name}.exe').is_file():
             raise ValueError('OpenMVS CPU binaries missing; run scripts/install_openmvs.py')
-    model = pycolmap.Reconstruction(str(model_path))
     scale, evidence = measured_scale(model, references)
     quality = camera_path_quality(model, scale, ordered_capture)
     if not quality['passed']:
@@ -40,7 +47,7 @@ def reconstruct_openmvs(model_path, images_path, output, references, *, ordered_
         [str(binary_dir/'InterfaceCOLMAP.exe'), '-i', str(undistorted), '-o', 'scene.mvs', '--image-folder', str(undistorted/'images'), '--max-threads', '4'],
         [str(binary_dir/'DensifyPointCloud.exe'), '-i', 'scene.mvs', '-o', 'scene_dense.mvs', '--max-threads', '4',
          '--resolution-level', '0', '--max-resolution', '640', '--min-resolution', '160',
-         '--number-views', '5', '--number-views-fuse', '3', '--tower-mode', '0', '--crop-to-roi', '0', '--estimate-roi', '0'],
+         '--number-views', str(min(5,registered-1)), '--number-views-fuse', str(min(3,registered)), '--tower-mode', '0', '--crop-to-roi', '0', '--estimate-roi', '0'],
         [str(binary_dir/'DensifyPointCloud.exe'), '-i', 'scene_dense.mvs', '-o', 'visibility.mvs',
          '--filter-point-cloud', '-1', '--max-threads', '4'],
     ]
@@ -49,7 +56,9 @@ def reconstruct_openmvs(model_path, images_path, output, references, *, ordered_
     for index, command in enumerate(commands):
         started = time.perf_counter()
         with (scene/f'stage_{index}.log').open('w', encoding='utf-8') as log:
-            subprocess.run(command, cwd=scene, stdout=log, stderr=subprocess.STDOUT, check=True, timeout=3600)
+            remaining=deadline-time.perf_counter()
+            if remaining<=0: raise TimeoutError('OpenMVS processing budget exceeded')
+            subprocess.run(command, cwd=scene, stdout=log, stderr=subprocess.STDOUT, check=True, timeout=remaining)
         stages.append(dict(executable=Path(command[0]).name,
                            executable_sha256=hashlib.sha256(Path(command[0]).read_bytes()).hexdigest(),
                            runtime_s=time.perf_counter()-started))

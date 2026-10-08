@@ -75,3 +75,14 @@ def test_broad_table_does_not_replace_observed_storey_floor_datum():
     plane=dict(normal=[0,1,0],offset=-1.,rms_m=.002)
     floor,evidence=_observed_floor(room,points,[plane],np.eye(3),[[2,1.5,0]],reference_floor=1.5)
     assert floor is None and evidence is None
+
+
+def test_assessment_preserves_room_floor_failure_and_slope_evidence():
+    from floorplan.assessment import build_assessment
+    room=dict(id='a',corners=[[0,0],[4,0],[4,3],[0,3]],floor_observed=False,
+              ceiling_height_m=None,ceiling_evidence=dict(height_range_m=[2.5,2.7],height_definition='unavailable: resolved slope'))
+    document=build_assessment(dict(rooms=[room],provenance={'floor_observed':True}),
+        dict(configuration={},manifest_sha256='a'*64,run_id='test',tier='lidar',result={'status':'partial'}))
+    assert not next(s for s in document['surfaces'] if s['kind']=='floor')['observed']
+    assert document['rooms'][0]['ceiling_evidence']['height_range_m']==[2.5,2.7]
+    assert document['measurements'][0]['reason']=='unavailable: resolved slope'

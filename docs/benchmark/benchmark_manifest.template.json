@@ -9,7 +9,7 @@
   "gate_definitions": {
     "status": "partially_present_in_brief",
     "earlier_round_1_reference": "not_supplied",
-    "evaluator_version": "assignment-aug2026-provisional-v1"
+      "evaluator_version": "assignment-aug2026-provisional-v2"
   },
   "units": "m",
   "coordinate_convention": "per-room surveyed floor plane; x right, y up, z forward; document each property's transform",
@@ -24,12 +24,14 @@
       "property_id": "property_a",
       "rooms": [
         {"room_id": "room_1", "label": "", "is_connector": false},
-        {"room_id": "room_2", "label": "hall/connector", "is_connector": true},
-        {"room_id": "room_3", "label": "", "is_connector": false}
+        {"room_id": "room_2", "label": "", "is_connector": false},
+        {"room_id": "room_3", "label": "", "is_connector": false},
+        {"room_id": "connector", "label": "hall/connector", "is_connector": true}
       ],
       "adjacencies": [
-        {"room_id_a": "room_1", "room_id_b": "room_2", "opening_ids": []},
-        {"room_id_a": "room_2", "room_id_b": "room_3", "opening_ids": []}
+        {"room_id_a": "room_1", "room_id_b": "connector", "opening_ids": []},
+        {"room_id_a": "room_2", "room_id_b": "connector", "opening_ids": []},
+        {"room_id_a": "room_3", "room_id_b": "connector", "opening_ids": []}
       ],
       "captures": [
         {
@@ -43,7 +45,8 @@
           "room_photo_folders": [
             {"room_id": "room_1", "relative_path": "raw/property_a/photos/room_1", "image_count": 0},
             {"room_id": "room_2", "relative_path": "raw/property_a/photos/room_2", "image_count": 0},
-        {"room_id": "room_3", "relative_path": "raw/property_a/photos/room_3", "image_count": 0}
+            {"room_id": "room_3", "relative_path": "raw/property_a/photos/room_3", "image_count": 0},
+            {"room_id": "connector", "relative_path": "raw/property_a/photos/connector", "image_count": 0}
           ],
           "depth_or_pose_inputs": false,
           "raw_files_sha256": {}

@@ -33,7 +33,7 @@ def _features(image: np.ndarray, depth: np.ndarray, sift, cv2) -> tuple[np.ndarr
     return pixels[good], descriptors[good], np.median(samples[:, good], axis=0)
 
 
-def _relative_pose(previous, current, k, cv2, source_k=None) -> tuple[np.ndarray, dict]:
+def _relative_pose(previous, current, k, cv2, source_k=None,*,ordered_motion=True) -> tuple[np.ndarray, dict]:
     pxy, pdesc, pdepth = previous
     cxy, cdesc, cdepth = current
     if len(pdesc) < 20 or len(cdesc) < 20:
@@ -69,13 +69,36 @@ def _relative_pose(previous, current, k, cv2, source_k=None) -> tuple[np.ndarray
         rotation = vt.T @ correction @ u.T
         tvec = (bc - rotation @ ac).reshape(3, 1)
     rvec, _ = cv2.Rodrigues(rotation)
-    if np.linalg.norm(tvec) > 1.0 or np.linalg.norm(rvec) > np.deg2rad(45):
+    if len(metric_ids)<20:
+        raise ValueError('Insufficient mutually consistent metric-depth correspondences')
+    if ordered_motion and (np.linalg.norm(tvec) > 1.0 or np.linalg.norm(rvec) > np.deg2rad(45)):
         raise ValueError("Implausibly large inter-frame camera motion")
     transform = np.eye(4)
     transform[:3, :3], transform[:3, 3] = rotation, tvec.ravel()
     projected, _ = cv2.projectPoints(xyz[ids], rvec, tvec, k, None)
     residual = np.linalg.norm(projected.reshape(-1, 2) - uv[ids], axis=1)
+    if not np.isfinite(residual).all() or np.median(residual)>2.:
+        raise ValueError('Metric refinement invalidated the verified reprojection support')
     return transform, {"matches": len(matches), "inliers": len(ids), "metric_inliers": len(metric_ids), "median_reprojection_px": float(np.median(residual))}
+
+
+def pose_against_registered(current,k,features,calibrations,poses,cv2):
+    """Unordered stills may overlap any registered view, not the filename neighbor.
+
+    No small inter-frame motion prior applies to independent photos. Descriptor,
+    reprojection and mutually consistent metric-depth checks remain unchanged.
+    """
+    candidates=[]
+    for index in range(max(0,len(features)-24),len(features)):
+        if features[index] is None: continue
+        try:
+            relative,quality=_relative_pose(features[index],current,k,cv2,calibrations[index],ordered_motion=False)
+        except ValueError: continue
+        candidates.append((quality['metric_inliers'],-quality['median_reprojection_px'],index,relative,quality))
+    if not candidates: raise ValueError('No verified overlap with any registered photo view')
+    _,_,index,relative,quality=max(candidates,key=lambda item:item[:3])
+    return poses[index]@np.linalg.inv(relative),{**quality,'reference_registered_index':index,
+                                              'motion_prior':'unordered stills; no small-motion assumption'}
 
 
 def _fit_planes(points: np.ndarray, seed: int = 7, threshold: float = 0.025) -> list[dict]:
@@ -139,6 +162,13 @@ def rectangle_from_planes(planes: list[dict]) -> tuple[list[list[float]], dict]:
     return corners, {"axis_x_in_first_camera": axis_x.tolist(), "axis_z_in_first_camera": axis_z.tolist(), "selected_planes": selected, "assumptions": ["single rectangular Manhattan room", "first camera approximately level", "four opposing wall planes visible", "no global loop closure"]}
 
 
+def retained_path_breaks(retained_indices, original_breaks=()):
+    """Retain boundaries after depth/tracking rejection; never invent traversal."""
+    boundaries=set(original_breaks)
+    return [i for i,(a,b) in enumerate(zip(retained_indices,retained_indices[1:]),start=1)
+            if b>a+1 or any(a<boundary<=b for boundary in boundaries)]
+
+
 def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None = None) -> dict:
     if max_frames is not None and max_frames < 2:
         raise ValueError("max_frames must be at least two")
@@ -175,6 +205,7 @@ def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None =
     poses, logs, clouds, colors, feature_history, weights = [], [], [], [], [], []
     previous_k = k
     camera_calibrations=[]
+    retained_indices=[]
     failure = None
     skipped = []
     recovery_limit = int(manifest.get('tracking_recovery_frames', 5))
@@ -218,12 +249,16 @@ def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None =
             else:
                 current = _features(cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY), depth, sift, cv2)
             if previous is not None and not supplied:
-                relative, quality = _relative_pose(previous, current, k, cv2, previous_k)
-                pose = pose @ np.linalg.inv(relative)
+                if manifest.get('ordered_capture',True):
+                    relative, quality = _relative_pose(previous, current, k, cv2, previous_k)
+                    pose = pose @ np.linalg.inv(relative)
+                else:
+                    pose,quality=pose_against_registered(current,k,feature_history,camera_calibrations,
+                        [np.asarray(p['camera_to_first']) for p in poses],cv2)
                 logs.append({"frame_id": frame["id"], **quality})
         except ValueError as exc:
             failure = {"frame_id": frame["id"], "reason": str(exc)}
-            if not supplied and previous is not None and consecutive_failures < recovery_limit:
+            if not supplied and consecutive_failures < recovery_limit:
                 # Retry against the last verified camera, never integrate an
                 # untracked frame or extrapolate a pose through the gap.
                 skipped.append({**failure, 'reason': 'Tracking retry: '+str(exc)})
@@ -231,10 +266,13 @@ def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None =
                 continue
             break
         if consecutive_failures:
+            if not logs or logs[-1]['frame_id']!=frame['id']:
+                logs.append(dict(frame_id=frame['id'],event='initialized after rejected initial views'))
             logs[-1]['recovered_after_skipped_frames'] = consecutive_failures
         consecutive_failures = 0
         failure = None
         poses.append({"frame_id": frame["id"], "camera_to_first": pose.tolist()})
+        retained_indices.append(index)
         yy, xx = np.mgrid[0:depth.shape[0]:8, 0:depth.shape[1]:8]
         z = depth[yy, xx].ravel()
         valid = z > 0
@@ -256,31 +294,47 @@ def reconstruct_rgbd(manifest_path: Path, output: Path, max_frames: int | None =
     raw_pose_matrices=[p.copy() for p in pose_matrices]
     (output/'raw_trajectory.json').write_text(json.dumps(poses,indent=2),encoding='utf-8')
     mapping = {'enabled': False, 'pose_source': manifest.get('pose_source', 'estimated')}
+    path_breaks=retained_path_breaks(retained_indices,manifest.get('path_breaks',()))
     if manifest.get('optimize_poses', False) and len(poses) > 2:
         from .mapping import optimize_poses
         pose_matrices, mapping = optimize_poses(clouds, pose_matrices,
             feature_history, k, keyframe_stride=manifest.get('keyframe_stride', 5),
-            calibrations=camera_calibrations)
+            calibrations=camera_calibrations,path_breaks=path_breaks)
         mapping['enabled'] = True
         for entry, matrix in zip(poses, pose_matrices):
             entry['camera_to_first'] = matrix.tolist()
     mapping['max_camera_translation_correction_m']=float(max(np.linalg.norm(a[:3,3]-b[:3,3]) for a,b in zip(raw_pose_matrices,pose_matrices)))
+    mapping['requested']=bool(manifest.get('optimize_poses',False))
+    mapping['path_breaks']=path_breaks
     cloud = np.concatenate([c @ p[:3,:3].T + p[:3,3] for c,p in zip(clouds, pose_matrices)])
     color = np.concatenate(colors)
     from .layout import weighted_voxels, extract_layout, export_layout, render_layout_diagnostic
     cloud, color, support_weights = weighted_voxels(cloud, color, np.concatenate(weights))
-    np.savez_compressed(output / "cloud.npz", points=cloud.astype(np.float32), rgb=color.astype(np.uint8), weights=support_weights)
+    # Retain the coordinates actually used for fitting. Rounding only the saved
+    # cloud to float32 changes refitted finite lines and sometimes polygonization.
+    np.savez_compressed(output / "cloud.npz", points=cloud, rgb=color.astype(np.uint8), weights=support_weights)
     (output / "trajectory.json").write_text(json.dumps(poses, indent=2), encoding="utf-8")
     planes = _fit_planes(cloud)
     result = {"source": str(manifest_path), "method": "SIFT + depth-supported PnP RANSAC + 3D metric refinement + plane fitting", "input_frames": len(frames), "tracked_frames": len(poses), "tracked_fraction": len(poses) / len(frames), "point_count": len(cloud), "tracking_failure": failure, "skipped_frames":skipped, "planes": planes, "tracking_quality": logs, "ground_truth_used_for_reconstruction": False, "metric_scale_source": "input depth units", "floor_plan_ready": False}
     result['supplied_frames']=len(manifest['frames'])
+    result['cloud_artifact_precision']='float64; identical coordinates used for fitting and layout'
     result['truncated_capture']=len(frames)<len(manifest['frames'])
     complete_capture = failure is None and len(poses)/len(frames)>=0.9 and not result['truncated_capture']
     try:
         result['mapping'] = mapping
         result['accuracy_validated'] = False
         if manifest.get('layout', 'rectangle') == 'polygons':
-            rooms, metadata = extract_layout(cloud, planes, np.asarray(pose_matrices)[:,:3,3], manifest.get('down_direction'))
+            # SfM/sensor world axes need not be the first camera's axes. Use a
+            # disclosed camera-down weak prior in that actual world frame when
+            # gravity was not supplied; never assume arbitrary world Y is down.
+            down=manifest.get('down_direction')
+            if down is None: down=pose_matrices[0][:3,1]
+            rooms, metadata = extract_layout(cloud, planes, np.asarray(pose_matrices)[:,:3,3], down,
+                                             path_breaks=path_breaks)
+            metadata['depth_provenance']=manifest.get('depth_provenance','sensor or declared metric depth')
+            from .openings import augment_room_openings
+            augment_room_openings(rooms,metadata,[
+                dict(points=c@p[:3,:3].T+p[:3,3],camera=p[:3,3]) for c,p in zip(clouds,pose_matrices)])
             (output / 'layout_evidence.json').write_text(json.dumps(metadata, indent=2), encoding='utf-8')
             render_layout_diagnostic(metadata,output/'layout_diagnostic.svg')
             if not rooms:
