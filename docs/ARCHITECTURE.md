@@ -1,153 +1,122 @@
-# Architecture and visual flows
+# Implemented architecture
 
-Personal engineering reference. Updated 2026-10-05. The target is a code-driven system for restoration estimators: photos, video, and mobile LiDAR observations become editable metric room geometry, stitched plans, dimensions, quantities, and source evidence. **The full three-tier requirement is not yet met.** Current code supports actual mobile LiDAR, concave multiroom layouts and verified RGB-D capture stitching. RGB-only metric clouds remain incomplete as floor plans. See the V2 implementation link below for the current architecture; this page retains the original research diagrams.
+Final development state: 2026-10-08. This describes executable modules, not a
+target redesign. [Validation](BENCHMARK_RESULTS.md) and
+[limitations](LIMITATIONS.md) bound every capability described here.
 
-![Historical baseline architecture](figures/architecture.png)
-
-## Current implementation update
-
-The implementation has advanced beyond the baseline diagrams on this page.
-Use [restoration flow](RESTORATION_FLOW.md) for the current executable flow,
-internal assessment contract, uncertainty and damage scope, and explicit remaining
-gaps. [Open-source decisions](OPEN_SOURCE_DECISIONS.md) records actual model experiments.
-The [V3 implementation](V3_IMPLEMENTATION.md) documents the geometry baseline.
-The diagrams below preserve the initial target and baseline for comparison.
-
-## 1. Intended three-tier architecture
-
-Green = shared output contract. Blue = capture/reconstruction. Amber = explicit measurement/review gates. This diagram describes the intended system; the implementation map below distinguishes delivered components.
+## High-level architecture
 
 ```mermaid
 flowchart TB
-  subgraph capture[CAPTURE ADAPTERS]
-    direction LR
-    P["Photos<br/>overlapping calibrated views"]
-    V["Video<br/>timestamps and keyframes"]
-    L["Mobile LiDAR / RGB-D<br/>depth, RGB, calibration, poses"]
-  end
-  P --> QA["Capture QA<br/>blur, overlap, lens distortion, orientation"]
-  V --> QA
-  QA --> RGB["Visual reconstruction<br/>SfM / SLAM + depth proposals"]
-  L --> D["Depth QA and registration<br/>units, confidence, synchronization"]
-  RGB --> S{"Metric scale<br/>observable?"}
-  REF["Measured control<br/>distance, marker, or camera height"] --> S
-  S -->|yes| G["Shared scene representation<br/>metric points, poses, gravity, uncertainty"]
-  S -->|no| U["Relative geometry only<br/>withhold metric dimensions"]
-  D --> G
-  G --> STRUCT["Structural extraction<br/>floor, walls, doors, room polygons"]
-  STRUCT --> GRAPH["Room pose graph<br/>shared doorway / wall constraints"]
-  GRAPH --> OPT["Global optimization<br/>loop closure and consistency"]
-  OPT --> REVIEW{"Evidence and<br/>geometry adequate?"}
-  REVIEW -->|partial| FIX["Review / correction / recapture"]
-  FIX --> GRAPH
-  REVIEW -->|accepted| OUT["Vector plan + quantities<br/>SVG / DXF / JSON / CSV"]
-  OUT --> AUDIT["Measurement provenance<br/>source frames, residuals, review status"]
-  classDef input fill:#e6effb,stroke:#416a99,color:#122d4d;
-  classDef gate fill:#fff1d7,stroke:#c0872e,color:#5a3b12;
-  classDef output fill:#e3f3eb,stroke:#32745c,color:#174233;
-  class P,V,L,QA,RGB,D,G,STRUCT,GRAPH,OPT input;
-  class S,REF,U,REVIEW,FIX gate;
-  class OUT,AUDIT output;
+  C[Stock phone capture] --> I[ingest.py: normalize and preserve identities]
+  I --> W[workflow.py: configuration, hashes and execution]
+  W --> R[RGB SfM / calibrated RGB-D branch]
+  R --> L[layout.py: finite structural support and partial rooms]
+  L --> P[Single-run geometry or explicit verified stitching]
+  P --> A[assessment.py: surface and measurement contract]
+  A --> D[damage.py: registered-view candidates and surface fusion]
+  D --> U[uncertainty.py: optional producer-bound calibration]
+  U --> V[contracts and completeness blockers]
+  V --> O[JSON, HTML, SVG, DXF, CSV and run ledger]
+  T[Independent survey and repeats] --> E[Separate evaluators]
+  O --> E
 ```
 
-Photos and ordinary RGB video cannot geometrically determine absolute scale without a metric observation. A learned metric-depth estimate is a hypothesis whose measurement error must be checked. LiDAR supplies metric depth but still has calibration, drift, occlusion, and boundary-estimation error. The architecture therefore records scale provenance explicitly for every tier.
+Stitching is an explicit supported operation; it is not guaranteed or
+automatically invoked for every raw capture. Outputs are written even on many
+failure paths, with readiness kept false. Evaluators do not provide truth to
+strict inference.
 
-## 2. Historical baseline implementation
+## Three input tiers and convergence
 
 ```mermaid
 flowchart LR
-  subgraph rgb[RGB EXPERIMENT]
-    P[Photo directory] --> C[PyCOLMAP features and matching]
-    V[Video file] --> F[FFmpeg frame extraction]
-    F --> C
-    C --> M["Sparse cameras and cloud<br/>coverage report; scale unknown"]
-    M -. missing .-> A["Metric alignment and<br/>automatic room extraction"]
-  end
-  subgraph depth[AUTOMATIC RGB-D BASELINE]
-    PAIR[Calibrated RGB/depth pairs] --> FEAT[SIFT and depth-supported matches]
-    FEAT --> POSE["PnP RANSAC<br/>metric 3D refinement"]
-    POSE --> CLOUD["Fuse estimated poses<br/>2 cm voxel deduplication"]
-    CLOUD --> PL[Robust plane extraction]
-    PL --> REC["Opposing walls<br/>rectangular-room proposal"]
-  end
-  subgraph assisted[ASSISTED GEOMETRY BASELINE]
-    ANN["Marked image/video corners<br/>calibration and scale"] --> PROJ[Ground-plane projection]
-    PROJ --> STITCH[Shared doorway anchor alignment]
-  end
-  REC --> EXP[SVG / DXF / JSON / CSV]
-  STITCH --> EXP
-  classDef ready fill:#e3f3eb,stroke:#32745c,color:#174233;
-  classDef experiment fill:#e6effb,stroke:#416a99,color:#122d4d;
-  classDef missing fill:#fff1d7,stroke:#c0872e,color:#5a3b12,stroke-dasharray: 5 5;
-  class PAIR,FEAT,POSE,CLOUD,PL,REC,ANN,PROJ,STITCH,EXP ready;
-  class P,V,F,C,M experiment;
-  class A missing;
+  P[Room photo folders] --> PI[EXIF, HEIC orientation and source mapping]
+  V[Native MP4 / MOV] --> VI[Timestamped sampling and frame identities]
+  PI --> S[Production SIFT / COLMAP sparse cameras and tracks]
+  VI --> S
+  S --> Q{Metric source available?}
+  Q -->|strict baseline: no| N[Scale unresolved: withhold metric plan]
+  Q -->|research controls only| RD[Measured-reference SGBM / optional OpenMVS]
+  S -. opt-in experimental .-> M[MoGe camera-conditioned depth and RGB metric registration]
+  L[Stray raw export] --> LI[Depth, confidence, per-frame intrinsics and odometry pairing]
+  LI --> R[Metric RGB-D reconstruction and verified pose constraints]
+  M --> R
+  RD --> G[Shared geometry and surface processing]
+  R --> G
+  G --> OUT[Internal assessment and review outputs]
+  N --> OUT
 ```
 
-`floorplan/rgbd.py` reads only `sequence.json`, RGB images, and depth images. It estimates every relative pose. It never reads ground-truth trajectories, floor polygons, semantic masks, or the reference scene mesh. It currently assumes a single rectangular Manhattan room, an approximately level initial camera, and observable opposing walls. It does not estimate doors, room count, stairs, slanted walls, or native phone LiDAR formats. Four observed planes are necessary for a proposal; that check is not proof of a complete, correctly segmented room.
+Photos are 2–8 stills per room under the assessment, without depth, poses or
+manual scale. A generic SfM reconstruction has unresolved metric scale. The
+research reference-scaled dense path is deliberately not a strict-photo solution.
+The optional learned geometry branch uses model-derived scale and remains
+experimental. Video shares the RGB backend after frame extraction; more verified
+pairs do not by themselves establish a correct or connected property model.
 
-`floorplan/pipeline.py` supplies the separate assisted baseline. Its doorway alignment is tested on the two-room synthetic example. There is currently **no demonstrated automatic stitch from two independently reconstructed real rooms**. A diagram arrow must not be read as evidence that this missing integration is complete.
+LiDAR supplies metric depth and poses, but their use is not an accuracy
+certificate. The adapter preserves original frame identities and per-frame
+intrinsics. Depth/confidence arrays are checked; scanner optical coordinates
+are kept consistent rather than applying an unverified extra axis flip.
 
-## 3. Benchmark isolation and feedback
+## Main modules and interfaces
 
-```mermaid
-flowchart TB
-  DATA["Public dataset acquisition<br/>source URL, license, hash"] --> SPLIT[Dataset adapter]
-  SPLIT --> INPUT["Inference inputs<br/>RGB, depth, camera intrinsics"]
-  SPLIT --> TRUTH["Held-out reference<br/>mesh geometry and trajectory"]
-  INPUT --> RUN[Reconstruction process]
-  RUN --> PRED["Saved predictions<br/>plan, poses, cloud, stage status"]
-  PRED --> EVAL[Evaluation process]
-  TRUTH --> EVAL
-  EVAL --> NUM["Errors and coverage<br/>no scale fit for dimension scoring"]
-  NUM --> REPORT["JSON metrics + visual report<br/>pass / fail / unsupported by tier"]
-  REPORT --> CHANGE["Choose next improvement<br/>tracking, coverage, wall fit, stitching"]
-  CHANGE --> NEW[Next version and separate validation scenes]
-  NEW --> RUN
-  classDef input fill:#e6effb,stroke:#416a99,color:#122d4d;
-  classDef truth fill:#f0e8f8,stroke:#84609d,color:#4a2c60;
-  classDef result fill:#e3f3eb,stroke:#32745c,color:#174233;
-  class DATA,SPLIT,INPUT,RUN,PRED input;
-  class TRUTH truth;
-  class EVAL,NUM,REPORT,CHANGE,NEW result;
-```
+| Stage | Actual implementation | Input → output / guard |
+|---|---|---|
+| Capture intake | `ingest.prepare_capture`, `prepare_photos`, `prepare_video`, `prepare_stray_scanner`; `capture_sync.py` | Raw media → capture manifest, source mappings, normalized frames/sequence; preserves timing/calibration identity |
+| Orchestration | `workflow.run_capture`, `reconstruct`, `run_succeeded`; `cli.main` | Fresh directory, profile and optional calibration → ledger/artifacts; assignment success requires ready geometry, complete contract and accepted backend |
+| RGB baseline | `sfm.reconstruct_rgb`; `dense._undistort`, `reconstruct_dense`; `openmvs.reconstruct_openmvs` | SIFT/COLMAP → sparse models; reference-scaled dense research branch needs measured endpoints |
+| Experimental RGB | `rgb_metric.reconstruct_metric_rgb`, `calibrated_prediction_grid` | Pinned learned predictions → model_scaled RGB-D; opt-in and never accepted just because a polygon exists |
+| RGB-D | `rgbd.reconstruct_rgbd`, `_backproject`, `_relative_pose`, `_fit_planes` | Metric depth/confidence/calibration → registered trajectory, cloud, planes; range/confidence/tracking checks |
+| Drift constraints | `mapping.optimize_poses`; `ablation.compare_pose_correction` | Verified geometric/loop evidence → pose corrections; on/off control uses identical inference inputs |
+| Structural layout | `layout.weighted_voxels`, `extract_layout`, `_horizontal_support`, `_observed_floor`, `_observed_ceiling`; `supported_cells.py` | Finite planes/segments → observed polygons and explicitly inferred cells; no accepted local floor means no ceiling-height inference |
+| Stitching | `stitching.stitch_runs`; `pose_graph.consistent_edges`, `map_room_identities` | Independently reconstructed runs → verified overlap/cycles and mapped room identities; disconnected/partial children cannot imply accepted property closure |
+| Openings | `openings.detect_wall_openings`, `augment_room_openings` | Multiview rays and jamb/header/sill evidence → structural candidates; missing height withholds net wall area |
+| Surface assessment | `assessment.build_assessment`, `write_assessment`; `damage.assess_rgbd_damage` | Geometry → stable physical surfaces, candidates, concealed-rule flags and inspection scope; unregistered/unsupported views rejected |
+| Confidence | `uncertainty.apply_calibration`; `calibration_records.py` | Compatible producer-bound independent-property calibration → intervals; absent groups stay unavailable |
+| Validation | `contracts.py`, `assignment_gates.py`, `repeatability.py`, `benchmark_manifest.py`, `consumer_comparison.py`, `survey.py` | Saved predictions + separately supplied truth → scored reports; output presence and physical acceptance remain separate |
 
-The mesh-sampled `benchmark-icl` command is deliberately a different experiment: it samples known wall surfaces and adds noise. Its semantic wall selection and complete coverage make it an **oracle component test**. Its sub-centimetre result cannot be substituted for the raw RGB-D experiment's error.
+`run-capture` executes intake, reconstruction and assessment. `stitch-captures`,
+benchmark scoring, survey import, calibration and consumer comparison are
+separate explicit CLI operations; diagrams show their interfaces, not an
+unimplemented automatic service.
 
-## 4. Measurement and acceptance contract
+## Conservative policies and uncertainty
 
-```mermaid
-stateDiagram-v2
-  [*] --> InputsChecked
-  InputsChecked --> RelativeOnly: no metric scale
-  InputsChecked --> Tracking: metric observations available
-  Tracking --> Partial: tracking fails or coverage missing
-  Tracking --> Geometry: sufficient registered observations
-  Geometry --> Partial: opposing walls unavailable
-  Geometry --> Proposal: supported room polygon
-  Proposal --> ReviewRequired: assumptions or uncertainty remain
-  Proposal --> Evaluated: held-out measurements available
-  Evaluated --> TargetMissed: error exceeds threshold
-  Evaluated --> CasePassed: meets target on this case
-  CasePassed --> FieldValidation: expand properties and capture tiers
-  RelativeOnly --> [*]
-  Partial --> [*]
-  ReviewRequired --> [*]
-  TargetMissed --> [*]
-```
+The sensor reconstruction samples confident depths on an 8-pixel lattice and
+fuses with confidence/range weighting in 2 cm voxels. Current local floor
+support uses a strict 35 mm plane band, a 5 cm room buffer and clipped occupied
+20 cm cells. The 100-point minimum and 25% coverage guard remain unchanged.
+These are development observation guards, not assessment error tolerances.
 
-Candidate field target: P95 edge-length error <=3 cm and stitched corner error <=5 cm, with accepted-output coverage reported. Current single-room evaluation has only two independent side lengths, so it reports both errors and their maximum. It does not produce a statistically meaningful population P95 or a stitched-corner score. Quantity errors are reported separately in square metres. Camera-trajectory error is a tracking diagnostic and cannot replace dimension error.
+An observed ceiling requires an accepted local floor and local camera evidence;
+global floor availability is not substituted for a local observation. Resolved
+slope and missing openings remain explicit rather than producing a convenient
+constant ceiling or quantity. Room hypotheses cannot certify physical adjacency.
 
-## 5. Decisions to explain in the take-home
+Damage output is conservative inspection evidence. Candidate masks are not
+validated damage diagnoses; concealed flags describe the rule that fired, not
+an observed hidden condition. Surface support/confidence is distinct from an
+independently calibrated interval. Assignment calibration targets 90% coverage
+and groups independent properties by tier/measurement kind/unit; nine properties
+are needed for a finite 90% group. The necessary field calibration/audit set is
+not present.
 
-| Decision | Reason | Evidence or limit |
-| --- | --- | --- |
-| Separate inference and evaluation processes | Prevent accidental use of answer geometry | RGB-D module has no ground-truth input |
-| Start with classical geometry | Obtain a measurable baseline on the available CPU | SIFT/PnP/depth refinement runs locally; no model training |
-| Preserve incomplete states | Missing observations should remain visible | First RGB-D version stopped at incomplete geometry |
-| Keep a constrained rectangle model | Demonstrate a small automated vertical slice | Cannot represent L-shaped or multi-room layouts |
-| Compare metric dimensions without fitted scale | Preserve real scale error | Evaluator only permutes the two rectangle axes |
-| Treat frames/photos from one sequence as one scene | Avoid inflating evidence | RGB/photo/video tests are correlated views of ICL trajectory 2 |
-| Use global constraints next | Pairwise pose errors accumulate | Refined RGB-D tracking and dimensions still miss target |
+## Tradeoffs selected
 
-See [dataset research](DATASETS.md), [measured results](BENCHMARK_RESULTS.md), and [personal design notes](../DESIGN_NOTES.md).
+| Choice | Benefit | Cost / limit |
+|---|---|---|
+| CPU CLI, stock capture | Inspectable execution without hosted infrastructure or custom app | Native binaries/model assets still require installation; cold timing unverified |
+| Retain SIFT | Mature deterministic baseline and unchanged correctness gates | Weak textured transitions remain disconnected/incomplete |
+| Per-frame sensor calibration | Avoids a last-frame K or index-only pairing assumption | Hardware distortion/depth/pose accuracy still needs physical verification |
+| Finite raw-supported boundaries | Preserves evidence and limits speculative joins | Partial plans persist when sufficient closure is not observed |
+| Fixed stride/frame budget | Bounds routine reconstruction compute | Audit demonstrates lost available local floor support |
+| Withhold unsupported values | Prevents fabricated ceiling/opening/net-area measurements | Contract remains incomplete and assignment status fails |
+| Separate experimental backends | Allows evaluation without replacing a working baseline | Experimental connectivity/low residuals cannot be advertised as accuracy |
+| Hash-bound outputs/cache | Exposes input/producer mismatches | Historical absolute paths and missing raw/truth assets limit portability |
+
+No backend, solver or threshold is changed during finalization. The RGB
+registration investigation remains CLOSED as inconclusive; learned matching
+and fixed-intrinsics improvements remain experimental. See [fix loops](FIX_LOOP.md)
+and [source decisions](OPEN_SOURCE_DECISIONS.md).
