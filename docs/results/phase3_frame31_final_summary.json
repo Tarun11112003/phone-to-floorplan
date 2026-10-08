@@ -1,0 +1,475 @@
+{
+  "batch": 28,
+  "date": "2026-10-08",
+  "experiment": "final_frame31_replay_gate",
+  "native_attempts": 1,
+  "native_exit_code": 1,
+  "saved_evidence_auditor_exit_code": 2,
+  "replay_snapshot27_reproduced": false,
+  "input_snapshot26_reproduced": true,
+  "intermediate_interpretation_allowed": false,
+  "sensor_stage_audit_performed": false,
+  "classification": "INSUFFICIENT_TRUSTED_SAVED_STATE_EVIDENCE",
+  "prior_supported_hypothesis": "Inherited local geometry/model bias with concentrated support; not proven",
+  "earliest_trusted_landmark_state": "snapshot27 after frame31 registration and local/global refinement",
+  "prior_exact_frame34_evidence": "31->34 orientation disagreement exists at accepted registration",
+  "investigation_closed": true,
+  "earlier_tracing_stopped": true,
+  "production_changed": false,
+  "production_adoption": false,
+  "production_fix_justified": false,
+  "accuracy_validated": false,
+  "assessment_acceptance": false,
+  "input_reproduction": {
+    "model_state_exact": true,
+    "numeric_tolerance_used": false,
+    "raw_binary_equality": {
+      "cameras.bin": true,
+      "frames.bin": true,
+      "images.bin": false,
+      "points3D.bin": true,
+      "rigs.bin": true
+    },
+    "expected_sha256": {
+      "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+      "frames.bin": "b1a90de5d96dd1d3f1e186367b67d1b3ed0c79c852609291521daf3556b8aed5",
+      "images.bin": "1966673003d5c19042afca9171c6b98791230b4a2a04dfdeaef320d82b139339",
+      "points3D.bin": "6ce603a39a5a0a72fb84ffdfcdace600299b694b89fe73d499eefd0e43c786a6",
+      "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+    },
+    "actual_sha256": {
+      "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+      "frames.bin": "b1a90de5d96dd1d3f1e186367b67d1b3ed0c79c852609291521daf3556b8aed5",
+      "images.bin": "a22fef581ab79cfdc29e46ab8fee747f4ae4511a9b6d491ee58cef211c29cf9d",
+      "points3D.bin": "6ce603a39a5a0a72fb84ffdfcdace600299b694b89fe73d499eefd0e43c786a6",
+      "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+    },
+    "image_records_exact": 29,
+    "expected_image_order": [
+      70,
+      16,
+      19,
+      72,
+      71,
+      74,
+      73,
+      20,
+      21,
+      69,
+      75,
+      22,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      23,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      24,
+      25,
+      13
+    ],
+    "actual_image_order": [
+      13,
+      16,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88
+    ],
+    "image_record_sha256": {
+      "13": "e4c34c9102e6d733b621720adcb87e25167829fd6eb58cc88b17846720cb1de5",
+      "16": "7f88bbde0e6ff48740bb3c35fda2fe033a897fb1375b35047b20ef4fe82c3cf3",
+      "19": "2206b6988af616d35328f45c3015b862a631ec94e21abfb48d2bf88391bd2892",
+      "20": "ca677ff0f57d9a9c2bae75e6fa65e535516310a5107916c9cb83492da72b0eec",
+      "21": "7c0a2ab3ccb67d7a8791b9643df4010ba66f363f872536d4faf27493f431ef9c",
+      "22": "fd9a8924ee8a6629ec581ff9114c1e2583d27f7fa76cf1171249001d2ea7f98a",
+      "23": "6472a2390e6ab8bcd42a144f859baeb1bb6bc1d431f2f51dce93c1205644ef12",
+      "24": "16e22f952ad833a9499e47121327cfe86eb3a907cd684ca73233da31ee0d794f",
+      "25": "73567586ecb98b2b9a23f929828212f0bf1f40061e747ecd62be68392024ef30",
+      "69": "702ac997a7a30319e7df63a4a5c5fb5dda960899dbe830095bf8f48831ce4feb",
+      "70": "3d94c0df803143e820893220827b5c98ac6d0825e8b777dd58be86fa7aab3e15",
+      "71": "4c1cab61732bebe822033f99908aee2fd6606774e3cb6ab98241d4d3d29a2203",
+      "72": "6d20be05444c08df2f44367f3627df893f7fab4f71a19234aa87233f12e8eaa3",
+      "73": "6aeb3cb8d54032e96b62d903c6a19f1e5050b6ed9d33ced0790fe11953dc36a4",
+      "74": "47f5f1cdf4a0692a73b908c5cca3b21b5ce715119668c436543a867b37d4acc2",
+      "75": "b20f946193eafa39934046f622423668d3df07390cd73f2c3d42a2fad6f75235",
+      "76": "c6db6b821b6046131bdd861ec31397e16bfbc844d3a3d4e691c10f0b1f4b0230",
+      "77": "a5797af1edac8c8a275f3cc47f03d3275d367519d9ae75fa8335ed7a067ad476",
+      "78": "5ae877a5a565febbc1eb7c28aec484a02bb726c6a0ac5da6117958313c9e1c00",
+      "79": "f8cc53a38d683d69678a2868b76c4571cf59bc94c2083f3183d72887917584ba",
+      "80": "75d73354901e6a11016a274194964bd6964a3a1cbd3f2eb8fa3e859b2f0058ac",
+      "81": "fb58a05ce2fdce95a2c0a72309407f7e244627223dcd3f4bf283235e1e419566",
+      "82": "05574c3723e6a03620c3af67147ac6adfd80fa1e8893e210909fa8213079fba3",
+      "83": "da04971bd529fdbf1b9277a5bb8be4ff20b05639e5b0dd3eadf6441af59713a2",
+      "84": "de99ce7804042fa3e56242bb52f6d18dce7c2f13afc1c83ad47d6683ba24faf3",
+      "85": "799a2df59ab1f5f633e4d0b382f3da30f5fb9e873d981782d05bd32498993960",
+      "86": "8dd743ee829d566178b64d37c691d85139283f88d25431286adb7d64a1e5dd1c",
+      "87": "18851a8e99ab5d1e8ee910f4d340a388582ad3879dd0009db9c3a51788a3c232",
+      "88": "7439c42fb7b620a591ecec2544b8b3a636d966e1b412b85887151832864529cf"
+    },
+    "order_only_difference": true
+  },
+  "output_failure": "Refinement does not reproduce native model bytes",
+  "final_raw_binary_equality": {
+    "cameras.bin": true,
+    "frames.bin": false,
+    "images.bin": false,
+    "points3D.bin": false,
+    "rigs.bin": true
+  },
+  "stages": [
+    {
+      "stage": "before_registration",
+      "registered_views": 29,
+      "sparse_points": 6024,
+      "fixed_intrinsics": {
+        "checked_cameras": 32,
+        "maximum_parameter_change": 0.0,
+        "all_exact": true
+      },
+      "path": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\before_registration",
+      "binary_sha256": {
+        "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+        "frames.bin": "b1a90de5d96dd1d3f1e186367b67d1b3ed0c79c852609291521daf3556b8aed5",
+        "images.bin": "a22fef581ab79cfdc29e46ab8fee747f4ae4511a9b6d491ee58cef211c29cf9d",
+        "points3D.bin": "6ce603a39a5a0a72fb84ffdfcdace600299b694b89fe73d499eefd0e43c786a6",
+        "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+      }
+    },
+    {
+      "stage": "accepted_registration",
+      "registered_views": 30,
+      "sparse_points": 6024,
+      "fixed_intrinsics": {
+        "checked_cameras": 32,
+        "maximum_parameter_change": 0.0,
+        "all_exact": true
+      },
+      "path": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\accepted_registration",
+      "binary_sha256": {
+        "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+        "frames.bin": "9d2c5bdc7d21d9429ace013cc8f28bc4b5da1d30c73dfee1fe39753a054dd1d6",
+        "images.bin": "d8dc6cb3302087c0b8505cb4bc637cce22d116cbbd3ff0067f7536fe98ae98e9",
+        "points3D.bin": "c8fe7cc328da769f4f529238f58fab030567b45da71a437d5117a12af4778551",
+        "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+      }
+    },
+    {
+      "stage": "after_triangulation",
+      "registered_views": 30,
+      "sparse_points": 6090,
+      "fixed_intrinsics": {
+        "checked_cameras": 32,
+        "maximum_parameter_change": 0.0,
+        "all_exact": true
+      },
+      "path": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_triangulation",
+      "binary_sha256": {
+        "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+        "frames.bin": "9d2c5bdc7d21d9429ace013cc8f28bc4b5da1d30c73dfee1fe39753a054dd1d6",
+        "images.bin": "3d0a4d5079aa208de850f3555aca8a92657d3bba36fe3c38616118c4db838c07",
+        "points3D.bin": "d30a4bc3c603bdf0f418a0041cfdca79ec0c44799d899ccdb04c38e7eaa2966e",
+        "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+      }
+    },
+    {
+      "stage": "after_local_refinement",
+      "registered_views": 30,
+      "sparse_points": 6082,
+      "fixed_intrinsics": {
+        "checked_cameras": 32,
+        "maximum_parameter_change": 0.0,
+        "all_exact": true
+      },
+      "path": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_local_refinement",
+      "binary_sha256": {
+        "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+        "frames.bin": "08e61a6226b3bb8e8760f36b591bd27c07ce4d8ccf12ca210d31f671831f0d56",
+        "images.bin": "e12975310ca02c52c2fbe99e5598ecc8c9fb846924a06bea580f4dd314d51047",
+        "points3D.bin": "53b74e064f68c7a1f4b84481fe5a5f63f6d0802c2bca83380af9aec89aecd59b",
+        "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+      }
+    },
+    {
+      "stage": "after_global_refinement",
+      "registered_views": 30,
+      "sparse_points": 6045,
+      "fixed_intrinsics": {
+        "checked_cameras": 32,
+        "maximum_parameter_change": 0.0,
+        "all_exact": true
+      },
+      "path": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_global_refinement",
+      "binary_sha256": {
+        "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+        "frames.bin": "6c51975a27c35d7e7b2234def3b83b04d6acc390fccdec55e5980465ad87b4e3",
+        "images.bin": "a078003a622a7ad9cec444e0d2ec33696eadb1220c187c17d3faf908c2447013",
+        "points3D.bin": "93b4cb1382f7fe28c0b5821ec2ff914846d8c8161d2ff69395159167c998472e",
+        "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+      }
+    },
+    {
+      "stage": "after_frame_filter",
+      "registered_views": 30,
+      "sparse_points": 6045,
+      "fixed_intrinsics": {
+        "checked_cameras": 32,
+        "maximum_parameter_change": 0.0,
+        "all_exact": true
+      },
+      "path": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_frame_filter",
+      "binary_sha256": {
+        "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+        "frames.bin": "6c51975a27c35d7e7b2234def3b83b04d6acc390fccdec55e5980465ad87b4e3",
+        "images.bin": "a078003a622a7ad9cec444e0d2ec33696eadb1220c187c17d3faf908c2447013",
+        "points3D.bin": "93b4cb1382f7fe28c0b5821ec2ff914846d8c8161d2ff69395159167c998472e",
+        "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+      }
+    },
+    {
+      "stage": "after_color_extraction",
+      "registered_views": 30,
+      "sparse_points": 6045,
+      "fixed_intrinsics": {
+        "checked_cameras": 32,
+        "maximum_parameter_change": 0.0,
+        "all_exact": true
+      },
+      "path": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_color_extraction",
+      "binary_sha256": {
+        "cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+        "frames.bin": "6c51975a27c35d7e7b2234def3b83b04d6acc390fccdec55e5980465ad87b4e3",
+        "images.bin": "a078003a622a7ad9cec444e0d2ec33696eadb1220c187c17d3faf908c2447013",
+        "points3D.bin": "61bce36adfaa6d1b80b6afa126420eebbfda963292a543a45cd1613fba5ca83f",
+        "rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+      }
+    }
+  ],
+  "expected_final": {
+    "registered_views": 30,
+    "sparse_points": 6055
+  },
+  "native_solver_warnings": 37,
+  "original_interval_solver_warnings": 0,
+  "retained_final": {
+    "registered_views": 32,
+    "sparse_points": 6187,
+    "mean_reprojection_error_px": 1.4805034435378603
+  },
+  "historical_rotation_disagreement_deg": {
+    "frame34_accepted": 7.842072848343924,
+    "frame34_local_refined": 6.5906964459488195,
+    "final": 6.520813755266534
+  },
+  "no_shipped_before_after_improvement": true,
+  "verification": {
+    "frozen_frontend_table_rows_exact": true,
+    "fixed_intrinsics_exact": true,
+    "original32_rgb_hashes_exact": true,
+    "pose_free_replay_database": true
+  },
+  "tests": {
+    "initial_targeted": {
+      "passed": 143,
+      "failed": 1,
+      "seconds": 4.43
+    },
+    "diagnostic_parser_correction": "Only recognize explicit stage labels; exclude native support count row",
+    "final_targeted": {
+      "passed": 144,
+      "failed": 0,
+      "seconds": 3.99
+    },
+    "full_regression": {
+      "passed": 326,
+      "failed": 0,
+      "seconds": 45.67
+    },
+    "native_reproduction_failure_preserved": true
+  },
+  "requirement_status": {
+    "REQ-03": "PARTIALLY IMPLEMENTED",
+    "REQ-05": "PARTIALLY IMPLEMENTED",
+    "REQ-10": "PARTIALLY IMPLEMENTED",
+    "REQ-27": "PARTIALLY IMPLEMENTED",
+    "REQ-29": "PARTIALLY IMPLEMENTED"
+  },
+  "unresolved": {
+    "floor_covered": 25,
+    "floor_samples": 176,
+    "floor_uncovered": 151,
+    "ceiling_boundary_shift_m": 0.702677,
+    "ceiling_shift_independently_validated": false,
+    "measured_physical_acceptance": false
+  },
+  "integrity": {
+    "head": "8aaca9ff8e8d431911a0d1f453c350243bb39473",
+    "head_unchanged": true,
+    "index_empty": true,
+    "initial_inventory_files": 285,
+    "unchanged_original_files": 279,
+    "notice_docs_historical_bytes_exact": {
+      "docs/ASSESSMENT_COMPONENT_RESEARCH.md": "71f1494d87b585d5ef9abfd549134d5a667587a67cfb3804dd9d3917b99d7190",
+      "docs/ASSESSMENT_EXECUTION_ROADMAP.md": "3fc17ae6335e6602d66d1c3d47291e0f1ae2d39a19c2f695f7fb744c335ea2a6",
+      "docs/PHASE3_IMPLEMENTATION_STATUS.md": "72317d0882b55b2900b7b3db914620e5f285c6949f2f5c1c9633dbf61409b06a",
+      "docs/PHASE3_OPERATIONS.md": "4e502f73adf5d82b066ba5c53077e19cd280b4e23c181361349200819c18e735",
+      "docs/OPEN_SOURCE_DECISIONS.md": "6e274ad89a5811ff4997a8750d4365df6e0293bea5a506896fe4598ba944bcdc",
+      "docs/PHASE3_DESIGN.md": "6e7d522fc120990484bfd6c408dbbbe94ad51027e424dd9056f6d9f17dc34e91"
+    },
+    "prior_pinned_entries_unchanged": 1329,
+    "unrelated_work_preserved": true,
+    "production_files_unchanged": true,
+    "commits_created": 0,
+    "pushed": false
+  },
+  "artifacts": {
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\finalize_evidence.py": "2eb91fc45766d4ec536b29a55453021b9431fec658aadc6c51593263d9472a2e",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\final_integrity.json": "4a36f5f8ab3364845fd1c0792281e288d0250bef4efdc9b4a9a8f0b11c5e0f4b",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\full_tests.log": "7dd35111e31a9c23688d6ffc61deb61d6635b90582c1757188bc3a767dbc225a",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\full_tests_result.json": "1a145daaf753ade8fa6d3548c4bba75b9ee5f3f5ec435606c5186397df8d1752",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\native_api_probe.log": "2d10e6a493e5605725266c6070a195447efc813de89394e38567155526336567",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\native_api_probe.py": "d4675aebcf962d50fcdde7e55c55f44abfd45f42b1ebb9f8cad57fe085152234",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\saved_audit.json": "6c595167f1bd0a553ac45082b44aa44871cda83352fa32fef401662569348b03",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\saved_audit.log": "75c828cf26e2766353efb723daadd891aeb3322972d36cfb142f8dcd703b28f0",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\saved_audit_final.log": "b65235b61cc020b4d898958588a74b5f6c85b08323b250379edb384f0104af16",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\targeted_tests.log": "fe461672bc9021e42dd0fd55fa4486c8ace886b1884db4aad234ab7a953a247e",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\targeted_tests_final.log": "cbcbea9af6163818f93e365b5b2b3fb2517d441a5d00373071011fd1f03f1465",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\worktree_start.json": "9baebcf3ee98d7cc75c5a9762657d338e2144f9d35f550a9c1bd27fec1f85600",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\features.db": "89d16d3f6684ddd6041b6c56ce39e27b661da616d56092c953467b86e21533da",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\accepted_registration\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\accepted_registration\\frames.bin": "9d2c5bdc7d21d9429ace013cc8f28bc4b5da1d30c73dfee1fe39753a054dd1d6",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\accepted_registration\\images.bin": "d8dc6cb3302087c0b8505cb4bc637cce22d116cbbd3ff0067f7536fe98ae98e9",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\accepted_registration\\points3D.bin": "c8fe7cc328da769f4f529238f58fab030567b45da71a437d5117a12af4778551",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\accepted_registration\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_color_extraction\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_color_extraction\\frames.bin": "6c51975a27c35d7e7b2234def3b83b04d6acc390fccdec55e5980465ad87b4e3",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_color_extraction\\images.bin": "a078003a622a7ad9cec444e0d2ec33696eadb1220c187c17d3faf908c2447013",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_color_extraction\\points3D.bin": "61bce36adfaa6d1b80b6afa126420eebbfda963292a543a45cd1613fba5ca83f",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_color_extraction\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_frame_filter\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_frame_filter\\frames.bin": "6c51975a27c35d7e7b2234def3b83b04d6acc390fccdec55e5980465ad87b4e3",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_frame_filter\\images.bin": "a078003a622a7ad9cec444e0d2ec33696eadb1220c187c17d3faf908c2447013",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_frame_filter\\points3D.bin": "93b4cb1382f7fe28c0b5821ec2ff914846d8c8161d2ff69395159167c998472e",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_frame_filter\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_global_refinement\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_global_refinement\\frames.bin": "6c51975a27c35d7e7b2234def3b83b04d6acc390fccdec55e5980465ad87b4e3",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_global_refinement\\images.bin": "a078003a622a7ad9cec444e0d2ec33696eadb1220c187c17d3faf908c2447013",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_global_refinement\\points3D.bin": "93b4cb1382f7fe28c0b5821ec2ff914846d8c8161d2ff69395159167c998472e",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_global_refinement\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_local_refinement\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_local_refinement\\frames.bin": "08e61a6226b3bb8e8760f36b591bd27c07ce4d8ccf12ca210d31f671831f0d56",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_local_refinement\\images.bin": "e12975310ca02c52c2fbe99e5598ecc8c9fb846924a06bea580f4dd314d51047",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_local_refinement\\points3D.bin": "53b74e064f68c7a1f4b84481fe5a5f63f6d0802c2bca83380af9aec89aecd59b",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_local_refinement\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_triangulation\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_triangulation\\frames.bin": "9d2c5bdc7d21d9429ace013cc8f28bc4b5da1d30c73dfee1fe39753a054dd1d6",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_triangulation\\images.bin": "3d0a4d5079aa208de850f3555aca8a92657d3bba36fe3c38616118c4db838c07",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_triangulation\\points3D.bin": "d30a4bc3c603bdf0f418a0041cfdca79ec0c44799d899ccdb04c38e7eaa2966e",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\after_triangulation\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\before_registration\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\before_registration\\frames.bin": "b1a90de5d96dd1d3f1e186367b67d1b3ed0c79c852609291521daf3556b8aed5",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\before_registration\\images.bin": "a22fef581ab79cfdc29e46ab8fee747f4ae4511a9b6d491ee58cef211c29cf9d",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\before_registration\\points3D.bin": "6ce603a39a5a0a72fb84ffdfcdace600299b694b89fe73d499eefd0e43c786a6",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_frame31_final\\probe\\before_registration\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\scripts\\audit_final_frame31.py": "771055db78092d44346d8f569dbef10a78b32bdca4e05d641c40b002ca557c54",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\tests\\test_final_frame31.py": "32857d2797c6ac083bc6aa5822d10c7a4182af0da7361a3b5be782d462272118",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\docs\\fixes\\028_FINAL_FRAME31_REPLAY.md": "85465739babae379dc556ffbec46a3ba53689f90db394c27c66efe46c1eccb52"
+  },
+  "source_trial_sha256": {
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\experiment.json": "8addcf6f63e80497b621f21a22cdb7aaf7c4745f260fdf3dcbe1df889d851046",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\features.db": "af96403751d30a9c8d05c70ec5aa185a53076237f3259dc5e4f53cfbc74a9ec1",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\snapshots\\0010211023\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\snapshots\\0010211023\\frames.bin": "b1a90de5d96dd1d3f1e186367b67d1b3ed0c79c852609291521daf3556b8aed5",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\snapshots\\0010211023\\images.bin": "1966673003d5c19042afca9171c6b98791230b4a2a04dfdeaef320d82b139339",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\snapshots\\0010211023\\points3D.bin": "6ce603a39a5a0a72fb84ffdfcdace600299b694b89fe73d499eefd0e43c786a6",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\snapshots\\0010211023\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\snapshots\\0010221519\\cameras.bin": "237459c06e69df740d181551f873b4b638bdcb1d8096c9aead220a7e200e3aa7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\snapshots\\0010221519\\frames.bin": "b91d65e818d501604833ee8971400525339cd6a4e1156da5c5cef737caebac82",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\snapshots\\0010221519\\images.bin": "83ad68321b0c018fac7c02614771a5ac88ec475400a0fddc4529012a2e3b5aef",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\snapshots\\0010221519\\points3D.bin": "bbb989598914e8a10c40e9fd379cc15ad2f3494990c5acb45dacf624351600b7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_registration_snapshots\\trial1\\snapshots\\0010221519\\rigs.bin": "35991476260733ef93cc4df108d32402e41be811fb48a597007a1e1370730ef2"
+  },
+  "dependency_sha256": {
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\docs\\results\\phase3_transition_context_summary.json": "d8242d752874598ec708b8b67a1a05c3cb096b4a7a7b1326aecfa214dbeb98f0",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\docs\\results\\phase3_xfeat_context_summary.json": "e8df373445f5dc3ee7b3beb34e31f6df88b18b57e03f5ed2b453214c0ee22364",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\docs\\results\\phase3_transition_odometry_summary.json": "6728071139596bfdea6370e9a59674b07062796cfe1d067f9bae4e78a8291369",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\docs\\results\\phase3_fixed_intrinsics_summary.json": "8be3cd26e71ef0c335dfd6b4a3a6c6678e3cedfb658212037568516ca3c7de71",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\docs\\results\\phase3_mapping_only_summary.json": "400c174d910606e449d6cd34586b56153999258e8de2e2c6696cf0d49317f9cc",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\docs\\results\\phase3_late_landmarks_summary.json": "761f32d2d05bbc3a171672dbc0b77ffb071212babbce76893fae9c1d3d95960d",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\docs\\results\\phase3_registration_snapshots_summary.json": "918f5f0b3d08d4f1cd4f7ffcca4738f3dfc79b2da4c3848f1712cdf0b4d2d215",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\docs\\results\\phase3_registration_stage_summary.json": "911b219190e026cbde95caeae693de9365a677e888f52eb0a9f6654a69e68742",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\docs\\results\\phase3_registration_support_summary.json": "f894c8f1fe3c70544165f0c5a8599318ed123c0aaece64d6f25b24e30dd80226"
+  },
+  "production_code_sha256": {
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\acceptance.py": "7f52877d8561b5cdd393f6c1b28bab06760d481babdafd84dd5f4e9d28e7e91a",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\assessment_io.py": "17cbf941593ea4cdedc334d95da9b6548c3381edcab403eb6dfef4d1a938c849",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\benchmark_manifest.py": "e0ba8006168ef673f115618be0d6636762c77230f348bf9ff1dfa2a60e62fa48",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\calibration_records.py": "77e6b6e50c6cf649791c4967226b731d89bce2e133be353a3e0ced3969a761f6",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\consumer_comparison.py": "68e19b631a40d071d4e1db2ab56544f7de5bc6f745f89c5894f35b1a2eb30324",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\openings.py": "be5b6655e9d0caacb2b5956243658fd0fc39986e36f7c46115ca1aac6a38cd95",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\pose_graph.py": "5ccca2da6ddf56ddce5966d92babc495f68c619922f6f7391655b5eda87265be",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\rgb_metric.py": "ef5469e4c524f9b6ccf0b58d5e709122dd4d96e3265e0d0eb113c701a564c1ac",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\survey.py": "bcbfcc781c4adb19a7742235054926c38bfd79c3650908ab10c1db14da37549d",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\__init__.py": "902fa5d5912e34b6e650827ecad59c419d8b4b04482b766eee6f0bda24aee402",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\ablation.py": "405e51e3f9d83ac8e2835578ba0431479fe7f645dd3d20b28832486f7e28f660",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\assessment.py": "5e3a528bad5b716dd53e0fa19f31ca4b46d833ff5c87c2b1ca85af15ff936949",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\assignment_gates.py": "16510d915af1c3147ccdc30896540b91d9e745ba5fcc44d65a0e5a29c864e948",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\benchmark.py": "de98bdaa63b5065860216c31c46a31bd225943a74020238dd72c98f5ee6998e5",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\capture_sync.py": "9f192978af50c26c32a2992e45974ff1c561e8a64eb8e888ef4551af79435e26",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\cli.py": "bfee6a69dd1de88c168b25c490fe8b85b9b8019983622fce2d864c96dc44e2ac",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\contracts.py": "b202f48b06ed3ba7486eff8ad749b82a4a290d27a970a0ab86d90de3df35e610",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\damage.py": "5af1fb5501e1c577bbe8d8d58e4fbaf2d95306913d6286009830dd1f70b8f1e9",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\damage_evaluation.py": "48a2fe339b6a62f35a325b2164a9bf40080325a87b64a9bccc4ab45302db2712",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\demo.py": "def8fe532951db043c1683d212266edf889989d6b9c79edf1c7611edc1122113",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\dense.py": "7492eb82b8970c02d98293c869c7994340fe6add0bb59df9e2e640b3d16f033a",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\evaluation.py": "6e50a52feea0d2a1c50a26e769671afe80122f875254ed693be044cde3315250",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\geometry.py": "b7e0e09488d876634d9d3c109ce48ce4fb8fedf4e5fb8bbcf2659fa8a3495c91",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\icl_benchmark.py": "4577d69df0796183961c35cfa3829b5e3b94d0866c49db193eb4c374656a450e",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\ingest.py": "18d15134fb074fd04664d0d75568516ef81a9e7d32dbef6d16012bf9e75fbf94",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\layout.py": "a19a7c9fa23a3d61d177bc59e85143804fae3df6ae925c925e75ee7a1e8d3c1f",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\mapping.py": "60f139bbb7b5b1fc1dd060f824e0c9f4964fbf692e4c5257176b56dde848daf6",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\metric_depth.py": "17955bb8f79cd5f080b9b6cbbcdd8bd61980318de632d25a5cc97bf7fb036960",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\openmvs.py": "7e96a98f29efcab571ef6fc03b4326460eacc167611095f26401909e149d76cf",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\pipeline.py": "920fa9fa0dd6b04d5789cc4ec598a6cbdb876452d679e7f44d5a30ad97bce5b7",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\provenance.py": "bfe2e1476b02485729feeeafafdafd479b4f9891d1a035d6e5d788fdca83eaf0",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\repeatability.py": "2ab9277bf9b30ef55d671113b5a09116ec3e609f849c3d04e5a3e7b4a19d2810",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\rgbd.py": "dc340ba54d71c96ae828fcd339cb583dd601ba5cc9c521e361073258bc6fa980",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\schemas\\assessment.schema.json": "24531b70a31b6673ce05226ad665e9f0f8a87fac7ffc5660c83b47750f458008",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\sfm.py": "a939d6493330d7ebdbc45c9247ee47d04872d4a65fd06065facbcf74e7cbb939",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\stitching.py": "ded7e3ade62c3899b9dce0bf4ab4a428fa75006f3eb3184315efa4c152e3416e",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\supported_cells.py": "d6414dac09a1e52ba0ed8140a903e86dacab90718593f2cbe9213696bd92e722",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\uncertainty.py": "5f16d8f6f648b80b3f6f4752a806638d667756dd0a8e071ad5396ecad4febb6b",
+    "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\floorplan\\workflow.py": "38a05342edfdc5901a36cf8213e2555a64f75805d9271908706697e6d1a9bacc"
+  }
+}

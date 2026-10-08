@@ -1,0 +1,704 @@
+{
+  "format_version": 1,
+  "development_freeze": "2026-10-08",
+  "development_base_commit": "8aaca9ff8e8d431911a0d1f453c350243bb39473",
+  "source_scope": "Final worktree includes existing uncommitted implementation; documentation commits do not substitute for source snapshot.",
+  "software_validation": "390 passed in 43.22s (recorded batch032); final handoff checks are separate.",
+  "physical_accuracy": "NOT DEMONSTRATED",
+  "assessment_acceptance": "NOT DEMONSTRATED",
+  "evidence": {
+    "batch014": {
+      "source": "docs/results/phase3_exterior_strip_summary.json",
+      "sha256": "36f7834ea598e56747bca8e6f3ba2f986dc2f028c6ffc057fd8cffde02c8b3c7",
+      "classification": "PRODUCTION",
+      "values": {
+        "/cases/1/before": {
+          "camera_samples": 176,
+          "camera_coverage_fraction": 0.14204545454545456,
+          "wall_proposals": 28,
+          "retained_wall_segments": 67,
+          "observed_cells": 1,
+          "inferred_cells": 1,
+          "connections": 0,
+          "status": "partial",
+          "contract_complete": false,
+          "runtime_s": 17.385613000020385,
+          "valid_cell_polygons": true,
+          "maximum_pairwise_cell_overlap_m2": 0.0
+        },
+        "/cases/1/after": {
+          "camera_samples": 176,
+          "camera_coverage_fraction": 0.14204545454545456,
+          "wall_proposals": 29,
+          "retained_wall_segments": 69,
+          "observed_cells": 1,
+          "inferred_cells": 1,
+          "connections": 0,
+          "status": "partial",
+          "contract_complete": false,
+          "runtime_s": 17.418566099950112,
+          "valid_cell_polygons": true,
+          "maximum_pairwise_cell_overlap_m2": 0.0
+        },
+        "/cases/1/all_prior_cell_corners_exact": true
+      }
+    },
+    "batch019": {
+      "source": "docs/results/phase3_transition_context_summary.json",
+      "sha256": "d8242d752874598ec708b8b67a1a05c3cb096b4a7a7b1326aecfa214dbeb98f0",
+      "classification": "EXPERIMENTAL",
+      "values": {
+        "/runs/0/verified_pairs": 68,
+        "/runs/0/models/0": {
+          "model_id": 0,
+          "image_names": [
+            "bridge_00002.png",
+            "bridge_00003.png",
+            "bridge_00004.png",
+            "bridge_00005.png",
+            "bridge_00006.png",
+            "bridge_00007.png",
+            "bridge_00008.png",
+            "frame_00019.png",
+            "frame_00022.png",
+            "frame_00023.png",
+            "frame_00024.png"
+          ],
+          "registered_images": 11,
+          "sparse_points": 1012,
+          "mean_reprojection_error_px": 0.6362013911819889,
+          "point_mean_error_quantiles_px": [
+            0.048516811543698225,
+            0.5261563337376245,
+            1.4910922957210795,
+            3.307980407179002
+          ],
+          "both_endpoints_registered": false,
+          "target_group_registered_members": [
+            [],
+            [
+              "frame_00019.png",
+              "frame_00022.png",
+              "frame_00023.png",
+              "frame_00024.png"
+            ]
+          ],
+          "both_target_groups_registered": false,
+          "binary_sha256": {
+            "cameras.bin": "13a4d9d85703555979736f1e8474334676afc0202c93821d0f2bb1f72d03f9e6",
+            "frames.bin": "1efa2e00214e67c4f7ba93b2560f5c215a2d443cf5243ce3233350f17cd7328e",
+            "images.bin": "dee673306705b040f15756f5c1c5b4318ff5829293322b587bd1596e1a5f2578",
+            "points3D.bin": "6625f987de921fb363f1ecef87fc4d7f245b059a3e32551d520ab3d1a1a4c43c",
+            "rigs.bin": "afeeea87421231439afaecbc8456e4fdff53ac3ce2b8e78c578be86fa0d456e6"
+          }
+        },
+        "/runs/1/verified_pairs": 167,
+        "/runs/1/total_registered_images": 25,
+        "/runs/1/joint_target_group_model": false,
+        "/runs/1/models": [
+          {
+            "model_id": 0,
+            "image_names": [
+              "bridge_00002.png",
+              "bridge_00003.png",
+              "bridge_00004.png",
+              "bridge_00005.png",
+              "bridge_00006.png",
+              "bridge_00007.png",
+              "bridge_00008.png",
+              "bridge_00009.png",
+              "bridge_00017.png",
+              "frame_00016.png",
+              "frame_00019.png",
+              "frame_00022.png",
+              "frame_00023.png",
+              "frame_00024.png",
+              "frame_00025.png"
+            ],
+            "registered_images": 15,
+            "sparse_points": 1931,
+            "mean_reprojection_error_px": 1.4491901319093776,
+            "point_mean_error_quantiles_px": [
+              0.000943304533249373,
+              1.4562275448913564,
+              2.386001613167859,
+              3.67392190549155
+            ],
+            "both_endpoints_registered": false,
+            "target_group_registered_members": [
+              [],
+              [
+                "frame_00016.png",
+                "frame_00019.png",
+                "frame_00022.png",
+                "frame_00023.png",
+                "frame_00024.png"
+              ]
+            ],
+            "both_target_groups_registered": false,
+            "binary_sha256": {
+              "cameras.bin": "2dda29cac769b45da06e2623df4362511f33b7b8267b767849efa273fa7a156d",
+              "frames.bin": "6f7d14995481889813b9000d4f47ebfa32c71e874d5a66864ed1514e4dad9b2b",
+              "images.bin": "ad08708f4ec4f7498a31606d08b1c9b598d654cd1e27adf820a1843a1ab5b60b",
+              "points3D.bin": "47583c149a91fb5be088a601fd24462ff651abd9836f86371febb07954e9c96e",
+              "rigs.bin": "68db6ffe9695b5c8a7c864e41565624fccd29e44814f860060bb3a147d45ed02"
+            }
+          },
+          {
+            "model_id": 1,
+            "image_names": [
+              "bridge_00014.png",
+              "bridge_00015.png",
+              "bridge_00017.png",
+              "bridge_00018.png",
+              "bridge_00019.png",
+              "bridge_00020.png",
+              "bridge_00021.png",
+              "bridge_00022.png",
+              "frame_00026.png",
+              "frame_00027.png",
+              "frame_00028.png"
+            ],
+            "registered_images": 11,
+            "sparse_points": 1404,
+            "mean_reprojection_error_px": 1.3378050787166982,
+            "point_mean_error_quantiles_px": [
+              0.0009355054970208229,
+              1.3552083039665737,
+              2.510134766565947,
+              3.408582756069366
+            ],
+            "both_endpoints_registered": false,
+            "target_group_registered_members": [
+              [
+                "frame_00027.png",
+                "frame_00028.png"
+              ],
+              []
+            ],
+            "both_target_groups_registered": false,
+            "binary_sha256": {
+              "cameras.bin": "18674116205aff630b0b3361ef8e78b1e0efec0b36b9ce006988c9547931a4a3",
+              "frames.bin": "66d1589a90c94850a036755e41a968aece2c1958d96f9e803473961b294336a9",
+              "images.bin": "b7835e9ac75918453bb583d50c035f4407ba20a3e4597b27220436cf890224b0",
+              "points3D.bin": "e62c07dd7c8632abdef63c39493b77f909633ac061ae71b961b2cf41013eca4e",
+              "rigs.bin": "a70383b71a4a21f387b18f736e9e9456725604dcbfe68d7df1c51fe4b15e12ba"
+            }
+          }
+        ],
+        "/decision": "Local registration improves but no joint original-group or endpoint model; retain production SIFT"
+      }
+    },
+    "batch023": {
+      "source": "docs/results/phase3_mapping_only_summary.json",
+      "sha256": "400c174d910606e449d6cd34586b56153999258e8de2e2c6696cf0d49317f9cc",
+      "classification": "EXPERIMENTAL",
+      "values": {
+        "/metrics": {
+          "free_intrinsics": {
+            "verified_pairs": 236,
+            "connected_components": 1,
+            "isolated_views": 0,
+            "registered_views": 29,
+            "sparse_points": 5455,
+            "mean_reprojection_error_px": 1.4860988656081784,
+            "joint_target_group_model": true
+          },
+          "fixed_with_reverification": {
+            "verified_pairs": 236,
+            "connected_components": 1,
+            "isolated_views": 0,
+            "registered_views": 32,
+            "sparse_points": 6360,
+            "mean_reprojection_error_px": 1.4702160925007688,
+            "joint_target_group_model": true
+          },
+          "mapping_only": {
+            "verified_pairs": 236,
+            "connected_components": 1,
+            "isolated_views": 0,
+            "registered_views": 32,
+            "sparse_points": 6187,
+            "mean_reprojection_error_px": 1.4805034435378603,
+            "joint_target_group_model": true
+          }
+        },
+        "/transition_metrics": {
+          "free_intrinsics": [
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00027.png",
+              "relative_rotation_error_deg": 24.771981666012163,
+              "translation_direction_error_deg": 34.595082079461406,
+              "relative_length_ratio": 1.4964556352412222
+            },
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00028.png",
+              "relative_rotation_error_deg": 34.735237466291736,
+              "translation_direction_error_deg": 66.47946645784324,
+              "relative_length_ratio": 3.721359239532153
+            },
+            {
+              "image_a": "frame_00027.png",
+              "image_b": "frame_00028.png",
+              "relative_rotation_error_deg": 11.63924959889483,
+              "translation_direction_error_deg": 47.762522234155,
+              "relative_length_ratio": 10.872672310612552
+            }
+          ],
+          "fixed_with_reverification": [
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00027.png",
+              "relative_rotation_error_deg": 5.199806150984092,
+              "translation_direction_error_deg": 10.23593252037023,
+              "relative_length_ratio": 1.0804502627557726
+            },
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00028.png",
+              "relative_rotation_error_deg": 5.38119994745592,
+              "translation_direction_error_deg": 9.309386946451882,
+              "relative_length_ratio": 1.079836828307552
+            },
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00031.png",
+              "relative_rotation_error_deg": 8.951518200280846,
+              "translation_direction_error_deg": 11.659329918041937,
+              "relative_length_ratio": 1.0046274128222483
+            },
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00034.png",
+              "relative_rotation_error_deg": 14.872498696519669,
+              "translation_direction_error_deg": 6.916333934425726,
+              "relative_length_ratio": 1.0908233283014246
+            },
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00037.png",
+              "relative_rotation_error_deg": 18.70680558359047,
+              "translation_direction_error_deg": 4.22027271637239,
+              "relative_length_ratio": 1.1935163035467398
+            },
+            {
+              "image_a": "frame_00027.png",
+              "image_b": "frame_00028.png",
+              "relative_rotation_error_deg": 0.5810968206407722,
+              "translation_direction_error_deg": 4.264817177052835,
+              "relative_length_ratio": 1.0395851452898355
+            }
+          ],
+          "mapping_only": [
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00027.png",
+              "relative_rotation_error_deg": 4.31912449991921,
+              "translation_direction_error_deg": 9.482125968218222,
+              "relative_length_ratio": 1.0352317731666365
+            },
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00028.png",
+              "relative_rotation_error_deg": 4.503353519391669,
+              "translation_direction_error_deg": 8.399241012589973,
+              "relative_length_ratio": 1.0431762736858095
+            },
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00031.png",
+              "relative_rotation_error_deg": 6.088059466428229,
+              "translation_direction_error_deg": 10.695531726054963,
+              "relative_length_ratio": 1.0374923330313908
+            },
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00034.png",
+              "relative_rotation_error_deg": 12.44703441621007,
+              "translation_direction_error_deg": 6.532478556823664,
+              "relative_length_ratio": 1.0429081268276397
+            },
+            {
+              "image_a": "frame_00024.png",
+              "image_b": "frame_00037.png",
+              "relative_rotation_error_deg": 16.690768119943268,
+              "translation_direction_error_deg": 4.563426052656667,
+              "relative_length_ratio": 1.1186626816112437
+            },
+            {
+              "image_a": "frame_00027.png",
+              "image_b": "frame_00028.png",
+              "relative_rotation_error_deg": 0.39382408117172457,
+              "translation_direction_error_deg": 2.666714662126791,
+              "relative_length_ratio": 1.0265749700506193
+            }
+          ]
+        },
+        "/decision": "Keep XFeat experimental and retain production SIFT; no production change justified",
+        "/poses_used_in_reconstruction": false,
+        "/physical_accuracy_validated": false
+      }
+    },
+    "batch028": {
+      "source": "docs/results/phase3_frame31_final_summary.json",
+      "sha256": "e435986160ef359100210eb0b9352bedc54277daa65b1b2da82bf470e106be77",
+      "classification": "DIAGNOSTIC",
+      "values": {
+        "/replay_snapshot27_reproduced": false,
+        "/investigation_closed": true,
+        "/classification": "INSUFFICIENT_TRUSTED_SAVED_STATE_EVIDENCE",
+        "/production_fix_justified": false
+      }
+    },
+    "batch029": {
+      "source": "docs/results/phase3_lidar_sampling_summary.json",
+      "sha256": "4b3cfc3e712579406beddd9619aaf5ed70fbf60cd0483d7f4f7d342c797454d2",
+      "classification": "EXPERIMENTAL",
+      "values": {
+        "/baseline": {
+          "fused_points": 116480,
+          "wall_proposals": 29,
+          "finite_segments": 69,
+          "observed_cells": 1,
+          "inferred_cells": 1,
+          "covered_camera_samples": 25,
+          "camera_samples": 176,
+          "dangles": 70
+        },
+        "/rejected_candidate": {
+          "fused_points": 360845,
+          "wall_proposals": 40,
+          "finite_segments": 98,
+          "observed_cells": 1,
+          "inferred_cells": 3,
+          "covered_camera_samples": 79,
+          "camera_samples": 176,
+          "dangles": 109,
+          "incomplete_geometry": true,
+          "baseline_observed_cell_preserved": false
+        },
+        "/production_after": {
+          "fused_points": 116480,
+          "observed_cells": 1,
+          "inferred_cells": 1,
+          "covered_camera_samples": 25,
+          "camera_samples": 176,
+          "uncovered_samples": 151,
+          "unchanged": true
+        },
+        "/decision": "REJECT_PRODUCTION_DENSITY_CHANGE"
+      }
+    },
+    "batch030": {
+      "source": "docs/results/phase3_ceiling_boundary_summary.json",
+      "sha256": "4141ea185a6285a03a5a9ef76a7a7ab7c36c35922fad64eb1a8cb498694d5fd5",
+      "classification": "DIAGNOSTIC",
+      "values": {
+        "/historical_comparison": {
+          "original_area_m2": 10.477367265935424,
+          "shifted_area_m2": 9.945719534889562,
+          "removed_area_m2": 0.5316477310458627,
+          "polygon_hausdorff_m": 0.7026770276005543,
+          "boundary_hausdorff_m": 0.7026770276005543,
+          "ceiling_height_before": null,
+          "ceiling_height_after": null,
+          "footprint_change_not_ceiling_height_change": true,
+          "original_covered_camera_samples": 148,
+          "shifted_covered_camera_samples": 295,
+          "camera_samples": 300
+        },
+        "/decision": "RETAIN_PRODUCTION_WITH_UNVALIDATED_BOUNDARY_WARNING",
+        "/original_stride8_cloud_reproduced_exact": true
+      }
+    },
+    "batch031": {
+      "source": "docs/results/phase3_observed_ceiling_summary.json",
+      "sha256": "bee7b83b50c1e18b3932da7b1ba6d44d6183f052486b4df342c29b60b0e23f1e",
+      "classification": "DIAGNOSTIC",
+      "values": {
+        "/actual_ceiling_path": {
+          "guard_line": 387,
+          "return_line": 388,
+          "local_floor": null,
+          "camera_path_count": 300,
+          "plane_loop_reached": false,
+          "ceiling_planes_visited": 0,
+          "native_return": [
+            null,
+            null
+          ],
+          "downstream_ceiling_guards_evaluated": false
+        },
+        "/floor_plane_support": {
+          "plane_index": 1,
+          "global_plane_band_points": 13175,
+          "finite_room_points": 148,
+          "occupied_cells": 43,
+          "clipped_coverage_fraction": 0.14124624752511566,
+          "clipped_occupied_area_m2": 1.4047955632403895,
+          "required_coverage_fraction": 0.25,
+          "local_centroid_level_m": 1.4415419023641063,
+          "reference_level_m": 1.4797482461796578,
+          "reference_difference_m": 0.03820634381555155,
+          "inside_camera_count": 46,
+          "median_camera_y": 0.14013671537741249,
+          "native_rejection_condition": "coverage<.25"
+        },
+        "/decision": "RETAIN_PRODUCTION_AND_UNAVAILABLE_LOCAL_CEILING_HEIGHT"
+      }
+    },
+    "batch032": {
+      "source": "docs/results/phase3_room_floor_support_summary.json",
+      "sha256": "6d3855b782ce7bb23d72db516608ce15e4b7d0d69f12b94c1e308f68997b0c32",
+      "classification": "DIAGNOSTIC",
+      "values": {
+        "/source_inventory": {
+          "depth_files": 6899,
+          "confidence_files": 9745,
+          "odometry_rows": 9745,
+          "paired_frames": 6899,
+          "selected_frames": 300,
+          "unselected_paired_frames": 6599,
+          "confidence_frames_without_depth": 2846,
+          "dimensions": [
+            [
+              192,
+              256
+            ]
+          ],
+          "rgb_dimensions": [
+            1920.0,
+            1440.0
+          ],
+          "selected_runtime_skips": 0,
+          "available_frames_failing_native_depth_count_guard": 0
+        },
+        "/aggregate_support": {
+          "selected_refined": {
+            "in_range": {
+              "points": 9897,
+              "frames_with_support": 25,
+              "occupied_cells": 94,
+              "clipped_area_m2": 2.9856801424440116,
+              "coverage_fraction": 0.30019750023819314
+            },
+            "accepted": {
+              "points": 9818,
+              "frames_with_support": 25,
+              "occupied_cells": 92,
+              "clipped_area_m2": 2.9056801424440115,
+              "coverage_fraction": 0.29215383887016844
+            },
+            "confidence2": {
+              "points": 9264,
+              "frames_with_support": 23,
+              "occupied_cells": 65,
+              "clipped_area_m2": 2.0513794567399986,
+              "coverage_fraction": 0.2062575210917384
+            },
+            "stride8": {
+              "points": 150,
+              "frames_with_support": 22,
+              "occupied_cells": 43,
+              "clipped_area_m2": 1.4047955632403895,
+              "coverage_fraction": 0.14124624752511566
+            },
+            "off_lattice": {
+              "points": 9668,
+              "frames_with_support": 25,
+              "occupied_cells": 92,
+              "clipped_area_m2": 2.9056801424440115,
+              "coverage_fraction": 0.29215383887016844
+            },
+            "confidence_rejected": {
+              "points": 79,
+              "frames_with_support": 10,
+              "occupied_cells": 19,
+              "clipped_area_m2": 0.6100215002359365,
+              "coverage_fraction": 0.061335079688903595
+            }
+          },
+          "selected_raw": {
+            "in_range": {
+              "points": 9991,
+              "frames_with_support": 26,
+              "occupied_cells": 94,
+              "clipped_area_m2": 2.9856801424440116,
+              "coverage_fraction": 0.30019750023819314
+            },
+            "accepted": {
+              "points": 9909,
+              "frames_with_support": 25,
+              "occupied_cells": 92,
+              "clipped_area_m2": 2.9056801424440115,
+              "coverage_fraction": 0.29215383887016844
+            },
+            "confidence2": {
+              "points": 9352,
+              "frames_with_support": 24,
+              "occupied_cells": 67,
+              "clipped_area_m2": 2.0683851215399987,
+              "coverage_fraction": 0.20796736870410512
+            },
+            "stride8": {
+              "points": 151,
+              "frames_with_support": 23,
+              "occupied_cells": 45,
+              "clipped_area_m2": 1.4218012280403896,
+              "coverage_fraction": 0.14295609513748242
+            },
+            "off_lattice": {
+              "points": 9758,
+              "frames_with_support": 25,
+              "occupied_cells": 92,
+              "clipped_area_m2": 2.9056801424440115,
+              "coverage_fraction": 0.29215383887016844
+            },
+            "confidence_rejected": {
+              "points": 82,
+              "frames_with_support": 11,
+              "occupied_cells": 22,
+              "clipped_area_m2": 0.6985243326359366,
+              "coverage_fraction": 0.0702336648631117
+            }
+          },
+          "unselected_raw": {
+            "in_range": {
+              "points": 231650,
+              "frames_with_support": 527,
+              "occupied_cells": 139,
+              "clipped_area_m2": 4.592125107992278,
+              "coverage_fraction": 0.4617187416036731
+            },
+            "accepted": {
+              "points": 229885,
+              "frames_with_support": 525,
+              "occupied_cells": 133,
+              "clipped_area_m2": 4.352125107992277,
+              "coverage_fraction": 0.4375877574995989
+            },
+            "confidence2": {
+              "points": 217606,
+              "frames_with_support": 522,
+              "occupied_cells": 110,
+              "clipped_area_m2": 3.4587335557872327,
+              "coverage_fraction": 0.34776101856220687
+            },
+            "stride8": {
+              "points": 3411,
+              "frames_with_support": 491,
+              "occupied_cells": 98,
+              "clipped_area_m2": 3.0554749584517324,
+              "coverage_fraction": 0.30721507355331434
+            },
+            "off_lattice": {
+              "points": 226474,
+              "frames_with_support": 525,
+              "occupied_cells": 133,
+              "clipped_area_m2": 4.352125107992277,
+              "coverage_fraction": 0.4375877574995989
+            },
+            "confidence_rejected": {
+              "points": 1765,
+              "frames_with_support": 191,
+              "occupied_cells": 82,
+              "clipped_area_m2": 2.909214294890996,
+              "coverage_fraction": 0.2925091829389999
+            }
+          },
+          "all_available_raw": {
+            "in_range": {
+              "points": 241641,
+              "frames_with_support": 553,
+              "occupied_cells": 141,
+              "clipped_area_m2": 4.624869868858622,
+              "coverage_fraction": 0.46501108870349583
+            },
+            "accepted": {
+              "points": 239794,
+              "frames_with_support": 550,
+              "occupied_cells": 135,
+              "clipped_area_m2": 4.3848698688586225,
+              "coverage_fraction": 0.44088010459942173
+            },
+            "confidence2": {
+              "points": 226958,
+              "frames_with_support": 546,
+              "occupied_cells": 111,
+              "clipped_area_m2": 3.4721251079922775,
+              "coverage_fraction": 0.34910748245132694
+            },
+            "stride8": {
+              "points": 3562,
+              "frames_with_support": 514,
+              "occupied_cells": 99,
+              "clipped_area_m2": 3.0954749584517325,
+              "coverage_fraction": 0.31123690423732675
+            },
+            "off_lattice": {
+              "points": 236232,
+              "frames_with_support": 550,
+              "occupied_cells": 135,
+              "clipped_area_m2": 4.3848698688586225,
+              "coverage_fraction": 0.44088010459942173
+            },
+            "confidence_rejected": {
+              "points": 1847,
+              "frames_with_support": 202,
+              "occupied_cells": 85,
+              "clipped_area_m2": 2.97732221184692,
+              "coverage_fraction": 0.29935714569493743
+            }
+          }
+        },
+        "/native_fusion": {
+          "checks": {
+            "points_bit_identical": true,
+            "weights_bit_identical": true
+          },
+          "global_sample_points": 218873,
+          "fused_points": 202477,
+          "pre_fusion_local_returns": 150,
+          "pre_fusion_local_voxels": 148,
+          "post_fusion_local_points": 148,
+          "floor_voxels_retained": 148,
+          "floor_voxels_lost": 0,
+          "floor_voxels_gained": 0,
+          "lost_occupied_cells": [],
+          "gained_occupied_cells": [],
+          "native_helper_return": [
+            148,
+            0.14124624752511566
+          ]
+        },
+        "/production_before_after": {
+          "room_area_m2": 9.945719534889562,
+          "local_floor_accepted": false,
+          "ceiling_height_m": null,
+          "plane1_local_points": 148,
+          "plane1_occupied_cells": 43,
+          "plane1_coverage_fraction": 0.14124624752511566,
+          "unvalidated_footprint_hausdorff_shift_m": 0.7026770276005543,
+          "ceiling_scan_camera_coverage": "295/300",
+          "floor_only_camera_coverage": "25/176"
+        },
+        "/validation": {
+          "unit": "16 passed in 1.41s",
+          "focused": "82 passed in 5.37s",
+          "full": "390 passed in 43.22s",
+          "exact_geometry_checks": "15/15",
+          "initial_diagnostic_failure": "JSON NumPy cell-index serialization reproduced by one failing test; fixed before authoritative evidence",
+          "interrupted_run": "Stopped intentionally before report; log/source retained, not used for conclusions",
+          "native_point_and_weight_replay": "bit-for-bit",
+          "prior_pinned_entries_verified": 2493
+        },
+        "/classification": "DEMONSTRATED_SAMPLING_FRAME_SELECTION_LIMITATION_WITHOUT_PROVEN_PRODUCTION_DEFECT",
+        "/production_change": false
+      }
+    }
+  },
+  "supersession": "Historical next-step suggestions are superseded by the freeze. The dense floor-support control is NOT RUN. RGB registration investigation is CLOSED as inconclusive.",
+  "interpretation": "Coverage, graph connectivity, reprojection residual and exact artifact consistency are not independent physical accuracy."
+}

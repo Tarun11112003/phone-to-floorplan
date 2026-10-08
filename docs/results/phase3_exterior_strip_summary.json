@@ -1,0 +1,2182 @@
+{
+  "version": "exterior-strip-sensor-to-seed-checkpoint-v1",
+  "date": "2026-10-07",
+  "root_cause": "Initial quota omits eligible peak; explained-point masking dilutes residual seed bin while sufficient fitted residual consensus remains",
+  "software_omission_addressed": true,
+  "whole_requirements_closed": [],
+  "traces": {
+    "pre_edit_trace": {
+      "path": "demo/phase3_strip_trace/unchanged_baseline/trace.json",
+      "sha256": "cc3015cce2d43098fdbed6b12f44575348888cbca1c26d7807ea7bc450e17fc1",
+      "experiment": "exterior_strip_sensor_to_seed_trace",
+      "run": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor",
+      "source": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\datasets\\Given_dataset\\single_scan_floor_only\\1a8384c3f6",
+      "strip_query": {
+        "x_m": -2.73,
+        "half_width_m": 0.12,
+        "z_bounds_m": [
+          4.0,
+          5.9
+        ],
+        "floor_sampling_bound_m": 1.4393800820959997,
+        "query_is_not_ground_truth": true
+      },
+      "script_sha256": "f94dcf20977c4a99f7476854636d9d4f5bf725f47f0e7a50a0fb400e4a4b8e3b",
+      "reconstruction_unchanged": true,
+      "frames": 176,
+      "frames_with_confident_strip_pixels": 14,
+      "frames_with_stride8_strip_points": 14,
+      "all_sensor_payloads_identical": true,
+      "totals": {
+        "positive_depth_strip_pixels": 143486,
+        "range_valid_strip_pixels": 143486,
+        "confident_strip_pixels": 140087,
+        "confidence_0_strip_pixels": 3399,
+        "confidence_1_strip_pixels": 10065,
+        "confidence_2_strip_pixels": 130022,
+        "stride8_strip_points": 2251,
+        "raw_pose_confident_strip_pixels": 133897
+      },
+      "fusion_replay_exact": true,
+      "fusion_max_difference_m": 0.0,
+      "fused_strip_points": 2056,
+      "residual_strip_points": 716,
+      "horizontal_first_removed_strip_points": 1153,
+      "original_seed_histogram": {
+        "eligible_modes": 29,
+        "target_bins": [
+          {
+            "location_m": -2.8375000000000012,
+            "points": 376,
+            "eligible_seed": true,
+            "rank": 22
+          },
+          {
+            "location_m": -2.8125000000000018,
+            "points": 343,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7875000000000014,
+            "points": 75,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.762500000000002,
+            "points": 123,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7375000000000016,
+            "points": 528,
+            "eligible_seed": true,
+            "rank": 16
+          },
+          {
+            "location_m": -2.712500000000002,
+            "points": 256,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.6875000000000018,
+            "points": 394,
+            "eligible_seed": true,
+            "rank": 19
+          },
+          {
+            "location_m": -2.6625000000000023,
+            "points": 393,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.637500000000002,
+            "points": 255,
+            "eligible_seed": false,
+            "rank": null
+          }
+        ]
+      },
+      "residual_seed_histogram": {
+        "eligible_modes": 2,
+        "target_bins": [
+          {
+            "location_m": -2.8375000000000012,
+            "points": 108,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.8125000000000018,
+            "points": 119,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7875000000000014,
+            "points": 23,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.762500000000002,
+            "points": 51,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7375000000000016,
+            "points": 193,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.712500000000002,
+            "points": 70,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.6875000000000018,
+            "points": 180,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.6625000000000023,
+            "points": 143,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.637500000000002,
+            "points": 57,
+            "eligible_seed": false,
+            "rank": null
+          }
+        ]
+      },
+      "diagnostic_target_fits": {
+        "original": {
+          "passes_existing_guards": true,
+          "guards": {
+            "raw_points": true,
+            "two_dimensional": true,
+            "plane_residual": true,
+            "vertical": true,
+            "axis_alignment": true,
+            "height_span": true,
+            "length_span": true,
+            "occupied_cells": true,
+            "novel_plane": true
+          },
+          "raw_support_points": 818,
+          "rms_m": 0.01090576152210467,
+          "height_span_m": 1.010571597828388,
+          "length_span_m": 1.4446182536748937,
+          "occupied_10cm_cells": 136,
+          "normal": [
+            0.9977039342828424,
+            -0.0065379988177639015,
+            -0.06741004441473637
+          ],
+          "offset": -2.636149428245879,
+          "centroid": [
+            2.961389687481095,
+            -0.505972287842706,
+            4.773009169654951
+          ],
+          "supporting_plane_only": true
+        },
+        "residual": {
+          "passes_existing_guards": true,
+          "guards": {
+            "raw_points": true,
+            "two_dimensional": true,
+            "plane_residual": true,
+            "vertical": true,
+            "axis_alignment": true,
+            "height_span": true,
+            "length_span": true,
+            "occupied_cells": true,
+            "novel_plane": true
+          },
+          "raw_support_points": 271,
+          "rms_m": 0.010597156586717433,
+          "height_span_m": 0.9862292197262031,
+          "length_span_m": 1.468237965479565,
+          "occupied_10cm_cells": 94,
+          "normal": [
+            0.9980926622654318,
+            -0.007223651616114372,
+            -0.061309513040241057
+          ],
+          "offset": -2.669866665707668,
+          "centroid": [
+            2.9677212978496366,
+            -0.508079825307424,
+            4.825749909021496
+          ],
+          "supporting_plane_only": true
+        }
+      },
+      "camera_coverage_fraction": 0.14204545454545456,
+      "root_cause": "Original accepted-plane quota skips a valid seed; residual masking lowers its histogram peak below the seed threshold while sufficient residual consensus remains",
+      "software_fixable_proposal_omission": true,
+      "whole_enclosure_evidence_available": false,
+      "accuracy_validated": false,
+      "limitations": [
+        "Depth/confidence and supplied poses are inference inputs, not independent measurement truth",
+        "Strip bounds and targeted diagnostic fit do not establish semantic wall identity",
+        "Counts before voxel fusion are repeated sensor observations, not independent samples",
+        "This trace covers selected pipeline frames; it does not score all unsampled sensor frames",
+        "Recovering this plane does not prove adjoining surfaces close a room",
+        "Ceiling coverage and prior 0.703 m boundary change remain unvalidated"
+      ]
+    },
+    "before_detailed": {
+      "path": "demo/phase3_strip_trace/unchanged_baseline_detailed/trace.json",
+      "sha256": "ae18f007cd00b0ca69be3b43ddc52082de5e6dfbde793a940f6b1d43330049f0",
+      "experiment": "exterior_strip_sensor_to_seed_trace",
+      "run": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor",
+      "source": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\datasets\\Given_dataset\\single_scan_floor_only\\1a8384c3f6",
+      "strip_query": {
+        "x_m": -2.73,
+        "half_width_m": 0.12,
+        "z_bounds_m": [
+          4.0,
+          5.9
+        ],
+        "floor_sampling_bound_m": 1.4393800820959997,
+        "query_is_not_ground_truth": true
+      },
+      "script_sha256": "0a0ced3b732b58b273d0d8af27afeba1be4b05c057e8d5c7f50687f6f637fd38",
+      "reconstruction_unchanged": true,
+      "frames": 176,
+      "frames_with_confident_strip_pixels": 14,
+      "frames_with_stride8_strip_points": 14,
+      "frames_contributing_residual_target_plane_band": 13,
+      "residual_target_final_plane_band_points": 273,
+      "all_sensor_payloads_identical": true,
+      "totals": {
+        "positive_depth_strip_pixels": 143486,
+        "range_valid_strip_pixels": 143486,
+        "confident_strip_pixels": 140087,
+        "confidence_0_strip_pixels": 3399,
+        "confidence_1_strip_pixels": 10065,
+        "confidence_2_strip_pixels": 130022,
+        "stride8_strip_points": 2251,
+        "raw_pose_confident_strip_pixels": 133897
+      },
+      "fusion_replay_exact": true,
+      "fusion_max_difference_m": 0.0,
+      "fused_strip_points": 2056,
+      "residual_strip_points": 716,
+      "horizontal_first_removed_strip_points": 1153,
+      "original_seed_histogram": {
+        "eligible_modes": 29,
+        "target_bins": [
+          {
+            "location_m": -2.8375000000000012,
+            "points": 376,
+            "eligible_seed": true,
+            "rank": 22
+          },
+          {
+            "location_m": -2.8125000000000018,
+            "points": 343,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7875000000000014,
+            "points": 75,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.762500000000002,
+            "points": 123,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7375000000000016,
+            "points": 528,
+            "eligible_seed": true,
+            "rank": 16
+          },
+          {
+            "location_m": -2.712500000000002,
+            "points": 256,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.6875000000000018,
+            "points": 394,
+            "eligible_seed": true,
+            "rank": 19
+          },
+          {
+            "location_m": -2.6625000000000023,
+            "points": 393,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.637500000000002,
+            "points": 255,
+            "eligible_seed": false,
+            "rank": null
+          }
+        ]
+      },
+      "residual_seed_histogram": {
+        "eligible_modes": 2,
+        "target_bins": [
+          {
+            "location_m": -2.8375000000000012,
+            "points": 108,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.8125000000000018,
+            "points": 119,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7875000000000014,
+            "points": 23,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.762500000000002,
+            "points": 51,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7375000000000016,
+            "points": 193,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.712500000000002,
+            "points": 70,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.6875000000000018,
+            "points": 180,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.6625000000000023,
+            "points": 143,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.637500000000002,
+            "points": 57,
+            "eligible_seed": false,
+            "rank": null
+          }
+        ]
+      },
+      "diagnostic_target_fits": {
+        "original": {
+          "passes_existing_guards": true,
+          "guards": {
+            "raw_points": true,
+            "two_dimensional": true,
+            "plane_residual": true,
+            "vertical": true,
+            "axis_alignment": true,
+            "height_span": true,
+            "length_span": true,
+            "occupied_cells": true,
+            "novel_plane": true
+          },
+          "raw_support_points": 818,
+          "rms_m": 0.01090576152210467,
+          "height_span_m": 1.010571597828388,
+          "length_span_m": 1.4446182536748937,
+          "occupied_10cm_cells": 136,
+          "normal": [
+            0.9977039342828424,
+            -0.0065379988177639015,
+            -0.06741004441473637
+          ],
+          "offset": -2.636149428245879,
+          "centroid": [
+            2.961389687481095,
+            -0.505972287842706,
+            4.773009169654951
+          ],
+          "supporting_plane_only": true
+        },
+        "residual": {
+          "passes_existing_guards": true,
+          "guards": {
+            "raw_points": true,
+            "two_dimensional": true,
+            "plane_residual": true,
+            "vertical": true,
+            "axis_alignment": true,
+            "height_span": true,
+            "length_span": true,
+            "occupied_cells": true,
+            "novel_plane": true
+          },
+          "raw_support_points": 271,
+          "rms_m": 0.010597156586717433,
+          "height_span_m": 0.9862292197262031,
+          "length_span_m": 1.468237965479565,
+          "occupied_10cm_cells": 94,
+          "normal": [
+            0.9980926622654318,
+            -0.007223651616114372,
+            -0.061309513040241057
+          ],
+          "offset": -2.669866665707668,
+          "centroid": [
+            2.9677212978496366,
+            -0.508079825307424,
+            4.825749909021496
+          ],
+          "supporting_plane_only": true
+        }
+      },
+      "audited_surface_proposal_present": false,
+      "camera_coverage_fraction": 0.14204545454545456,
+      "root_cause": "Original accepted-plane quota skips a valid seed; residual masking lowers its histogram peak below the seed threshold while sufficient residual consensus remains",
+      "software_fixable_proposal_omission": true,
+      "whole_enclosure_evidence_available": false,
+      "accuracy_validated": false,
+      "limitations": [
+        "Depth/confidence and supplied poses are inference inputs, not independent measurement truth",
+        "Strip bounds and targeted diagnostic fit do not establish semantic wall identity",
+        "Counts before voxel fusion are repeated sensor observations, not independent samples",
+        "Per-frame voxel contributions overlap; final plane-band membership can differ from the last iterative fit consensus",
+        "This trace covers selected pipeline frames; it does not score all unsampled sensor frames",
+        "Recovering this plane does not prove adjoining surfaces close a room",
+        "Ceiling coverage and prior 0.703 m boundary change remain unvalidated"
+      ]
+    },
+    "after_detailed": {
+      "path": "demo/phase3_strip_trace/postfix_detailed/trace.json",
+      "sha256": "47efbfe706c91489cc2de64866a5ffd542d085259825ae4614e8a5dbc1ea14f1",
+      "experiment": "exterior_strip_sensor_to_seed_trace",
+      "run": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor",
+      "source": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\datasets\\Given_dataset\\single_scan_floor_only\\1a8384c3f6",
+      "strip_query": {
+        "x_m": -2.73,
+        "half_width_m": 0.12,
+        "z_bounds_m": [
+          4.0,
+          5.9
+        ],
+        "floor_sampling_bound_m": 1.439380082095992,
+        "query_is_not_ground_truth": true
+      },
+      "script_sha256": "0a0ced3b732b58b273d0d8af27afeba1be4b05c057e8d5c7f50687f6f637fd38",
+      "reconstruction_unchanged": true,
+      "frames": 176,
+      "frames_with_confident_strip_pixels": 14,
+      "frames_with_stride8_strip_points": 14,
+      "frames_contributing_residual_target_plane_band": 13,
+      "residual_target_final_plane_band_points": 273,
+      "all_sensor_payloads_identical": true,
+      "totals": {
+        "positive_depth_strip_pixels": 143486,
+        "range_valid_strip_pixels": 143486,
+        "confident_strip_pixels": 140087,
+        "confidence_0_strip_pixels": 3399,
+        "confidence_1_strip_pixels": 10065,
+        "confidence_2_strip_pixels": 130022,
+        "stride8_strip_points": 2251,
+        "raw_pose_confident_strip_pixels": 133897
+      },
+      "fusion_replay_exact": true,
+      "fusion_max_difference_m": 0.0,
+      "fused_strip_points": 2056,
+      "residual_strip_points": 716,
+      "horizontal_first_removed_strip_points": 1153,
+      "original_seed_histogram": {
+        "eligible_modes": 29,
+        "target_bins": [
+          {
+            "location_m": -2.8375000000000012,
+            "points": 376,
+            "eligible_seed": true,
+            "rank": 22
+          },
+          {
+            "location_m": -2.8125000000000018,
+            "points": 343,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7875000000000014,
+            "points": 75,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.762500000000002,
+            "points": 123,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7375000000000016,
+            "points": 528,
+            "eligible_seed": true,
+            "rank": 16
+          },
+          {
+            "location_m": -2.712500000000002,
+            "points": 256,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.6875000000000018,
+            "points": 394,
+            "eligible_seed": true,
+            "rank": 19
+          },
+          {
+            "location_m": -2.6625000000000023,
+            "points": 393,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.637500000000002,
+            "points": 255,
+            "eligible_seed": false,
+            "rank": null
+          }
+        ]
+      },
+      "residual_seed_histogram": {
+        "eligible_modes": 2,
+        "target_bins": [
+          {
+            "location_m": -2.8375000000000012,
+            "points": 108,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.8125000000000018,
+            "points": 119,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7875000000000014,
+            "points": 23,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.762500000000002,
+            "points": 51,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.7375000000000016,
+            "points": 193,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.712500000000002,
+            "points": 70,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.6875000000000018,
+            "points": 180,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.6625000000000023,
+            "points": 143,
+            "eligible_seed": false,
+            "rank": null
+          },
+          {
+            "location_m": -2.637500000000002,
+            "points": 57,
+            "eligible_seed": false,
+            "rank": null
+          }
+        ]
+      },
+      "diagnostic_target_fits": {
+        "original": {
+          "passes_existing_guards": true,
+          "guards": {
+            "raw_points": true,
+            "two_dimensional": true,
+            "plane_residual": true,
+            "vertical": true,
+            "axis_alignment": true,
+            "height_span": true,
+            "length_span": true,
+            "occupied_cells": true,
+            "novel_plane": true
+          },
+          "raw_support_points": 818,
+          "rms_m": 0.01090576152210465,
+          "height_span_m": 1.0105715978283887,
+          "length_span_m": 1.4446182536748946,
+          "occupied_10cm_cells": 136,
+          "normal": [
+            0.9977039342828423,
+            -0.006537998817764873,
+            -0.06741004441473736
+          ],
+          "offset": -2.6361494282458744,
+          "centroid": [
+            2.961389687481095,
+            -0.5059722878427084,
+            4.773009169654949
+          ],
+          "supporting_plane_only": true
+        },
+        "residual": {
+          "passes_existing_guards": true,
+          "guards": {
+            "raw_points": true,
+            "two_dimensional": true,
+            "plane_residual": true,
+            "vertical": true,
+            "axis_alignment": true,
+            "height_span": true,
+            "length_span": true,
+            "occupied_cells": true,
+            "novel_plane": true
+          },
+          "raw_support_points": 271,
+          "rms_m": 0.010597156586717418,
+          "height_span_m": 0.9862292197262037,
+          "length_span_m": 1.4682379654795668,
+          "occupied_10cm_cells": 94,
+          "normal": [
+            0.9980926622654318,
+            -0.007223651616115337,
+            -0.061309513040242056
+          ],
+          "offset": -2.6698666657076635,
+          "centroid": [
+            2.9677212978496366,
+            -0.5080798253074273,
+            4.8257499090214955
+          ],
+          "supporting_plane_only": true
+        }
+      },
+      "audited_surface_proposal_present": true,
+      "camera_coverage_fraction": 0.14204545454545456,
+      "root_cause": "Original quota and residual-bin dilution omit sufficient consensus; bounded original-seed retry recovers the audited proposal",
+      "software_fixable_proposal_omission": true,
+      "whole_enclosure_evidence_available": false,
+      "accuracy_validated": false,
+      "limitations": [
+        "Depth/confidence and supplied poses are inference inputs, not independent measurement truth",
+        "Strip bounds and targeted diagnostic fit do not establish semantic wall identity",
+        "Counts before voxel fusion are repeated sensor observations, not independent samples",
+        "Per-frame voxel contributions overlap; final plane-band membership can differ from the last iterative fit consensus",
+        "This trace covers selected pipeline frames; it does not score all unsampled sensor frames",
+        "Recovering this plane does not prove adjoining surfaces close a room",
+        "Ceiling coverage and prior 0.703 m boundary change remain unvalidated"
+      ]
+    },
+    "before_uncovered": {
+      "path": "demo/phase3_floor_audit/postfix_verified/audit.json",
+      "sha256": "79ff11e4562afc1666e707b6ed1b2b551c6193cfbf6cb62024d70c147b59741b",
+      "experiment": "frozen_floor_boundary_audit",
+      "run": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor",
+      "script_sha256": "8556fd295e639c69f460144506e32c15fa8c6ac017219b9f1c956642cd7a2ac1",
+      "layout_sha256": "588782263e0c1cf7f8f796ace20a16654998dc0d45e7aed4395e74da397edf3b",
+      "reconstruction_logic_unchanged": true,
+      "camera_samples": 176,
+      "covered_samples": 25,
+      "uncovered_samples": 151,
+      "sample_classifications": {
+        "incomplete_extracted_directional_support": 94,
+        "bounded_enclosure_below_existing_area_guard": 2,
+        "degenerate_directional_hits": 2,
+        "finite_extents_do_not_support_bounded_enclosure": 53
+      },
+      "seed_search": [
+        {
+          "axis": 0,
+          "eligible_seed_modes": 29,
+          "attempted_seed_modes": 13,
+          "accepted_proposals": 12
+        },
+        {
+          "axis": 2,
+          "eligible_seed_modes": 39,
+          "attempted_seed_modes": 12,
+          "accepted_proposals": 12
+        }
+      ],
+      "omitted_seeds_passing_all_existing_guards": 37,
+      "accuracy_validated": false,
+      "limitations": [
+        "No extracted directional wall hit does not prove the raw capture lacked observations",
+        "Directional enclosures can cross different rooms and are diagnostic only",
+        "Passing plane guards is observed surface support, not semantic wall or room ground truth",
+        "No independent survey or centimetre-accuracy evidence"
+      ]
+    },
+    "after_uncovered": {
+      "path": "demo/phase3_strip_trace/postfix_uncovered_audit/audit.json",
+      "sha256": "c482f24bd5c8eca24f2177151d64cb60537373153fb54b742a0074ad316fd872",
+      "experiment": "frozen_floor_boundary_audit",
+      "run": "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor",
+      "script_sha256": "11f3f46902f02e95be336c7916c48f19d4fecf2b0d8ae000463cdb274465eb8e",
+      "layout_sha256": "a19a7c9fa23a3d61d177bc59e85143804fae3df6ae925c925e75ee7a1e8d3c1f",
+      "reconstruction_logic_unchanged": true,
+      "camera_samples": 176,
+      "covered_samples": 25,
+      "uncovered_samples": 151,
+      "sample_classifications": {
+        "incomplete_extracted_directional_support": 82,
+        "bounded_enclosure_below_existing_area_guard": 2,
+        "degenerate_directional_hits": 2,
+        "finite_extents_do_not_support_bounded_enclosure": 65
+      },
+      "seed_search": [
+        {
+          "axis": 0,
+          "eligible_seed_modes": 29,
+          "attempted_seed_modes": 13,
+          "accepted_proposals": 12
+        },
+        {
+          "axis": 2,
+          "eligible_seed_modes": 39,
+          "attempted_seed_modes": 12,
+          "accepted_proposals": 12
+        }
+      ],
+      "omitted_seeds_passing_all_existing_guards": 35,
+      "accuracy_validated": false,
+      "limitations": [
+        "No extracted directional wall hit does not prove the raw capture lacked observations",
+        "Directional enclosures can cross different rooms and are diagnostic only",
+        "Passing plane guards is observed surface support, not semantic wall or room ground truth",
+        "No independent survey or centimetre-accuracy evidence"
+      ]
+    }
+  },
+  "contributing_frames": {
+    "before_detailed": [
+      {
+        "frame_id": 630,
+        "timestamp_s": 13.418683709009201,
+        "positive_depth_strip_pixels": 2642,
+        "range_valid_strip_pixels": 2642,
+        "confident_strip_pixels": 2516,
+        "confidence_0_strip_pixels": 126,
+        "confidence_1_strip_pixels": 371,
+        "confidence_2_strip_pixels": 2145,
+        "stride8_strip_points": 33,
+        "raw_pose_confident_strip_pixels": 2569,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 33,
+        "residual_strip_voxels_contributed": 11,
+        "residual_target_plane_band_voxels_contributed": 3
+      },
+      {
+        "frame_id": 660,
+        "timestamp_s": 14.018773125004373,
+        "positive_depth_strip_pixels": 6656,
+        "range_valid_strip_pixels": 6656,
+        "confident_strip_pixels": 6049,
+        "confidence_0_strip_pixels": 607,
+        "confidence_1_strip_pixels": 1339,
+        "confidence_2_strip_pixels": 4710,
+        "stride8_strip_points": 95,
+        "raw_pose_confident_strip_pixels": 6075,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 95,
+        "residual_strip_voxels_contributed": 29,
+        "residual_target_plane_band_voxels_contributed": 6
+      },
+      {
+        "frame_id": 690,
+        "timestamp_s": 14.602193334008916,
+        "positive_depth_strip_pixels": 9724,
+        "range_valid_strip_pixels": 9724,
+        "confident_strip_pixels": 8905,
+        "confidence_0_strip_pixels": 819,
+        "confidence_1_strip_pixels": 1874,
+        "confidence_2_strip_pixels": 7031,
+        "stride8_strip_points": 140,
+        "raw_pose_confident_strip_pixels": 8677,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 140,
+        "residual_strip_voxels_contributed": 50,
+        "residual_target_plane_band_voxels_contributed": 12
+      },
+      {
+        "frame_id": 720,
+        "timestamp_s": 15.218951709000976,
+        "positive_depth_strip_pixels": 4639,
+        "range_valid_strip_pixels": 4639,
+        "confident_strip_pixels": 4633,
+        "confidence_0_strip_pixels": 6,
+        "confidence_1_strip_pixels": 157,
+        "confidence_2_strip_pixels": 4476,
+        "stride8_strip_points": 79,
+        "raw_pose_confident_strip_pixels": 4339,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 80,
+        "residual_strip_voxels_contributed": 29,
+        "residual_target_plane_band_voxels_contributed": 2
+      },
+      {
+        "frame_id": 750,
+        "timestamp_s": 15.902386542002205,
+        "positive_depth_strip_pixels": 6086,
+        "range_valid_strip_pixels": 6086,
+        "confident_strip_pixels": 6060,
+        "confidence_0_strip_pixels": 26,
+        "confidence_1_strip_pixels": 238,
+        "confidence_2_strip_pixels": 5822,
+        "stride8_strip_points": 102,
+        "raw_pose_confident_strip_pixels": 5593,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 101,
+        "residual_strip_voxels_contributed": 35,
+        "residual_target_plane_band_voxels_contributed": 1
+      },
+      {
+        "frame_id": 780,
+        "timestamp_s": 16.619159750000108,
+        "positive_depth_strip_pixels": 9229,
+        "range_valid_strip_pixels": 9229,
+        "confident_strip_pixels": 9209,
+        "confidence_0_strip_pixels": 20,
+        "confidence_1_strip_pixels": 437,
+        "confidence_2_strip_pixels": 8772,
+        "stride8_strip_points": 158,
+        "raw_pose_confident_strip_pixels": 8584,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 158,
+        "residual_strip_voxels_contributed": 49,
+        "residual_target_plane_band_voxels_contributed": 4
+      },
+      {
+        "frame_id": 810,
+        "timestamp_s": 17.319263459008653,
+        "positive_depth_strip_pixels": 9606,
+        "range_valid_strip_pixels": 9606,
+        "confident_strip_pixels": 9606,
+        "confidence_0_strip_pixels": 0,
+        "confidence_1_strip_pixels": 344,
+        "confidence_2_strip_pixels": 9262,
+        "stride8_strip_points": 163,
+        "raw_pose_confident_strip_pixels": 8693,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 163,
+        "residual_strip_voxels_contributed": 46,
+        "residual_target_plane_band_voxels_contributed": 5
+      },
+      {
+        "frame_id": 840,
+        "timestamp_s": 18.00269816700893,
+        "positive_depth_strip_pixels": 9833,
+        "range_valid_strip_pixels": 9833,
+        "confident_strip_pixels": 9478,
+        "confidence_0_strip_pixels": 355,
+        "confidence_1_strip_pixels": 930,
+        "confidence_2_strip_pixels": 8548,
+        "stride8_strip_points": 157,
+        "raw_pose_confident_strip_pixels": 7938,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 157,
+        "residual_strip_voxels_contributed": 58,
+        "residual_target_plane_band_voxels_contributed": 9
+      },
+      {
+        "frame_id": 870,
+        "timestamp_s": 18.65279454200936,
+        "positive_depth_strip_pixels": 19753,
+        "range_valid_strip_pixels": 19753,
+        "confident_strip_pixels": 19516,
+        "confidence_0_strip_pixels": 237,
+        "confidence_1_strip_pixels": 874,
+        "confidence_2_strip_pixels": 18642,
+        "stride8_strip_points": 316,
+        "raw_pose_confident_strip_pixels": 16825,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 308,
+        "residual_strip_voxels_contributed": 131,
+        "residual_target_plane_band_voxels_contributed": 26
+      },
+      {
+        "frame_id": 900,
+        "timestamp_s": 19.302890709004714,
+        "positive_depth_strip_pixels": 36995,
+        "range_valid_strip_pixels": 36995,
+        "confident_strip_pixels": 36700,
+        "confidence_0_strip_pixels": 295,
+        "confidence_1_strip_pixels": 538,
+        "confidence_2_strip_pixels": 36162,
+        "stride8_strip_points": 592,
+        "raw_pose_confident_strip_pixels": 36940,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 591,
+        "residual_strip_voxels_contributed": 154,
+        "residual_target_plane_band_voxels_contributed": 82
+      },
+      {
+        "frame_id": 930,
+        "timestamp_s": 19.952986875010538,
+        "positive_depth_strip_pixels": 24319,
+        "range_valid_strip_pixels": 24319,
+        "confident_strip_pixels": 24135,
+        "confidence_0_strip_pixels": 184,
+        "confidence_1_strip_pixels": 1529,
+        "confidence_2_strip_pixels": 22606,
+        "stride8_strip_points": 369,
+        "raw_pose_confident_strip_pixels": 24333,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 369,
+        "residual_strip_voxels_contributed": 155,
+        "residual_target_plane_band_voxels_contributed": 127
+      },
+      {
+        "frame_id": 960,
+        "timestamp_s": 20.669759584008716,
+        "positive_depth_strip_pixels": 218,
+        "range_valid_strip_pixels": 218,
+        "confident_strip_pixels": 218,
+        "confidence_0_strip_pixels": 0,
+        "confidence_1_strip_pixels": 0,
+        "confidence_2_strip_pixels": 218,
+        "stride8_strip_points": 1,
+        "raw_pose_confident_strip_pixels": 272,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 1,
+        "residual_strip_voxels_contributed": 0,
+        "residual_target_plane_band_voxels_contributed": 0
+      },
+      {
+        "frame_id": 4740,
+        "timestamp_s": 103.28160695900442,
+        "positive_depth_strip_pixels": 1717,
+        "range_valid_strip_pixels": 1717,
+        "confident_strip_pixels": 1106,
+        "confidence_0_strip_pixels": 611,
+        "confidence_1_strip_pixels": 1076,
+        "confidence_2_strip_pixels": 30,
+        "stride8_strip_points": 19,
+        "raw_pose_confident_strip_pixels": 1103,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 19,
+        "residual_strip_voxels_contributed": 12,
+        "residual_target_plane_band_voxels_contributed": 3
+      },
+      {
+        "frame_id": 4770,
+        "timestamp_s": 103.94836712500546,
+        "positive_depth_strip_pixels": 2037,
+        "range_valid_strip_pixels": 2037,
+        "confident_strip_pixels": 1956,
+        "confidence_0_strip_pixels": 81,
+        "confidence_1_strip_pixels": 358,
+        "confidence_2_strip_pixels": 1598,
+        "stride8_strip_points": 27,
+        "raw_pose_confident_strip_pixels": 1956,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 27,
+        "residual_strip_voxels_contributed": 6,
+        "residual_target_plane_band_voxels_contributed": 1
+      }
+    ],
+    "after_detailed": [
+      {
+        "frame_id": 630,
+        "timestamp_s": 13.418683709009201,
+        "positive_depth_strip_pixels": 2642,
+        "range_valid_strip_pixels": 2642,
+        "confident_strip_pixels": 2516,
+        "confidence_0_strip_pixels": 126,
+        "confidence_1_strip_pixels": 371,
+        "confidence_2_strip_pixels": 2145,
+        "stride8_strip_points": 33,
+        "raw_pose_confident_strip_pixels": 2569,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 33,
+        "residual_strip_voxels_contributed": 11,
+        "residual_target_plane_band_voxels_contributed": 3
+      },
+      {
+        "frame_id": 660,
+        "timestamp_s": 14.018773125004373,
+        "positive_depth_strip_pixels": 6656,
+        "range_valid_strip_pixels": 6656,
+        "confident_strip_pixels": 6049,
+        "confidence_0_strip_pixels": 607,
+        "confidence_1_strip_pixels": 1339,
+        "confidence_2_strip_pixels": 4710,
+        "stride8_strip_points": 95,
+        "raw_pose_confident_strip_pixels": 6075,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 95,
+        "residual_strip_voxels_contributed": 29,
+        "residual_target_plane_band_voxels_contributed": 6
+      },
+      {
+        "frame_id": 690,
+        "timestamp_s": 14.602193334008916,
+        "positive_depth_strip_pixels": 9724,
+        "range_valid_strip_pixels": 9724,
+        "confident_strip_pixels": 8905,
+        "confidence_0_strip_pixels": 819,
+        "confidence_1_strip_pixels": 1874,
+        "confidence_2_strip_pixels": 7031,
+        "stride8_strip_points": 140,
+        "raw_pose_confident_strip_pixels": 8677,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 140,
+        "residual_strip_voxels_contributed": 50,
+        "residual_target_plane_band_voxels_contributed": 12
+      },
+      {
+        "frame_id": 720,
+        "timestamp_s": 15.218951709000976,
+        "positive_depth_strip_pixels": 4639,
+        "range_valid_strip_pixels": 4639,
+        "confident_strip_pixels": 4633,
+        "confidence_0_strip_pixels": 6,
+        "confidence_1_strip_pixels": 157,
+        "confidence_2_strip_pixels": 4476,
+        "stride8_strip_points": 79,
+        "raw_pose_confident_strip_pixels": 4339,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 80,
+        "residual_strip_voxels_contributed": 29,
+        "residual_target_plane_band_voxels_contributed": 2
+      },
+      {
+        "frame_id": 750,
+        "timestamp_s": 15.902386542002205,
+        "positive_depth_strip_pixels": 6086,
+        "range_valid_strip_pixels": 6086,
+        "confident_strip_pixels": 6060,
+        "confidence_0_strip_pixels": 26,
+        "confidence_1_strip_pixels": 238,
+        "confidence_2_strip_pixels": 5822,
+        "stride8_strip_points": 102,
+        "raw_pose_confident_strip_pixels": 5593,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 101,
+        "residual_strip_voxels_contributed": 35,
+        "residual_target_plane_band_voxels_contributed": 1
+      },
+      {
+        "frame_id": 780,
+        "timestamp_s": 16.619159750000108,
+        "positive_depth_strip_pixels": 9229,
+        "range_valid_strip_pixels": 9229,
+        "confident_strip_pixels": 9209,
+        "confidence_0_strip_pixels": 20,
+        "confidence_1_strip_pixels": 437,
+        "confidence_2_strip_pixels": 8772,
+        "stride8_strip_points": 158,
+        "raw_pose_confident_strip_pixels": 8584,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 158,
+        "residual_strip_voxels_contributed": 49,
+        "residual_target_plane_band_voxels_contributed": 4
+      },
+      {
+        "frame_id": 810,
+        "timestamp_s": 17.319263459008653,
+        "positive_depth_strip_pixels": 9606,
+        "range_valid_strip_pixels": 9606,
+        "confident_strip_pixels": 9606,
+        "confidence_0_strip_pixels": 0,
+        "confidence_1_strip_pixels": 344,
+        "confidence_2_strip_pixels": 9262,
+        "stride8_strip_points": 163,
+        "raw_pose_confident_strip_pixels": 8693,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 163,
+        "residual_strip_voxels_contributed": 46,
+        "residual_target_plane_band_voxels_contributed": 5
+      },
+      {
+        "frame_id": 840,
+        "timestamp_s": 18.00269816700893,
+        "positive_depth_strip_pixels": 9833,
+        "range_valid_strip_pixels": 9833,
+        "confident_strip_pixels": 9478,
+        "confidence_0_strip_pixels": 355,
+        "confidence_1_strip_pixels": 930,
+        "confidence_2_strip_pixels": 8548,
+        "stride8_strip_points": 157,
+        "raw_pose_confident_strip_pixels": 7938,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 157,
+        "residual_strip_voxels_contributed": 58,
+        "residual_target_plane_band_voxels_contributed": 9
+      },
+      {
+        "frame_id": 870,
+        "timestamp_s": 18.65279454200936,
+        "positive_depth_strip_pixels": 19753,
+        "range_valid_strip_pixels": 19753,
+        "confident_strip_pixels": 19516,
+        "confidence_0_strip_pixels": 237,
+        "confidence_1_strip_pixels": 874,
+        "confidence_2_strip_pixels": 18642,
+        "stride8_strip_points": 316,
+        "raw_pose_confident_strip_pixels": 16825,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 308,
+        "residual_strip_voxels_contributed": 131,
+        "residual_target_plane_band_voxels_contributed": 26
+      },
+      {
+        "frame_id": 900,
+        "timestamp_s": 19.302890709004714,
+        "positive_depth_strip_pixels": 36995,
+        "range_valid_strip_pixels": 36995,
+        "confident_strip_pixels": 36700,
+        "confidence_0_strip_pixels": 295,
+        "confidence_1_strip_pixels": 538,
+        "confidence_2_strip_pixels": 36162,
+        "stride8_strip_points": 592,
+        "raw_pose_confident_strip_pixels": 36940,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 591,
+        "residual_strip_voxels_contributed": 154,
+        "residual_target_plane_band_voxels_contributed": 82
+      },
+      {
+        "frame_id": 930,
+        "timestamp_s": 19.952986875010538,
+        "positive_depth_strip_pixels": 24319,
+        "range_valid_strip_pixels": 24319,
+        "confident_strip_pixels": 24135,
+        "confidence_0_strip_pixels": 184,
+        "confidence_1_strip_pixels": 1529,
+        "confidence_2_strip_pixels": 22606,
+        "stride8_strip_points": 369,
+        "raw_pose_confident_strip_pixels": 24333,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 369,
+        "residual_strip_voxels_contributed": 155,
+        "residual_target_plane_band_voxels_contributed": 127
+      },
+      {
+        "frame_id": 960,
+        "timestamp_s": 20.669759584008716,
+        "positive_depth_strip_pixels": 218,
+        "range_valid_strip_pixels": 218,
+        "confident_strip_pixels": 218,
+        "confidence_0_strip_pixels": 0,
+        "confidence_1_strip_pixels": 0,
+        "confidence_2_strip_pixels": 218,
+        "stride8_strip_points": 1,
+        "raw_pose_confident_strip_pixels": 272,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 1,
+        "residual_strip_voxels_contributed": 0,
+        "residual_target_plane_band_voxels_contributed": 0
+      },
+      {
+        "frame_id": 4740,
+        "timestamp_s": 103.28160695900442,
+        "positive_depth_strip_pixels": 1717,
+        "range_valid_strip_pixels": 1717,
+        "confident_strip_pixels": 1106,
+        "confidence_0_strip_pixels": 611,
+        "confidence_1_strip_pixels": 1076,
+        "confidence_2_strip_pixels": 30,
+        "stride8_strip_points": 19,
+        "raw_pose_confident_strip_pixels": 1103,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 19,
+        "residual_strip_voxels_contributed": 12,
+        "residual_target_plane_band_voxels_contributed": 3
+      },
+      {
+        "frame_id": 4770,
+        "timestamp_s": 103.94836712500546,
+        "positive_depth_strip_pixels": 2037,
+        "range_valid_strip_pixels": 2037,
+        "confident_strip_pixels": 1956,
+        "confidence_0_strip_pixels": 81,
+        "confidence_1_strip_pixels": 358,
+        "confidence_2_strip_pixels": 1598,
+        "stride8_strip_points": 27,
+        "raw_pose_confident_strip_pixels": 1956,
+        "sensor_payload_identical": true,
+        "fused_strip_voxels_contributed": 27,
+        "residual_strip_voxels_contributed": 6,
+        "residual_target_plane_band_voxels_contributed": 1
+      }
+    ]
+  },
+  "cases": [
+    {
+      "case": "single",
+      "before": {
+        "camera_samples": 115,
+        "camera_coverage_fraction": 0.34782608695652173,
+        "wall_proposals": 18,
+        "retained_wall_segments": 37,
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 13.779092500102706,
+        "valid_cell_polygons": true,
+        "maximum_pairwise_cell_overlap_m2": 0
+      },
+      "after": {
+        "camera_samples": 115,
+        "camera_coverage_fraction": 0.34782608695652173,
+        "wall_proposals": 18,
+        "retained_wall_segments": 37,
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 15.142736800014973,
+        "valid_cell_polygons": true,
+        "maximum_pairwise_cell_overlap_m2": 0
+      },
+      "changed_reconstruction_modules": [
+        "layout.py"
+      ],
+      "controls_verified": true,
+      "all_prior_cell_corners_exact": true,
+      "prior_connections_exact": true,
+      "additional_plane_proposals": 0,
+      "observed_cell_shape_changes": [],
+      "raw_camera_path_exact": false,
+      "raw_camera_path_max_absolute_change_m": 7.105427357601002e-15,
+      "raw_prior_cell_corners_exact": false,
+      "comparison_path": "demo/phase3_strip_trace/current_exterior/single_controlled/comparison/comparison.json",
+      "comparison_sha256": "af56f18d0899cd4e4f101c80f16a4abf6e2ede4bef654fde076aa45f8e903903",
+      "evidence_sha256": {
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single\\run.json": "415ca91f97f772681654cb22e5486a33bf641aa2ea82cf2f56067c6a482caa69",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single\\plan.json": "95668592dc4ed4c348c9a1e3d4b0a18f9c01b2ef1e677687dd96eb7276faf039",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single\\artifacts\\cloud.npz": "de0953497c259e09aaf3d8b29f8814128825f41453d88e709747ebc0fd2811d9",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single\\artifacts\\layout_evidence.json": "e20c3207fab60f361947da37d5cfbf51f6579e595ecf1b32b10ea9e3dce07a23",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single\\run.json": "9b05ae39cdef5f05c525c8496602cd9c49d2e85f7f6e84019ebbeb26b8323749",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single\\plan.json": "9486e490ef9d363a6ad1c1250dec059a9f0538c62a7a0bc65d21c864a7bccdd7",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single\\artifacts\\cloud.npz": "e0985476e43039be176b85ed2504f3542b9766e7192a80d8b295b5bdb5791564",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single\\artifacts\\layout_evidence.json": "a12b694fd10eecd0da8ad9b4da549876adb1a65a239ce305a512e1658eaea859"
+      },
+      "raw_prior_cell_boundary_hausdorff_max_m": 1.3322676295501878e-15,
+      "raw_ordered_corner_max_absolute_difference_m": 1.3322676295501878e-15
+    },
+    {
+      "case": "floor",
+      "before": {
+        "camera_samples": 176,
+        "camera_coverage_fraction": 0.14204545454545456,
+        "wall_proposals": 28,
+        "retained_wall_segments": 67,
+        "observed_cells": 1,
+        "inferred_cells": 1,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 17.385613000020385,
+        "valid_cell_polygons": true,
+        "maximum_pairwise_cell_overlap_m2": 0.0
+      },
+      "after": {
+        "camera_samples": 176,
+        "camera_coverage_fraction": 0.14204545454545456,
+        "wall_proposals": 29,
+        "retained_wall_segments": 69,
+        "observed_cells": 1,
+        "inferred_cells": 1,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 17.418566099950112,
+        "valid_cell_polygons": true,
+        "maximum_pairwise_cell_overlap_m2": 0.0
+      },
+      "changed_reconstruction_modules": [
+        "layout.py"
+      ],
+      "controls_verified": true,
+      "all_prior_cell_corners_exact": true,
+      "prior_connections_exact": true,
+      "additional_plane_proposals": 1,
+      "observed_cell_shape_changes": [
+        {
+          "source_room_id": "room_0",
+          "candidate_cell_id": "room_0",
+          "exact_corners_retained": true,
+          "before_area_m2": 2.880916391509594,
+          "after_area_m2": 2.880916391509594,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        }
+      ],
+      "raw_camera_path_exact": false,
+      "raw_camera_path_max_absolute_change_m": 8.881784197001252e-15,
+      "raw_prior_cell_corners_exact": false,
+      "comparison_path": "demo/phase3_strip_trace/current_exterior/floor_controlled/comparison/comparison.json",
+      "comparison_sha256": "28810d4550ace4e8979adbc6bc9d5ddfddf65774d56d7d5f415e1658eb21f665",
+      "evidence_sha256": {
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor\\run.json": "127dd3a3dc3f12fd07a23eb1135d792473a695195230e708a344260b804397ee",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor\\plan.json": "4eb7423789031ec5dc0181bfe9069db68f9ac99f5e84c7510b24b7e2310f1804",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor\\artifacts\\cloud.npz": "e93405dc0c71d82d6ca51f8c5dbca9299a5249d4fc7820db06449697a1941bfc",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\floor\\artifacts\\layout_evidence.json": "dc7b471d0cb5fb487ac2bcdb8ecfec608c582166ae764b3dca1783cbb08c8ebd",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor\\run.json": "1955a9cc131a7d5620ad7b0ee4b9a924205505b6156e2f2136f70e283f47afda",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor\\plan.json": "6379accc119177dfd456541c30554084a990f4163829532157574b6ba76c33aa",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor\\artifacts\\cloud.npz": "d1f2d1388b90425246ca500f6ec8c652af663357712cbcfc1bdedbc25aaa6b49",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\floor\\artifacts\\layout_evidence.json": "6db09f95bcacb0b9457f8443c9178c2dc6566a3b1e0843d88c8ff2c36735987e"
+      },
+      "raw_prior_cell_boundary_hausdorff_max_m": 7.105427357601002e-15,
+      "raw_ordered_corner_max_absolute_difference_m": 7.105427357601002e-15
+    },
+    {
+      "case": "ceiling",
+      "before": {
+        "camera_samples": 300,
+        "camera_coverage_fraction": 0.9833333333333333,
+        "wall_proposals": 40,
+        "retained_wall_segments": 81,
+        "observed_cells": 8,
+        "inferred_cells": 4,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 69.59468949993607,
+        "valid_cell_polygons": true,
+        "maximum_pairwise_cell_overlap_m2": 0.0
+      },
+      "after": {
+        "camera_samples": 300,
+        "camera_coverage_fraction": 0.9833333333333333,
+        "wall_proposals": 40,
+        "retained_wall_segments": 81,
+        "observed_cells": 8,
+        "inferred_cells": 4,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 83.88741609989665,
+        "valid_cell_polygons": true,
+        "maximum_pairwise_cell_overlap_m2": 0.0
+      },
+      "changed_reconstruction_modules": [
+        "layout.py"
+      ],
+      "controls_verified": true,
+      "all_prior_cell_corners_exact": true,
+      "prior_connections_exact": true,
+      "additional_plane_proposals": 0,
+      "observed_cell_shape_changes": [
+        {
+          "source_room_id": "room_0",
+          "candidate_cell_id": "room_0",
+          "exact_corners_retained": true,
+          "before_area_m2": 3.6796545788738686,
+          "after_area_m2": 3.6796545788738686,
+          "retained_area_fraction": 1.0000000000000002,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_1",
+          "candidate_cell_id": "room_1",
+          "exact_corners_retained": true,
+          "before_area_m2": 2.5101959913168352,
+          "after_area_m2": 2.5101959913168352,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_2",
+          "candidate_cell_id": "room_2",
+          "exact_corners_retained": true,
+          "before_area_m2": 9.945719534889562,
+          "after_area_m2": 9.945719534889562,
+          "retained_area_fraction": 0.9999999999999998,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_3",
+          "candidate_cell_id": "room_3",
+          "exact_corners_retained": true,
+          "before_area_m2": 11.198198374237403,
+          "after_area_m2": 11.198198374237403,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_4",
+          "candidate_cell_id": "room_4",
+          "exact_corners_retained": true,
+          "before_area_m2": 1.717528672394165,
+          "after_area_m2": 1.717528672394165,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_5",
+          "candidate_cell_id": "room_5",
+          "exact_corners_retained": true,
+          "before_area_m2": 2.281044342881178,
+          "after_area_m2": 2.281044342881178,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_6",
+          "candidate_cell_id": "room_6",
+          "exact_corners_retained": true,
+          "before_area_m2": 1.5829328698160836,
+          "after_area_m2": 1.5829328698160836,
+          "retained_area_fraction": 1.0000000000000002,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_7",
+          "candidate_cell_id": "room_7",
+          "exact_corners_retained": true,
+          "before_area_m2": 2.1998280143737463,
+          "after_area_m2": 2.1998280143737463,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        }
+      ],
+      "raw_camera_path_exact": false,
+      "raw_camera_path_max_absolute_change_m": 1.1457501614131615e-13,
+      "raw_prior_cell_corners_exact": false,
+      "comparison_path": "demo/phase3_strip_trace/current_exterior/ceiling_controlled/comparison/comparison.json",
+      "comparison_sha256": "13e09c0597e8d18c69ab86d16d23ee38bb7686eb928ac618234d1f957362e300",
+      "evidence_sha256": {
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\ceiling\\run.json": "5a3b298264dde323e481841e12e55f04516aff754e0381d303e2b43cfacbf683",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\ceiling\\plan.json": "92a957fc94316434d758a488474d14e2c649217fd645f8b121aaa17b53092a64",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\ceiling\\artifacts\\cloud.npz": "023a297f9278b3367bec42b2db40d27996aeaca38238a997fc0ad65246eef557",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\ceiling\\artifacts\\layout_evidence.json": "7736b13487bb91e8240c74b2ff62addfc30c9b2497a643001ca0a1502d09f6ab",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\ceiling\\run.json": "30da087c6325f38e5e0756eca64a82fda22f21ee8a75dd9ad083c24b522d4480",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\ceiling\\plan.json": "6e4ddd8a2046ffaf404001e18b25693f6135ba5b685ee18884c4c49f4fb959a7",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\ceiling\\artifacts\\cloud.npz": "202f61f8292048402092f1a33bf667bc2b8ee710989660c777b259c85b5c5288",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\ceiling\\artifacts\\layout_evidence.json": "f452d50194e906fc78566a837f8579a2af26ee129f4f35e419908b0fde977a63"
+      },
+      "raw_prior_cell_boundary_hausdorff_max_m": 7.865027091016412e-14,
+      "raw_ordered_corner_max_absolute_difference_m": 7.205347429817266e-14
+    },
+    {
+      "case": "single_dense",
+      "before": {
+        "camera_samples": 286,
+        "camera_coverage_fraction": 0.36713286713286714,
+        "wall_proposals": 29,
+        "retained_wall_segments": 44,
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 18.735509700025432,
+        "valid_cell_polygons": true,
+        "maximum_pairwise_cell_overlap_m2": 0
+      },
+      "after": {
+        "camera_samples": 286,
+        "camera_coverage_fraction": 0.36713286713286714,
+        "wall_proposals": 29,
+        "retained_wall_segments": 44,
+        "observed_cells": 0,
+        "inferred_cells": 1,
+        "connections": 0,
+        "status": "partial",
+        "contract_complete": false,
+        "runtime_s": 25.635659100022167,
+        "valid_cell_polygons": true,
+        "maximum_pairwise_cell_overlap_m2": 0
+      },
+      "changed_reconstruction_modules": [
+        "layout.py"
+      ],
+      "controls_verified": true,
+      "all_prior_cell_corners_exact": true,
+      "prior_connections_exact": true,
+      "additional_plane_proposals": 0,
+      "observed_cell_shape_changes": [],
+      "raw_camera_path_exact": false,
+      "raw_camera_path_max_absolute_change_m": 1.749989042565403e-14,
+      "raw_prior_cell_corners_exact": false,
+      "comparison_path": "demo/phase3_strip_trace/current_exterior/single_dense_controlled/comparison/comparison.json",
+      "comparison_sha256": "86ed973357a49b0111a98d1831108ed44ea9aaf595550ae7452bec0f99583264",
+      "evidence_sha256": {
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single_dense\\run.json": "30c37d7f2ab70cdc8e70b0c4a88be73563d2eb01a34dd9e4619c2867187bb0a3",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single_dense\\plan.json": "22a2d2b573b3640e14df1111fe5a6818f8625f133e4fa0a88cde6d73f25a840f",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single_dense\\artifacts\\cloud.npz": "c6d2a1b2b983c9b81d94b7b71c5835e0d0a79aab9b65ad18d4300527b82f7e8c",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\single_dense\\artifacts\\layout_evidence.json": "5a092ef816fa57eec26f211b5e30234c8995a79e639eb643a0499d1b32669175",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single_dense\\run.json": "238c502ad654c9d3e3604da931985ad73535c35cf29bb0da31961a68b51c9608",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single_dense\\plan.json": "72866cfe993fc045ae06d1119f4f884f3ad792de0e33b9ff9e2be414f7ea84d6",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single_dense\\artifacts\\cloud.npz": "de68f58e750beaa54deef51ce6a55d83852fc056d7ccb766b6302e7086250db4",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\single_dense\\artifacts\\layout_evidence.json": "2065a1b807acf03e66aab860e14fc346e5f6ff339bc56648928b087e24373c50"
+      },
+      "raw_prior_cell_boundary_hausdorff_max_m": 2.1159580986387714e-14,
+      "raw_ordered_corner_max_absolute_difference_m": 1.8790524691780774e-14
+    },
+    {
+      "case": "control",
+      "before": {
+        "camera_samples": 97,
+        "camera_coverage_fraction": 1.0,
+        "wall_proposals": 12,
+        "retained_wall_segments": 8,
+        "observed_cells": 2,
+        "inferred_cells": 0,
+        "connections": 1,
+        "status": "proposal_requires_review",
+        "contract_complete": false,
+        "runtime_s": 10.33711530000437,
+        "valid_cell_polygons": true,
+        "maximum_pairwise_cell_overlap_m2": 0.0
+      },
+      "after": {
+        "camera_samples": 97,
+        "camera_coverage_fraction": 1.0,
+        "wall_proposals": 12,
+        "retained_wall_segments": 8,
+        "observed_cells": 2,
+        "inferred_cells": 0,
+        "connections": 1,
+        "status": "proposal_requires_review",
+        "contract_complete": false,
+        "runtime_s": 13.234525899984874,
+        "valid_cell_polygons": true,
+        "maximum_pairwise_cell_overlap_m2": 0.0
+      },
+      "changed_reconstruction_modules": [
+        "layout.py"
+      ],
+      "controls_verified": true,
+      "all_prior_cell_corners_exact": true,
+      "prior_connections_exact": true,
+      "additional_plane_proposals": 0,
+      "observed_cell_shape_changes": [
+        {
+          "source_room_id": "room_0",
+          "candidate_cell_id": "room_0",
+          "exact_corners_retained": true,
+          "before_area_m2": 5.9992653471617565,
+          "after_area_m2": 5.9992653471617565,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        },
+        {
+          "source_room_id": "room_1",
+          "candidate_cell_id": "room_1",
+          "exact_corners_retained": true,
+          "before_area_m2": 14.000753714183436,
+          "after_area_m2": 14.000753714183436,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0,
+          "accuracy_change_unknown": true
+        }
+      ],
+      "raw_camera_path_exact": true,
+      "raw_camera_path_max_absolute_change_m": 0.0,
+      "raw_prior_cell_corners_exact": true,
+      "comparison_path": "demo/phase3_strip_trace/current_exterior/control_controlled/comparison/comparison.json",
+      "comparison_sha256": "d0d91f8868aed8b17ce1ce9aff51c388f32b7c8c2b79786b3bd8c08e40e212a5",
+      "evidence_sha256": {
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\control\\control\\run.json": "0e46f747200fa856a957b090366ce45dd21a908698df49f7e10bd4b0afb76db2",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\control\\control\\plan.json": "daf13ea9a17227ff774d432795a88b0b8d614e0c139496c0afee3cddeabce470",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\control\\control\\artifacts\\cloud.npz": "4ac1f2561d4c136f77cb453dc5b55445b38a43fed7d7b386256cf53c90c4d8af",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_floor_audit\\current_residual\\control\\control\\artifacts\\layout_evidence.json": "63487397ad08b6f7fa9ad31dae41727b1359cba5fb4bb75e9e3499812ba58589",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\control\\control\\run.json": "1671cc09ec391b5ef7a19bc5b41add2b319312fdb30495dc69e33a7a64c5bd46",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\control\\control\\plan.json": "8fbd682f773af15414463cb82b5d5306a3c4a7404fe37cfcb01fecf4d4360268",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\control\\control\\artifacts\\cloud.npz": "4ac1f2561d4c136f77cb453dc5b55445b38a43fed7d7b386256cf53c90c4d8af",
+        "C:\\Users\\tarun\\OneDrive\\Desktop\\cozmo_ai\\demo\\phase3_strip_trace\\current_exterior\\control\\control\\artifacts\\layout_evidence.json": "932a51f2a5f4bc7adf6db9cf08d7c55e8bac4feab140baca5a8fdd69ec16b990"
+      },
+      "raw_prior_cell_boundary_hausdorff_max_m": 0.0,
+      "raw_ordered_corner_max_absolute_difference_m": 0.0
+    }
+  ],
+  "alternatives": [
+    {
+      "path": "demo/phase3_strip_trace/seed_replay_floor/trial.json",
+      "sha256": "70eb8e3ec534c2a1b18272f1f0700fbce191a9f09469a9fe148ca6c5a3791ec6",
+      "before": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 28,
+          "segments_before_face_filter": 67,
+          "retained_wall_segments": 67,
+          "lower_band_segments": 69,
+          "door_gap_candidates": 20,
+          "rejected_untraversed_gaps": 9,
+          "door_bridges": 11,
+          "network_segments": 78,
+          "raw_polygons": 28,
+          "cut_edges": 1,
+          "dangles": 66,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 1,
+          "inferred_fallback_cells": 1
+        },
+        "coverage": 0.14204545454545456,
+        "connections": 0,
+        "partial": true
+      },
+      "after": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 40,
+          "segments_before_face_filter": 96,
+          "retained_wall_segments": 96,
+          "lower_band_segments": 97,
+          "door_gap_candidates": 24,
+          "rejected_untraversed_gaps": 13,
+          "door_bridges": 11,
+          "network_segments": 107,
+          "raw_polygons": 54,
+          "cut_edges": 0,
+          "dangles": 89,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 1,
+          "inferred_fallback_cells": 2
+        },
+        "coverage": 0.17045454545454544,
+        "connections": 0,
+        "partial": true
+      },
+      "observed_shape_changes": [
+        {
+          "room_id": "room_0",
+          "candidate_id": "room_0",
+          "exact": false,
+          "retained_area_fraction": 0.7152165074059923,
+          "boundary_hausdorff_change_m": 0.701031004083022
+        }
+      ],
+      "source_unchanged": true,
+      "source_layout_sha256": "588782263e0c1cf7f8f796ace20a16654998dc0d45e7aed4395e74da397edf3b"
+    },
+    {
+      "path": "demo/phase3_strip_trace/unvisited_seed_floor/trial.json",
+      "sha256": "c80db9aa1369694117209dcf5c4c04c7da370deb54e96972a14eb3a222a18e36",
+      "before": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 28,
+          "segments_before_face_filter": 67,
+          "retained_wall_segments": 67,
+          "lower_band_segments": 69,
+          "door_gap_candidates": 20,
+          "rejected_untraversed_gaps": 9,
+          "door_bridges": 11,
+          "network_segments": 78,
+          "raw_polygons": 28,
+          "cut_edges": 1,
+          "dangles": 66,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 1,
+          "inferred_fallback_cells": 1
+        },
+        "coverage": 0.14204545454545456,
+        "connections": 0,
+        "partial": true
+      },
+      "after": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 40,
+          "segments_before_face_filter": 96,
+          "retained_wall_segments": 96,
+          "lower_band_segments": 97,
+          "door_gap_candidates": 24,
+          "rejected_untraversed_gaps": 13,
+          "door_bridges": 11,
+          "network_segments": 107,
+          "raw_polygons": 54,
+          "cut_edges": 0,
+          "dangles": 89,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 1,
+          "inferred_fallback_cells": 2
+        },
+        "coverage": 0.17045454545454544,
+        "connections": 0,
+        "partial": true
+      },
+      "observed_shape_changes": [
+        {
+          "room_id": "room_0",
+          "candidate_id": "room_0",
+          "exact": false,
+          "retained_area_fraction": 0.7152165074059923,
+          "boundary_hausdorff_change_m": 0.701031004083022
+        }
+      ],
+      "source_unchanged": true,
+      "source_layout_sha256": "588782263e0c1cf7f8f796ace20a16654998dc0d45e7aed4395e74da397edf3b"
+    },
+    {
+      "path": "demo/phase3_strip_trace/exterior_only_floor_verified/trial.json",
+      "sha256": "a041ff790fc27f810d43c0c714affeb23010358322f8ca3a1c243f0e9eb24a43",
+      "before": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 28,
+          "segments_before_face_filter": 67,
+          "retained_wall_segments": 67,
+          "lower_band_segments": 69,
+          "door_gap_candidates": 20,
+          "rejected_untraversed_gaps": 9,
+          "door_bridges": 11,
+          "network_segments": 78,
+          "raw_polygons": 28,
+          "cut_edges": 1,
+          "dangles": 66,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 1,
+          "inferred_fallback_cells": 1
+        },
+        "coverage": 0.14204545454545456,
+        "connections": 0,
+        "partial": true
+      },
+      "after": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 29,
+          "segments_before_face_filter": 69,
+          "retained_wall_segments": 69,
+          "lower_band_segments": 71,
+          "door_gap_candidates": 20,
+          "rejected_untraversed_gaps": 9,
+          "door_bridges": 11,
+          "network_segments": 80,
+          "raw_polygons": 28,
+          "cut_edges": 1,
+          "dangles": 70,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 1,
+          "inferred_fallback_cells": 1
+        },
+        "coverage": 0.14204545454545456,
+        "connections": 0,
+        "partial": true
+      },
+      "observed_shape_changes": [
+        {
+          "room_id": "room_0",
+          "candidate_id": "room_0",
+          "exact": true,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0
+        }
+      ],
+      "source_unchanged": true,
+      "source_layout_sha256": "588782263e0c1cf7f8f796ace20a16654998dc0d45e7aed4395e74da397edf3b"
+    },
+    {
+      "path": "demo/phase3_strip_trace/exterior_seed_single/trial.json",
+      "sha256": "e5bb68d675151337270c9b897f42fa9766e10f24f54604f27f3cbfc3aa5e716d",
+      "before": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 18,
+          "segments_before_face_filter": 39,
+          "retained_wall_segments": 37,
+          "lower_band_segments": 39,
+          "door_gap_candidates": 9,
+          "rejected_untraversed_gaps": 8,
+          "door_bridges": 1,
+          "network_segments": 38,
+          "raw_polygons": 13,
+          "cut_edges": 3,
+          "dangles": 34,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 0,
+          "inferred_fallback_cells": 1
+        },
+        "coverage": 0.34782608695652173,
+        "connections": 0,
+        "partial": true
+      },
+      "after": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 18,
+          "segments_before_face_filter": 39,
+          "retained_wall_segments": 37,
+          "lower_band_segments": 39,
+          "door_gap_candidates": 9,
+          "rejected_untraversed_gaps": 8,
+          "door_bridges": 1,
+          "network_segments": 38,
+          "raw_polygons": 13,
+          "cut_edges": 3,
+          "dangles": 34,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 0,
+          "inferred_fallback_cells": 1
+        },
+        "coverage": 0.34782608695652173,
+        "connections": 0,
+        "partial": true
+      },
+      "observed_shape_changes": [],
+      "source_unchanged": true,
+      "source_layout_sha256": "588782263e0c1cf7f8f796ace20a16654998dc0d45e7aed4395e74da397edf3b"
+    },
+    {
+      "path": "demo/phase3_strip_trace/exterior_seed_ceiling/trial.json",
+      "sha256": "b34105e67cb99802623a397ed2114ea433c28738fec338ab0cd6d412ddeaa006",
+      "before": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 40,
+          "segments_before_face_filter": 84,
+          "retained_wall_segments": 81,
+          "lower_band_segments": 87,
+          "door_gap_candidates": 21,
+          "rejected_untraversed_gaps": 13,
+          "door_bridges": 8,
+          "network_segments": 89,
+          "raw_polygons": 120,
+          "cut_edges": 1,
+          "dangles": 91,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 8,
+          "inferred_fallback_cells": 4
+        },
+        "coverage": 0.9833333333333333,
+        "connections": 0,
+        "partial": true
+      },
+      "after": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 40,
+          "segments_before_face_filter": 84,
+          "retained_wall_segments": 81,
+          "lower_band_segments": 87,
+          "door_gap_candidates": 21,
+          "rejected_untraversed_gaps": 13,
+          "door_bridges": 8,
+          "network_segments": 89,
+          "raw_polygons": 120,
+          "cut_edges": 1,
+          "dangles": 91,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 8,
+          "inferred_fallback_cells": 4
+        },
+        "coverage": 0.9833333333333333,
+        "connections": 0,
+        "partial": true
+      },
+      "observed_shape_changes": [
+        {
+          "room_id": "room_0",
+          "candidate_id": "room_0",
+          "exact": true,
+          "retained_area_fraction": 1.0000000000000002,
+          "boundary_hausdorff_change_m": 0.0
+        },
+        {
+          "room_id": "room_1",
+          "candidate_id": "room_1",
+          "exact": true,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0
+        },
+        {
+          "room_id": "room_2",
+          "candidate_id": "room_2",
+          "exact": true,
+          "retained_area_fraction": 0.9999999999999998,
+          "boundary_hausdorff_change_m": 0.0
+        },
+        {
+          "room_id": "room_3",
+          "candidate_id": "room_3",
+          "exact": true,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0
+        },
+        {
+          "room_id": "room_4",
+          "candidate_id": "room_4",
+          "exact": true,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0
+        },
+        {
+          "room_id": "room_5",
+          "candidate_id": "room_5",
+          "exact": true,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0
+        },
+        {
+          "room_id": "room_6",
+          "candidate_id": "room_6",
+          "exact": true,
+          "retained_area_fraction": 1.0000000000000002,
+          "boundary_hausdorff_change_m": 0.0
+        },
+        {
+          "room_id": "room_7",
+          "candidate_id": "room_7",
+          "exact": true,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0
+        }
+      ],
+      "source_unchanged": true,
+      "source_layout_sha256": "588782263e0c1cf7f8f796ace20a16654998dc0d45e7aed4395e74da397edf3b"
+    },
+    {
+      "path": "demo/phase3_strip_trace/exterior_seed_single_dense/trial.json",
+      "sha256": "1fd7861fd47718f629730eaa37322eb8dd7ce6fd24759e620e82c22c6c119fbd",
+      "before": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 29,
+          "segments_before_face_filter": 52,
+          "retained_wall_segments": 44,
+          "lower_band_segments": 52,
+          "door_gap_candidates": 11,
+          "rejected_untraversed_gaps": 11,
+          "door_bridges": 0,
+          "network_segments": 44,
+          "raw_polygons": 18,
+          "cut_edges": 12,
+          "dangles": 30,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 0,
+          "inferred_fallback_cells": 1
+        },
+        "coverage": 0.36713286713286714,
+        "connections": 0,
+        "partial": true
+      },
+      "after": {
+        "stages": {
+          "global_planes": 14,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 29,
+          "segments_before_face_filter": 52,
+          "retained_wall_segments": 44,
+          "lower_band_segments": 52,
+          "door_gap_candidates": 11,
+          "rejected_untraversed_gaps": 11,
+          "door_bridges": 0,
+          "network_segments": 44,
+          "raw_polygons": 18,
+          "cut_edges": 12,
+          "dangles": 30,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 0,
+          "inferred_fallback_cells": 1
+        },
+        "coverage": 0.36713286713286714,
+        "connections": 0,
+        "partial": true
+      },
+      "observed_shape_changes": [],
+      "source_unchanged": true,
+      "source_layout_sha256": "588782263e0c1cf7f8f796ace20a16654998dc0d45e7aed4395e74da397edf3b"
+    },
+    {
+      "path": "demo/phase3_strip_trace/exterior_seed_control/trial.json",
+      "sha256": "d358ffe4c8f737e659aa4bb605ef97eb3771c27d92be0b19410eae07879736f7",
+      "before": {
+        "stages": {
+          "global_planes": 8,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 12,
+          "segments_before_face_filter": 8,
+          "retained_wall_segments": 8,
+          "lower_band_segments": 8,
+          "door_gap_candidates": 1,
+          "rejected_untraversed_gaps": 0,
+          "door_bridges": 1,
+          "network_segments": 9,
+          "raw_polygons": 2,
+          "cut_edges": 0,
+          "dangles": 0,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 2,
+          "inferred_fallback_cells": 0
+        },
+        "coverage": 1.0,
+        "connections": 1,
+        "partial": false
+      },
+      "after": {
+        "stages": {
+          "global_planes": 8,
+          "secondary_wall_planes": 0,
+          "wall_proposals": 12,
+          "segments_before_face_filter": 8,
+          "retained_wall_segments": 8,
+          "lower_band_segments": 8,
+          "door_gap_candidates": 1,
+          "rejected_untraversed_gaps": 0,
+          "door_bridges": 1,
+          "network_segments": 9,
+          "raw_polygons": 2,
+          "cut_edges": 0,
+          "dangles": 0,
+          "invalid_rings": 0,
+          "accepted_observed_polygons": 2,
+          "inferred_fallback_cells": 0
+        },
+        "coverage": 1.0,
+        "connections": 1,
+        "partial": false
+      },
+      "observed_shape_changes": [
+        {
+          "room_id": "room_0",
+          "candidate_id": "room_0",
+          "exact": true,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0
+        },
+        {
+          "room_id": "room_1",
+          "candidate_id": "room_1",
+          "exact": true,
+          "retained_area_fraction": 1.0,
+          "boundary_hausdorff_change_m": 0.0
+        }
+      ],
+      "source_unchanged": true,
+      "source_layout_sha256": "588782263e0c1cf7f8f796ace20a16654998dc0d45e7aed4395e74da397edf3b"
+    }
+  ],
+  "reproduction": {
+    "path": "demo/phase3_strip_trace/current_exterior/reproduction.json",
+    "sha256": "61f2cb072ca5232c5e4ab04a9b16a05b31d302d118d3b1422df4ad9b80f67ccb",
+    "verified_cases": 16,
+    "cases": 16,
+    "passed_checks": 60,
+    "checks": 60,
+    "all_claims_regenerated": true,
+    "raw_outcomes": [
+      {
+        "case": "single",
+        "exit_code": 1
+      },
+      {
+        "case": "floor",
+        "exit_code": 1
+      },
+      {
+        "case": "ceiling",
+        "exit_code": 1
+      },
+      {
+        "case": "single_dense",
+        "exit_code": 1
+      },
+      {
+        "case": "control",
+        "exit_code": 0
+      }
+    ]
+  },
+  "tests": {
+    "initial_nonisolating_fixture": {
+      "passed": 1,
+      "seconds": 1.5
+    },
+    "isolated_fixture_before_fix": {
+      "failed": 1,
+      "seconds": 2.4
+    },
+    "post_fix_relevant": {
+      "passed": 28,
+      "seconds": 32.53
+    },
+    "first_full_regression": {
+      "passed": 173,
+      "seconds": 63.13
+    },
+    "final_full_regression": {
+      "passed": 174,
+      "failed": 0,
+      "seconds": 58.08
+    }
+  },
+  "prior_ceiling_boundary_change_m": 0.7026770276005543,
+  "prior_ceiling_change_accuracy_justified": false,
+  "accuracy_validated": false,
+  "performance_improvement_claimed": false,
+  "next_technical_step": "Trace sensor and traversal support for lower adjoining span near z=4.44, x=-2.73 to -0.44 before proposing any connector",
+  "limitations": [
+    "Full sensor frames not selected by intake are outside this trace",
+    "Pixel/voxel contribution counts are repeated observations; frame contributions overlap",
+    "Final residual plane-band membership (273) differs from iterative consensus (271)",
+    "Raw-native differences remain; exact controlled geometry does not demonstrate capture repeatability",
+    "All four supplied plans remain partial with zero adjacency; all five assignment contracts remain incomplete",
+    "Existing ceiling geometry preserved, but the earlier 0.703 m change is unvalidated",
+    "Local snapshots and retained input paths are development dependencies, not a portable final assessment bundle"
+  ]
+}
